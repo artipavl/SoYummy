@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { StartScreen } from 'pages';
 import RegisterPage from 'pages/RegisterPage';
 import SignInPage from 'pages/SignInPage';
+import PublicRoute from './PublicRoute';
 
 import Favorite from '../pages/Favorite/Favorite';
 import MyRecipes from '../pages/MyRecipes/MyRecipes';
