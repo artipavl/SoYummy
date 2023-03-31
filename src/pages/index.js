@@ -1,3 +1,5 @@
-import { StartScreen } from "./StartScreen/StartScreen";
+import { StartScreen } from './StartScreen/StartScreen';
+import RegisterPage from './RegisterPage';
+import SignInPage from './SignInPage';
 
-export {StartScreen}
+export { StartScreen, RegisterPage, SignInPage };
