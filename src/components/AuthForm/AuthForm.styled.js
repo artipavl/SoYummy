@@ -37,6 +37,7 @@ export const ValuesWrapper = styled.div`
   right: 0%;
   top: 35.85%;
   display: flex;
+  align-items: center;
   flex-direction: column;
   bottom: 35.85%;
 `;
