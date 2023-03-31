@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
-  background: #2a2c36;
+  background: ${props => props.theme.colors.accentDarkMuted};
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
 
@@ -14,21 +14,15 @@ export const Form = styled.form`
 
 export const FormTitle = styled.h1`
   position: absolute;
-  width: 144px;
-  height: 28px;
   left: 28px;
   top: 32px;
 
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 600;
+  font-weight: ${props => props.theme.fontWeights.bold};
   font-size: 24px;
-  line-height: 28px;
-
+  line-height: 1.17;
   letter-spacing: -0.02em;
-  font-feature-settings: 'liga' off;
 
-  color: #fafafa;
+  color: ${props => props.theme.colors.textWhite}; ;
 `;
 
 export const ValuesWrapper = styled.div`
@@ -36,18 +30,19 @@ export const ValuesWrapper = styled.div`
   left: 0%;
   right: 0%;
   top: 35.85%;
+  bottom: 35.85%;
+
   display: flex;
   align-items: center;
   flex-direction: column;
-  bottom: 35.85%;
 `;
 
 export const FormValue = styled.input`
   background-color: transparent;
-  color: #fafafa;
+  color: ${props => props.theme.colors.textWhite};
   height: 45px;
   width: 279px;
-  border: 1px solid #fafafa;
+  border: 1px solid ${props => props.theme.colors.textWhite};
   border-radius: 6px;
 `;
 
@@ -60,6 +55,7 @@ export const FormBtn = styled.button`
   left: 28px;
   top: 265px;
 
-  background: #8baa36;
+  background: ${props => props.theme.colors.modes.white.accent};
+
   border-radius: 6px;
 `;

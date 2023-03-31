@@ -1,7 +1,7 @@
 export const theme = {
   colors: {
     white: '#FFFFFF', //білий
-    dark: '#000000',  //чорний
+    dark: '#000000', //чорний
 
     whiteMuted: '#D9D9D9', //білий пригнічений деякі кнопки та інпути
     bgWhite: '#ECECEC', //білий з bg
