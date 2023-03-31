@@ -1,14 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
-
-import PublicRoute from './PublicRoute';
-
+import { StartScreen } from 'pages';
 import RegisterPage from 'pages/RegisterPage';
 import SignInPage from 'pages/SignInPage';
 
+import PublicRoute from './PublicRoute';
 export const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<div>Test</div>} />
+      <Route path="/" element={<StartScreen />} />
 
       <Route
         path="/register"
