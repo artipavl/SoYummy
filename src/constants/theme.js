@@ -49,9 +49,9 @@ export const theme = {
   },
 
   device: {
-    mobile: `(min-width: ${this.size.mobile})`,
-    tablet: `(min-width: ${this.size.tablet})`,
-    desktop: `(min-width: ${this.size.desktop})`,
+    mobile: `(min-width: 375px)`,
+    tablet: `(min-width: 768px)`,
+    desktop: `(min-width: 1440px)`,
   },
 
   retinaBackgroundImage: `(min-device-pixel-ratio: 2),
