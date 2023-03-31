@@ -41,4 +41,20 @@ export const theme = {
     medium: 500,
     bold: 600,
   },
+
+  size: {
+    mobile: '375px',
+    tablet: '768px',
+    desktop: '1440px',
+  },
+
+  device: {
+    mobile: `(min-width: 375px)`,
+    tablet: `(min-width: 768px)`,
+    desktop: `(min-width: 1440px)`,
+  },
+
+  retinaBackgroundImage: `(min-device-pixel-ratio: 2),
+            (min-resolution: 192dpi),
+            (min-resolution: 2dppx)`,
 };
