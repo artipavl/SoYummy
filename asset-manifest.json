@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/SoYummy/static/css/main.9f2649d1.css",
-    "main.js": "/SoYummy/static/js/main.c01d43d4.js",
+    "main.js": "/SoYummy/static/js/main.362b4b71.js",
     "static/media/logo_Desktop.svg": "/SoYummy/static/media/logo_Desktop.3326a095578a5f612526f7ab93edd379.svg",
     "index.html": "/SoYummy/index.html",
     "main.9f2649d1.css.map": "/SoYummy/static/css/main.9f2649d1.css.map",
-    "main.c01d43d4.js.map": "/SoYummy/static/js/main.c01d43d4.js.map"
+    "main.362b4b71.js.map": "/SoYummy/static/js/main.362b4b71.js.map"
   },
   "entrypoints": [
     "static/css/main.9f2649d1.css",
-    "static/js/main.c01d43d4.js"
+    "static/js/main.362b4b71.js"
   ]
 }
