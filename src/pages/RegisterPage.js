@@ -1,5 +1,5 @@
-import AuthForm from 'components/AuthForm';
+import RegForm from 'components/RegForm';
 
-const RegisterPage = () => <AuthForm />;
+const RegisterPage = () => <RegForm />;
 
 export default RegisterPage;

@@ -20,7 +20,7 @@ export const App = () => {
         }
       />
       <Route
-        path="/login"
+        path="/signin"
         element={
           <PublicRoute restricted>
             <SignInPage />
