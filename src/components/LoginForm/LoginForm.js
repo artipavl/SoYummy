@@ -1,17 +1,18 @@
 import { Formik } from 'formik';
-import validationSchema from './validationSchema';
+import authValidationSchema from 'utils/authValidationSchema';
 
 import orderIcon from '../../images/icons/order-food-pana.svg';
+
+import AuthFormInput from 'components/AuthFormInput';
 
 import {
   SignUpLogo,
   Form,
   FormTitle,
-  FormValue,
   FormBtn,
-} from './AuthForm.styled';
+} from '../../utils/CombinedFormStyles.styled';
 
-const AuthForm = () => {
+const LoginForm = () => {
   const onSubmit = values => {
     alert(JSON.stringify(values, null, 2));
   };
@@ -19,45 +20,27 @@ const AuthForm = () => {
   return (
     <Formik
       initialValues={{ name: '', email: '', password: '' }}
-      validationSchema={validationSchema}
+      authValidationSchema={authValidationSchema}
       onSubmit={onSubmit}
     >
       {formik => (
         <>
           <SignUpLogo src={orderIcon} alt="Sign up logo"></SignUpLogo>
           <Form onSubmit={formik.handleSubmit}>
-            <FormTitle>Registration</FormTitle>
+            <FormTitle>Sign In</FormTitle>
 
-            <FormValue
-              name="name"
-              type="text"
-              placeholder="Name"
-              {...formik.getFieldProps('name')}
-              value={formik.values.name}
-            />
-
-            {formik.touched.name && formik.errors.name ? (
-              <div>{formik.errors.name}</div>
-            ) : null}
-
-            <FormValue
+            <AuthFormInput
               name="email"
               type="email"
               placeholder="Email"
               {...formik.getFieldProps('email')}
-              value={formik.values.email}
             />
 
-            {formik.touched.email && formik.errors.email ? (
-              <div>{formik.errors.email}</div>
-            ) : null}
-
-            <FormValue
+            <AuthFormInput
               name="password"
               type="password"
               placeholder="Password"
               {...formik.getFieldProps('password')}
-              value={formik.values.password}
             />
 
             {formik.touched.password && formik.errors.password ? (
@@ -71,4 +54,4 @@ const AuthForm = () => {
   );
 };
 
-export default AuthForm;
+export default LoginForm;

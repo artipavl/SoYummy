@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-const validationSchema = Yup.object({
+const authValidationSchema = Yup.object({
   name: Yup.string()
     .max(20, 'Must contain 20 characters or less')
     .required('Required'),
@@ -11,4 +11,4 @@ const validationSchema = Yup.object({
     .required('Required'),
 });
 
-export default validationSchema;
+export default authValidationSchema;
