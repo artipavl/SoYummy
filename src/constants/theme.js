@@ -36,6 +36,7 @@ export const theme = {
       },
     },
   },
+
   fontWeights: {
     normal: 400,
     medium: 500,

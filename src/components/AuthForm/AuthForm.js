@@ -1,10 +1,12 @@
 import { Formik } from 'formik';
 import validationSchema from './validationSchema';
 
+import orderIcon from '../../images/icons/order-food-pana.svg';
+
 import {
+  SignUpLogo,
   Form,
   FormTitle,
-  ValuesWrapper,
   FormValue,
   FormBtn,
 } from './AuthForm.styled';
@@ -21,9 +23,11 @@ const AuthForm = () => {
       onSubmit={onSubmit}
     >
       {formik => (
-        <Form onSubmit={formik.handleSubmit}>
-          <FormTitle>Registration</FormTitle>
-          <ValuesWrapper>
+        <>
+          <SignUpLogo src={orderIcon} alt="Sign up logo"></SignUpLogo>
+          <Form onSubmit={formik.handleSubmit}>
+            <FormTitle>Registration</FormTitle>
+
             <FormValue
               name="name"
               type="text"
@@ -31,6 +35,7 @@ const AuthForm = () => {
               {...formik.getFieldProps('name')}
               value={formik.values.name}
             />
+
             {formik.touched.name && formik.errors.name ? (
               <div>{formik.errors.name}</div>
             ) : null}
@@ -42,6 +47,7 @@ const AuthForm = () => {
               {...formik.getFieldProps('email')}
               value={formik.values.email}
             />
+
             {formik.touched.email && formik.errors.email ? (
               <div>{formik.errors.email}</div>
             ) : null}
@@ -53,13 +59,13 @@ const AuthForm = () => {
               {...formik.getFieldProps('password')}
               value={formik.values.password}
             />
+
             {formik.touched.password && formik.errors.password ? (
               <div>{formik.errors.password}</div>
             ) : null}
-          </ValuesWrapper>
-
-          <FormBtn type="submit">Sign up</FormBtn>
-        </Form>
+            <FormBtn type="submit">Sign up</FormBtn>
+          </Form>
+        </>
       )}
     </Formik>
   );
