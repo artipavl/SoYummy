@@ -1,13 +1,16 @@
 import * as Yup from 'yup';
 
+import { nameRegExp, emailRegExp, passwordRegExp } from './regExp';
+
 const authValidationSchema = Yup.object({
   name: Yup.string()
-    .max(20, 'Must contain 20 characters or less')
+    .matches(nameRegExp, 'Name must contain only letters')
     .required('Required'),
-  email: Yup.string().email('Invalid email address').required('Required'),
+  email: Yup.string()
+    .matches(emailRegExp, 'Invalid email address')
+    .required('Required'),
   password: Yup.string()
-    .min(8, 'Must contain 8 or more characters')
-    .max(20, 'Must be 20 characters or less')
+    .matches(passwordRegExp, 'Your password is little secure')
     .required('Required'),
 });
 

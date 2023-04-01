@@ -1,15 +1,19 @@
 import { Formik } from 'formik';
+
 import authValidationSchema from 'utils/authValidationSchema';
+import formMessageStyles from 'utils/formMessageStyles';
 
 import orderIcon from '../../images/icons/order-food-pana.svg';
 
 import AuthFormInput from 'components/AuthFormInput';
 
 import {
+  Wrapper,
   SignUpLogo,
   Form,
   FormTitle,
   FormBtn,
+  FormNavLink,
 } from '../../utils/CombinedFormStyles.styled';
 
 const RegForm = () => {
@@ -20,42 +24,57 @@ const RegForm = () => {
   return (
     <Formik
       initialValues={{ name: '', email: '', password: '' }}
-      authValidationSchema={authValidationSchema}
+      validationSchema={authValidationSchema}
       onSubmit={onSubmit}
     >
-      {formik => (
-        <>
+      {({ handleSubmit, getFieldProps, touched, errors }) => (
+        <Wrapper>
           <SignUpLogo src={orderIcon} alt="Sign up logo"></SignUpLogo>
-          <Form onSubmit={formik.handleSubmit} isRegForm>
+
+          <Form onSubmit={handleSubmit} isRegForm>
             <FormTitle>Registration</FormTitle>
 
             <AuthFormInput
               name="name"
               type="text"
               placeholder="Name"
-              {...formik.getFieldProps('name')}
+              {...getFieldProps('name')}
             />
+            {errors.name && touched.name && (
+              <div style={{ ...formMessageStyles.message.warning }}>
+                {errors.name}
+              </div>
+            )}
 
             <AuthFormInput
               name="email"
               type="email"
               placeholder="Email"
-              {...formik.getFieldProps('email')}
+              {...getFieldProps('email')}
             />
+            {errors.email && touched.email && (
+              <div style={{ ...formMessageStyles.message.warning }}>
+                {errors.email}
+              </div>
+            )}
 
             <AuthFormInput
               name="password"
               type="password"
               placeholder="Password"
-              {...formik.getFieldProps('password')}
+              {...getFieldProps('password')}
             />
+            {errors.password && touched.password && (
+              <div style={{ ...formMessageStyles.message.warning }}>
+                {errors.password}
+              </div>
+            )}
 
-            {formik.touched.password && formik.errors.password ? (
-              <div>{formik.errors.password}</div>
-            ) : null}
             <FormBtn type="submit">Sign up</FormBtn>
           </Form>
-        </>
+
+          <FormNavLink to="/signin">Sign In</FormNavLink>
+        </Wrapper>
       )}
     </Formik>
   );

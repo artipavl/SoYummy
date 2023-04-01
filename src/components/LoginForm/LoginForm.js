@@ -6,10 +6,12 @@ import orderIcon from '../../images/icons/order-food-pana.svg';
 import AuthFormInput from 'components/AuthFormInput';
 
 import {
+  Wrapper,
   SignUpLogo,
   Form,
   FormTitle,
   FormBtn,
+  FormNavLink,
 } from '../../utils/CombinedFormStyles.styled';
 
 const LoginForm = () => {
@@ -24,8 +26,9 @@ const LoginForm = () => {
       onSubmit={onSubmit}
     >
       {formik => (
-        <>
+        <Wrapper>
           <SignUpLogo src={orderIcon} alt="Sign up logo"></SignUpLogo>
+
           <Form onSubmit={formik.handleSubmit}>
             <FormTitle>Sign In</FormTitle>
 
@@ -48,7 +51,9 @@ const LoginForm = () => {
             ) : null}
             <FormBtn type="submit">Sign up</FormBtn>
           </Form>
-        </>
+
+          <FormNavLink to="/register">Registration</FormNavLink>
+        </Wrapper>
       )}
     </Formik>
   );
