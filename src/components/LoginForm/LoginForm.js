@@ -1,5 +1,7 @@
 import { Formik } from 'formik';
+
 import authValidationSchema from 'utils/authValidationSchema';
+import formStyles from 'utils/formStyles';
 
 import orderIcon from '../../images/icons/order-food-pana.svg';
 
@@ -11,6 +13,7 @@ import { login } from 'redux/authOperations';
 
 import {
   Wrapper,
+  FormContainer,
   SignUpLogo,
   Form,
   FormTitle,
@@ -28,35 +31,48 @@ const LoginForm = () => {
   return (
     <Formik
       initialValues={{ name: '', email: '', password: '' }}
-      authValidationSchema={authValidationSchema}
+      validationSchema={authValidationSchema}
       onSubmit={onSubmit}
     >
-      {formik => (
+      {({ handleSubmit, getFieldProps, touched, errors }) => (
         <Wrapper>
-          <SignUpLogo src={orderIcon} alt="Sign up logo"></SignUpLogo>
+          <FormContainer>
+            <SignUpLogo src={orderIcon} alt="Sign in gear"></SignUpLogo>
 
-          <Form onSubmit={formik.handleSubmit}>
-            <FormTitle>Sign In</FormTitle>
+            <Form onSubmit={handleSubmit}>
+              <FormTitle>Sign In</FormTitle>
 
-            <AuthFormInput
-              name="email"
-              type="email"
-              placeholder="Email"
-              {...formik.getFieldProps('email')}
-            />
+              <AuthFormInput
+                error={errors.email}
+                touched={touched.email}
+                name="email"
+                type="email"
+                placeholder="Email"
+                {...getFieldProps('email')}
+              />
+              {errors.email && touched.email && (
+                <div style={{ ...formStyles.message.warning }}>
+                  {errors.email}
+                </div>
+              )}
 
-            <AuthFormInput
-              name="password"
-              type="password"
-              placeholder="Password"
-              {...formik.getFieldProps('password')}
-            />
+              <AuthFormInput
+                error={errors.password}
+                touched={touched.password}
+                name="password"
+                type="password"
+                placeholder="Password"
+                {...getFieldProps('password')}
+              />
+              {errors.password && touched.password && (
+                <div style={{ ...formStyles.message.warning }}>
+                  {errors.password}
+                </div>
+              )}
 
-            {formik.touched.password && formik.errors.password ? (
-              <div>{formik.errors.password}</div>
-            ) : null}
-            <FormBtn type="submit">Sign up</FormBtn>
-          </Form>
+              <FormBtn type="submit">Sign In</FormBtn>
+            </Form>
+          </FormContainer>
 
           <FormNavLink to="/register">Registration</FormNavLink>
         </Wrapper>

@@ -20,15 +20,31 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const SignUpLogo = styled.img`
-  margin: 0 auto;
-  margin-top: 87px;
+export const FormContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
   @media ${props => props.theme.device.tablet} {
-    width: 409px;
   }
 
   @media ${props => props.theme.device.desktop} {
+    flex-direction: row;
+  }
+`;
+
+export const SignUpLogo = styled.img`
+  margin-top: 96px;
+
+  @media ${props => props.theme.device.tablet} {
+    width: 409px;
+    margin-top: 115px;
+  }
+
+  @media ${props => props.theme.device.desktop} {
+    width: 532px;
+    margin-right: 115px;
   }
 `;
 
@@ -38,8 +54,6 @@ export const Form = styled.form`
   border-radius: 30px;
 
   width: 335px;
-
-  margin: 0 auto;
 
   display: flex;
   flex-direction: column;
@@ -93,6 +107,7 @@ export const FormBtn = styled.button`
   @media ${props => props.theme.device.tablet} {
     margin-top: 50px;
     margin-bottom: 44px;
+    height: 59px;
   }
 
   @media ${props => props.theme.device.desktop} {
@@ -114,5 +129,7 @@ export const FormNavLink = styled(Link)`
   }
 
   @media ${props => props.theme.device.desktop} {
+    position: absolute;
+    right: 400px;
   }
 `;

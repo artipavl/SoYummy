@@ -1,7 +1,7 @@
 import { Formik } from 'formik';
 
 import authValidationSchema from 'utils/authValidationSchema';
-import formMessageStyles from 'utils/formMessageStyles';
+import formStyles from 'utils/formStyles';
 
 import orderIcon from '../../images/icons/order-food-pana.svg';
 
@@ -13,6 +13,7 @@ import { register } from 'redux/authOperations';
 
 import {
   Wrapper,
+  FormContainer,
   SignUpLogo,
   Form,
   FormTitle,
@@ -35,49 +36,57 @@ const RegForm = () => {
     >
       {({ handleSubmit, getFieldProps, touched, errors }) => (
         <Wrapper>
-          <SignUpLogo src={orderIcon} alt="Sign up logo"></SignUpLogo>
+          <FormContainer>
+            <SignUpLogo src={orderIcon} alt="Sign up gear"></SignUpLogo>
 
-          <Form onSubmit={handleSubmit} isRegForm>
-            <FormTitle>Registration</FormTitle>
+            <Form onSubmit={handleSubmit}>
+              <FormTitle>Registration</FormTitle>
 
-            <AuthFormInput
-              name="name"
-              type="text"
-              placeholder="Name"
-              {...getFieldProps('name')}
-            />
-            {errors.name && touched.name && (
-              <div style={{ ...formMessageStyles.message.warning }}>
-                {errors.name}
-              </div>
-            )}
+              <AuthFormInput
+                error={errors.name}
+                touched={touched.name}
+                name="name"
+                type="text"
+                placeholder="Name"
+                {...getFieldProps('name')}
+              />
+              {errors.name && touched.name && (
+                <div style={{ ...formStyles.message.warning }}>
+                  {errors.name}
+                </div>
+              )}
 
-            <AuthFormInput
-              name="email"
-              type="email"
-              placeholder="Email"
-              {...getFieldProps('email')}
-            />
-            {errors.email && touched.email && (
-              <div style={{ ...formMessageStyles.message.warning }}>
-                {errors.email}
-              </div>
-            )}
+              <AuthFormInput
+                error={errors.email}
+                touched={touched.email}
+                name="email"
+                type="email"
+                placeholder="Email"
+                {...getFieldProps('email')}
+              />
+              {errors.email && touched.email && (
+                <div style={{ ...formStyles.message.warning }}>
+                  {errors.email}
+                </div>
+              )}
 
-            <AuthFormInput
-              name="password"
-              type="password"
-              placeholder="Password"
-              {...getFieldProps('password')}
-            />
-            {errors.password && touched.password && (
-              <div style={{ ...formMessageStyles.message.warning }}>
-                {errors.password}
-              </div>
-            )}
+              <AuthFormInput
+                error={errors.password}
+                touched={touched.password}
+                name="password"
+                type="password"
+                placeholder="Password"
+                {...getFieldProps('password')}
+              />
+              {errors.password && touched.password && (
+                <div style={{ ...formStyles.message.warning }}>
+                  {errors.password}
+                </div>
+              )}
 
-            <FormBtn type="submit">Sign up</FormBtn>
-          </Form>
+              <FormBtn type="submit">Sign up</FormBtn>
+            </Form>
+          </FormContainer>
 
           <FormNavLink to="/signin">Sign In</FormNavLink>
         </Wrapper>

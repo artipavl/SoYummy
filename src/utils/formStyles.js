@@ -1,4 +1,4 @@
-const formMessageStyles = {
+const formStyles = {
   message: {
     warning: {
       color: '#F6C23E',
@@ -21,4 +21,4 @@ const formMessageStyles = {
   },
 };
 
-export default formMessageStyles;
+export default formStyles;
