@@ -1,0 +1,45 @@
+.buttonDelete{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background: #8BAA36;
+  color:#FAFAFA;
+  font-size: 14px;
+  text-align: center;
+}
+
+.buttonDelete:hover,
+buttonsDelete:focus {
+  background: #22252A;;
+  color:#FAFAFA;
+  scale: 1.1;
+}
+
+.buttonRecipe{
+  position: absolute;
+  bottom: -8px;
+  right: 0;
+} 
+
+@media screen and (min-width: 768px) {
+  .buttonDelete{
+    font-size: 22px;
+    width: 38px;
+    height: 38px;
+  }
+
+  .buttonRecipe{
+    bottom: -20px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .buttonsDelete{
+    font-size: 24px;
+    width: 44px;
+    height: 44px;
+  }
+}
