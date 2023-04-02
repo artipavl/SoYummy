@@ -12,7 +12,7 @@ export const Btn = styled(NavLink)`
     }[props.variant])};
 
   clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%);
-  padding: 50px 42px;
+  padding: 14px 6px;
 
   border: none;
   color: ${theme.colors.white};
@@ -21,8 +21,20 @@ export const Btn = styled(NavLink)`
   font-family: 'Poppins';
   font-style: normal;
   font-weight: ${theme.fontWeights.normal};
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 10px;
+  line-height: 15px;
+
+  @media ${theme.device.tablet} {
+    padding: 32px 12px;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  @media ${theme.device.desktop} {
+    padding: 50px 42px;
+    font-size: 16px;
+    line-height: 24px;
+  }
 
   :hover,
   :focus {
@@ -37,6 +49,7 @@ export const Btn = styled(NavLink)`
       font-size: 14px;
       line-height: 21px;
     }
+
     @media ${theme.device.tablet} {
       font-size: 16px;
     }
