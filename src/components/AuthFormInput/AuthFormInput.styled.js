@@ -6,13 +6,24 @@ import passwordIcon from '../../images/icons/password.svg';
 
 import formStyles from 'utils/formStyles';
 
+export const FormValueContainer = styled.div`
+  display: flex;
+
+  &:not(:last-of-type) {
+    margin-bottom: 12px;
+  }
+`;
+
 export const FormValue = styled.input`
   background-color: transparent;
   color: ${props => props.theme.colors.textWhite};
-  height: 45px;
+
   border: 1px solid ${props => props.theme.colors.textWhite};
   border-radius: 6px;
   padding-left: 17px;
+
+  height: 45px;
+  width: 279px;
 
   margin-left: 28px;
   margin-right: 28px;
@@ -47,12 +58,9 @@ export const FormValue = styled.input`
     background: url(${passwordIcon}) no-repeat;
   }
 
-  &:not(:last-of-type) {
-    margin-bottom: 12px;
-  }
-
   @media ${props => props.theme.device.tablet} {
     height: 59px;
+    width: 100%;
 
     font-size: 18px;
     line-height: 1.5;
