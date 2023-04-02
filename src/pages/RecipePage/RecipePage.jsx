@@ -4,14 +4,18 @@ const RecipePage = () => {
   return (
     <div>
       <section>
+        {/* Recipe name from API */}
         <h1>Salmon Avocado Salad</h1>
+        {/* recipe describe from API */}
         <p>
           Is a healthy salad recipe that’s big on nutrients and flavor. A moist,
           pan seared salmon is layered on top of spinach, avocado, tomatoes, and
           red onions. Then drizzled with a homemade lemon vinaigrette.
         </p>
               <Btn title={`Add to favorite recipes`} variant={`transparent`} />
-              <div><svg>Time</svg>
+              <div><svg><use href='../../images/recipePage/recipePage-icons#clock-mb'></use></svg>
+              {/* Time data from API
+              timeData? <p>timeData</p> */}
                   <p>20 min</p>
               </div>
       </section>
@@ -21,8 +25,11 @@ const RecipePage = () => {
                   <p>Number</p>
                   <p>Add to list</p>
               </div>
+              {/* Ingredients list from API */}
               <ul>
-                  <li><img src="" alt="" />
+          <li>
+            {/* ImageFromAPi ? <ImageFromApi/> : <Placeholder/> */}
+            <img src="" alt="" />
                   <p>Salmon</p>
                   <input type="checkbox" /> </li>
                   <li><img src="" alt="" />
@@ -37,7 +44,8 @@ const RecipePage = () => {
               </ul>
           </section>
           <section>
-              <h2>Recipe preparation</h2>
+        <h2>Recipe preparation</h2>
+        {/* Preparation list from API */}
               <ol>
                   <li>
                     <p>1</p>
@@ -58,7 +66,7 @@ const RecipePage = () => {
                     <p>6</p>
                   </li>
               </ol>
-              <img></img>
+              <img src='../../images/recipePage/'></img>
           </section>
     </div>
   );
