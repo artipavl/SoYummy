@@ -30,7 +30,7 @@ const LoginForm = () => {
   return (
     <Formik
       initialValues={{ name: '', email: '', password: '' }}
-      authValidationSchema={authValidationSchema}
+      validationSchema={authValidationSchema}
       onSubmit={onSubmit}
     >
       {({ handleSubmit, getFieldProps, touched, errors }) => (
@@ -52,6 +52,7 @@ const LoginForm = () => {
                 {errors.email}
               </div>
             )}
+
             <AuthFormInput
               error={errors.password}
               touched={touched.password}
