@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/SoYummy/static/css/main.4e73f976.css",
-    "main.js": "/SoYummy/static/js/main.fcabd398.js",
+    "main.js": "/SoYummy/static/js/main.c464c291.js",
     "static/media/mainBG_Desktop_2x.webp": "/SoYummy/static/media/mainBG_Desktop_2x.fd4ee28321ee80b61045.webp",
     "static/media/mainBG_Tablet_2x.webp": "/SoYummy/static/media/mainBG_Tablet_2x.1ecdc050d4b84aa685a3.webp",
     "static/media/order-food-pana.svg": "/SoYummy/static/media/order-food-pana.ee7f4016a1f4c5ef85265923bf07ebbd.svg",
@@ -15,10 +15,10 @@
     "static/media/password.svg": "/SoYummy/static/media/password.e395db0ecbf5a52b34074b662b076919.svg",
     "static/media/name.svg": "/SoYummy/static/media/name.0fa796ea25ccf40a3ad47a8fc4a2c1e9.svg",
     "main.4e73f976.css.map": "/SoYummy/static/css/main.4e73f976.css.map",
-    "main.fcabd398.js.map": "/SoYummy/static/js/main.fcabd398.js.map"
+    "main.c464c291.js.map": "/SoYummy/static/js/main.c464c291.js.map"
   },
   "entrypoints": [
     "static/css/main.4e73f976.css",
-    "static/js/main.fcabd398.js"
+    "static/js/main.c464c291.js"
   ]
 }
