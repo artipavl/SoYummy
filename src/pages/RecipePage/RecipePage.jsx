@@ -66,7 +66,7 @@ const RecipePage = () => {
                     <p>6</p>
                   </li>
               </ol>
-              <img src='../../images/recipePage/'></img>
+              <img src='../../images/icons/placeholders'></img>
           </section>
     </div>
   );
