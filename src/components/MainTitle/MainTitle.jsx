@@ -1,8 +1,8 @@
-import css from './MainTitle.module.css';
+import { Title } from './MainTitle.styled';
 
 const MainTitle = ({ text }) => {
   return (
-    <h2 className={css.mainTitle}>{text}</h2>
+    <Title>{text}</Title>
   )
 };
 

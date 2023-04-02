@@ -1,12 +1,12 @@
 import FavoriteList from 'components/FavoriteList/FavoriteList';
 import MainTitle from 'components/MainTitle/MainTitle';
-import css from './Favorite.module.css';
+import { Page } from './Favorite.styled';
 
 const Favorite = () => (
-  <section className={css.favorite}>
+  <Page>
     <MainTitle text="Favorite" />
     <FavoriteList />
-  </section>
+  </Page>
 );
 
 export default Favorite;
