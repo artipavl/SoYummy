@@ -7,6 +7,10 @@ import orderIcon from '../../images/icons/order-food-pana.svg';
 
 import AuthFormInput from 'components/AuthFormInput';
 
+import { useDispatch } from 'react-redux';
+
+import { register } from 'redux/authOperations';
+
 import {
   Wrapper,
   SignUpLogo,
@@ -17,8 +21,10 @@ import {
 } from '../../utils/CombinedFormStyles.styled';
 
 const RegForm = () => {
+  const dispatch = useDispatch();
+
   const onSubmit = values => {
-    alert(JSON.stringify(values, null, 2));
+    dispatch(register(values));
   };
 
   return (
