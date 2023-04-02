@@ -29,7 +29,7 @@ const MyRecipeItem = ({
 
   return (
     <CardItem>
-      <ImgBox>
+      <ImgBox imgUrl="../../images/Plug1.png">
         <Image src={preview} alt={title} />
       </ImgBox>
       <Info>
