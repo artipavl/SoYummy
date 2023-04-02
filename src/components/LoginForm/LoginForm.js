@@ -1,5 +1,7 @@
 import { Formik } from 'formik';
+
 import authValidationSchema from 'utils/authValidationSchema';
+import formStyles from 'utils/formStyles';
 
 import orderIcon from '../../images/icons/order-food-pana.svg';
 
@@ -31,31 +33,40 @@ const LoginForm = () => {
       authValidationSchema={authValidationSchema}
       onSubmit={onSubmit}
     >
-      {formik => (
+      {({ handleSubmit, getFieldProps, touched, errors }) => (
         <Wrapper>
           <SignUpLogo src={orderIcon} alt="Sign up logo"></SignUpLogo>
 
-          <Form onSubmit={formik.handleSubmit}>
+          <Form onSubmit={handleSubmit}>
             <FormTitle>Sign In</FormTitle>
-
             <AuthFormInput
+              error={errors.email}
+              touched={touched.email}
               name="email"
               type="email"
               placeholder="Email"
-              {...formik.getFieldProps('email')}
+              {...getFieldProps('email')}
             />
-
+            {errors.email && touched.email && (
+              <div style={{ ...formStyles.message.warning }}>
+                {errors.email}
+              </div>
+            )}
             <AuthFormInput
+              error={errors.password}
+              touched={touched.password}
               name="password"
               type="password"
               placeholder="Password"
-              {...formik.getFieldProps('password')}
+              {...getFieldProps('password')}
             />
+            {errors.password && touched.password && (
+              <div style={{ ...formStyles.message.warning }}>
+                {errors.password}
+              </div>
+            )}
 
-            {formik.touched.password && formik.errors.password ? (
-              <div>{formik.errors.password}</div>
-            ) : null}
-            <FormBtn type="submit">Sign up</FormBtn>
+            <FormBtn type="submit">Sign In</FormBtn>
           </Form>
 
           <FormNavLink to="/register">Registration</FormNavLink>

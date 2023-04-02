@@ -4,6 +4,8 @@ import nameIcon from '../../images/icons/name.svg';
 import emailIcon from '../../images/icons/email.svg';
 import passwordIcon from '../../images/icons/password.svg';
 
+import formStyles from 'utils/formStyles';
+
 export const FormValue = styled.input`
   background-color: transparent;
   color: ${props => props.theme.colors.textWhite};
@@ -16,6 +18,18 @@ export const FormValue = styled.input`
   margin-right: 28px;
 
   opacity: 0.8;
+
+  border-color: ${({ error, touched, value }) => {
+    if (!value) {
+      return 'inherit';
+    }
+
+    return error
+      ? formStyles.message.error.color
+      : touched
+      ? formStyles.message.success.color
+      : 'inherit';
+  }};
 
   &:hover {
     opacity: 1;

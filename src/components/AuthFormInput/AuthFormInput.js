@@ -7,6 +7,8 @@ const AuthFormInput = ({
   onChange,
   onBlur,
   value,
+  error,
+  touched,
 }) => {
   return (
     <FormValue
@@ -16,6 +18,8 @@ const AuthFormInput = ({
       onChange={onChange}
       onBlur={onBlur}
       value={value}
+      error={error}
+      touched={touched}
     />
   );
 };
