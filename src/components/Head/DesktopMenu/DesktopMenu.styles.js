@@ -14,7 +14,7 @@ export const NavStyled = styled.nav`
 `
 export const NavItems = styled.ul`
   display: flex;
-}
+
 `
 export const NavItem = styled.li`
   :not(:first-child) {
@@ -35,7 +35,7 @@ export const Navigator = styled(NavLink)`
   font-size: 14px;
   line-height: 1.6;
   transition: color 250ms linear;
-    &:hover, &focus {
+    &:hover, &:focus {
       color: ${props => props.theme.colors.accent};
 }
 `
