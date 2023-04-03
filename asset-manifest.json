@@ -1,24 +1,42 @@
 {
   "files": {
     "main.css": "/SoYummy/static/css/main.62e9e419.css",
-    "main.js": "/SoYummy/static/js/main.50af1229.js",
+    "main.js": "/SoYummy/static/js/main.33ecd5cb.js",
     "static/media/mainBG_Desktop_2x.webp": "/SoYummy/static/media/mainBG_Desktop_2x.fd4ee28321ee80b61045.webp",
     "static/media/mainBG_Tablet_2x.webp": "/SoYummy/static/media/mainBG_Tablet_2x.1ecdc050d4b84aa685a3.webp",
     "static/media/order-food-pana.svg": "/SoYummy/static/media/order-food-pana.ee7f4016a1f4c5ef85265923bf07ebbd.svg",
+    "static/media/menuBG_Tablet@2x.webp": "/SoYummy/static/media/menuBG_Tablet@2x.4634bf88aaa193891cd6.webp",
     "static/media/mainBG_Mobile_2x.webp": "/SoYummy/static/media/mainBG_Mobile_2x.e2039bd1188905bbbc4e.webp",
     "static/media/mainBG_Desktop.webp": "/SoYummy/static/media/mainBG_Desktop.a899e31d5253f5b31526.webp",
+    "static/media/footerBG_Desktop@2x.webp": "/SoYummy/static/media/footerBG_Desktop@2x.02f799649c1c099632aa.webp",
     "static/media/mainBG_Tablet.webp": "/SoYummy/static/media/mainBG_Tablet.30ec62d328cbba586d3b.webp",
+    "static/media/menuBG_Mobile@2x.webp": "/SoYummy/static/media/menuBG_Mobile@2x.cdc16ca5e4843eaecc03.webp",
+    "static/media/footerBG_Tablet@2x.webp": "/SoYummy/static/media/footerBG_Tablet@2x.d6c00a70924f0ce22d47.webp",
+    "static/media/menuBG_Tablet.webp": "/SoYummy/static/media/menuBG_Tablet.de5c9a470d5a5c930761.webp",
+    "static/media/footerBG_Desktop.webp": "/SoYummy/static/media/footerBG_Desktop.24e198c6d3d05c77b04b.webp",
     "static/media/mainBG_Mobile.webp": "/SoYummy/static/media/mainBG_Mobile.3ac4716913dfc3ce220d.webp",
+    "static/media/menuBG_Mobile.webp": "/SoYummy/static/media/menuBG_Mobile.95c4b4c9bc3dbc0161fe.webp",
+    "static/media/footerBG_mobile@2x.webp": "/SoYummy/static/media/footerBG_mobile@2x.1ac0affd2e63241c6bf2.webp",
+    "static/media/footerBG_Tablet.webp": "/SoYummy/static/media/footerBG_Tablet.35cece3a57b557c83047.webp",
+    "static/media/footerBG_mobile.webp": "/SoYummy/static/media/footerBG_mobile.e193c6212e48344ae5e2.webp",
     "static/media/logo_Desktop.svg": "/SoYummy/static/media/logo_Desktop.3326a095578a5f612526f7ab93edd379.svg",
     "index.html": "/SoYummy/index.html",
+    "static/media/twitter-logo.svg": "/SoYummy/static/media/twitter-logo.925913d1b32befb642c6f0521756109c.svg",
+    "static/media/logo-Lite-Icon.svg": "/SoYummy/static/media/logo-Lite-Icon.9658dffe8063ea286d86fbffd4bda942.svg",
+    "static/media/instagram-logo.svg": "/SoYummy/static/media/instagram-logo.2917ad3f5d671d720905e9543e48f661.svg",
     "static/media/email.svg": "/SoYummy/static/media/email.f56c4f391cdedbe66bd4d1569dd1032a.svg",
     "static/media/password.svg": "/SoYummy/static/media/password.e395db0ecbf5a52b34074b662b076919.svg",
+    "static/media/youtube-logo.svg": "/SoYummy/static/media/youtube-logo.bad4e240b793422914a90d5f8f5f1678.svg",
+    "static/media/facebook-logo.svg": "/SoYummy/static/media/facebook-logo.bddff187a269cf93eeec0f7f6eb42b38.svg",
     "static/media/name.svg": "/SoYummy/static/media/name.0fa796ea25ccf40a3ad47a8fc4a2c1e9.svg",
+    "static/media/search_Icon.svg": "/SoYummy/static/media/search_Icon.2d4b1287190860783c7dcfa23feb9e37.svg",
+    "static/media/cross.svg": "/SoYummy/static/media/cross.cb141696dc3bbdc6b872eb5777cf3281.svg",
+    "static/media/burger.svg": "/SoYummy/static/media/burger.99954b2cb14dc7a13c5ef2896bf6c275.svg",
     "main.62e9e419.css.map": "/SoYummy/static/css/main.62e9e419.css.map",
-    "main.50af1229.js.map": "/SoYummy/static/js/main.50af1229.js.map"
+    "main.33ecd5cb.js.map": "/SoYummy/static/js/main.33ecd5cb.js.map"
   },
   "entrypoints": [
     "static/css/main.62e9e419.css",
-    "static/js/main.50af1229.js"
+    "static/js/main.33ecd5cb.js"
   ]
 }
