@@ -1,5 +1,7 @@
 import { Formik } from 'formik';
 
+import { useDispatch } from 'react-redux';
+
 import authValidationSchema from 'utils/authValidationSchema';
 import formStyles from 'utils/formStyles';
 
@@ -7,9 +9,7 @@ import orderIcon from '../../images/icons/order-food-pana.svg';
 
 import AuthFormInput from 'components/AuthFormInput';
 
-import { useDispatch } from 'react-redux';
-
-import { register } from 'redux/authOperations';
+import { register, login } from 'redux/authOperations';
 
 import {
   Wrapper,
@@ -25,7 +25,9 @@ const RegForm = () => {
   const dispatch = useDispatch();
 
   const onSubmit = values => {
-    dispatch(register(values));
+    dispatch(register(values))
+      .then(() => dispatch(login(values)))
+      .catch(error => console.log(error));
   };
 
   return (
