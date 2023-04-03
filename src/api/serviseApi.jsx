@@ -3,7 +3,7 @@ import recipes from './recipes/recipes.json';
 
 export const getFavoriteRecipes = async () => {
   try {
-    // const { data } = await axios.get();
+    // const { data } = await axios.get(`/favorites`);
     const data = recipes;
     console.log(data);
     return data;
@@ -23,7 +23,7 @@ export const deleteFavoriteRecipe = async id => {
 
 export const getMyRecipes = async () => {
   try {
-    // const { data } = await axios.get();
+    // const { data } = await axios.get(`/recipes/my`);
     const data = recipes;
     return data;
   } catch (error) {
