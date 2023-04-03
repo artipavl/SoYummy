@@ -33,7 +33,6 @@ const authSlice = createSlice({
     },
 
     [login.fulfilled](state, action) {
-      console.log(action);
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
