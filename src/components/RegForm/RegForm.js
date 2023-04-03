@@ -1,7 +1,5 @@
 import { Formik } from 'formik';
 
-import { unwrapResult } from '@reduxjs/toolkit';
-
 import { useDispatch } from 'react-redux';
 
 import authValidationSchema from 'utils/authValidationSchema';
@@ -27,13 +25,8 @@ const RegForm = () => {
   const dispatch = useDispatch();
 
   const onSubmit = values => {
-    console.log(values);
     dispatch(register(values))
-      .then(unwrapResult)
-      .then(result => {
-        console.log(result);
-        return dispatch(login(result));
-      })
+      .then(() => dispatch(login(values)))
       .catch(error => console.log(error));
   };
 
