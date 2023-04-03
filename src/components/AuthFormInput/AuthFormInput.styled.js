@@ -4,27 +4,49 @@ import nameIcon from '../../images/icons/name.svg';
 import emailIcon from '../../images/icons/email.svg';
 import passwordIcon from '../../images/icons/password.svg';
 
-import ErrorLogo from '../../images/icons/Error-logo.svg';
-import SuccessLogo from '../../images/icons/Success-logo.svg';
-import WarningLogo from '../../images/icons/Warning-logo.svg';
+import validationInputLogo from 'utils/validationInputLogo';
+import checkValidationLevel from 'utils/checkValidationLevel';
 
 import formStyles from 'utils/formStyles';
 
 export const FormValueContainer = styled.div`
   display: flex;
+  position: relative;
 
   margin-bottom: ${({ error, touched }) => {
     return error && touched ? '0' : '12px';
   }};
 
+  /* &::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+  }
+
+  &:nth-of-type(1)::before {
+    background: url(${nameIcon}) no-repeat;
+  }
+
+  &:nth-of-type(2)::before {
+    background: url(${emailIcon}) no-repeat;
+  }
+
+  &:nth-of-type(3)::before {
+    background: url(${passwordIcon}) no-repeat;
+  } */
+
   &::after {
     content: '';
     display: block;
+
+    position: absolute;
+    top: 20px;
+    right: 50px;
+
     width: 20px;
     height: 20px;
-    background-image: ${({ error, touched }) => {
-      return error && touched ? `url(${ErrorLogo})` : null;
-    }};
+
+    background-image: ${validationInputLogo};
   }
 `;
 
@@ -59,18 +81,6 @@ export const FormValue = styled.input`
   &:hover {
     opacity: 1;
   }
-
-  /* &::placeholder {
-    background: url(${nameIcon}) no-repeat;
-  }
-
-  &:nth-of-type(2)::placeholder {
-    background: url(${emailIcon}) no-repeat;
-  }
-
-  &:nth-of-type(3)::placeholder {
-    background: url(${passwordIcon}) no-repeat;
-  } */
 
   @media ${props => props.theme.device.tablet} {
     height: 59px;

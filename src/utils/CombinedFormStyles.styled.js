@@ -28,6 +28,8 @@ export const Wrapper = styled.div`
 `;
 
 export const SignUpLogo = styled.img`
+  margin-top: 96px;
+
   @media ${props => props.theme.device.tablet} {
     width: 409px;
     margin-top: 115px;

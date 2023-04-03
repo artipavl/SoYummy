@@ -11,7 +11,7 @@ const AuthFormInput = ({
   touched,
 }) => {
   return (
-    <FormValueContainer error={error} touched={touched}>
+    <FormValueContainer error={error} touched={touched} value={value}>
       <FormValue
         name={name}
         type={type}
