@@ -1,9 +1,8 @@
 import { useLocation } from 'react-router-dom';
-import { RiDeleteBinLine } from 'react-icons/ri';
 
 import { RoundedButton } from 'reusableComponents/Btn/Btn';
+import { ButtonDel } from './ButtonDelete';
 
-// import css from './MyRecipeItem.module.css';
 import {
   CardItem,
   ImgBox,
@@ -12,6 +11,8 @@ import {
   Title,
   Description,
   Time,
+  ButtonDelete,
+  ButtonRecipe,
 } from './MyRecipeItem.styled';
 
 const MyRecipeItem = ({
@@ -21,36 +22,31 @@ const MyRecipeItem = ({
   title,
   id,
   handelDelete,
-  ButtonDelete,
-  ButtonRecipe,
-  style,
+  styleDel,
+  styleBtn,
 }) => {
   const location = useLocation();
 
   return (
     <CardItem>
-      <ImgBox imgUrl="../../images/Plug1.png">
+      <ImgBox>
         <Image src={preview} alt={title} />
       </ImgBox>
       <Info>
         <Title>{title}</Title>
-        <button
-          className={`${ButtonDelete}`}
-          type="button"
-          onClick={handelDelete}
-        >
-          <RiDeleteBinLine />
-        </button>
+        <ButtonDelete>
+          <ButtonDel battonDel={styleDel} onClick={handelDelete} />
+        </ButtonDelete>
         <Description>{description}</Description>
         <Time>{time} min</Time>
-        <div className={`${ButtonRecipe}`}>
+        <ButtonRecipe>
           <RoundedButton
             title="See recipe"
             to={`/recipe/${id}`}
-            variant={style}
+            variant={styleBtn}
             statefrom={{ from: location }}
           />
-        </div>
+        </ButtonRecipe>
       </Info>
     </CardItem>
   );
