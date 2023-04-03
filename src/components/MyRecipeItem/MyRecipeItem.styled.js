@@ -30,7 +30,7 @@ export const ImgBox = styled.div`
   display: block;
   height: 100%;
   min-width: 152px;
-  background: url(../../images/Plug1.png);
+  background: url(${props => props.imgUrl});
   border-radius: 8px;
   overflow: hidden;
 
@@ -42,11 +42,13 @@ export const ImgBox = styled.div`
     min-width: 404px;
   }
 `
+
 export const Image = styled.img`
   height: 100%;
   width: 100%;
   object-fit: cover;
 `
+
 export const Info = styled.div`
   position: relative;
   width: 100%;
