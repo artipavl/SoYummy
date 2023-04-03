@@ -11,6 +11,7 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<StartScreen />} />
+
       <Route
         path="/register"
         element={
@@ -19,6 +20,7 @@ export const App = () => {
           </PublicRoute>
         }
       />
+
       <Route
         path="/signin"
         element={

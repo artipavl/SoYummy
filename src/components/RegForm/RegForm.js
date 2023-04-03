@@ -13,7 +13,6 @@ import { register, login } from 'redux/authOperations';
 
 import {
   Wrapper,
-  FormContainer,
   SignUpLogo,
   Form,
   FormTitle,
@@ -38,9 +37,9 @@ const RegForm = () => {
     >
       {({ handleSubmit, getFieldProps, touched, errors }) => (
         <Wrapper>
-          <FormContainer>
-            <SignUpLogo src={orderIcon} alt="Sign up gear"></SignUpLogo>
+          <SignUpLogo src={orderIcon} alt="Sign up gear"></SignUpLogo>
 
+          <div>
             <Form onSubmit={handleSubmit}>
               <FormTitle>Registration</FormTitle>
 
@@ -88,9 +87,8 @@ const RegForm = () => {
 
               <FormBtn type="submit">Sign up</FormBtn>
             </Form>
-          </FormContainer>
-
-          <FormNavLink to="/signin">Sign In</FormNavLink>
+            <FormNavLink to="/signin">Sign In</FormNavLink>
+          </div>
         </Wrapper>
       )}
     </Formik>

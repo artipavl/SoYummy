@@ -4,13 +4,27 @@ import nameIcon from '../../images/icons/name.svg';
 import emailIcon from '../../images/icons/email.svg';
 import passwordIcon from '../../images/icons/password.svg';
 
+import ErrorLogo from '../../images/icons/Error-logo.svg';
+import SuccessLogo from '../../images/icons/Success-logo.svg';
+import WarningLogo from '../../images/icons/Warning-logo.svg';
+
 import formStyles from 'utils/formStyles';
 
 export const FormValueContainer = styled.div`
   display: flex;
 
-  &:not(:last-of-type) {
-    margin-bottom: 12px;
+  margin-bottom: ${({ error, touched }) => {
+    return error && touched ? '0' : '12px';
+  }};
+
+  &::after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: ${({ error, touched }) => {
+      return error && touched ? `url(${ErrorLogo})` : null;
+    }};
   }
 `;
 
@@ -46,7 +60,7 @@ export const FormValue = styled.input`
     opacity: 1;
   }
 
-  &::placeholder {
+  /* &::placeholder {
     background: url(${nameIcon}) no-repeat;
   }
 
@@ -56,7 +70,7 @@ export const FormValue = styled.input`
 
   &:nth-of-type(3)::placeholder {
     background: url(${passwordIcon}) no-repeat;
-  }
+  } */
 
   @media ${props => props.theme.device.tablet} {
     height: 59px;
