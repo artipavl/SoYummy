@@ -9,6 +9,8 @@ import {
   StyledLink,
 } from './StartScreen.styled';
 
+
+
 export const StartScreen = () => {
   return (
     <StartScreenSection>
@@ -20,6 +22,7 @@ export const StartScreen = () => {
         your own recipes at any time.
       </StartTitle>
       <StartNav>
+
         <StyledLink to="/register">Registration</StyledLink>
         <StyledLink to="/signin">Sing In</StyledLink>
       </StartNav>
