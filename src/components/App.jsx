@@ -4,6 +4,11 @@ import { lazy } from 'react';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivatRoute';
 
+import { fetchCurrentUser } from 'redux/authOperations';
+
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
 import { StartScreen } from 'pages';
 import RegisterPage from '../pages/RegisterPage';
 import SignInPage from '../pages/SignInPage';
@@ -21,6 +26,12 @@ const tempStyles = {
 };
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
+
   return (
     <>
       <Routes>

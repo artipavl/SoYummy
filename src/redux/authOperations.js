@@ -41,3 +41,25 @@ export const login = createAsyncThunk(
     }
   }
 );
+
+export const fetchCurrentUser = createAsyncThunk(
+  'auth/current',
+  async (_, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const persistedToken = state.auth.token;
+      console.log(persistedToken);
+      if (persistedToken === null) {
+        return thunkAPI.rejectWithValue();
+      }
+
+      token.set(persistedToken);
+
+      const response = await axios.get('/users/current');
+
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
