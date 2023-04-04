@@ -5,7 +5,6 @@ import emailIcon from '../../images/icons/email.svg';
 import passwordIcon from '../../images/icons/password.svg';
 
 import validationInputLogo from 'utils/validationInputLogo';
-import checkValidationLevel from 'utils/checkValidationLevel';
 
 import formStyles from 'utils/formStyles';
 
@@ -17,10 +16,19 @@ export const FormValueContainer = styled.div`
     return error && touched ? '0' : '12px';
   }};
 
-  /* &::before {
+  &::before {
     content: '';
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+
+    top: 16px;
+    left: 45px;
+
+    @media ${props => props.theme.device.desktop} {
+      top: 23px;
+      left: 50px;
+    }
   }
 
   &:nth-of-type(1)::before {
@@ -33,20 +41,25 @@ export const FormValueContainer = styled.div`
 
   &:nth-of-type(3)::before {
     background: url(${passwordIcon}) no-repeat;
-  } */
+  }
 
   &::after {
     content: '';
     display: block;
 
     position: absolute;
-    top: 20px;
-    right: 50px;
+    top: 16px;
+    right: 45px;
 
     width: 20px;
     height: 20px;
 
     background-image: ${validationInputLogo};
+
+    @media ${props => props.theme.device.desktop} {
+      top: 23px;
+      right: 50px;
+    }
   }
 `;
 
@@ -56,7 +69,7 @@ export const FormValue = styled.input`
 
   border: 1px solid ${props => props.theme.colors.textWhite};
   border-radius: 6px;
-  padding-left: 17px;
+  padding-left: 40px;
 
   height: 45px;
   width: 279px;
@@ -66,16 +79,19 @@ export const FormValue = styled.input`
 
   opacity: 0.8;
 
-  border-color: ${({ error, touched, value }) => {
+  border-color: ${({ error, value }) => {
     if (!value) {
       return 'inherit';
     }
 
-    return error
-      ? formStyles.message.error.color
-      : touched
-      ? formStyles.message.success.color
-      : 'inherit';
+    if (error) {
+      if (value.length < 8) {
+        return formStyles.message.error.color;
+      } else {
+        return 'inherit';
+      }
+    }
+    return formStyles.message.success.color;
   }};
 
   &:hover {
@@ -85,6 +101,8 @@ export const FormValue = styled.input`
   @media ${props => props.theme.device.tablet} {
     height: 59px;
     width: 100%;
+
+    padding-left: 50px;
 
     font-size: 18px;
     line-height: 1.5;

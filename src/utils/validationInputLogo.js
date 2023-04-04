@@ -6,11 +6,12 @@ const validationInputLogo = ({ error, touched, value }) => {
   if (!value || !touched) {
     return null;
   }
+
   if (error) {
     if (value.length < 8) {
-      return `url(${WarningLogo})`;
-    } else {
       return `url(${ErrorLogo})`;
+    } else {
+      return `url(${WarningLogo})`;
     }
   }
   return `url(${SuccessLogo})`;
