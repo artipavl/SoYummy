@@ -3,12 +3,9 @@ import { useEffect, useState } from 'react';
 import { getFavoriteRecipes } from 'api/index';
 import MyRecipeItem from 'components/MyRecipeItem/MyRecipeItem';
 
-import css from './FavoriteList.module.css';
 import {
   List,
-  FavoriteListText,
-  // ButtonDelete,
-  // ButtonRecipe,
+  ListText,
 } from './FavoriteList.styled.js';
 
 const FavoriteList = () => {
@@ -34,7 +31,7 @@ const FavoriteList = () => {
   return (
     <List>
       {/* {loading && <Loader />} */}
-      {allRecipes.length !== 0 && !loading ? (
+      {allRecipes && !loading ? (
         allRecipes.map(({ description, preview, time, title, _id }) => (
           <MyRecipeItem
             key={_id.$oid}
@@ -44,14 +41,12 @@ const FavoriteList = () => {
             title={title}
             id={_id}
             // handelDelete={handelDelete}
-            ButtonDelete={css.buttonDelete}
-            ButtonRecipe={css.buttonRecipe}
-            // eslint-disable-next-line react/style-prop-object
-            style="normal"
+            styleDel="black"
+            styleBtn="normal"
           />
         ))
       ) : (
-        <FavoriteListText>You don't have favorite recipes</FavoriteListText>
+        <ListText>You don't have favorite recipes</ListText>
       )}
       {/* { <Paginator /> } */}
     </List>

@@ -10,15 +10,17 @@ export const Title = styled.h2`
   font-feature-settings: 'liga' off;
   font-size: 28px;
   line-height: 100%;
-  padding-top: 62px;
+  padding-top: 74px;
 
   @media ${props => props.theme.device.tablet} {
     font-size: 32px;
+    padding-top: 102px;
   }
   @media ${props => props.theme.device.desktop} {
     font-size: 44px;
+    padding-top: 102px;
   }
-`
+`;
 export const Green1 = styled.div`
   position: absolute;
   width: 8px;
