@@ -6,6 +6,7 @@ import formStyles from 'utils/formStyles';
 import orderIcon from '../../images/icons/order-food-pana.svg';
 
 import AuthFormInput from 'components/AuthFormInput';
+import Password from 'components/RegForm/Password';
 
 import { useDispatch } from 'react-redux';
 
@@ -55,19 +56,7 @@ const LoginForm = () => {
                 </div>
               )}
 
-              <AuthFormInput
-                error={errors.password}
-                touched={touched.password}
-                name="password"
-                type="password"
-                placeholder="Password"
-                {...getFieldProps('password')}
-              />
-              {errors.password && touched.password && (
-                <div style={{ ...formStyles.message.warning }}>
-                  {errors.password}
-                </div>
-              )}
+              <Password />
 
               <FormBtn type="submit">Sign In</FormBtn>
             </Form>

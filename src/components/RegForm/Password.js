@@ -28,7 +28,7 @@ const Password = () => {
         valid={isValid}
         warn={isWarn}
       />
-      <ErrorMessage name="password">
+      <ErrorMessage name="password" style={{ marginTop: '0' }}>
         {msg => <div style={{ ...formStyles.message.error }}>{msg}</div>}
       </ErrorMessage>
 
