@@ -1,40 +1,116 @@
 import { Route, Routes } from 'react-router-dom';
-import { StartScreen } from 'pages';
-import RegisterPage from 'pages/RegisterPage';
-import SignInPage from 'pages/SignInPage';
-import PublicRoute from './PublicRoute';
+import { lazy } from 'react';
 
-import Favorite from '../pages/Favorite/Favorite';
-import MyRecipes from '../pages/MyRecipes/MyRecipes';
-import Footer from './Footer';
-import Head from './Head';
+import PublicRoute from './PublicRoute';
+import PrivateRoute from './PrivatRoute';
+
+import { StartScreen } from 'pages';
+import RegisterPage from '../pages/RegisterPage';
+import SignInPage from '../pages/SignInPage';
+
+const SharedLayout = lazy(() => import('../components/SharedLayout'));
+const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
+const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
+const MyRecipes = lazy(() => import('../pages/MyRecipes/MyRecipes'));
+
+const tempStyles = {
+  paddingTop: 100,
+  paddingBottom: 100,
+  fontSize: 50,
+  textAlign: 'center',
+};
 
 export const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<StartScreen />} />
+    <>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <PublicRoute component={<StartScreen />} redirectTo="/main" />
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <PublicRoute component={<RegisterPage />} redirectTo="/main" />
+          }
+        />
+        <Route
+          path="/signin"
+          element={
+            <PublicRoute component={<SignInPage />} redirectTo="/main" />
+          }
+        />
 
-      <Route
-        path="/register"
-        element={
-          <PublicRoute restricted>
-            <RegisterPage />
-          </PublicRoute>
-        }
-      />
-
-      <Route
-        path="/signin"
-        element={
-          <PublicRoute restricted>
-            <SignInPage />
-          </PublicRoute>
-        }
-      />
-      <Route path="/header" element={<Head />} />
-      <Route path="/footer" element={<Footer />} />
-      <Route path="/favorite" element={<Favorite />} />
-      <Route path="/my" element={<MyRecipes />} />
-    </Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route
+            path="main"
+            index
+            element={<PrivateRoute component={<MainTitle />} />}
+          />
+          <Route
+            path="categories"
+            element={
+              <PrivateRoute
+                component={<div style={tempStyles}>Categories</div>}
+              />
+            }
+          />
+          <Route
+            path="categories/:categoryName"
+            element={
+              <PrivateRoute
+                component={<div style={tempStyles}>CategoriesName</div>}
+              />
+            }
+          />
+          <Route
+            path="search"
+            element={
+              <PrivateRoute component={<div style={tempStyles}>Search</div>} />
+            }
+          />
+          <Route
+            path="add"
+            element={
+              <PrivateRoute component={<div style={tempStyles}>Add</div>} />
+            }
+          />
+          <Route
+            path="my"
+            element={<PrivateRoute component={<Favorite />} />}
+          />
+          <Route
+            path="favorite"
+            element={<PrivateRoute component={<MyRecipes />} />}
+          />
+          <Route
+            path="shopping-list"
+            element={
+              <PrivateRoute
+                component={<div style={tempStyles}>ShoppingList</div>}
+              />
+            }
+          />
+          <Route
+            path="recipe/:recipeId"
+            element={
+              <PrivateRoute
+                component={<div style={tempStyles}>RecipiesPage</div>}
+              />
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <PrivateRoute
+                component={<div style={tempStyles}>NotFound</div>}
+              />
+            }
+          />
+        </Route>
+      </Routes>
+    </>
   );
 };

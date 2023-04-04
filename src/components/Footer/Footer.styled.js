@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+
 import emailIcon from '../../images/icons/email.svg';
 
 import bgMobile from "../../images/bg/footerBG_mobile.webp";
@@ -14,6 +15,8 @@ export const FooterSection = styled.div`
   background-color: ${props => props.theme.colors.accentDark};
   padding-top: 28px;
   padding-bottom: 28px;
+  min-height: 50vh;
+
     @media  ${props => props.theme.device.tablet} {
       padding-top: 50px;
       padding-bottom: 24px;
@@ -21,6 +24,7 @@ export const FooterSection = styled.div`
       padding-right: 32px;
   }
    @media  ${props => props.theme.device.desktop} {
+      min-height: auto;
       padding-top: 64px;
       padding-bottom: 50px;
       padding-left: 100px;
@@ -53,8 +57,6 @@ export const LogoCapLinkWrap = styled.div`
     display: flex;
     justify-content: start;
   }
-
-
 `
 
 export const LogoCapLinkFormWrap = styled.div`

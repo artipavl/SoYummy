@@ -14,13 +14,13 @@ export const DesktopMenu = () => {
       <NavItems>
 
         <NavItem>
-          <Navigator to="/">
+          <Navigator to="/categories">
             Categories
           </Navigator>
         </NavItem>
 
         <NavItem>
-          <Navigator to="/">
+          <Navigator to="/add">
             Add recipes
           </Navigator>
         </NavItem>
@@ -38,13 +38,13 @@ export const DesktopMenu = () => {
         </NavItem>
 
         <NavItem>
-          <Navigator to="/">
+          <Navigator to="/shopping-list">
             Shopping list
           </Navigator>
         </NavItem>
 
         <NavItem>
-          <Navigator to="/">
+          <Navigator to="/search">
             <SearchIcon src={search} alt="search icon" width={24} />
           </Navigator>
         </NavItem>

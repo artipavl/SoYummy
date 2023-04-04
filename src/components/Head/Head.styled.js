@@ -2,9 +2,13 @@ import { NavLink } from "react-router-dom"
 import styled from 'styled-components';
 
 export const Header = styled.header`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   margin: 0 auto;
+  z-index: 999;
 
   @media ${props => props.theme.device.mobile} {
     width: 343px;
