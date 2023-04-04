@@ -1,7 +1,13 @@
 {
   "files": {
     "main.css": "/SoYummy/static/css/main.c7f7c074.css",
-    "main.js": "/SoYummy/static/js/main.73f69477.js",
+    "main.js": "/SoYummy/static/js/main.9e98060c.js",
+    "static/js/953.1f514cf8.chunk.js": "/SoYummy/static/js/953.1f514cf8.chunk.js",
+    "static/js/978.6a9db33e.chunk.js": "/SoYummy/static/js/978.6a9db33e.chunk.js",
+    "static/js/938.65a75c45.chunk.js": "/SoYummy/static/js/938.65a75c45.chunk.js",
+    "static/js/13.03ae3ece.chunk.js": "/SoYummy/static/js/13.03ae3ece.chunk.js",
+    "static/js/482.d69a7983.chunk.js": "/SoYummy/static/js/482.d69a7983.chunk.js",
+    "static/js/875.cb76cc92.chunk.js": "/SoYummy/static/js/875.cb76cc92.chunk.js",
     "static/media/mainBG_Desktop_2x.webp": "/SoYummy/static/media/mainBG_Desktop_2x.fd4ee28321ee80b61045.webp",
     "static/media/mainBG_Tablet_2x.webp": "/SoYummy/static/media/mainBG_Tablet_2x.1ecdc050d4b84aa685a3.webp",
     "static/media/order-food-pana.svg": "/SoYummy/static/media/order-food-pana.ee7f4016a1f4c5ef85265923bf07ebbd.svg",
@@ -33,10 +39,16 @@
     "static/media/cross.svg": "/SoYummy/static/media/cross.cb141696dc3bbdc6b872eb5777cf3281.svg",
     "static/media/burger.svg": "/SoYummy/static/media/burger.99954b2cb14dc7a13c5ef2896bf6c275.svg",
     "main.c7f7c074.css.map": "/SoYummy/static/css/main.c7f7c074.css.map",
-    "main.73f69477.js.map": "/SoYummy/static/js/main.73f69477.js.map"
+    "main.9e98060c.js.map": "/SoYummy/static/js/main.9e98060c.js.map",
+    "953.1f514cf8.chunk.js.map": "/SoYummy/static/js/953.1f514cf8.chunk.js.map",
+    "978.6a9db33e.chunk.js.map": "/SoYummy/static/js/978.6a9db33e.chunk.js.map",
+    "938.65a75c45.chunk.js.map": "/SoYummy/static/js/938.65a75c45.chunk.js.map",
+    "13.03ae3ece.chunk.js.map": "/SoYummy/static/js/13.03ae3ece.chunk.js.map",
+    "482.d69a7983.chunk.js.map": "/SoYummy/static/js/482.d69a7983.chunk.js.map",
+    "875.cb76cc92.chunk.js.map": "/SoYummy/static/js/875.cb76cc92.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c7f7c074.css",
-    "static/js/main.73f69477.js"
+    "static/js/main.9e98060c.js"
   ]
 }
