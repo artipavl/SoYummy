@@ -1,6 +1,22 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { Btn } from 'reusableComponents/Btn/btn.style';
 
 const RecipePage = () => {
+  const { id } = useParams();
+  const [recipeDetails, setRecipeDetails] = useState('');
+
+  const getRecipeById = async recipeId => {
+    return await axios.get(`https://so-yummy-api.onrender.com/api/recipes/${recipeId}`);
+  };
+  useEffect(() => {
+    getRecipeById(id)
+      .then(response => {
+        setRecipeDetails(response.data)
+      console.log(response)})
+      .catch(error => console.error(error));
+  }, [id]);
   return (
     <div>
       <section>

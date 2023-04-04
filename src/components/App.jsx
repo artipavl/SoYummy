@@ -8,6 +8,7 @@ import Favorite from '../pages/Favorite/Favorite';
 import MyRecipes from '../pages/MyRecipes/MyRecipes';
 import Footer from './Footer';
 import Head from './Head';
+import RecipePage from 'pages/RecipePage/RecipePage';
 
 export const App = () => {
   return (
@@ -30,6 +31,7 @@ export const App = () => {
         }
       />
       <Route path="/header" element={<Head />} />
+      <Route path="/recipe/:id" element={<RecipePage />} />
       <Route path="/footer" element={<Footer />} />
       <Route path="/favorite" element={<Favorite />} />
       <Route path="/my" element={<MyRecipes />} />
