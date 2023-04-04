@@ -2,7 +2,7 @@ import { Formik } from 'formik';
 
 import { useDispatch } from 'react-redux';
 
-import authValidationSchema from 'utils/authValidationSchema';
+import { registerValidationSchema } from 'utils/authValidationSchema';
 import formStyles from 'utils/formStyles';
 
 import orderIcon from '../../images/icons/order-food-pana.svg';
@@ -33,7 +33,7 @@ const RegForm = () => {
   return (
     <Formik
       initialValues={{ name: '', email: '', password: '' }}
-      validationSchema={authValidationSchema}
+      validationSchema={registerValidationSchema}
       onSubmit={onSubmit}
     >
       {({ handleSubmit, getFieldProps, touched, errors }) => {

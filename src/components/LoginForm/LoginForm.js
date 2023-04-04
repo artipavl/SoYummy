@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 
-import authValidationSchema from 'utils/authValidationSchema';
+import { loginValidationSchema } from 'utils/authValidationSchema';
 import formStyles from 'utils/formStyles';
 
 import orderIcon from '../../images/icons/order-food-pana.svg';
@@ -30,41 +30,43 @@ const LoginForm = () => {
 
   return (
     <Formik
-      initialValues={{ name: '', email: '', password: '' }}
-      validationSchema={authValidationSchema}
+      initialValues={{ email: '', password: '' }}
+      validationSchema={loginValidationSchema}
       onSubmit={onSubmit}
     >
-      {({ handleSubmit, getFieldProps, touched, errors }) => (
-        <Wrapper>
-          <SignUpLogo src={orderIcon} alt="Sign in gear"></SignUpLogo>
+      {({ handleSubmit, getFieldProps, touched, errors }) => {
+        return (
+          <Wrapper>
+            <SignUpLogo src={orderIcon} alt="Sign in gear"></SignUpLogo>
 
-          <div>
-            <Form onSubmit={handleSubmit}>
-              <FormTitle>Sign In</FormTitle>
+            <div>
+              <Form onSubmit={handleSubmit}>
+                <FormTitle>Sign In</FormTitle>
 
-              <AuthFormInput
-                error={errors.email}
-                touched={touched.email}
-                name="email"
-                type="email"
-                placeholder="Email"
-                {...getFieldProps('email')}
-              />
-              {errors.email && touched.email && (
-                <div style={{ ...formStyles.message.warning }}>
-                  {errors.email}
-                </div>
-              )}
+                <AuthFormInput
+                  error={errors.email}
+                  touched={touched.email}
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  {...getFieldProps('email')}
+                />
+                {errors.email && touched.email && (
+                  <div style={{ ...formStyles.message.warning }}>
+                    {errors.email}
+                  </div>
+                )}
 
-              <Password />
+                <Password />
 
-              <FormBtn type="submit">Sign In</FormBtn>
-            </Form>
+                <FormBtn type="submit">Sign In</FormBtn>
+              </Form>
 
-            <FormNavLink to="/register">Registration</FormNavLink>
-          </div>
-        </Wrapper>
-      )}
+              <FormNavLink to="/register">Registration</FormNavLink>
+            </div>
+          </Wrapper>
+        );
+      }}
     </Formik>
   );
 };

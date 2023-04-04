@@ -6,7 +6,3 @@ export const securePasswordRegExp =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,20}$/;
 
 export const notSecurePasswordRegExp = /^[a-zA-Z0-9]{8,20}$/;
-
-export const val = /^[a-zA-Z0-9]{8,20}$/;
-
-export const notVal = /^[a-zA-Z0-9]{8,20}$/;
