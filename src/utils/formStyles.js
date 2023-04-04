@@ -1,22 +1,22 @@
+const commonFormStyles = {
+  fontSize: '12px',
+  lineHeight: '1.5',
+  marginLeft: '28px',
+};
+
 const formStyles = {
   message: {
     warning: {
+      ...commonFormStyles,
       color: '#F6C23E',
-      fontSize: '14px',
-      lineHeight: '1.5',
-      marginLeft: '28px',
     },
     error: {
+      ...commonFormStyles,
       color: '#E74A3B',
-      fontSize: '14px',
-      lineHeight: '1.5',
-      marginLeft: '28px',
     },
     success: {
+      ...commonFormStyles,
       color: '#3CBC81',
-      fontSize: '14px',
-      lineHeight: '1.5',
-      marginLeft: '28px',
     },
   },
 };

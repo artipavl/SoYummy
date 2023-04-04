@@ -11,26 +11,19 @@ export const Wrapper = styled.div`
     );
 
     padding-bottom: 118px;
-  }
 
-  @media ${props => props.theme.device.tablet} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
-
-  @media ${props => props.theme.device.desktop} {
-  }
-`;
-
-export const FormContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 
   @media ${props => props.theme.device.tablet} {
   }
 
   @media ${props => props.theme.device.desktop} {
     flex-direction: row;
+    height: 100vh;
   }
 `;
 
@@ -45,6 +38,7 @@ export const SignUpLogo = styled.img`
   @media ${props => props.theme.device.desktop} {
     width: 532px;
     margin-right: 115px;
+    margin-top: 0;
   }
 `;
 
@@ -74,7 +68,6 @@ export const FormTitle = styled.h1`
   font-weight: ${props => props.theme.fontWeights.bold};
   font-size: 24px;
   line-height: 1.17;
-  letter-spacing: -0.02em;
 
   color: ${props => props.theme.colors.textWhite};
 
@@ -107,6 +100,7 @@ export const FormBtn = styled.button`
   @media ${props => props.theme.device.tablet} {
     margin-top: 50px;
     margin-bottom: 44px;
+
     height: 59px;
   }
 
@@ -129,7 +123,5 @@ export const FormNavLink = styled(Link)`
   }
 
   @media ${props => props.theme.device.desktop} {
-    position: absolute;
-    right: 400px;
   }
 `;
