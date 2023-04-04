@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
 
 import ThemeToogle from 'components/ThemeToogle';
 import DesktopMenu from './DesktopMenu';
@@ -10,7 +9,6 @@ import lightLogo from '../../images/icons/logo-Lite-Icon.svg'
 import tempUserIcon from '../../images/icons/temp-user-icon.png';
 import burgerIcon from '../../images/icons/burger.svg'
 
-import { selectIsLoading } from 'redux/selectors';
 
 import {
   Header,
