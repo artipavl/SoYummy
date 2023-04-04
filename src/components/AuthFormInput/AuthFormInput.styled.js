@@ -12,9 +12,9 @@ export const FormValueContainer = styled.div`
   display: flex;
   position: relative;
 
-  margin-bottom: ${({ error, touched }) => {
-    return error && touched ? '0' : '12px';
-  }};
+  &:not(:first-of-type) {
+    margin-top: 12px;
+  }
 
   &::before {
     content: '';
@@ -79,18 +79,15 @@ export const FormValue = styled.input`
 
   opacity: 0.8;
 
-  border-color: ${({ error, value }) => {
-    if (!value) {
+  border-color: ${({ error, value, warn, touched }) => {
+    if (!value || warn || !touched) {
       return 'inherit';
     }
 
     if (error) {
-      if (value.length < 8) {
-        return formStyles.message.error.color;
-      } else {
-        return 'inherit';
-      }
+      return formStyles.message.error.color;
     }
+
     return formStyles.message.success.color;
   }};
 
