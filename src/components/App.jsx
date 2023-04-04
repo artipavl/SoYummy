@@ -48,43 +48,67 @@ export const App = () => {
           <Route
             path="main"
             index
-            element={<PrivateRoute component={<MainTitle/>} />}
+            element={<PrivateRoute component={<MainTitle />} />}
           />
           <Route
             path="categories"
-            element={<PrivateRoute component={<div style={tempStyles}>Categories</div>} />}
+            element={
+              <PrivateRoute
+                component={<div style={tempStyles}>Categories</div>}
+              />
+            }
           />
           <Route
             path="categories/:categoryName"
-            element={<PrivateRoute component={<div style={tempStyles}>CategoriesName</div>} />}
+            element={
+              <PrivateRoute
+                component={<div style={tempStyles}>CategoriesName</div>}
+              />
+            }
           />
           <Route
             path="search"
-            element={<PrivateRoute component={<div style={tempStyles}>Search</div>} />}
+            element={
+              <PrivateRoute component={<div style={tempStyles}>Search</div>} />
+            }
           />
           <Route
             path="add"
-            element={<PrivateRoute component={<div style={tempStyles}>Add</div>} />}
+            element={
+              <PrivateRoute component={<div style={tempStyles}>Add</div>} />
+            }
           />
           <Route
             path="my"
-            element={<PrivateRoute component={<Favorite />} />}
-          />
-          <Route
-            path="favorite"
             element={<PrivateRoute component={<MyRecipes />} />}
           />
           <Route
+            path="favorite"
+            element={<PrivateRoute component={<Favorite />} />}
+          />
+          <Route
             path="shopping-list"
-            element={<PrivateRoute component={<div style={tempStyles}>ShoppingList</div>} />}
+            element={
+              <PrivateRoute
+                component={<div style={tempStyles}>ShoppingList</div>}
+              />
+            }
           />
           <Route
             path="recipe/:recipeId"
-            element={<PrivateRoute component={<div style={tempStyles}>RecipiesPage</div>} />}
+            element={
+              <PrivateRoute
+                component={<div style={tempStyles}>RecipiesPage</div>}
+              />
+            }
           />
           <Route
             path="*"
-            element={<PrivateRoute component={<div style={tempStyles}>NotFound</div>} />}
+            element={
+              <PrivateRoute
+                component={<div style={tempStyles}>NotFound</div>}
+              />
+            }
           />
         </Route>
       </Routes>

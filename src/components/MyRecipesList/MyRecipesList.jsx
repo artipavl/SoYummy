@@ -2,11 +2,9 @@ import { useEffect, useState } from 'react';
 // import { useLocation } from 'react-router';
 import { getMyRecipes } from 'api/index';
 import MyRecipeItem from 'components/MyRecipeItem/MyRecipeItem';
+import { Loader } from '../Loader/Loader';
 
-import {
-  List,
-  ListText,
-} from '../FavoriteList/FavoriteList.styled';
+import { List, ListText, LoaderBox } from '../FavoriteList/FavoriteList.styled';
 
 const MyRecipesList = () => {
   const [loading, setLoading] = useState(true);
@@ -30,8 +28,12 @@ const MyRecipesList = () => {
 
   return (
     <List>
-      {/* {loading && <Loader />} */}
-      {!loading ? (
+      {loading && (
+        <LoaderBox>
+          <Loader />
+        </LoaderBox>
+      )}
+      {allRecipes.length !== 0 && !loading ? (
         allRecipes.map(({ description, preview, time, title, _id }) => (
           <MyRecipeItem
             key={_id.$oid}
