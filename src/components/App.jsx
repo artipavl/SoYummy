@@ -90,11 +90,11 @@ export const App = () => {
           />
           <Route
             path="my"
-            element={<PrivateRoute component={<Favorite />} />}
+            element={<PrivateRoute component={<MyRecipes />} />}
           />
           <Route
             path="favorite"
-            element={<PrivateRoute component={<MyRecipes />} />}
+            element={<PrivateRoute component={<Favorite />} />}
           />
           <Route
             path="shopping-list"

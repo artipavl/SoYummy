@@ -162,8 +162,6 @@ export const ButtonRecipe = styled.button`
     bottom: -20px;
   }
   @media ${props => props.theme.device.desktop} {
-    font-size: 24px;
-    width: 44px;
-    height: 44px;
+    bottom: -30px;
   }
 `;
