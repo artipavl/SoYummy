@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import ThemeToogle from 'components/ThemeToogle';
 import DesktopMenu from './DesktopMenu';
@@ -8,6 +9,8 @@ import logo from '../../images/icons/logo_Desktop.svg';
 import lightLogo from '../../images/icons/logo-Lite-Icon.svg'
 import tempUserIcon from '../../images/icons/temp-user-icon.png';
 import burgerIcon from '../../images/icons/burger.svg'
+
+import { selectIsLoading } from 'redux/selectors';
 
 import {
   Header,
@@ -31,12 +34,16 @@ export const Head = () => {
 
   const handleMenuClick = () => {
     setOpen(!open);
+    if (open) {
+       document.body.classList.add('modal-open');
+    } if (!open) {
+      document.body.classList.remove('modal-open');
+    }
   };
-
 
   return (
     <Header>
-      <LinkLogo to="/">
+      <LinkLogo to="/main">
         <NavLogo src={logo} alt='logo' />
         <NavLogoLite src={lightLogo} alt="logo" width={40} />
       </LinkLogo>
@@ -53,6 +60,7 @@ export const Head = () => {
 
       <UserWrap>
         <UserIcon src={tempUserIcon} alt="temp user icon" width={44} />
+
         <UserName>Olena</UserName>
       </UserWrap>
 
