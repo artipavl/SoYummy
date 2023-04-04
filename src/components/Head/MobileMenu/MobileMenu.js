@@ -24,7 +24,7 @@ export const MobileMenu = ({openState, handleMenuClick, children}) => {
   return (
     <MobileMenuSection className={openState ? "open" : ""}>
       <MobileMenuHeader>
-        <LinkLogo to="/">
+        <LinkLogo to="/main">
           <NavLogo src={logo} alt='logo' width={40} />
         </LinkLogo>
         <button onClick={handleMenuClick}>
@@ -38,13 +38,13 @@ export const MobileMenu = ({openState, handleMenuClick, children}) => {
         <NavItems>
 
           <NavItem>
-            <Navigator to="/">
+            <Navigator to="/categories">
               Categories
             </Navigator>
           </NavItem>
 
           <NavItem>
-            <Navigator to="/">
+            <Navigator to="/add">
               Add recipes
             </Navigator>
           </NavItem>
@@ -62,13 +62,13 @@ export const MobileMenu = ({openState, handleMenuClick, children}) => {
           </NavItem>
 
           <NavItem>
-            <Navigator to="/">
+            <Navigator to="/shopping-list">
               Shopping list
             </Navigator>
           </NavItem>
 
           <NavItem>
-            <Navigator to="/">
+            <Navigator to="/search">
               <SearchIcon src={search} alt="search icon" width={24} height={24} />
               <SearchText>Search</SearchText>
             </Navigator>
