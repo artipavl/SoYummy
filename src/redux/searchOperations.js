@@ -4,11 +4,16 @@ import axios from 'axios';
 
 export const searchRecipes = createAsyncThunk(
   'search/searchRecipes',
-  async (_, thunkAPI) => {
-    const response = await axios.get('/recipes/search/:title');
+  async ({ recipe }, thunkAPI) => {
+    console.log(recipe);
+    try {
+      const response = await axios.get(`/recipes/searchByIngredient`);
 
-    console.log(response.data);
+      console.log(response.data.data);
 
-    return response.data;
+      return response.data.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e);
+    }
   }
 );

@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { searchRecipes } from './searchOperations';
 
 const initialState = {
+  filter: '',
   ingredients: [],
 };
 
@@ -11,6 +12,7 @@ export const searchSlice = createSlice({
   initialState,
   extraReducers: {
     [searchRecipes.fulfilled](state, action) {
+      console.log(state.filter);
       console.log(action.payload);
     },
     [searchRecipes.pending](state, action) {},
