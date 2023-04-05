@@ -1,27 +1,31 @@
-import BtnJs from "reusableComponents/BtnJs/BtnJs";
+import BtnJs from 'reusableComponents/BtnJs/BtnJs';
+import clocks from 'images/icons/clocks.svg';
+import { ButtonWrap, HeroSection, HeroTitle, IconClocks, RecepyDescr, RecipeTime, RecipeTimeWrapper} from './RecipeHero.styled';
+import { Container } from 'reusableComponents/Container/Container.styled';
 
-const RecipeHero = ({title, description, onBtnClick, time}) => {
-    return (
-        <section>
-        {/* Recipe name from API */}
-        <h1>{title}</h1>
-        {/* recipe describe from API */}
-        <p>{description}</p>
+const RecipeHero = ({ title, description, onBtnClick, time }) => {
+  return (
+    <HeroSection>
+      <Container>
+        <HeroTitle>{title}</HeroTitle>
+        <RecepyDescr>{description}</RecepyDescr>
+        <ButtonWrap>
         <BtnJs
           name={'Add to favorites'}
           onClick={onBtnClick}
-          variant={'normal'}
+          variant={'transparent'}
         />
-        <div>
-          <svg>
-            <use href="../images/icons/placeholders.svg#ph-apple-57px"></use>
-          </svg>
-          {/* Time data from API
-              timeData? <p>timeData</p> */}
-          <p>{`${time} min`}</p>
-        </div>
-      </section>
-    )
-}
+        </ButtonWrap>
+
+        <RecipeTimeWrapper>
+          <IconClocks>
+            <use href={clocks + '#clocks-desk'}></use>
+          </IconClocks>
+          {time && <RecipeTime>{`${time} min`}</RecipeTime>}
+        </RecipeTimeWrapper>
+      </Container>
+    </HeroSection>
+  );
+};
 
 export default RecipeHero;

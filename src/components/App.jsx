@@ -109,11 +109,11 @@ export const App = () => {
           />
           <Route
             path="recipe/:recipeId"
-            element={
-              <PrivateRoute
-                component={<RecipePage/>}
-              />
-            }
+            element={<RecipePage />}
+            //   <PrivateRoute
+            //     component={<RecipePage/>}
+            //   />
+            // }
           />
           <Route
             path="*"

@@ -1,7 +1,6 @@
 // import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
 import data from './data';
 import RecipeHero from 'components/RecipeHero/RecipeHero';
 import RecipeIngredients from 'components/RecipeIngredients/RecipeIngredients';
@@ -37,8 +36,12 @@ const RecipePage = () => {
         time={recipe.time}
         onBtnClick={onBtnClick}
       ></RecipeHero>
-      <RecipeIngredients></RecipeIngredients>
-      <RecipeInstructions instructions={instructions} picture={recipe.preview} alt={recipe.title}></RecipeInstructions>
+      {/* <RecipeIngredients></RecipeIngredients>
+      <RecipeInstructions
+        instructions={instructions}
+        picture={recipe.preview}
+        alt={recipe.title}
+      ></RecipeInstructions> */}
     </div>
   );
 };

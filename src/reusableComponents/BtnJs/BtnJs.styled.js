@@ -12,8 +12,18 @@ export const BtnJsStyled = styled.button`
   clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%);
   padding: 14px 6px;
 
-  border: none;
-  color: ${theme.colors.white};
+  border: ${props =>
+    ({
+      normal: 'none',
+      dark: 'none',
+      transparent: '1px solid #8BAA36',
+    }[props.variant])};
+  color: ${props =>
+    ({
+      normal: theme.colors.white,
+      dark: theme.colors.white,
+      transparent: theme.colors.accentDark,
+    }[props.variant])};
   transition: all 250ms linear;
 
   font-family: 'Poppins';
