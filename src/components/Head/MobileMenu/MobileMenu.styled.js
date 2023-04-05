@@ -8,15 +8,21 @@ import BgTabletRetina from '../../../images/bg/menuBG_Tablet@2x.webp'
 
 export const MobileMenuSection = styled.section`
   box-sizing: border-box;
-  position: fixed;
+  position: absolute;
   background-color: #EBF3D4;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 100% 100%;
-  top:50%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  height: 100vh;
+
+  /* right:50%;
+  bottom: 50%; */
+  top: 0;
+  left: 0;
+  /* transform: translateX(-50%);
+  transform: translateY(50%); */
+  /* transform:translate(-50%, -50%); */
+  min-height: 85vh;
+  /* min-width: 100vw; */
   z-index: 999;
   opacity: 0;
   visibility: hidden;

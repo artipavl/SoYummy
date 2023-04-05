@@ -30,7 +30,7 @@ export const ImgBox = styled.div`
   display: block;
   height: 100%;
   min-width: 152px;
-  background: url(${props => props.imgUrl});
+  background: #d9d9d9;
   border-radius: 8px;
   overflow: hidden;
 
@@ -41,7 +41,7 @@ export const ImgBox = styled.div`
   @media ${props => props.theme.device.desktop} {
     min-width: 404px;
   }
-`
+`;
 
 export const Image = styled.img`
   height: 100%;
@@ -52,36 +52,42 @@ export const Image = styled.img`
 export const Info = styled.div`
   position: relative;
   width: 100%;
-`
+
+  padding-left: 14px;
+
+  @media ${props => props.theme.device.tablet} {
+    padding-left: 24px;
+  }
+  @media ${props => props.theme.device.desktop} {
+    padding-left: 54px;
+  }
+`;
+
 export const Title = styled.h3`
-  position: absolute;
-  top: 0;
-  left: 14px;
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 100%;
   letter-spacing: -0.24px;
-  color: #3E4462;
+  color: #3e4462;
   padding-right: 24px;
+  margin-bottom: 14px;
 
   @media ${props => props.theme.device.tablet} {
-    left: 24px;
     font-size: 24px;
     line-height: 24px;
     padding-right: 38px;
+    margin-bottom: 28px;
   }
+
   @media ${props => props.theme.device.desktop} {
-    left: 54px;
     padding-right: 44px;
+    margin-bottom: 40px;
   }
-`
+`;
 
 export const Description = styled.p`
-  position: absolute;
-  top: 34px;
-  left: 14px;
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
@@ -91,14 +97,10 @@ export const Description = styled.p`
   color: #23262A;
 
   @media ${props => props.theme.device.tablet} {
-    top: 52px;
-    left: 24px;
     font-size: 14px;
     line-height: 129%;
   }
   @media ${props => props.theme.device.desktop} {
-    top: 64px;
-    left: 54px;
     font-size: 18px;
     line-height: 133%;
   }
@@ -125,3 +127,41 @@ export const Time = styled.div`
     left: 54px;
   }
 `
+export const ButtonDelete = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+
+  :hover,
+  :focus {
+    scale: 1.1;
+  }
+
+  @media ${props => props.theme.device.tablet} {
+    font-size: 22px;
+    width: 38px;
+    height: 38px;
+  }
+  @media ${props => props.theme.device.desktop} {
+    font-size: 24px;
+    width: 44px;
+    height: 44px;
+  }
+`
+export const ButtonRecipe = styled.button`
+  position: absolute;
+  bottom: -8px;
+  right: 0;
+
+  @media ${props => props.theme.device.tablet} {
+    bottom: -20px;
+  }
+  @media ${props => props.theme.device.desktop} {
+    bottom: -30px;
+  }
+`;

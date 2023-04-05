@@ -2,14 +2,9 @@ import { useEffect, useState } from 'react';
 // import { useLocation } from 'react-router';
 import { getMyRecipes } from 'api/index';
 import MyRecipeItem from 'components/MyRecipeItem/MyRecipeItem';
+import { Loader } from '../Loader/Loader';
 
-import css from './MyRecipesList.module.css';
-import {
-  MyList,
-  MyRecipeListText,
-  // ButtonDelete,
-  // ButtonRecipe,
-} from './MyRecipesList.styled.js';
+import { List, ListText, LoaderBox } from '../FavoriteList/FavoriteList.styled';
 
 const MyRecipesList = () => {
   const [loading, setLoading] = useState(true);
@@ -32,9 +27,13 @@ const MyRecipesList = () => {
   }, []);
 
   return (
-    <MyList>
-      {/* {loading && <Loader />} */}
-      {!loading ? (
+    <List>
+      {loading && (
+        <LoaderBox>
+          <Loader />
+        </LoaderBox>
+      )}
+      {allRecipes.length !== 0 && !loading ? (
         allRecipes.map(({ description, preview, time, title, _id }) => (
           <MyRecipeItem
             key={_id.$oid}
@@ -44,17 +43,15 @@ const MyRecipesList = () => {
             title={title}
             id={_id}
             // handelDelete={handelDelete}
-            ButtonDelete={css.buttonDelete}
-            ButtonRecipe={css.buttonRecipe}
-            // eslint-disable-next-line react/style-prop-object
-            style="dark"
+            styleDel="white"
+            styleBtn="dark"
           />
         ))
       ) : (
-        <MyRecipeListText>You don't have your recipes</MyRecipeListText>
+        <ListText>You don't have your recipes</ListText>
       )}
       {/* { <Paginator /> } */}
-    </MyList>
+    </List>
   );
 };
 

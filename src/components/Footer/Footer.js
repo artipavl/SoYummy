@@ -55,7 +55,7 @@ export const Footer = () => {
           <LogoCapLinkFormWrap>
           <LogoCapLinkWrap>
           <LogoCapWrap>
-            <LogoLink to="/">
+            <LogoLink to="/main">
               <LogoImg src={logo} alt='logo' width={32} />
               <LogoTitle>So Yummy</LogoTitle>
             </LogoLink>
@@ -84,10 +84,10 @@ export const Footer = () => {
           <nav>
             <FooterLinkWrap>
               <li><FooterLink to='/'>Ingredients</FooterLink></li>
-              <li><FooterLink to='/'>Add recipes</FooterLink></li>
-              <li><FooterLink to='/'>My recipes</FooterLink></li>
-              <li><FooterLink to='/'>Favorite</FooterLink></li>
-              <li><FooterLink to='/'>Shopping list</FooterLink></li>
+              <li><FooterLink to='/add'>Add recipes</FooterLink></li>
+              <li><FooterLink to='/my'>My recipes</FooterLink></li>
+              <li><FooterLink to='/favorite'>Favorite</FooterLink></li>
+              <li><FooterLink to='/shopping-list'>Shopping list</FooterLink></li>
             </FooterLinkWrap>
             </nav>
             </LogoCapLinkWrap>
