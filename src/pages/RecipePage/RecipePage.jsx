@@ -1,9 +1,11 @@
 // import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
 import data from './data';
 import RecipeHero from 'components/RecipeHero/RecipeHero';
 import RecipeIngredients from 'components/RecipeIngredients/RecipeIngredients';
+import RecipeInstructions from 'components/RecipeInstructions/RecipeInstructions';
 
 const RecipePage = () => {
   const { id } = useParams();
@@ -26,7 +28,7 @@ const RecipePage = () => {
     //   .catch(error => console.error(error));
     setRecipe(data);
     setInstructions(data.instructions.split('\r\n\r\n'));
-  }, [id]);
+  }, []);
   return (
     <div>
       <RecipeHero
@@ -36,27 +38,7 @@ const RecipePage = () => {
         onBtnClick={onBtnClick}
       ></RecipeHero>
       <RecipeIngredients></RecipeIngredients>
-      <section>
-        <h2>Recipe preparation</h2>
-        {/* Preparation list from API */}
-        <ol>
-          {instructions.map(instruction => {
-            return (
-              <li key={instruction.slice(0, 5)}>
-                <p>{instruction}</p>
-              </li>
-            );
-          })}
-        </ol>
-        {recipe.preview ? (
-          <img src={recipe.preview} alt={recipe.title}></img>
-        ) : (
-          <img
-            src={'../images/placeholders.svg#ph-img-300px'}
-            alt={recipe.title}
-          ></img>
-        )}
-      </section>
+      <RecipeInstructions instructions={instructions} picture={recipe.preview} alt={recipe.title}></RecipeInstructions>
     </div>
   );
 };
