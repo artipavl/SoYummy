@@ -32,7 +32,7 @@ const RecipeIngredients = () => {
             {/* ImageFromAPi ? <ImageFromApi/> : <Placeholder/> */}
             <FlexWrapper>
               <IngredientPlaceholder>
-              <use href={placeholders + '#ph-apple-60px'}/>
+              <use href={placeholders + '#ph-apple-57px'}/>
             </IngredientPlaceholder>
             <img src='' alt="" />
             <IngredientName>Salmon</IngredientName>

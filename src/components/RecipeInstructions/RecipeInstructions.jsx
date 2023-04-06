@@ -1,31 +1,45 @@
 import { nanoid } from '@reduxjs/toolkit';
-import { InstructionItem, InstructionText, InstructionsList, InstructionsSection, InstructionsTitle, RecipeImg } from './RecipeInstructions.styled';
-import { Container } from 'reusableComponents/Container/Container.styled';
+import {
+  ContentWrapper,
+  DesktopFlex,
+  InstructionItem,
+  InstructionText,
+  InstructionsList,
+  InstructionsSection,
+  InstructionsTitle,
+  ItemNumber,
+  RecipeImg,
+} from './RecipeInstructions.styled';
 
 const RecipeInstructions = ({ instructions, picture, alt }) => {
-  return (<InstructionsSection>
-    <Container>
-      <InstructionsTitle>Recipe preparation</InstructionsTitle>
-        {/* Preparation list from API */}
-        <InstructionsList>
-          {instructions.map(instruction => {
-            return (
-              <InstructionItem key={nanoid()}>
-                <InstructionText>{instruction}</InstructionText>
-              </InstructionItem>
-            );
-          })}
-        </InstructionsList>
+  return (
+    <InstructionsSection>
+      <DesktopFlex>
+        <ContentWrapper>
+          <InstructionsTitle>Recipe preparation</InstructionsTitle>
+          {/* Preparation list from API */}
+          <InstructionsList>
+            {instructions.map(instruction => {
+              return (
+                <InstructionItem key={nanoid()}>
+                  <ItemNumber>{instructions.indexOf(instruction) + 1}</ItemNumber>
+                  <InstructionText>{instruction}.</InstructionText>
+                </InstructionItem>
+              );
+            })}
+          </InstructionsList>
+        </ContentWrapper>
         {picture ? (
-          <img src={picture} alt={alt}></img>
+          <RecipeImg src={picture} alt={alt}></RecipeImg>
         ) : (
           <RecipeImg
             src={'../images/placeholders.svg#ph-img-300px'}
             alt={alt}
           ></RecipeImg>
         )}
-      </Container>
-      </InstructionsSection>)
-}
+      </DesktopFlex>
+    </InstructionsSection>
+  );
+};
 
 export default RecipeInstructions;

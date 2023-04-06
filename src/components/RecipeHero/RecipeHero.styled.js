@@ -84,6 +84,38 @@ export const RecepyDescr = styled.p`
   }
 `;
 
+export const FavoriteBtn = styled.button`
+  padding: 22px 44px;
+  background-color: transparent;
+  color: #22252a;
+  border-radius: 24px 44px;
+  border: 1px solid ${props => props.theme.colors.accent};
+  transition: all 250ms linear;
+
+  &:hover,
+  &:focus {
+    background-color: ${props => props.theme.colors.accent};
+    border: 1px solid ${props => props.theme.colors.accent};
+
+    @media ${props => props.theme.device.mobile} {
+      padding: 12px 24px;
+      font-size: 14px;
+
+      &:last-child {
+        margin-left: 14px;
+      }
+      @media ${props => props.theme.device.tablet} {
+        padding: 22px 44px;
+        font-size: 16px;
+
+        &:last-child {
+          margin-left: 18px;
+        }
+      }
+    }
+  }
+`;
+
 export const ButtonWrap = styled.div`
   text-align: center;
   margin-bottom: 42px;

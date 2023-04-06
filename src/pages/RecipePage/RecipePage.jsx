@@ -26,7 +26,7 @@ const RecipePage = () => {
     //   console.log(response.data.data.result)})
     //   .catch(error => console.error(error));
     setRecipe(data);
-    setInstructions(data.instructions.split('\r\n\r\n'));
+    setInstructions(data.instructions.split('. '));
   }, []);
   return (
     <div>

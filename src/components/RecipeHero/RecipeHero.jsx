@@ -1,6 +1,5 @@
-import BtnJs from 'reusableComponents/BtnJs/BtnJs';
 import clocks from 'images/icons/clocks.svg';
-import { ButtonWrap, HeroSection, HeroTitle, IconClocks, RecepyDescr, RecipeTime, RecipeTimeWrapper} from './RecipeHero.styled';
+import { ButtonWrap, FavoriteBtn, HeroSection, HeroTitle, IconClocks, RecepyDescr, RecipeTime, RecipeTimeWrapper} from './RecipeHero.styled';
 import { Container } from 'reusableComponents/Container/Container.styled';
 
 const RecipeHero = ({ title, description, onBtnClick, time }) => {
@@ -10,11 +9,9 @@ const RecipeHero = ({ title, description, onBtnClick, time }) => {
         <HeroTitle>{title}</HeroTitle>
         <RecepyDescr>{description}</RecepyDescr>
         <ButtonWrap>
-        <BtnJs
-          name={'Add to favorites'}
+        <FavoriteBtn
           onClick={onBtnClick}
-          variant={'transparent'}
-        />
+        >Add to favorites</FavoriteBtn>
         </ButtonWrap>
 
         <RecipeTimeWrapper>
