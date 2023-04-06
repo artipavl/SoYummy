@@ -20,7 +20,7 @@ export const searchSlice = createSlice({
       state.isLoading = true;
     },
     [searchRecipes.rejected](state, action) {
-      state.isError = action.payload;
+      state.isError = true;
       console.log(action.payload);
     },
   },

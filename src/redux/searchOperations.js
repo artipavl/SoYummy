@@ -8,9 +8,9 @@ export const searchRecipes = createAsyncThunk(
     try {
       const response = await axios.get(`/recipes/search?title=${query}`);
 
-      console.log(response.data.data);
+      console.log(response.data.data.result);
 
-      return response.data.data;
+      return response.data.data.result;
     } catch (e) {
       return thunkAPI.rejectWithValue(e);
     }
