@@ -1,4 +1,4 @@
-import { FormValue } from './AuthFormInput.styled';
+import { FormValue, FormValueContainer } from './AuthFormInput.styled';
 
 const AuthFormInput = ({
   name,
@@ -7,16 +7,29 @@ const AuthFormInput = ({
   onChange,
   onBlur,
   value,
+  error,
+  touched,
+  warn,
 }) => {
   return (
-    <FormValue
-      name={name}
-      type={type}
-      placeholder={placeholder}
-      onChange={onChange}
-      onBlur={onBlur}
+    <FormValueContainer
+      error={error}
+      touched={touched}
       value={value}
-    />
+      warn={warn}
+    >
+      <FormValue
+        name={name}
+        type={type}
+        placeholder={placeholder}
+        onChange={onChange}
+        onBlur={onBlur}
+        value={value}
+        error={error}
+        touched={touched}
+        warn={warn}
+      />
+    </FormValueContainer>
   );
 };
 

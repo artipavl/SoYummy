@@ -1,17 +1,24 @@
 import * as Yup from 'yup';
 
-import { nameRegExp, emailRegExp, passwordRegExp } from './regExp';
+import { nameRegExp, emailRegExp, notSecurePasswordRegExp } from './regExp';
 
-const authValidationSchema = Yup.object({
+export const registerValidationSchema = Yup.object({
   name: Yup.string()
-    .matches(nameRegExp, 'Name must contain only letters')
-    .required('Required'),
+    .required('Name is required')
+    .matches(nameRegExp, 'Name must contain only letters'),
   email: Yup.string()
-    .matches(emailRegExp, 'Invalid email address')
-    .required('Required'),
+    .required('Email is required')
+    .matches(emailRegExp, 'Invalid email address'),
   password: Yup.string()
-    .matches(passwordRegExp, 'Your password is little secure')
-    .required('Required'),
+    .required('Password is required')
+    .matches(notSecurePasswordRegExp, 'Enter a valid Password'),
 });
 
-export default authValidationSchema;
+export const loginValidationSchema = Yup.object({
+  email: Yup.string()
+    .required('Email is required')
+    .matches(emailRegExp, 'Invalid email address'),
+  password: Yup.string()
+    .required('Password is required')
+    .matches(notSecurePasswordRegExp, 'Enter a valid Password'),
+});

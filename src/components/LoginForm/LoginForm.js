@@ -1,9 +1,16 @@
 import { Formik } from 'formik';
-import authValidationSchema from 'utils/authValidationSchema';
+
+import { loginValidationSchema } from 'utils/authValidationSchema';
+import formStyles from 'utils/formStyles';
 
 import orderIcon from '../../images/icons/order-food-pana.svg';
 
 import AuthFormInput from 'components/AuthFormInput';
+import Password from 'components/RegForm/Password';
+
+import { useDispatch } from 'react-redux';
+
+import { login } from 'redux/authOperations';
 
 import {
   Wrapper,
@@ -15,46 +22,51 @@ import {
 } from '../../utils/CombinedFormStyles.styled';
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
+
   const onSubmit = values => {
-    alert(JSON.stringify(values, null, 2));
+    dispatch(login(values));
   };
 
   return (
     <Formik
-      initialValues={{ name: '', email: '', password: '' }}
-      authValidationSchema={authValidationSchema}
+      initialValues={{ email: '', password: '' }}
+      validationSchema={loginValidationSchema}
       onSubmit={onSubmit}
     >
-      {formik => (
-        <Wrapper>
-          <SignUpLogo src={orderIcon} alt="Sign up logo"></SignUpLogo>
+      {({ handleSubmit, getFieldProps, touched, errors }) => {
+        return (
+          <Wrapper>
+            <SignUpLogo src={orderIcon} alt="Sign in gear"></SignUpLogo>
 
-          <Form onSubmit={formik.handleSubmit}>
-            <FormTitle>Sign In</FormTitle>
+            <div>
+              <Form onSubmit={handleSubmit}>
+                <FormTitle>Sign In</FormTitle>
 
-            <AuthFormInput
-              name="email"
-              type="email"
-              placeholder="Email"
-              {...formik.getFieldProps('email')}
-            />
+                <AuthFormInput
+                  error={errors.email}
+                  touched={touched.email}
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  {...getFieldProps('email')}
+                />
+                {errors.email && touched.email && (
+                  <div style={{ ...formStyles.message.warning }}>
+                    {errors.email}
+                  </div>
+                )}
 
-            <AuthFormInput
-              name="password"
-              type="password"
-              placeholder="Password"
-              {...formik.getFieldProps('password')}
-            />
+                <Password />
 
-            {formik.touched.password && formik.errors.password ? (
-              <div>{formik.errors.password}</div>
-            ) : null}
-            <FormBtn type="submit">Sign up</FormBtn>
-          </Form>
+                <FormBtn type="submit">Sign In</FormBtn>
+              </Form>
 
-          <FormNavLink to="/register">Registration</FormNavLink>
-        </Wrapper>
-      )}
+              <FormNavLink to="/register">Registration</FormNavLink>
+            </div>
+          </Wrapper>
+        );
+      }}
     </Formik>
   );
 };

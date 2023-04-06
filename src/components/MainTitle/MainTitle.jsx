@@ -1,9 +1,16 @@
-import css from './MainTitle.module.css';
+import { Title, Green1, Green2, Black1 } from './MainTitle.styled';
+
+
 
 const MainTitle = ({ text }) => {
   return (
-    <h2 className={css.mainTitle}>{text}</h2>
-  )
+    <Title>
+      {text}
+      <Green1></Green1>
+      <Green2></Green2>
+      <Black1></Black1>
+    </Title>
+  );
 };
 
 export default MainTitle;

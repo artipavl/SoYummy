@@ -1,12 +1,12 @@
 import MyRecipesList from 'components/MyRecipesList/MyRecipesList';
 import MainTitle from 'components/MainTitle/MainTitle';
-import css from '../Favorite/Favorite.module.css';
+import { Page } from '../Favorite/Favorite.styled';
 
 const MyRecipes = () => (
-  <section className={css.favorite}>
+  <Page>
     <MainTitle text="My recipes" />
     <MyRecipesList />
-  </section>
+  </Page>
 );
 
 export default MyRecipes;
