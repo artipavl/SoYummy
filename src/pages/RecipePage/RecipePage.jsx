@@ -36,12 +36,12 @@ const RecipePage = () => {
         time={recipe.time}
         onBtnClick={onBtnClick}
       ></RecipeHero>
-      {/* <RecipeIngredients></RecipeIngredients>
+      <RecipeIngredients></RecipeIngredients>
       <RecipeInstructions
         instructions={instructions}
         picture={recipe.preview}
         alt={recipe.title}
-      ></RecipeInstructions> */}
+      ></RecipeInstructions>
     </div>
   );
 };

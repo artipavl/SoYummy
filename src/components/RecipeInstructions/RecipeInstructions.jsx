@@ -1,27 +1,31 @@
 import { nanoid } from '@reduxjs/toolkit';
+import { InstructionItem, InstructionText, InstructionsList, InstructionsSection, InstructionsTitle, RecipeImg } from './RecipeInstructions.styled';
+import { Container } from 'reusableComponents/Container/Container.styled';
 
 const RecipeInstructions = ({ instructions, picture, alt }) => {
-    return (      <section>
-        <h2>Recipe preparation</h2>
+  return (<InstructionsSection>
+    <Container>
+      <InstructionsTitle>Recipe preparation</InstructionsTitle>
         {/* Preparation list from API */}
-        <ol>
+        <InstructionsList>
           {instructions.map(instruction => {
             return (
-              <li key={nanoid()}>
-                <p>{instruction}</p>
-              </li>
+              <InstructionItem key={nanoid()}>
+                <InstructionText>{instruction}</InstructionText>
+              </InstructionItem>
             );
           })}
-        </ol>
+        </InstructionsList>
         {picture ? (
           <img src={picture} alt={alt}></img>
         ) : (
-          <img
+          <RecipeImg
             src={'../images/placeholders.svg#ph-img-300px'}
             alt={alt}
-          ></img>
+          ></RecipeImg>
         )}
-      </section>)
+      </Container>
+      </InstructionsSection>)
 }
 
 export default RecipeInstructions;
