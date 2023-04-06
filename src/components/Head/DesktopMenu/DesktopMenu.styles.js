@@ -2,9 +2,8 @@ import { NavLink } from "react-router-dom"
 import styled from 'styled-components';
 
 export const NavStyled = styled.nav`
-@media ${props => props.theme.device.mobile}{
-  display: none
-}
+display: none;
+
 
 @media ${props => props.theme.device.desktop}{
   display: block;
