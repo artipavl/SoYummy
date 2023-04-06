@@ -10,7 +10,7 @@ const SearchedRecipesList = () => {
   return (
     <ul>
       {results.map(({ _id, title }) => {
-        return <SearchedRecipesItem key={_id} />;
+        return <SearchedRecipesItem key={_id} title={title} />;
       })}
     </ul>
   );

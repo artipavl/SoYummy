@@ -1,5 +1,5 @@
-const SearchedRecipesItem = () => {
-  return <li>LOL</li>;
+const SearchedRecipesItem = ({ title }) => {
+  return <li>{title}</li>;
 };
 
 export default SearchedRecipesItem;

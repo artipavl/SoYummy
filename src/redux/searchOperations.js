@@ -16,3 +16,18 @@ export const searchRecipes = createAsyncThunk(
     }
   }
 );
+
+export const searchIngredient = createAsyncThunk(
+  'search/searchIngredient',
+  async (query, thunkAPI) => {
+    try {
+      const response = await axios.get(`/recipes/search?ingredient=${query}`);
+
+      console.log(response.data.data.result);
+
+      return response.data.data.result;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e);
+    }
+  }
+);
