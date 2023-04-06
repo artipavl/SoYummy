@@ -5,12 +5,12 @@ export const CardItem = styled.li`
   display: flex;
   width: auto;
   height: 152px;
-  background: #FFFFFF;
+  background: ${props => props.theme.colors.white};
   border-radius: 8px;
   margin-bottom: 18px;
   padding: 14px;
 
-  :last-child{
+  :last-child {
     margin-bottom: 0;
   }
 
@@ -24,13 +24,13 @@ export const CardItem = styled.li`
     margin-bottom: 50px;
     padding: 40px;
   }
-`
+`;
 
 export const ImgBox = styled.div`
   display: block;
   height: 100%;
   min-width: 152px;
-  background: #d9d9d9;
+  background: ${props => props.theme.colors.whiteMuted};
   border-radius: 8px;
   overflow: hidden;
 
@@ -70,7 +70,7 @@ export const Title = styled.h3`
   font-size: 14px;
   line-height: 100%;
   letter-spacing: -0.24px;
-  color: #3e4462;
+  color: ${props => props.theme.colors.textDark};
   padding-right: 24px;
   margin-bottom: 14px;
 
@@ -94,7 +94,7 @@ export const Description = styled.p`
   font-size: 8px;
   line-height: 125%;
   letter-spacing: -0.02em;
-  color: #23262A;
+  color: ${props => props.theme.colors.text};
 
   @media ${props => props.theme.device.tablet} {
     font-size: 14px;
@@ -104,7 +104,7 @@ export const Description = styled.p`
     font-size: 18px;
     line-height: 133%;
   }
-`
+`;
 
 export const Time = styled.div`
   position: absolute;
@@ -116,7 +116,7 @@ export const Time = styled.div`
   font-size: 10px;
   line-height: 140%;
   letter-spacing: -0.24px;
-  color: #3E4462;
+  color: ${props => props.theme.colors.textDark};
 
   @media ${props => props.theme.device.tablet} {
     left: 24px;
@@ -126,7 +126,7 @@ export const Time = styled.div`
   @media ${props => props.theme.device.desktop} {
     left: 54px;
   }
-`
+`;
 export const ButtonDelete = styled.div`
   position: absolute;
   top: 0;

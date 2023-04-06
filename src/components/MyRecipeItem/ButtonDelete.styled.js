@@ -1,18 +1,16 @@
 import styled from "styled-components";
-import { theme } from "constants/theme";
-
 
 export const BtnDel = styled.button`
   background-color: ${props =>
     ({
-      black: theme.colors.accentMuted,
-      white: theme.colors.accent,
+      black: props.theme.colors.accentMuted,
+      white: props.theme.colors.accent,
     }[props.battonDel])};
 
   color: ${props =>
     ({
-      black: theme.colors.accentDark,
-      white: theme.colors.white,
+      black: props.theme.colors.accentDark,
+      white: props.theme.colors.white,
     }[props.battonDel])};
 
   width: 24px;
@@ -21,13 +19,13 @@ export const BtnDel = styled.button`
   font-size: 14px;
   text-align: center;
 
-  @media ${theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     font-size: 22px;
     width: 38px;
     height: 38px;
   }
 
-  @media ${theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
     font-size: 24px;
     width: 44px;
     height: 44px;
@@ -37,14 +35,14 @@ export const BtnDel = styled.button`
   :focus {
     background-color: ${props =>
       ({
-        black: theme.colors.accent,
-        white: theme.colors.accentDark,
+        black: props.theme.colors.accent,
+        white: props.theme.colors.accentDark,
       }[props.battonDel])};
 
     color: ${props =>
       ({
-        black: theme.colors.textWhite,
-        white: theme.colors.whiteMuted,
+        black: props.theme.colors.textWhite,
+        white: props.theme.colors.whiteMuted,
       }[props.battonDel])};
   }
 `;
