@@ -1,9 +1,11 @@
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 
+import { useSearchParams } from 'react-router-dom';
+
 import { searchRecipes, searchIngredient } from 'redux/searchOperations';
 
-import { useSearchParams } from 'react-router-dom';
+import { Form, SearchValue, SearchBtn } from './SearchForm.styled';
 
 const SearchForm = ({ searchType }) => {
   const dispatch = useDispatch();
@@ -30,15 +32,15 @@ const SearchForm = ({ searchType }) => {
     <Formik initialValues={{ query: '' }} onSubmit={onSubmit}>
       {({ handleSubmit, handleChange, values }) => {
         return (
-          <form onSubmit={handleSubmit}>
-            <input
+          <Form onSubmit={handleSubmit}>
+            <SearchValue
               type="text"
               name="query"
               value={values.query}
               onChange={handleChange}
             />
-            <button type="submit">Search</button>
-          </form>
+            <SearchBtn type="submit">Search</SearchBtn>
+          </Form>
         );
       }}
     </Formik>

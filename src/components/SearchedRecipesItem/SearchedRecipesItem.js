@@ -1,4 +1,4 @@
-const SearchedRecipesItem = ({ title }) => {
+const SearchedRecipesItem = ({ title, preview }) => {
   return <li>{title}</li>;
 };
 
