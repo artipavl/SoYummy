@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { Provider as ReduxProvider } from 'react-redux';
 import store from 'redux/store';
-import './index.css';
+import { GlobalStyle } from 'GlobalStyle';
 
 import { App } from 'components/App';
 import { theme } from 'constants';
@@ -15,6 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <BrowserRouter basename="/SoYummy">
         <ThemeProvider theme={theme}>
           <App />
+          <GlobalStyle />
         </ThemeProvider>
       </BrowserRouter>
     </ReduxProvider>
