@@ -13,8 +13,11 @@ import { StartScreen } from 'pages';
 import RegisterPage from '../pages/RegisterPage';
 import SignInPage from '../pages/SignInPage';
 
+
+import { MainPage } from 'pages/mainPaige/MainPage';
+
 const SharedLayout = lazy(() => import('../components/SharedLayout'));
-const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
+//const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
 const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
 const MyRecipes = lazy(() => import('../pages/MyRecipes/MyRecipes'));
 const SearchPage = lazy(() => import('../pages/SearchPage'));
@@ -25,6 +28,7 @@ const tempStyles = {
   fontSize: 50,
   textAlign: 'center',
 };
+
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -59,7 +63,7 @@ export const App = () => {
           <Route
             path="main"
             index
-            element={<PrivateRoute component={<MainTitle />} />}
+            element={<PrivateRoute component={<MainPage />} />}
           />
           <Route
             path="categories"
