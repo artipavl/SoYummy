@@ -6,6 +6,7 @@ import PublicRoute from './PublicRoute';
 
 import Favorite from '../pages/Favorite/Favorite';
 import MyRecipes from '../pages/MyRecipes/MyRecipes';
+import { MainPage } from 'pages/mainPaige/MainPage';
 
 export const App = () => {
   return (
@@ -29,6 +30,7 @@ export const App = () => {
       />
       <Route path="/favorite" element={<Favorite />} />
       <Route path="/my" element={<MyRecipes />} />
+      <Route path="/main" element={<MainPage />} />
     </Routes>
   );
 };
