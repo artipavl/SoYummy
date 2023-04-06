@@ -1,6 +1,9 @@
 import { EditNameFormStyled, EditNameFormWrap } from "./EditNameForm.styled"
 
-export const EditNameForm = ({name, handleChangeName}) => {
+
+export const EditNameForm = ({ name, handleChangeName }) => {
+
+
 
   return (
     <EditNameFormWrap>
@@ -10,7 +13,7 @@ export const EditNameForm = ({name, handleChangeName}) => {
         value={name}
         onChange={handleChangeName}
         required
-        
+
       />
     </EditNameFormWrap>
   );
