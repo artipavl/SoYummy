@@ -14,10 +14,21 @@ export const Overlay= styled.div`
 `;
 
 export const ModalContainer= styled.div`
-  max-width: calc(100vw - 48px);
-  max-height: calc(100vh - 24px);
+  max-width: 100%;
+  max-height: 100%;
+`;
+
+export const ModalText = styled.p`
+ fontSize: 32px;
 `;
 
 export const ModalImage = styled.img`
   width: 100%;
+`;
+
+export const ButtonClose = styled.button`
+ width:48px;
+ height:48px;
+ borderRadius: 50%;
+ backgroundColor: #8BAA36;
 `;

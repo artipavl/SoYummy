@@ -2,12 +2,12 @@ import { useEffect} from 'react';
 import { } from "./Modal.styled";
 import { createPortal } from 'react-dom';
 
-import { Overlay,ModalContainer,ModalImage } from "./Modal.styled";
+import { Overlay,ModalContainer,ModalText, ButtonClose,ModalImage } from "./Modal.styled";
 
 
 const modalRoot = document.querySelector('#modal-root');
 
-export default function Modal ({src, onClose}) {
+export default function Modal ({src, title, onClose}) {
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
@@ -24,14 +24,21 @@ export default function Modal ({src, onClose}) {
     if (e.currentTarget === e.target) {
       onClose();
     }
-  };
+    };
+    
+  const buttonCloseClick= e => {
+    if (e.currentTarget === e.target) {
+      onClose();
+    }
+    };
 
   
     return createPortal(
       <Overlay onClick={handleBackdropClick}>
         <ModalContainer>
                 <ModalImage src={src} alt="image" />
-                <button type='button'>X</button>
+                <ModalText>{title}</ModalText>
+                <ButtonClose type='button' onClick={buttonCloseClick}>X</ButtonClose>
         </ModalContainer>
       </Overlay>,
       modalRoot
