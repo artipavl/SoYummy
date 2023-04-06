@@ -3,8 +3,9 @@ import { createSlice } from '@reduxjs/toolkit';
 import { searchRecipes } from './searchOperations';
 
 const initialState = {
-  filter: '',
-  ingredients: [],
+  results: [],
+  isError: false,
+  isLoading: false,
 };
 
 export const searchSlice = createSlice({
@@ -12,11 +13,14 @@ export const searchSlice = createSlice({
   initialState,
   extraReducers: {
     [searchRecipes.fulfilled](state, action) {
-      console.log(state.filter);
       console.log(action.payload);
+      state.results = action.payload;
     },
-    [searchRecipes.pending](state, action) {},
+    [searchRecipes.pending](state, action) {
+      state.isLoading = true;
+    },
     [searchRecipes.rejected](state, action) {
+      state.isError = action.payload;
       console.log(action.payload);
     },
   },

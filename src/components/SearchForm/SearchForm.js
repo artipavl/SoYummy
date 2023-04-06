@@ -1,24 +1,23 @@
 import { Formik } from 'formik';
-import { useDispatch } from 'react-redux';
 
-import { searchRecipes } from 'redux/searchOperations';
+import { useSearchParams } from 'react-router-dom';
 
 const SearchForm = () => {
-  const dispatch = useDispatch();
+  const [, setSearchParams] = useSearchParams();
 
-  const onSubmit = value => {
-    dispatch(searchRecipes(value));
+  const onSubmit = ({ query }) => {
+    setSearchParams({ query });
   };
 
   return (
-    <Formik initialValues={{ recipe: '' }} onSubmit={onSubmit}>
+    <Formik initialValues={{ query: '' }} onSubmit={onSubmit}>
       {({ handleSubmit, handleChange, values }) => {
         return (
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              name="recipe"
-              value={values.recipe}
+              name="query"
+              value={values.query}
               onChange={handleChange}
             />
             <button type="submit">Search</button>

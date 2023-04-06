@@ -4,10 +4,9 @@ import axios from 'axios';
 
 export const searchRecipes = createAsyncThunk(
   'search/searchRecipes',
-  async ({ recipe }, thunkAPI) => {
-    console.log(recipe);
+  async (query, thunkAPI) => {
     try {
-      const response = await axios.get(`/recipes/searchByIngredient`);
+      const response = await axios.get(`/recipes/search?title=${query}`);
 
       console.log(response.data.data);
 
