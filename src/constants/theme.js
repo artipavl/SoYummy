@@ -17,6 +17,7 @@ export const theme = {
     textDark: '#3E4462', //текст сірий
     textWhite: '#FAFAFA', //текст білий
     textWhiteMuted: 'rgba(250, 250, 250, 0.6)', //текст білий пригнічений
+    textTitle: '#001833', //текст синій
 
     modes: {
       white: {
