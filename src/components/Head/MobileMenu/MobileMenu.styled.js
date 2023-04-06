@@ -13,34 +13,27 @@ export const MobileMenuSection = styled.section`
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 100% 100%;
-
-  /* right:50%;
-  bottom: 50%; */
   top: 0;
-  left: 0;
-  /* transform: translateX(-50%);
-  transform: translateY(50%); */
-  /* transform:translate(-50%, -50%); */
-  min-height: 85vh;
-  /* min-width: 100vw; */
+  right: 0;
+  height: 100vh;
+  width: 100vw;
   z-index: 999;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 
+  padding: 18px 16px;
+
+    background-image: url('${BgMobile}');
+    @media ${props => props.theme.retinaBackgroundImage} {
+      background-image: url('${BgMobileRetina}');
+    }
   &.open {
     opacity: 1;
     visibility: visible;
   }
 
-  @media ${props => props.theme.device.mobile}{
-    padding: 18px 16px;
-    width: 375px;
-    background-image: url('${BgMobile}');
-    @media ${props => props.theme.retinaBackgroundImage} {
-      background-image: url('${BgMobileRetina}');
-    }
-  }
+
 
   @media ${props => props.theme.device.tablet}{
     padding: 18px 32px;
@@ -65,7 +58,7 @@ export const MobileMenuHeader = styled.div`
 export const NavStyled = styled.nav`
     @media ${props => props.theme.device.mobile} {
     margin-top: 124px;
-    hieght: 100%;
+    height: 100%;
   }
 
 `
@@ -124,14 +117,13 @@ export const SearchIcon = styled.img`
   fill: ${props => props.theme.colors.accentDark};
   &:hover, &focus {
   fill: ${props => props.theme.colors.accent};
-
+  }
   @media ${props => props.theme.device.mobile} {
     width: 20px;
     height: 20px;
 }
-
-
 `
+
 export const SearchText = styled.p`
   margin-left: 8px;
 `

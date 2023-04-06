@@ -38,37 +38,37 @@ export const MobileMenu = ({openState, handleMenuClick, children}) => {
         <NavItems>
 
           <NavItem>
-            <Navigator to="/categories">
+            <Navigator to="/categories" onClick={handleMenuClick}>
               Categories
             </Navigator>
           </NavItem>
 
           <NavItem>
-            <Navigator to="/add">
+            <Navigator to="/add" onClick={handleMenuClick}>
               Add recipes
             </Navigator>
           </NavItem>
 
           <NavItem>
-            <Navigator to="/my">
+            <Navigator to="/my" onClick={handleMenuClick}>
               My recipes
             </Navigator>
           </NavItem>
 
           <NavItem>
-            <Navigator to="/favorite">
+            <Navigator to="/favorite" onClick={handleMenuClick}>
               Favorites
             </Navigator>
           </NavItem>
 
           <NavItem>
-            <Navigator to="/shopping-list">
+            <Navigator to="/shopping-list" onClick={handleMenuClick}>
               Shopping list
             </Navigator>
           </NavItem>
 
           <NavItem>
-            <Navigator to="/search">
+            <Navigator to="/search" onClick={handleMenuClick}>
               <SearchIcon src={search} alt="search icon" width={24} height={24} />
               <SearchText>Search</SearchText>
             </Navigator>
