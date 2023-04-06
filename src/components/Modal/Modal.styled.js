@@ -20,6 +20,7 @@ export const ModalContainer= styled.div`
 
 export const ModalText = styled.p`
  fontSize: 32px;
+ font-family: 'Poppins';
 `;
 
 export const ModalImage = styled.img`
@@ -32,3 +33,10 @@ export const ButtonClose = styled.button`
  borderRadius: 50%;
  backgroundColor: #8BAA36;
 `;
+
+export const BtnIcon = styled.img`
+ width:48px;
+ height:48px;
+ backgroundColor: #FAFAFA;
+`;
+
