@@ -17,7 +17,7 @@ import SignInPage from '../pages/SignInPage';
 import { MainPage } from 'pages/mainPaige/MainPage';
 
 const SharedLayout = lazy(() => import('../components/SharedLayout'));
-const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
+//const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
 const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
 const MyRecipes = lazy(() => import('../pages/MyRecipes/MyRecipes'));
 
