@@ -23,5 +23,5 @@ export const RoundedButton = ({ title, to, variant = 'normal' }) => {
 
 Пропс title - текст в кнопці.
 
-приклад використання = <RoundedButton variant={dark} to={"/signin" title={Search}} />
+приклад використання = <RoundedButton variant={"dark"} to={"/signin"} title={"Search"}} />
 */

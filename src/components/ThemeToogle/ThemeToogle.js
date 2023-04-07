@@ -1,11 +1,18 @@
+import { useDispatch, useSelector } from "react-redux";
 import Switch from "react-switch";
+import { themeSwicher } from "redux/authOperations";
+import { selectorSwicherTheme } from "redux/selectors";
 
 export const ThemeToogle = ({handleChange, checked}) => {
 
+  const dispatch = useDispatch();
+
+  const theme = useSelector(selectorSwicherTheme)
+
   return (
     <Switch
-         checked={checked}
-            onChange={handleChange}
+         checked={theme === "dark"}
+            onChange={() => dispatch(themeSwicher())}
             onColor="#8BAA36"
             offColor = '#EFEFEF'
             handleDiameter={22}

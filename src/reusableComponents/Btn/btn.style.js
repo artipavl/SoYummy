@@ -21,6 +21,7 @@ export const Btn = styled(NavLink)`
   font-family: 'Poppins';
   font-style: normal;
   font-weight: ${theme.fontWeights.normal};
+
   font-size: 10px;
   line-height: 15px;
 
@@ -36,6 +37,7 @@ export const Btn = styled(NavLink)`
     line-height: 24px;
   }
 
+
   :hover,
   :focus {
     background-color: ${props =>
@@ -45,6 +47,7 @@ export const Btn = styled(NavLink)`
         transparent: theme.colors.accent,
       }[props.variant])};
 
+
     @media ${theme.device.mobile} {
       font-size: 14px;
       line-height: 21px;
@@ -52,6 +55,11 @@ export const Btn = styled(NavLink)`
 
     @media ${theme.device.tablet} {
       font-size: 16px;
+      line-height: 24px;
+    }
+    @media ${theme.device.desktop} {
+      font-size: 16px;
+      line-height: 24px;
     }
   }
 `;

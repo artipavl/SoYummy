@@ -14,15 +14,17 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './authSlice';
+import { searchReducer } from './searchSlice';
 
 const persistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'theme'],
 };
 
 const rootReducer = combineReducers({
   auth: persistReducer(persistConfig, authReducer),
+  search: searchReducer,
 });
 
 const store = configureStore({

@@ -29,15 +29,15 @@ export const ButtonDelete = styled.button`
   width: 24px;
   height: 24px;
   border-radius: 4px;
-  background: #8baa36;
-  color: #fafafa;
+  background: ${props => props.theme.colors.accent};
+  color: ${props => props.theme.colors.textWhite};
   font-size: 14px;
   text-align: center;
 
   :hover,
   :focus {
     background: #22252a;
-    color: #fafafa;
+    color: ${props => props.theme.colors.textWhite};
     scale: 1.1;
   }
 

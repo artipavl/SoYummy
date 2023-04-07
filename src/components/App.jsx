@@ -1,3 +1,4 @@
+import styled, { ThemeProvider } from 'styled-components'
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 
@@ -7,34 +8,48 @@ import PrivateRoute from './PrivatRoute';
 import { fetchCurrentUser } from 'redux/authOperations';
 
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { StartScreen } from 'pages';
 import RegisterPage from '../pages/RegisterPage';
 import SignInPage from '../pages/SignInPage';
 
+
+import { MainPage } from 'pages/mainPaige/MainPage';
+
+import { selectorSwicherTheme } from 'redux/selectors';
+import { lightTheme, darkTheme } from "../constants/theme"
+
 const SharedLayout = lazy(() => import('../components/SharedLayout'));
-const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
+//const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
 const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
 const MyRecipes = lazy(() => import('../pages/MyRecipes/MyRecipes'));
+const SearchPage = lazy(() => import('../pages/SearchPage'));
 
 
-const tempStyles = {
-  paddingTop: 100,
-  paddingBottom: 100,
-  fontSize: 50,
-  textAlign: 'center',
-};
+
+
+
+const StyledApp = styled.div`
+min-height: 100vh;
+text-align: center;
+padding-top: 10rem;
+background-color: ${(props) => props.theme.accent};
+transition: all 1s ease;
+`
 
 export const App = () => {
   const dispatch = useDispatch();
 
+  const theme = useSelector(selectorSwicherTheme)
+
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
+  
 
-  return (
-    <>
+  return ( 
+    <ThemeProvider theme={theme === "light" ?  lightTheme  : darkTheme }>
       <Routes>
         <Route
           path="/"
@@ -59,13 +74,13 @@ export const App = () => {
           <Route
             path="main"
             index
-            element={<PrivateRoute component={<MainTitle />} />}
+            element={<PrivateRoute component={<MainPage />} />}
           />
           <Route
             path="categories"
             element={
               <PrivateRoute
-                component={<div style={tempStyles}>Categories</div>}
+                component={<StyledApp>Categories</StyledApp>}
               />
             }
           />
@@ -73,20 +88,18 @@ export const App = () => {
             path="categories/:categoryName"
             element={
               <PrivateRoute
-                component={<div style={tempStyles}>CategoriesName</div>}
+                component={<StyledApp>CategoriesName</StyledApp>}
               />
             }
           />
           <Route
             path="search"
-            element={
-              <PrivateRoute component={<div style={tempStyles}>Search</div>} />
-            }
+            element={<PrivateRoute component={<SearchPage />} />}
           />
           <Route
             path="add"
             element={
-              <PrivateRoute component={<div style={tempStyles}>Add</div>} />
+              <PrivateRoute component={<StyledApp>Add</StyledApp>} />
             }
           />
           <Route
@@ -101,7 +114,7 @@ export const App = () => {
             path="shopping-list"
             element={
               <PrivateRoute
-                component={<div style={tempStyles}>ShoppingList</div>}
+                component={<StyledApp>ShoppingList</StyledApp>}
               />
             }
           />
@@ -109,7 +122,7 @@ export const App = () => {
             path="recipe/:recipeId"
             element={
               <PrivateRoute
-                component={<div style={tempStyles}>RecipiesPage</div>}
+                component={<StyledApp>RecipiesPage</StyledApp>}
               />
             }
           />
@@ -117,12 +130,12 @@ export const App = () => {
             path="*"
             element={
               <PrivateRoute
-                component={<div style={tempStyles}>NotFound</div>}
+                component={<StyledApp>NotFound</StyledApp>}
               />
             }
           />
         </Route>
       </Routes>
-    </>
+    </ThemeProvider>
   );
 };
