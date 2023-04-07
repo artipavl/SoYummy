@@ -2,7 +2,7 @@ import { useEffect} from 'react';
 import { createPortal } from 'react-dom';
 import cross from '../../images/icons/logo-Lite-Icon.svg';
 
-import { Overlay,ModalContainer,ModalText, ButtonClose,BtnIcon,ModalImage } from "./Modal.styled";
+import { Overlay,ModalContainer,ModalText, ButtonClose,BtnIcon,ModalImage,TextContainer } from "./Modal.styled";
 
 
 const modalRoot = document.querySelector('#modal-root');
@@ -37,7 +37,9 @@ export default function Modal ({src, title, onClose}) {
       <Overlay onClick={handleBackdropClick}>
         <ModalContainer>
                 <ModalImage src={src} alt="image" />
-                <ModalText>{title}</ModalText>
+                <TextContainer>
+                <ModalText>Wow</ModalText>
+                </TextContainer>
                 <ButtonClose type='button' onClick={buttonCloseClick}>
                     <BtnIcon src={cross} alt='logo'/>
                 </ButtonClose>
