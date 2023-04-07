@@ -82,3 +82,11 @@ export const fetchUserLogout = createAsyncThunk(
     }
   }
 );
+
+
+export const themeSwicher = createAsyncThunk(
+  'auth/theme',
+  () => {
+    
+  }
+)
