@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import photo from '../../images/icons/photo-icon.svg';
 
 export const CardItem = styled.li`
   list-style-type: none;
@@ -30,7 +31,10 @@ export const ImgBox = styled.div`
   display: block;
   height: 100%;
   min-width: 152px;
-  background: ${props => props.theme.colors.whiteMuted};
+  background-color: ${props => props.theme.colors.whiteMuted};
+  background-image: url('${photo}');
+  background-repeat: no-repeat;
+  background-position: center center;
   border-radius: 8px;
   overflow: hidden;
 
