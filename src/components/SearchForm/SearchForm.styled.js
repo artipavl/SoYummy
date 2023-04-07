@@ -1,12 +1,26 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
-  position: relative;
   margin-top: 50px;
   margin-left: 40px;
   margin-right: 40px;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   @media ${props => props.theme.device.tablet} {
+  }
+
+  @media ${props => props.theme.device.desktop} {
+  }
+`;
+
+export const SearchContainer = styled.div`
+  position: relative;
+
+  @media (max-width: 767px) {
+    width: 100%;
   }
 
   @media ${props => props.theme.device.desktop} {
@@ -29,16 +43,23 @@ export const SearchValue = styled.input`
 
   @media ${props => props.theme.device.tablet} {
     width: 362px;
+    height: 57px;
+
+    font-size: 14px;
   }
 
   @media ${props => props.theme.device.desktop} {
+    width: 510px;
+    height: 70px;
+
+    font-size: 16px;
   }
 `;
 
 export const SearchBtn = styled.button`
   position: absolute;
   top: 0;
-  right: 0px;
+  right: 0;
 
   height: 100%;
 
@@ -59,6 +80,7 @@ export const SearchBtn = styled.button`
   /* transition: all 250ms linear 0s; */
 
   @media ${props => props.theme.device.tablet} {
+    font-size: 16px;
   }
 
   @media ${props => props.theme.device.desktop} {

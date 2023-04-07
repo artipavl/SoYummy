@@ -3,8 +3,13 @@ import styled from 'styled-components';
 export const RecipeItem = styled.li`
   position: relative;
 
-  &:not(:last-child) {
-    margin-bottom: 32px;
+  @media (max-width: 767px) {
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
+
+  @media ${props => props.theme.device.desktop} {
   }
 `;
 

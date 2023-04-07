@@ -5,7 +5,12 @@ import { useSearchParams } from 'react-router-dom';
 
 import { searchRecipes, searchIngredient } from 'redux/searchOperations';
 
-import { Form, SearchValue, SearchBtn } from './SearchForm.styled';
+import {
+  Form,
+  SearchContainer,
+  SearchValue,
+  SearchBtn,
+} from './SearchForm.styled';
 
 const SearchForm = ({ searchType }) => {
   const dispatch = useDispatch();
@@ -33,13 +38,15 @@ const SearchForm = ({ searchType }) => {
       {({ handleSubmit, handleChange, values }) => {
         return (
           <Form onSubmit={handleSubmit}>
-            <SearchValue
-              type="text"
-              name="query"
-              value={values.query}
-              onChange={handleChange}
-            />
-            <SearchBtn type="submit">Search</SearchBtn>
+            <SearchContainer>
+              <SearchValue
+                type="text"
+                name="query"
+                value={values.query}
+                onChange={handleChange}
+              />
+              <SearchBtn type="submit">Search</SearchBtn>
+            </SearchContainer>
           </Form>
         );
       }}
