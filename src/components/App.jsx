@@ -24,6 +24,7 @@ const SharedLayout = lazy(() => import('../components/SharedLayout'));
 //const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
 const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
 const MyRecipes = lazy(() => import('../pages/MyRecipes/MyRecipes'));
+const SearchPage = lazy(() => import('../pages/SearchPage'));
 
 
 
@@ -94,9 +95,7 @@ export const App = () => {
           />
           <Route
             path="search"
-            element={
-              <PrivateRoute component={<StyledApp>Search</StyledApp>} />
-            }
+            element={<PrivateRoute component={<SearchPage />} />}
           />
           <Route
             path="add"
