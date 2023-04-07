@@ -38,7 +38,6 @@ background-color: ${(props) => props.theme.accent};
 transition: all 1s ease;
 `
 
-
 export const App = () => {
   const dispatch = useDispatch();
 
