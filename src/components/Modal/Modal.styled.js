@@ -19,7 +19,7 @@ export const ModalContainer= styled.div`
 `;
 
 export const ModalText = styled.p`
- fontSize: 32px;
+ font-Size: 32px;
  font-family: 'Poppins';
 `;
 
@@ -28,15 +28,24 @@ export const ModalImage = styled.img`
 `;
 
 export const ButtonClose = styled.button`
- width:48px;
- height:48px;
- borderRadius: 50%;
- backgroundColor: #8BAA36;
+  width:48px;
+  height:48px;
+  border-Radius: 50%;
+  background-Color: #8BAA36;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  position: absolute;
+  top: 10px;
+  right: 140px;
+  cursor: pointer;
 `;
 
 export const BtnIcon = styled.img`
- width:48px;
- height:48px;
- backgroundColor: #FAFAFA;
+  width:48px;
+  height:48px;
+  background-Color: #FAFAFA;
+  fill:#FAFAFA;
+  
 `;
 

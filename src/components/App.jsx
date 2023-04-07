@@ -18,6 +18,7 @@ const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
 const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
 const MyRecipes = lazy(() => import('../pages/MyRecipes/MyRecipes'));
 
+
 const tempStyles = {
   paddingTop: 100,
   paddingBottom: 100,
