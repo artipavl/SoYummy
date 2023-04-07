@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import SmallModalUser from './SmallModalUser';
 import EditUserModal from './EditModalUser';
+import LogOutModal from './LogOutModal';
 
 export const UserMenu = ({
   openUser,
@@ -13,7 +14,7 @@ export const UserMenu = ({
 
 }) => {
   const [openEditMenu, setOpenEditMenu] = useState(false);
-  // const [logoutMenu, setLogoutMenu] = useState(false);
+  const [openLogoutMenu, setOpenLogoutMenu] = useState(false);
 
   const handleOpenEditModal = () => {
     setOpenEditMenu(!openEditMenu);
@@ -22,9 +23,12 @@ export const UserMenu = ({
     }
   }
 
-  // const handleOpenLogoutMenu = () => {
-  //   setLogoutMenu(!logoutMenu);
-  // }
+  const handleOpenLogoutMenu = () => {
+    setOpenLogoutMenu(!openLogoutMenu);
+    if (openUser) {
+      handleOpenSmallUserMenu();
+    }
+  }
 
   const stopPropagation = (event) => {
     event.stopPropagation();
@@ -38,6 +42,7 @@ export const UserMenu = ({
         handleOpenSmallUserMenu={handleOpenSmallUserMenu}
         handleOpenEditModal={handleOpenEditModal}
         stopPropagation={stopPropagation}
+        handleOpenLogoutMenu={handleOpenLogoutMenu}
 
       />
       <EditUserModal
@@ -51,6 +56,14 @@ export const UserMenu = ({
         handleChangeName={handleChangeName}
 
       />
+      <LogOutModal
+        openLogoutMenu={openLogoutMenu}
+        stopPropagation={stopPropagation}
+        handleOpenLogoutMenu={handleOpenLogoutMenu}
+
+
+      />
+
 
     </>
   );

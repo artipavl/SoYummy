@@ -18,14 +18,5 @@ export const  EditModalBtn = styled.button`
     color: ${props => props.theme.colors.accentDark}
   }
 
-  /* @media ${props => props.theme.device.tablet} {
-
-    padding: 16px 50px;
-    font-size: 16px;
-  }
-
-  @media ${props => props.theme.device.desktop} {
-
-  } */
 `
 

@@ -1,6 +1,6 @@
 export const selectUserName = state => state.auth.user.name;
 export const selectUserEmail = state => state.auth.user.email;
-export const selectUserPassword = state => state.auth.user.password;
+export const selectAvatarURL = state => state.auth.user.avatarURL;
 export const selectToken = state => state.auth.token;
 export const selectAuthIsError = state => state.auth.isError;
 export const selectAuthIsLoading = state => state.auth.isLoading;
