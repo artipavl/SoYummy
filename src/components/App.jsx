@@ -20,6 +20,7 @@ const SharedLayout = lazy(() => import('../components/SharedLayout'));
 //const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
 const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
 const MyRecipes = lazy(() => import('../pages/MyRecipes/MyRecipes'));
+const SearchPage = lazy(() => import('../pages/SearchPage'));
 
 const tempStyles = {
   paddingTop: 100,
@@ -82,9 +83,7 @@ export const App = () => {
           />
           <Route
             path="search"
-            element={
-              <PrivateRoute component={<div style={tempStyles}>Search</div>} />
-            }
+            element={<PrivateRoute component={<SearchPage />} />}
           />
           <Route
             path="add"
