@@ -3,7 +3,7 @@ import axios from 'axios';
 export const getFavoriteRecipes = async (page = 1, limit = 4) => {
   try {
     const { data } = await axios.get(`/favorites?page=${page}&limit=${limit}`);
-    return data.data.result;
+    return data.data;
   } catch (error) {
     console.log(error);
   }
