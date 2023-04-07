@@ -5,6 +5,7 @@ import {
   login,
   fetchCurrentUser,
   fetchUserLogout,
+  themeSwicher,
 } from './authOperations';
 
 const initialState = {
@@ -13,6 +14,7 @@ const initialState = {
     email: '',
     avatarURL: '',
   },
+  theme: "light",
   token: null,
   isError: null,
   isLoading: false,
@@ -87,7 +89,18 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
       state.isLoading = false;
     },
+
+    [themeSwicher.fulfilled](state, action) {
+      state.theme = state.theme === "light" ? "dark" : "light";
+    },  
+    
+    // themeSwicher: (state, action) => {
+    //   state.theme = state.theme === "light" ? "dark" : "light";
+    // },
+
   },
 });
 
 export const authReducer = authSlice.reducer;
+
+// export const { themeSwicher } = authSlice.actions;
