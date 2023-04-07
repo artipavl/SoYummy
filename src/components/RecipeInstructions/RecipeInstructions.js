@@ -22,7 +22,9 @@ const RecipeInstructions = ({ instructions, picture, alt }) => {
             {instructions.map(instruction => {
               return (
                 <InstructionItem key={nanoid()}>
-                  <ItemNumber>{instructions.indexOf(instruction) + 1}</ItemNumber>
+                  <ItemNumber>
+                    {instructions.indexOf(instruction) + 1}
+                  </ItemNumber>
                   <InstructionText>{instruction}.</InstructionText>
                 </InstructionItem>
               );
