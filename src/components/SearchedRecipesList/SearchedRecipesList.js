@@ -4,15 +4,19 @@ import { selectResults } from 'redux/selectors';
 
 import SearchedRecipesItem from 'components/SearchedRecipesItem';
 
+import { RecipesList } from './SearchedRecipesList.styled';
+
 const SearchedRecipesList = () => {
   const results = useSelector(selectResults);
 
   return (
-    <ul>
+    <RecipesList>
       {results.map(({ _id, title, preview }) => {
-        return <SearchedRecipesItem key={_id} title={title} />;
+        return (
+          <SearchedRecipesItem key={_id} title={title} preview={preview} />
+        );
       })}
-    </ul>
+    </RecipesList>
   );
 };
 

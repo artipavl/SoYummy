@@ -1,5 +1,12 @@
 import { useState } from 'react';
 
+import {
+  SelectorWrapper,
+  SelectorText,
+  TypeSelector,
+  SelectorOption,
+} from './SearchTypeSelector.styled';
+
 const SearchTypeSelector = ({ handleSearchTypeSelect }) => {
   const [selectedOption, setSelectedOption] = useState('title');
 
@@ -10,13 +17,13 @@ const SearchTypeSelector = ({ handleSearchTypeSelect }) => {
   };
 
   return (
-    <>
-      <p>Search by:</p>
-      <select value={selectedOption} onChange={handleChange}>
-        <option value="title">Title</option>
-        <option value="ingredients">Ingredients</option>
-      </select>
-    </>
+    <SelectorWrapper>
+      <SelectorText>Search by:</SelectorText>
+      <TypeSelector value={selectedOption} onChange={handleChange}>
+        <SelectorOption value="title">Title</SelectorOption>
+        <SelectorOption value="ingredients">Ingredients</SelectorOption>
+      </TypeSelector>
+    </SelectorWrapper>
   );
 };
 
