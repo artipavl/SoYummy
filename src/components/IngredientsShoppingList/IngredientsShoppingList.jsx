@@ -69,7 +69,7 @@ const IngredientsShoppingList = () => {
                 <DeleteBtn
                 // onClick={handleDeleteProduct(_id)}
                 >
-                  <img src={Cross || CrossWhite} alt="Button delete" />
+                  <img src={CrossWhite || Cross} alt="Button delete" />
                 </DeleteBtn>
               </ItemBoxRight>
             </ShoppingListItem>
