@@ -10,7 +10,7 @@ export const BtnDel = styled.button`
   color: ${props =>
     ({
       black: props.theme.colors.accentDark,
-      white: props.theme.colors.white,
+      white: props.theme.colors.defLight,
     }[props.battonDel])};
 
   width: 24px;
