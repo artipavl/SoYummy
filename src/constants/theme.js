@@ -8,6 +8,8 @@ export const theme = {
 
     bgDark: '#1E1F28', //чорний з bg
     accent: '#8BAA36', //зелений акцен
+    accentCurrent: '#8BAA36', //!зелений акцен без змін
+    buttonDelAccent: '#22252A',
     accentMuted: '#EBF3D4', //зелений акцен пригнічений
 
     accentDark: '#22252A', //чорний що протиставляється акцену
@@ -26,6 +28,7 @@ export const theme = {
     searchIconStyled: '#22252A',
     defLight: '#FAFAFA',
     blackAndWhiteBrorderList: '#e0e0e0',
+    editProfileModal: '#FAFAFA',
 
     modes: {
       white: {
@@ -82,6 +85,8 @@ export const lightTheme = {
 
     bgDark: '#1E1F28', //чорний з bg
     accent: '#8BAA36', //зелений акцен
+    accentCurrent: '#8BAA36', //!зелений акцен без змін
+    buttonDelAccent: '#22252A', 
     accentMuted: '#EBF3D4', //зелений акцен пригнічений
 
     accentDark: '#22252A', //чорний що протиставляється акцену
@@ -100,6 +105,7 @@ export const lightTheme = {
     searchIconStyled: '#22252A',
     defLight: '#FAFAFA',
     blackAndWhiteBrorderList: '#e0e0e0',
+    editProfileModal: '#FAFAFA',
 
     modes: {
       white: {
@@ -148,7 +154,7 @@ export const lightTheme = {
 export const darkTheme = {
   colors: {
     white: '#2A2C36', //! темний замість білого
-    dark: '#000000', //чорний
+    dark: '#FFFFFF', // світлий замість чорного
 
     whiteMuted: '#D9D9D9', //білий пригнічений деякі кнопки та інпути
 
@@ -156,7 +162,9 @@ export const darkTheme = {
 
     bgDark: '#ECECEC', //білий замість чорного з bg
     accent: '#22252A', //! чорний замість зеленого акценту
-    accentMuted: '#EBF3D4', //зелений акцен пригнічений
+    accentCurrent: '#8BAA36', //!зелений акцен без змін
+    buttonDelAccent: '#FAFAFA', //! білий замість зеленого акценту
+    accentMuted: '#1E1F28', //! чорний замість зеленого акценту пригніченого
     accentDark: '#8BAA36', //чорний що протиставляється акцену
     accentDarkMuted: '#2A2C36', //! зелений замість чорного що протиставляється акцену пригнічений
     text: '#FAFAFA', //текст
@@ -172,6 +180,7 @@ export const darkTheme = {
     searchIconStyled: '#FAFAFA',
     defLight: '#FAFAFA',
     blackAndWhiteBrorderList: '#fafafa4d',
+    editProfileModal: '#1E1F28',
 
     modes: {
       white: {

@@ -25,7 +25,7 @@ export const UserModalSmall = styled.div`
   flex-direction: column;
   flex-grow: 1;
   padding: 18px;
-  background-color: ${props => props.theme.colors.textWhite};
+  background-color: ${props => props.theme.colors.editProfileModal};
   top: 72px;
   right: 60px;
   width: 161px;
@@ -106,17 +106,17 @@ export const LogOutButton = styled.button`
   margin-top: auto;
   display: flex;
 
-  background-color: ${props => props.theme.colors.accent};
+  background-color: ${props => props.theme.colors.accentCurrent};
   color: rgb(255, 255, 255);
   border-radius: 24px 44px;
-  border: 1px solid ${props => props.theme.colors.accent};
+  border: 1px solid ${props => props.theme.colors.accentCurrent};
   transition: all 250ms linear;
   padding: 12px 24px;
 
 
   &:hover, &:focus {
-    background-color: ${props => props.theme.colors.accent};
-    border: 1px solid ${props => props.theme.colors.accent};
+    background-color: ${props => props.theme.colors.accentCurrent};
+    border: 1px solid ${props => props.theme.colors.accentCurrent};
   }
   @media ${props => props.theme.device.tablet} {
     padding: 12px 32px;
