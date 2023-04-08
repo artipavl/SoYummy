@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import RecipeHero from 'components/RecipeHero/RecipeHero';
@@ -51,10 +50,7 @@ const RecipePage = () => {
         isFavoriteProp={isFavorite}
         recipeId={recipeId}
       ></RecipeHero>
-      <RecipeIngredients
-        ingredients={ingredients}
-        recipeId={recipeId}
-      ></RecipeIngredients>
+      <RecipeIngredients ingredients={ingredients}></RecipeIngredients>
       <RecipeInstructions
         instructions={instructions}
         picture={recipe.preview}

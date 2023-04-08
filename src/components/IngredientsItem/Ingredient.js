@@ -1,16 +1,18 @@
-import { FlexWrapper } from 'components/RecipeIngredients/RecipeIngredients.styled';
 import {
   IngredientImg,
   IngredientName,
   IngredientNumber,
   IngredientPlaceholder,
-} from './IngredientsItem.styled';
+  FlexWrapper,
+} from './Ingredient.styled';
 import placeholders from 'images/icons/placeholders.svg';
 import Checkbox from 'components/Checkbox/Checkbox';
+import { useEffect } from 'react';
 
-export const IngredientsItem = ({ image, title, measure, shopList }) => {
+const Ingredient = ({ image, title, measure, shopList }) => {
+  useEffect(() => {}, []);
   return (
-    <IngredientsItem>
+    <div>
       <FlexWrapper>
         {image ? (
           <IngredientImg src={image} alt={title} />
@@ -27,6 +29,8 @@ export const IngredientsItem = ({ image, title, measure, shopList }) => {
           <Checkbox />
         </label>
       </FlexWrapper>
-    </IngredientsItem>
+    </div>
   );
 };
+
+export default Ingredient;

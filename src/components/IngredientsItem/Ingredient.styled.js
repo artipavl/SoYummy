@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+export const FlexWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 export const IngredientImg = styled.img`
   width: 57px;
   height: 57px;

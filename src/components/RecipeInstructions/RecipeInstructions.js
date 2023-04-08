@@ -17,7 +17,6 @@ const RecipeInstructions = ({ instructions, picture, alt }) => {
       <DesktopFlex>
         <ContentWrapper>
           <InstructionsTitle>Recipe preparation</InstructionsTitle>
-          {/* Preparation list from API */}
           <InstructionsList>
             {instructions.map(instruction => {
               return (
