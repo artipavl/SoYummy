@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
+
 import { getShoppingList, deleteShoppingList } from '../../api/serviseApi';
 import { Loader } from 'components/Loader/Loader';
 
-import Cross from '../../images/icons/cross.svg';
-import CrossWhite from '../../images/icons/cross_white.svg';
 import IngredientIcon from '../../images/placeholder/ingredient.svg';
 
 import {
@@ -17,9 +16,9 @@ import {
   ItemBoxRight,
   ImageProduct,
   TitleProduct,
-  DeleteBtn,
   MeasureProduct,
   LoaderDiv,
+  CloseIcon,
 } from './IngredientsShoppingList.styled';
 
 const IngredientsShoppingList = () => {
@@ -75,9 +74,13 @@ const IngredientsShoppingList = () => {
               </ItemBoxLeft>
               <ItemBoxRight>
                 <MeasureProduct MeasureProduct>{measure} </MeasureProduct>
-                <DeleteBtn onClick={() => handleDeleteProduct(_id)}>
-                  <img src={CrossWhite || Cross} alt="Button delete" />
-                </DeleteBtn>
+                <button
+                  type="button"
+                  title="Delete item"
+                  onClick={() => handleDeleteProduct(_id)}
+                >
+                  <CloseIcon />
+                </button>
               </ItemBoxRight>
             </ShoppingListItem>
           ))}

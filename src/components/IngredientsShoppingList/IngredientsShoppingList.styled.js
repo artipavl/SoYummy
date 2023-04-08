@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { RiCloseLine } from 'react-icons/ri';
 
 export const ShoppingListContainer = styled.div`
   padding: 50px 0 100px;
@@ -8,8 +9,6 @@ export const ShoppingListContainer = styled.div`
   @media ${props => props.theme.device.desktop} {
     padding-bottom: 195px;
   }
-
-  background: ${props => props.theme.colors.bgDark};
 `;
 
 export const ShoppingListTitle = styled.h3`
@@ -20,8 +19,7 @@ export const ShoppingListTitle = styled.h3`
   line-height: 1.5;
   border-radius: 8px;
   padding: 10px;
-  background: ${props => props.theme.colors.accent};
-
+  background: ${props => props.theme.colors.modes.white.accent};
   @media ${props => props.theme.device.tablet} {
     padding: 20px;
     font-size: 18px;
@@ -94,7 +92,6 @@ export const ImageProduct = styled.img`
   padding: 6px;
   border-radius: 8px;
   background: ${props => props.theme.colors.accentMuted};
-  background: ${props => props.theme.colors.accentDarkMuted};
 
   @media ${props => props.theme.device.tablet} {
     width: 93px;
@@ -107,25 +104,26 @@ export const TitleProduct = styled.p`
   font-weight: ${props => props.theme.fontWeights.medium};
   font-size: 10px;
   line-height: 1.2;
+  /* color: ${props => props.theme.colors.textWhite}; */
   color: ${props => props.theme.colors.textDark};
-  color: ${props => props.theme.colors.textWhite};
+
   @media ${props => props.theme.device.tablet} {
     font-size: 16px;
     line-height: 1.5;
   }
 `;
 
-export const DeleteBtn = styled.button`
-  height: 14px;
-  width: 14px;
+export const CloseIcon = styled(RiCloseLine)`
+  color: ${props => props.theme.colors.accentDark};
+  color: ${props => props.theme.colors.accentDark};
+  font-size: 15px;
   @media ${props => props.theme.device.tablet} {
-    height: 20px;
-    width: 20px;
+    font-size: 21px;
   }
 `;
 
 export const MeasureProduct = styled.p`
-  background: ${props => props.theme.colors.accent};
+  background: ${props => props.theme.colors.modes.white.accent};
   border-radius: 4px;
   font-weight: ${props => props.theme.fontWeights.bold};
   font-size: 10px;
