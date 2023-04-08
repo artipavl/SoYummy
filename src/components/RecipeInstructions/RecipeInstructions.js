@@ -25,7 +25,11 @@ const RecipeInstructions = ({ instructions, picture, alt }) => {
                   <ItemNumber>
                     {instructions.indexOf(instruction) + 1}
                   </ItemNumber>
-                  <InstructionText>{instruction}.</InstructionText>
+                  <InstructionText>
+                    {instruction}
+                    {instructions.indexOf(instruction) !==
+                      instructions.length - 1 && '.'}
+                  </InstructionText>
                 </InstructionItem>
               );
             })}

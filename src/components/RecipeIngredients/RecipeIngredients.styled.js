@@ -96,6 +96,23 @@ export const IngredientItem = styled.li`
   }
 `;
 
+export const IngredientImg = styled.img`
+  width: 57px;
+  height: 57px;
+  margin-right: 12px;
+
+  @media ${props => props.theme.device.tablet} {
+    width: 112px;
+    height: 112px;
+    margin-right: 40px;
+  }
+  @media ${props => props.theme.device.desktop} {
+    width: 128px;
+    height: 128px;
+    margin-right: 66px;
+  }
+`;
+
 export const IngredientPlaceholder = styled.svg`
   width: 57px;
   height: 57px;

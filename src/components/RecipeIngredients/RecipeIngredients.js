@@ -1,6 +1,7 @@
 import { Container } from 'reusableComponents/Container/Container.styled';
 import {
   FlexWrapper,
+  IngredientImg,
   IngredientItem,
   IngredientName,
   IngredientNumber,
@@ -12,7 +13,22 @@ import {
 } from './RecipeIngredients.styled';
 import placeholders from 'images/icons/placeholders.svg';
 import Checkbox from 'components/Checkbox/Checkbox';
-const RecipeIngredients = () => {
+import { useEffect, useState } from 'react';
+import { getShopList } from 'api/services/axios/axiosService';
+import { useSelector } from 'react-redux';
+import { selectToken } from 'redux/selectors';
+
+const RecipeIngredients = ({ ingredients }) => {
+  const [shopList, setShopList] = useState([]);
+
+  const token = useSelector(selectToken);
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+
+  useEffect(() => {
+    getShopList(config).then(res => console.log(`shop-list: ${res}`));
+  }, []);
   return (
     <IngredientsSection>
       <Container>
@@ -23,24 +39,29 @@ const RecipeIngredients = () => {
             <TitleText>Add to list</TitleText>
           </FlexWrapper>
         </IngredientsHeader>
-        {/* Ingredients list from API */}
         <ul>
-          <IngredientItem>
-            {/* ImageFromAPi ? <ImageFromApi/> : <Placeholder/> */}
-            <FlexWrapper>
-              <IngredientPlaceholder>
-                <use href={placeholders + '#ph-apple-60px'} />
-              </IngredientPlaceholder>
-              <img src="" alt="" />
-              <IngredientName>Salmon</IngredientName>
-            </FlexWrapper>
-            <FlexWrapper>
-              <IngredientNumber>2 chopped</IngredientNumber>
-              <label>
-                <Checkbox />
-              </label>
-            </FlexWrapper>
-          </IngredientItem>
+          {ingredients.map(ingr => {
+            return (
+              <IngredientItem key={ingr._id}>
+                <FlexWrapper>
+                  {ingr.thb ? (
+                    <IngredientImg src={ingr.thb} alt={ingr.ttl} />
+                  ) : (
+                    <IngredientPlaceholder>
+                      <use href={placeholders + '#ph-apple-60px'} />
+                    </IngredientPlaceholder>
+                  )}
+                  <IngredientName>{ingr.ttl}</IngredientName>
+                </FlexWrapper>
+                <FlexWrapper>
+                  <IngredientNumber>{ingr.measure}</IngredientNumber>
+                  <label>
+                    <Checkbox />
+                  </label>
+                </FlexWrapper>
+              </IngredientItem>
+            );
+          })}
         </ul>
       </Container>
     </IngredientsSection>

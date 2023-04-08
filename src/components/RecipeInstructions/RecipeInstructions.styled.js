@@ -63,7 +63,8 @@ export const InstructionItem = styled.li`
   }
 `;
 export const ItemNumber = styled.p`
-  padding: 10px 12px;
+  padding: 3px 9px;
+  margin-right: 14px;
 
   font-weight: 600;
   font-size: 12px;
@@ -72,9 +73,6 @@ export const ItemNumber = styled.p`
   border-radius: 100px;
 
   color: #ffffff;
-
-  width: 21px;
-  height: 21px;
 
   display: flex;
   justify-content: center;
