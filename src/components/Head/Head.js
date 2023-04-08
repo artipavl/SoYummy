@@ -89,7 +89,9 @@ export const Head = () => {
         openUser={openUser}
         handleOpenSmallUserMenu={handleOpenSmallUserMenu}
       />
-      <MobileMenu openState={open} handleMenuClick={handleMenuClick}>
+      <MobileMenu
+        openState={open}
+        handleMenuClick={handleMenuClick}>
         <ThemeToogle />
       </MobileMenu>
     </>

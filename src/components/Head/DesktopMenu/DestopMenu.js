@@ -1,5 +1,3 @@
-import search from '../../../images/icons/search_Icon.svg';
-
 import {
   NavStyled,
   NavItems,

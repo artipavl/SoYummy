@@ -8,7 +8,7 @@ import BgTabletRetina from '../../../images/bg/menuBG_Tablet@2x.webp'
 
 export const MobileMenuSection = styled.section`
   box-sizing: border-box;
-  position: absolute;
+  position: fixed;
   padding: 18px 16px;
   background-color: #EBF3D4;
   background-image: url('${BgMobile}');
@@ -101,28 +101,25 @@ export const Navigator = styled(NavLink)`
   font-weight: ${props => props.theme.fontWeights.medium};
   transition: color 250ms linear;
 
-    &:hover, &focus {
-      color: ${props => props.theme.colors.accent};
-    }
+  path {
+    stroke: ${props => props.theme.colors.accentDark};
+    transition: stroke 250ms linear;
+  }
 
-    @media ${props => props.theme.device.mobile} {
+  :hover path,
+  :focus path {
+    stroke: ${props => props.theme.colors.accent};
+  }
 
+  &:hover, &focus {
+    color: ${props => props.theme.colors.accent};
+  }
 
     @media ${props => props.theme.device.tablet} {
       font-size: 24px;
     }
-}
 
-`
-export const SearchIcon = styled.img`
-  fill: ${props => props.theme.colors.accentDark};
-  &:hover, &focus {
-  fill: ${props => props.theme.colors.accent};
-  }
-  @media ${props => props.theme.device.mobile} {
-    width: 20px;
-    height: 20px;
-}
+
 `
 
 export const SearchText = styled.p`

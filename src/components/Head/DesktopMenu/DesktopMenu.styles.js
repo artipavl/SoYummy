@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import {ReactComponent as Search} from '../../../images/icons/search_Icon.svg'
 
 export const NavStyled = styled.nav`
-display: none;
-
+  display: none;
 
 @media ${props => props.theme.device.desktop}{
   display: block;
