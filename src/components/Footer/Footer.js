@@ -1,8 +1,7 @@
+import React from 'react';
+import { useState } from 'react';
+
 import logo from '../../images/icons/logo-Lite-Icon.svg';
-import facebook from '../../images/icons/facebook-logo.svg';
-import twitter from '../../images/icons/twitter-logo.svg';
-import youtube from '../../images/icons/youtube-logo.svg';
-import instagram from '../../images/icons/instagram-logo.svg';
 
 import {
   FooterSection,
@@ -27,12 +26,21 @@ import {
   SocialIcon,
   SocialImg,
 
+  FacebookIconStyled,
+  TwitterIconStyled,
+  YoutubeIconStyled,
+  InstagramIconStyled,
+
   SubFooter,
   SubFooterText,
 } from "./Footer.styled";
 
-import React from 'react';
-import { useState } from 'react';
+
+
+
+
+
+
 
 export const Footer = () => {
   const [email, setEmail] = useState('');
@@ -51,92 +59,94 @@ export const Footer = () => {
   return (
     <footer>
       <FooterSection>
-        <Container>
-          <LogoCapLinkFormWrap>
-          <LogoCapLinkWrap>
-          <LogoCapWrap>
-            <LogoLink to="/main">
-              <LogoImg src={logo} alt='logo' width={32} />
-              <LogoTitle>So Yummy</LogoTitle>
-            </LogoLink>
 
-            <AppCapabilitiesList>
-              <AppCapabilitiesItem>
-                <p>Database of recipes that can be replenished</p>
-              </AppCapabilitiesItem>
+          <Container>
+            <LogoCapLinkFormWrap>
+              <LogoCapLinkWrap>
+                <LogoCapWrap>
+                  <LogoLink to="/main">
+                    <LogoImg src={logo} alt='logo' width={32} />
+                    <LogoTitle>So Yummy</LogoTitle>
+                  </LogoLink>
 
-              <AppCapabilitiesItem>
-                <p>Flexible search for desired and unwanted ingredients</p>
-              </AppCapabilitiesItem>
+                  <AppCapabilitiesList>
+                    <AppCapabilitiesItem>
+                      <p>Database of recipes that can be replenished</p>
+                    </AppCapabilitiesItem>
 
-              <AppCapabilitiesItem>
-                <p>Ability to add your own recipes with photos</p>
-              </AppCapabilitiesItem>
+                    <AppCapabilitiesItem>
+                      <p>Flexible search for desired and unwanted ingredients</p>
+                    </AppCapabilitiesItem>
 
-              <AppCapabilitiesItem>
-                <p>Convenient and easy to use</p>
-              </AppCapabilitiesItem>
+                    <AppCapabilitiesItem>
+                      <p>Ability to add your own recipes with photos</p>
+                    </AppCapabilitiesItem>
 
-            </AppCapabilitiesList>
+                    <AppCapabilitiesItem>
+                      <p>Convenient and easy to use</p>
+                    </AppCapabilitiesItem>
 
-          </LogoCapWrap>
+                  </AppCapabilitiesList>
 
-          <nav>
-            <FooterLinkWrap>
-              <li><FooterLink to='/'>Ingredients</FooterLink></li>
-              <li><FooterLink to='/add'>Add recipes</FooterLink></li>
-              <li><FooterLink to='/my'>My recipes</FooterLink></li>
-              <li><FooterLink to='/favorite'>Favorite</FooterLink></li>
-              <li><FooterLink to='/shopping-list'>Shopping list</FooterLink></li>
-            </FooterLinkWrap>
-            </nav>
-            </LogoCapLinkWrap>
+                </LogoCapWrap>
 
-            <SubscFomrWrap>
-            <SubscribeWrap>
-              <h4>Subscribe to our Newsletter</h4>
-              <p>Subscribe up to our newsletter. Be in touch with latest news and special offers, etc.</p>
-            </SubscribeWrap>
+                <nav>
+                  <FooterLinkWrap>
+                    <li><FooterLink to='/'>Ingredients</FooterLink></li>
+                    <li><FooterLink to='/add'>Add recipes</FooterLink></li>
+                    <li><FooterLink to='/my'>My recipes</FooterLink></li>
+                    <li><FooterLink to='/favorite'>Favorite</FooterLink></li>
+                    <li><FooterLink to='/shopping-list'>Shopping list</FooterLink></li>
+                  </FooterLinkWrap>
+                </nav>
+              </LogoCapLinkWrap>
 
-          <FormFooter onSubmit={handleSubmit}>
-            <FormFooterInput
-              type="email"
-              id="email"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              placeholder='Enter your email address'
-              required
-            />
-            <FormFooterBtn type="submit">Subscribe</FormFooterBtn>
-            </FormFooter>
-            </SubscFomrWrap>
+              <SubscFomrWrap>
+                <SubscribeWrap>
+                  <h4>Subscribe to our Newsletter</h4>
+                  <p>Subscribe up to our newsletter. Be in touch with latest news and special offers, etc.</p>
+                </SubscribeWrap>
+
+                <FormFooter onSubmit={handleSubmit}>
+                  <FormFooterInput
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                    placeholder='Enter your email address'
+                    required
+                  />
+                  <FormFooterBtn type="submit">Subscribe</FormFooterBtn>
+                </FormFooter>
+              </SubscFomrWrap>
 
             </LogoCapLinkFormWrap>
 
-          <SocialWrap>
-            <SocialIcon>
-              <SocialLink to='https://www.facebook.com/' target='_blank'>
-                <SocialImg src={facebook} alt="facebook-logo" width={20} />
-              </SocialLink>
-            </SocialIcon>
-            <SocialIcon>
-              <SocialLink to='https://www.youtube.com/' target='_blank'>
-                <SocialImg src={youtube} alt="youtube-logo" width={20} />
-              </SocialLink>
-            </SocialIcon>
-            <SocialIcon>
-              <SocialLink to='https://twitter.com/' target='_blank'>
-                <SocialImg src={twitter} alt="twitter-logo" width={20} />
-              </SocialLink>
-            </SocialIcon>
-            <SocialIcon>
-              <SocialLink to='https://www.instagram.com/' target='_blank'>
-                <SocialImg src={instagram} alt="instagram-logo" width={20} />
-              </SocialLink>
-            </SocialIcon>
-          </SocialWrap>
+            <SocialWrap>
 
-        </Container>
+                <SocialLink to='https://www.facebook.com/' target='_blank'>
+                  <FacebookIconStyled/>
+                </SocialLink>
+
+
+                <SocialLink to='https://www.youtube.com/' target='_blank'>
+                 <YoutubeIconStyled/>
+                </SocialLink>
+
+
+                <SocialLink to='https://twitter.com/' target='_blank'>
+                  <TwitterIconStyled/>
+                </SocialLink>
+
+                <SocialLink to='https://www.instagram.com/' target='_blank'>
+                  <InstagramIconStyled/>
+                </SocialLink>
+
+
+            </SocialWrap>
+
+          </Container>
+
       </FooterSection>
 
       <SubFooter>
@@ -146,7 +156,7 @@ export const Footer = () => {
             <p>Terms of Service</p>
           </SubFooterText>
         </Container>
-        </SubFooter>
+      </SubFooter>
     </footer>
   );
 }

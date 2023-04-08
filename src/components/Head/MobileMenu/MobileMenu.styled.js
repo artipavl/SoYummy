@@ -9,7 +9,9 @@ import BgTabletRetina from '../../../images/bg/menuBG_Tablet@2x.webp'
 export const MobileMenuSection = styled.section`
   box-sizing: border-box;
   position: absolute;
+  padding: 18px 16px;
   background-color: #EBF3D4;
+  background-image: url('${BgMobile}');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 100% 100%;
@@ -22,17 +24,14 @@ export const MobileMenuSection = styled.section`
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 
-  padding: 18px 16px;
-
-    background-image: url('${BgMobile}');
-    @media ${props => props.theme.retinaBackgroundImage} {
-      background-image: url('${BgMobileRetina}');
-    }
   &.open {
     opacity: 1;
     visibility: visible;
   }
 
+  @media ${props => props.theme.retinaBackgroundImage} {
+    background-image: url('${BgMobileRetina}');
+    }
 
 
   @media ${props => props.theme.device.tablet}{
@@ -65,10 +64,9 @@ export const NavStyled = styled.nav`
 export const LinkLogo = styled(NavLink)`
 `
 export const NavLogo = styled.img`
-  @media ${props => props.theme.device.mobile} {
-    width: 40px;
-    height: 40px;
-  }
+  width: 40px;
+  height: 40px;
+
   @media ${props => props.theme.device.tablet} {
     width: 44px;
     height: 44px;

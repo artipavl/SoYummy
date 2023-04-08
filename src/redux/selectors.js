@@ -9,3 +9,6 @@ export const selectorSwicherTheme = state => state.auth.theme;
 export const selectResults = state => state.search.results;
 export const selectSearchIsError = state => state.search.isError;
 export const selectSearchIsLoading = state => state.search.isLoading;
+
+
+

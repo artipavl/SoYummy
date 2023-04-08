@@ -6,6 +6,9 @@ import {
   fetchCurrentUser,
   fetchUserLogout,
   themeSwicher,
+
+  updateUser
+
 } from './authOperations';
 
 const initialState = {
@@ -19,6 +22,7 @@ const initialState = {
   isError: false,
   isLoading: false,
   isLoggedIn: false,
+  isUpdatingUser: false
 };
 
 const authSlice = createSlice({
@@ -92,13 +96,30 @@ const authSlice = createSlice({
 
     [themeSwicher.fulfilled](state, action) {
       state.theme = state.theme === "light" ? "dark" : "light";
-    },  
-    
+    },
+
     // themeSwicher: (state, action) => {
     //   state.theme = state.theme === "light" ? "dark" : "light";
     // },
+    [updateUser.fulfilled](state, action) {
+      const { name, avatarURL } = action.payload;
+
+      state.user = { ...state.user, name, avatarURL };
+      state.isError = null;
+      state.isLoading = false;
+      state.isUpdatingUser = true;
+    },
+    [updateUser.pending](state) {
+      state.isLoading = true;
+    },
+    [updateUser.rejected](state, action) {
+      state.isError = action.payload;
+      state.isLoading = false;
+
+    },
 
   },
+
 });
 
 export const authReducer = authSlice.reducer;
