@@ -68,9 +68,7 @@ export const InstagramIconStyled = styled(Instagram)`
   }
 
 `
-
-
-
+//
 
 export const FooterSection = styled.div`
   position: relative;

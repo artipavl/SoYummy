@@ -44,6 +44,8 @@ export const MobileMenuSection = styled.section`
 
   }
 
+@media
+
 @media ${props => props.theme.device.desktop}{
     display: none
 }
@@ -55,10 +57,9 @@ export const MobileMenuHeader = styled.div`
 `
 
 export const NavStyled = styled.nav`
-    @media ${props => props.theme.device.mobile} {
     margin-top: 124px;
     height: 100%;
-  }
+
 
 `
 export const LinkLogo = styled(NavLink)`
@@ -91,8 +92,12 @@ export const Navigator = styled(NavLink)`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
   color: ${props => props.theme.colors.text};
+  font-size: 18px;
   line-height: 1.6;
+  font-weight: ${props => props.theme.fontWeights.medium};
   transition: color 250ms linear;
 
     &:hover, &focus {
@@ -100,10 +105,7 @@ export const Navigator = styled(NavLink)`
     }
 
     @media ${props => props.theme.device.mobile} {
-      padding-top: 16px;
-      padding-bottom: 16px;
-      font-size: 18px;
-      font-weight: ${props => props.theme.fontWeights.medium};
+
 
     @media ${props => props.theme.device.tablet} {
       font-size: 24px;

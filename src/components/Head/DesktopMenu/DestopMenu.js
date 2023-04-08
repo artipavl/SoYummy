@@ -5,7 +5,7 @@ import {
   NavItems,
   NavItem,
   Navigator,
-  SearchIcon,
+  SearchIconStyled,
 } from './DesktopMenu.styles';
 
 export const DesktopMenu = () => {
@@ -45,7 +45,7 @@ export const DesktopMenu = () => {
 
         <NavItem>
           <Navigator to="/search">
-            <SearchIcon src={search} alt="search icon" width={24} />
+            <SearchIconStyled/>
           </Navigator>
         </NavItem>
       </NavItems>

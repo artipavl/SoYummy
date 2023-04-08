@@ -23,24 +23,13 @@ import {
   FormFooterBtn,
   SocialWrap,
   SocialLink,
-  SocialIcon,
-  SocialImg,
-
   FacebookIconStyled,
   TwitterIconStyled,
   YoutubeIconStyled,
   InstagramIconStyled,
-
   SubFooter,
   SubFooterText,
 } from "./Footer.styled";
-
-
-
-
-
-
-
 
 export const Footer = () => {
   const [email, setEmail] = useState('');
