@@ -142,3 +142,11 @@ export const MeasureProduct = styled.p`
     font-size: 18px;
   }
 `;
+
+export const LoaderDiv = styled.div`
+  width: 100%;
+  padding-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;

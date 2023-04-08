@@ -19,6 +19,7 @@ import {
   TitleProduct,
   DeleteBtn,
   MeasureProduct,
+  LoaderDiv,
 } from './IngredientsShoppingList.styled';
 
 const IngredientsShoppingList = () => {
@@ -58,7 +59,9 @@ const IngredientsShoppingList = () => {
         </RightBox>
       </ShoppingListTitle>
       {isLoading ? (
-        <Loader />
+        <LoaderDiv>
+          <Loader />
+        </LoaderDiv>
       ) : (
         <ShoppingList>
           {productList.map(({ _id, ttl, thb, measure }) => (
