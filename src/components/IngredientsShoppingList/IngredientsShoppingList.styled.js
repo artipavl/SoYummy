@@ -2,24 +2,20 @@ import styled from 'styled-components';
 
 export const ShoppingListContainer = styled.div`
   padding: 50px 0 100px;
-
-  /* Тичасовий фон */
-  background: ${props => props.theme.colors.textWhite};
-  background: ${props => props.theme.colors.bgDark};
-
   @media ${props => props.theme.device.tablet} {
     padding: 72px 0 200px;
   }
-
   @media ${props => props.theme.device.desktop} {
     padding-bottom: 195px;
   }
+
+  background: ${props => props.theme.colors.bgDark};
 `;
 
 export const ShoppingListTitle = styled.h3`
   display: flex;
   justify-content: space-between;
-  font-weight: 600;
+  font-weight: ${props => props.theme.fontWeights.bold};
   font-size: 12px;
   line-height: 1.5;
   border-radius: 8px;
@@ -61,8 +57,9 @@ export const RightBox = styled.div`
 export const ShoppingListItem = styled.li`
   display: flex;
   padding: 24px 24px 24px 8px;
-  border-bottom: 1px solid #fafafa4d;
-  border-bottom: 1px solid #e0e0e0;
+
+  border-bottom: 1px solid
+    ${props => props.theme.colors.blackAndWhiteBrorderList};
   justify-content: space-between;
   @media ${props => props.theme.device.tablet} {
     padding: 45px 45px 42px 0px;
@@ -107,7 +104,7 @@ export const ImageProduct = styled.img`
 `;
 
 export const TitleProduct = styled.p`
-  font-weight: 500;
+  font-weight: ${props => props.theme.fontWeights.medium};
   font-size: 10px;
   line-height: 1.2;
   color: ${props => props.theme.colors.textDark};
@@ -130,7 +127,7 @@ export const DeleteBtn = styled.button`
 export const MeasureProduct = styled.p`
   background: ${props => props.theme.colors.accent};
   border-radius: 4px;
-  font-weight: 600;
+  font-weight: ${props => props.theme.fontWeights.bold};
   font-size: 10px;
   line-height: 1.5;
   text-align: center;

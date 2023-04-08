@@ -23,14 +23,12 @@ export const theme = {
         text: '#23262A', //текст
         textDark: '#3E4462', //текст сірий
         background: '#ECECEC',
-
         accent: '#8BAA36', //зелений акцен
         accentMuted: '#EBF3D4', //зелений акцен пригнічений
       },
       dark: {
         text: '#FAFAFA', //текст
         background: '#1E1F28',
-
         accentDark: '#22252A', //чорний що протиставляється акцену
         accentDarkMuted: '#2A2C36', //чорний що протиставляється акцену пригнічений
       },

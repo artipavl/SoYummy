@@ -17,7 +17,9 @@ const SharedLayout = lazy(() => import('../components/SharedLayout'));
 const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
 const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
 const MyRecipes = lazy(() => import('../pages/MyRecipes/MyRecipes'));
-const ShoppingList = lazy(() => import('../pages/ShoppingList/ShoppingList'));
+const ShoppingList = lazy(() =>
+  import('../pages/ShoppingList/ShoppingList.js')
+);
 
 const tempStyles = {
   paddingTop: 100,

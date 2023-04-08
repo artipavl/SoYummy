@@ -43,8 +43,7 @@ export const deleteMyRecipe = async id => {
   }
 };
 
-//!                  Shopping List omponent
-
+//!                  Shopping List component
 export const getShoppingList = async () => {
   try {
     const { data } = await axios.get(`/users/shopping-list`);
@@ -56,9 +55,13 @@ export const getShoppingList = async () => {
 
 export const deleteShoppingList = async _id => {
   try {
-    const { data } = await axios.patch(`/users/shopping-list`, { _id });
-    return data.data.result;
+    const response = await axios.patch(`/users/shopping-list`, { _id });
+    if (response.status === 200) {
+      return response.data.data.result;
+    } else {
+      throw new Error('Server returned an error');
+    }
   } catch (error) {
-    console.log(error);
+    console.log('error.message: ', error.message);
   }
 };
