@@ -260,6 +260,7 @@ export const FormFooterBtn = styled.button`
   padding: 11px 71px;
   font-size: 12px;
   background-color: ${props => props.theme.colors.accent} ;
+  color: ${props => props.theme.colors.subFooterBtn} ;
   border-radius: 6px;
   transition: color 250ms linear;
 
@@ -353,7 +354,7 @@ export const SubFooterText = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: ${props => props.theme.colors.accentDark};
+  color: ${props => props.theme.colors.subFooterText};
   font-size: 10px;
 
   p:not(:first-child) {
