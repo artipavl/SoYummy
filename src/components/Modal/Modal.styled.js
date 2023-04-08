@@ -52,7 +52,6 @@ export const ButtonClose = styled.button`
 export const BtnIcon = styled.img`
   width:48px;
   height:48px;
-  background-Color: #FAFAFA;
   fill:#FAFAFA;
   
 `;
