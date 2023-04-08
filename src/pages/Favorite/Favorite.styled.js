@@ -6,7 +6,7 @@ export const Page = styled.section`
   padding-right: 16px;
   width: 343px;
   margin: 0 auto;
-  background: #ececec;
+  background: ${props => props.theme.colors.modes.white.background};
 
   @media ${props => props.theme.device.tablet} {
     padding-left: 32px;

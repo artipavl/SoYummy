@@ -1,55 +1,125 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-import emailIcon from '../../images/icons/email.svg';
+import { ReactComponent as emailIcon } from '../../images/icons/email.svg';
+import { ReactComponent as Facebook } from '../../images/icons/facebook-logo.svg';
+import { ReactComponent as Twitter } from '../../images/icons/twitter-logo.svg';
+import { ReactComponent as Youtube } from '../../images/icons/youtube-logo.svg';
+import { ReactComponent as Instagram } from '../../images/icons/instagram-logo.svg';
+
 
 import bgMobile from "../../images/bg/footerBG_mobile.webp";
 import bgMobileRetina from "../../images/bg/footerBG_mobile@2x.webp";
 import bgTablet from '../../images/bg/footerBG_Tablet.webp';
 import bgTabletRetina from '../../images/bg/footerBG_Tablet@2x.webp';
-import bgDesktop from '../../images/bg/footerBG_Desktop.webp'
-import bgDesktopRetina from '../../images/bg/footerBG_Desktop@2x.webp'
+import bgDesktop from '../../images/bg/footerBG_Desktop.webp';
+import bgDesktopRetina from '../../images/bg/footerBG_Desktop@2x.webp';
+import bgSharedDesktop from '../../images/bg/footerSharedDB_Desktop.webp';
 
+//iconStyled
+export const FacebookIconStyled = styled(Facebook)`
+  width: 20px;
+  path {
+    fill: ${props => props.theme.colors.socialLinkIcons};
+    transition: fill 250ms linear;
+  }
+  :hover path,
+  :focus path {
+    fill: ${props => props.theme.colors.socialLinkIconsHover};
+  }
+`;
+export const TwitterIconStyled = styled(Twitter)`
+  width: 20px;
+  path {
+    fill: ${props => props.theme.colors.socialLinkIcons};
+    transition: fill 250ms linear;
+  }
+  :hover path,
+  :focus path {
+    fill: ${props => props.theme.colors.socialLinkIconsHover};
+  }
+`;
+
+export const YoutubeIconStyled = styled(Youtube)`
+  width: 20px;
+  path {
+    fill: ${props => props.theme.colors.socialLinkIcons};
+    transition: fill 250ms linear;
+  }
+  :hover path,
+  :focus path {
+    fill: ${props => props.theme.colors.socialLinkIconsHover};
+  }
+`;
+
+export const InstagramIconStyled = styled(Instagram)`
+  width: 20px;
+  path {
+    fill: ${props => props.theme.colors.socialLinkIcons};
+    transition: fill 250ms linear;
+  }
+  :hover path,
+  :focus path {
+    fill: ${props => props.theme.colors.socialLinkIconsHover};
+  }
+`;
+//
 
 export const FooterSection = styled.div`
+  position: relative;
   background-color: ${props => props.theme.colors.accentDark};
   padding-top: 28px;
   padding-bottom: 28px;
   min-height: 50vh;
+  /* z-index: 10; */
 
-    @media  ${props => props.theme.device.tablet} {
-      padding-top: 50px;
-      padding-bottom: 24px;
-      padding-left: 32px;
-      padding-right: 32px;
+  /* &::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 558px;
+    top: -210px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(${bgSharedDesktop});
+    background-repeat: no-repeat;
+    background-size: 558px 882px;
+    background-position: left center;
+    z-index: -1;
+  } */
+
+  @media ${props => props.theme.device.tablet} {
+    padding-top: 50px;
+    padding-bottom: 24px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
-   @media  ${props => props.theme.device.desktop} {
-      min-height: auto;
-      padding-top: 64px;
-      padding-bottom: 50px;
-      padding-left: 100px;
-      padding-right: 100px;
+  @media ${props => props.theme.device.desktop} {
+    min-height: auto;
+    padding-top: 64px;
+    padding-bottom: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
   }
+`;
 
-
-`
 export const Container = styled.div`
   color: ${props => props.theme.colors.textWhite};
 
-    @media ${props => props.theme.device.mobile} {
-      display: block;
-      margin: 0 auto;
-      width: 375px;
+  @media ${props => props.theme.device.mobile} {
+    display: block;
+    margin: 0 auto;
+    width: 375px;
   }
 
-    @media ${props => props.theme.device.tablet} {
-      width: 704px;
-    }
-    @media ${props => props.theme.device.desktop} {
-      width: 1240px;
+  @media ${props => props.theme.device.tablet} {
+    width: 704px;
   }
-
-`
+  @media ${props => props.theme.device.desktop} {
+    width: 1240px;
+  }
+`;
 export const LogoCapLinkWrap = styled.div`
   display: block;
 
@@ -57,7 +127,7 @@ export const LogoCapLinkWrap = styled.div`
     display: flex;
     justify-content: start;
   }
-`
+`;
 
 export const LogoCapLinkFormWrap = styled.div`
   display: block;
@@ -65,27 +135,26 @@ export const LogoCapLinkFormWrap = styled.div`
     display: flex;
     justify-content: space-between;
   }
-`
+`;
 
 export const LogoCapWrap = styled.div`
   display: block;
-`
+`;
 export const LogoLink = styled(NavLink)`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @media  ${props => props.theme.device.tablet} {
-      justify-content: start;
-    }
-
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media ${props => props.theme.device.tablet} {
+    justify-content: start;
+  }
+`;
 
 export const LogoImg = styled.img`
-  @media  ${props => props.theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     width: 44px;
     height: 44px;
   }
-`
+`;
 
 export const LogoTitle = styled.p`
   color: ${props => props.theme.colors.textWhite};
@@ -93,14 +162,12 @@ export const LogoTitle = styled.p`
   font-size: 18px;
   font-weight: ${props => props.theme.fontWeights.bold};
 
-  @media  ${props => props.theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     font-size: 28px;
     margin-left: 12px;
   }
-
-`
+`;
 export const AppCapabilitiesList = styled.ul`
-
   display: none;
   @media ${props => props.theme.device.tablet} {
     display: block;
@@ -109,9 +176,7 @@ export const AppCapabilitiesList = styled.ul`
   @media ${props => props.theme.device.tablet} {
     width: 418px;
   }
-
-
-`
+`;
 export const AppCapabilitiesItem = styled.li`
   list-style-type: disc;
   margin-left: 32px;
@@ -124,10 +189,10 @@ export const AppCapabilitiesItem = styled.li`
   @media ${props => props.theme.device.desktop} {
     font-size: 18px;
     &:not(:first-child) {
-    margin-top: 14px;
+      margin-top: 14px;
     }
   }
-`
+`;
 
 export const FooterLinkWrap = styled.ul`
   margin-top: 32px;
@@ -140,7 +205,7 @@ export const FooterLinkWrap = styled.ul`
   @media ${props => props.theme.device.desktop} {
     margin-left: 0;
   }
-`
+`;
 
 export const FooterLink = styled(NavLink)`
   padding-top: 7px;
@@ -148,11 +213,12 @@ export const FooterLink = styled(NavLink)`
   color: ${props => props.theme.colors.textWhite};
   font-size: 14px;
   transition: color 250ms linear;
-  &:hover, &:focus {
-    color: ${props => props.theme.colors.accent}
+  &:hover,
+  &:focus {
+    color: ${props => props.theme.colors.accent};
   }
 
-  .active{
+  .active {
     color: ${props => props.theme.colors.accent};
   }
   @media ${props => props.theme.device.tablet} {
@@ -162,17 +228,16 @@ export const FooterLink = styled(NavLink)`
   @media ${props => props.theme.device.desktop} {
     margin-left: 159px;
   }
-
-`
+`;
 
 export const SubscFomrWrap = styled.div`
   @media ${props => props.theme.device.desktop} {
     width: 340px;
   }
-`
+`;
 
 export const SubscribeWrap = styled.div`
-display: none;
+  display: none;
   @media ${props => props.theme.device.desktop} {
     display: block;
     h4 {
@@ -185,24 +250,7 @@ display: none;
       line-height: 1.29;
     }
   }
-
-`
-
-export const FormFooter = styled.form`
-  display: flex;
-  flex-direction: column;
-  margin-top: 32px;
-  @media ${props => props.theme.device.tablet} {
-    margin-top: 72px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-  @media ${props => props.theme.device.desktop} {
-    display: block;
-    margin-top: 28px;
-  }
-`
+`;
 
 export const FormFooterInput = styled.input`
   box-sizing: border-box;
@@ -247,11 +295,10 @@ export const FormFooterInput = styled.input`
     background-size: 20px 16px;
     background-position: 18px 15px;
   }
-  @media ${props => props.theme.device.desktop}{
+  @media ${props => props.theme.device.desktop} {
     width: 100%;
   }
-
-`
+`;
 
 export const FormFooterBtn = styled.button`
   display: block;
@@ -259,12 +306,14 @@ export const FormFooterBtn = styled.button`
   margin-top: 8px;
   padding: 11px 71px;
   font-size: 12px;
-  background-color: ${props => props.theme.colors.accent} ;
+  background-color: ${props => props.theme.colors.accent};
+  color: ${props => props.theme.colors.subFooterBtn};
   border-radius: 6px;
   transition: color 250ms linear;
 
-  &:hover, &:focus {
-    color: ${props => props.theme.colors.accentDark}
+  &:hover,
+  &:focus {
+    color: ${props => props.theme.colors.accentDark};
   }
 
   @media ${props => props.theme.device.tablet} {
@@ -280,7 +329,7 @@ export const FormFooterBtn = styled.button`
     margin-top: 16px;
     width: 100%;
   }
-`
+`;
 
 export const SocialWrap = styled.ul`
   display: flex;
@@ -293,27 +342,22 @@ export const SocialWrap = styled.ul`
   @media ${props => props.theme.device.desktop} {
     margin-top: 41px;
   }
-
-`
-export const SocialIcon = styled.li`
-  cursor: pointer;
-  &:not(:first-child){
-    margin-left: 10px;
-  }
-
-`
+`;
 
 export const SocialLink = styled(NavLink)`
-  color: white;
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  &:not(:first-child) {
+    margin-left: 10px;
+  }
+`;
 
 export const SocialImg = styled.img`
- fill: inherit;
-
-`
-export const SubFooterBgContainer = styled.div`
-
-`
+  fill: ${props => props.theme.colors.textWhite};
+`;
+export const SubFooterBgContainer = styled.div``;
 export const SubFooter = styled.div`
   padding-top: 28px;
   padding-bottom: 28px;
@@ -333,9 +377,9 @@ export const SubFooter = styled.div`
     background-image: url('${bgTablet}');
     background-size: 353px 290px;
 
-      @media ${props => props.theme.retinaBackgroundImage} {
-        background-image: url('${bgTabletRetina}');
-      }
+    @media ${props => props.theme.retinaBackgroundImage} {
+      background-image: url('${bgTabletRetina}');
+    }
   }
   @media ${props => props.theme.device.desktop} {
     padding-top: 50px;
@@ -343,35 +387,26 @@ export const SubFooter = styled.div`
     background-image: url('${bgDesktop}');
     background-size: 424px 348px;
     @media ${props => props.theme.retinaBackgroundImage} {
-        background-image: url('${bgDesktopRetina}');
-      }
+      background-image: url('${bgDesktopRetina}');
+    }
   }
-
-`
+`;
 
 export const SubFooterText = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: ${props => props.theme.colors.accentDark};
+  color: ${props => props.theme.colors.subFooterText};
   font-size: 10px;
 
   p:not(:first-child) {
     margin-left: 14px;
     @media ${props => props.theme.device.tablet} {
-    margin-left: 28px;
+      margin-left: 28px;
     }
   }
 
   @media ${props => props.theme.device.tablet} {
     font-size: 14px;
   }
-
-`
-
-
-
-
-
-
-
+`;

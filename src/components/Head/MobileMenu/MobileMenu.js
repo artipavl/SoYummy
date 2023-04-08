@@ -1,6 +1,6 @@
 import logo from '../../../images/icons/logo_Desktop.svg';
+
 import cross from '../../../images/icons/cross.svg';
-import search from '../../../images/icons/search_Icon.svg';
 
 import {
   MobileMenuSection,
@@ -12,9 +12,10 @@ import {
   NavItems,
   NavItem,
   Navigator,
-  SearchIcon,
   SearchText,
 } from './MobileMenu.styled';
+
+import { SearchIconStyled } from '../DesktopMenu/DesktopMenu.styles';
 
 export const MobileMenu = ({ openState, handleMenuClick, children }) => {
   return (
@@ -31,33 +32,38 @@ export const MobileMenu = ({ openState, handleMenuClick, children }) => {
       <NavStyled onClick={handleMenuClick}>
         <NavItems>
           <NavItem>
-            <Navigator to="/categories">Categories</Navigator>
+            <Navigator to="/categories" onClick={handleMenuClick}>
+              Categories
+            </Navigator>
           </NavItem>
 
           <NavItem>
-            <Navigator to="/add">Add recipes</Navigator>
+            <Navigator to="/add" onClick={handleMenuClick}>
+              Add recipes
+            </Navigator>
           </NavItem>
 
           <NavItem>
-            <Navigator to="/my">My recipes</Navigator>
+            <Navigator to="/my" onClick={handleMenuClick}>
+              My recipes
+            </Navigator>
           </NavItem>
 
           <NavItem>
-            <Navigator to="/favorite">Favorites</Navigator>
+            <Navigator to="/favorite" onClick={handleMenuClick}>
+              Favorites
+            </Navigator>
           </NavItem>
 
           <NavItem>
-            <Navigator to="/shopping-list">Shopping list</Navigator>
+            <Navigator to="/shopping-list" onClick={handleMenuClick}>
+              Shopping list
+            </Navigator>
           </NavItem>
 
           <NavItem>
-            <Navigator to="/search">
-              <SearchIcon
-                src={search}
-                alt="search icon"
-                width={24}
-                height={24}
-              />
+            <Navigator to="/search" onClick={handleMenuClick}>
+              <SearchIconStyled>Search</SearchIconStyled>
               <SearchText>Search</SearchText>
             </Navigator>
           </NavItem>

@@ -4,7 +4,7 @@ export const Title = styled.h2`
   position: relative;
   display: block;
   font-family: 'Poppins';
-  color: #001833;
+  color: ${props => props.theme.colors.textTitle};
   font-style: normal;
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
@@ -26,7 +26,7 @@ export const Green1 = styled.div`
   height: 8px;
   left: 104px;
   top: 14px;
-  background: #8baa36;
+  background: ${props => props.theme.colors.modes.white.accent};
   border-radius: 3px;
   transform: rotate(-25deg);
 
@@ -49,7 +49,7 @@ export const Green2 = styled.div`
   height: 8px;
   left: 333px;
   top: 46px;
-  background: #8baa36;
+  background: ${props => props.theme.colors.modes.white.accent};
   border-radius: 3px;
   transform: rotate(-25deg);
 
@@ -71,7 +71,7 @@ export const Black1 = styled.div`
   height: 6px;
   left: 231px;
   top: 79px;
-  background: #22252a;
+  background: ${props => props.theme.colors.modes.dark.accentDark};
   border-radius: 3px;
   transform: rotate(-25deg);
 
