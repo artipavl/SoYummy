@@ -8,8 +8,10 @@ import BgTabletRetina from '../../../images/bg/menuBG_Tablet@2x.webp'
 
 export const MobileMenuSection = styled.section`
   box-sizing: border-box;
-  position: absolute;
+  position: fixed;
+  padding: 18px 16px;
   background-color: #EBF3D4;
+  background-image: url('${BgMobile}');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 100% 100%;
@@ -22,28 +24,28 @@ export const MobileMenuSection = styled.section`
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 
-  padding: 18px 16px;
-
-    background-image: url('${BgMobile}');
-    @media ${props => props.theme.retinaBackgroundImage} {
-      background-image: url('${BgMobileRetina}');
-    }
   &.open {
     opacity: 1;
     visibility: visible;
   }
 
+  @media ${props => props.theme.retinaBackgroundImage} {
+    background-image: url('${BgMobileRetina}');
+    }
 
 
   @media ${props => props.theme.device.tablet}{
     padding: 18px 32px;
     width: 768px;
+    right: 50%;
+    transform: translateX(50%);
     background-image: url('${BgTablet}');
     @media ${props => props.theme.retinaBackgroundImage} {
       background-image: url('${BgTabletRetina}');
     }
 
   }
+
 
 @media ${props => props.theme.device.desktop}{
     display: none
@@ -56,19 +58,17 @@ export const MobileMenuHeader = styled.div`
 `
 
 export const NavStyled = styled.nav`
-    @media ${props => props.theme.device.mobile} {
     margin-top: 124px;
     height: 100%;
-  }
+
 
 `
 export const LinkLogo = styled(NavLink)`
 `
 export const NavLogo = styled.img`
-  @media ${props => props.theme.device.mobile} {
-    width: 40px;
-    height: 40px;
-  }
+  width: 40px;
+  height: 40px;
+
   @media ${props => props.theme.device.tablet} {
     width: 44px;
     height: 44px;
@@ -93,35 +93,33 @@ export const Navigator = styled(NavLink)`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
   color: ${props => props.theme.colors.text};
+  font-size: 18px;
   line-height: 1.6;
+  font-weight: ${props => props.theme.fontWeights.medium};
   transition: color 250ms linear;
 
-    &:hover, &focus {
-      color: ${props => props.theme.colors.accent};
-    }
+  path {
+    stroke: ${props => props.theme.colors.accentDark};
+    transition: stroke 250ms linear;
+  }
 
-    @media ${props => props.theme.device.mobile} {
-      padding-top: 16px;
-      padding-bottom: 16px;
-      font-size: 18px;
-      font-weight: ${props => props.theme.fontWeights.medium};
+  :hover path,
+  :focus path {
+    stroke: ${props => props.theme.colors.accent};
+  }
+
+  &:hover, &:focus {
+    color: ${props => props.theme.colors.accent};
+  }
 
     @media ${props => props.theme.device.tablet} {
       font-size: 24px;
     }
-}
 
-`
-export const SearchIcon = styled.img`
-  fill: ${props => props.theme.colors.accentDark};
-  &:hover, &focus {
-  fill: ${props => props.theme.colors.accent};
-  }
-  @media ${props => props.theme.device.mobile} {
-    width: 20px;
-    height: 20px;
-}
+
 `
 
 export const SearchText = styled.p`

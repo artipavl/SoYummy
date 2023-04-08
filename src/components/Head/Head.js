@@ -1,5 +1,8 @@
 import { useState } from 'react';
 
+import { selectUserName, selectAvatarURL } from 'redux/selectors';
+import { useSelector } from 'react-redux';
+
 import ThemeToogle from 'components/ThemeToogle';
 import DesktopMenu from './DesktopMenu';
 import MobileMenu from './MobileMenu';
@@ -15,39 +18,24 @@ import {
   LinkLogo,
   NavLogo,
   NavLogoLite,
+  UserToogleWrap,
   UserWrapButton,
   UserIcon,
-  TempAvatar,
   UserName,
   ToogleWrap,
   Burger,
-} from './Head.styled';
+} from './Head.styled'
 
 export const Head = () => {
   const [open, setOpen] = useState(false);
   const [openUser, setOpenUser] = useState(false);
-  const [image, setImage] = useState(null);
-  const [name, setName] = useState('');
+  const [checked, setChecked] = useState(false);
 
-  const handleImageUpload = event => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImage(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+  const userName = useSelector(selectUserName)
+  const userAvatar = useSelector(selectAvatarURL)
 
-  const handleImageRemove = () => {
-    setImage(null);
-    document.getElementById('imageUpload').value = null;
-  };
-
-  const handleChangeName = event => {
-    setName(event.target.value);
-    console.log(event.target.value);
+  const handleChange = nextChecked => {
+    setChecked(nextChecked);
   };
 
   const handleMenuClick = () => {
@@ -68,40 +56,42 @@ export const Head = () => {
     <>
       <Header>
         <Container>
+
           <LinkLogo to="/main">
             <NavLogo src={logo} alt="logo" />
             <NavLogoLite src={lightLogo} alt="logo" width={40} />
           </LinkLogo>
+
           <DesktopMenu />
 
-          <UserWrapButton onClick={handleOpenSmallUserMenu}>
-            {image ? (
-              <UserIcon src={image} alt="user avatar" width={44} />
-            ) : (
-              <TempAvatar />
-            )}
-            <UserName>{name === '' ? 'User' : name}</UserName>
-          </UserWrapButton>
+          <UserToogleWrap>
+            <UserWrapButton onClick={handleOpenSmallUserMenu}>
+              <UserIcon src={userAvatar} alt="user avatar" width={44} />
+              <UserName>{userName}</UserName>
+            </UserWrapButton>
 
-          <Burger onClick={handleMenuClick}>
-            <img src={burgerIcon} alt="open mobile menu" width={32} />
-          </Burger>
+            <Burger onClick={handleMenuClick}>
+              <img src={burgerIcon} alt='open mobile menu' width={32} />
+            </Burger>
 
-          <ToogleWrap>
-            <ThemeToogle />
-          </ToogleWrap>
+            <ToogleWrap >
+              <ThemeToogle
+                handleChange={handleChange}
+                checked={checked}
+              />
+            </ToogleWrap>
+          </UserToogleWrap>
+
         </Container>
       </Header>
+
       <UserMenu
         openUser={openUser}
         handleOpenSmallUserMenu={handleOpenSmallUserMenu}
-        image={image}
-        name={name}
-        handleImageUpload={handleImageUpload}
-        handleImageRemove={handleImageRemove}
-        handleChangeName={handleChangeName}
       />
-      <MobileMenu openState={open} handleMenuClick={handleMenuClick}>
+      <MobileMenu
+        openState={open}
+        handleMenuClick={handleMenuClick}>
         <ThemeToogle />
       </MobileMenu>
     </>

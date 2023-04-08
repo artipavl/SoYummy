@@ -14,7 +14,6 @@ import { StartScreen } from 'pages';
 import RegisterPage from '../pages/RegisterPage';
 import SignInPage from '../pages/SignInPage';
 
-
 import { MainPage } from 'pages/mainPaige/MainPage';
 
 import { selectorSwicherTheme } from 'redux/selectors';
@@ -26,6 +25,14 @@ const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
 const MyRecipes = lazy(() => import('../pages/MyRecipes/MyRecipes'));
 const SearchPage = lazy(() => import('../pages/SearchPage'));
 
+//
+
+const tempStyles = {
+  paddingTop: 100,
+  paddingBottom: 100,
+  fontSize: 50,
+  textAlign: 'center',
+};
 
 
 
@@ -46,9 +53,9 @@ export const App = () => {
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
-  
 
-  return ( 
+
+  return (
     <ThemeProvider theme={theme === "light" ?  lightTheme  : darkTheme }>
       <Routes>
         <Route
