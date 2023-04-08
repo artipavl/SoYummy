@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   SelectorWrapper,
@@ -7,19 +7,22 @@ import {
   SelectorOption,
 } from './SearchTypeSelector.styled';
 
-const SearchTypeSelector = ({ handleSearchTypeSelect }) => {
-  const [selectedOption, setSelectedOption] = useState('title');
+import { changeSearchType } from 'redux/searchSlice';
+
+import { selectSearchType } from 'redux/selectors';
+
+const SearchTypeSelector = () => {
+  const dispatch = useDispatch();
+  const searchType = useSelector(selectSearchType);
 
   const handleChange = e => {
-    console.log(e.target.value);
-    setSelectedOption(e.target.value);
-    handleSearchTypeSelect(e.target.value);
+    dispatch(changeSearchType(e.target.value));
   };
 
   return (
     <SelectorWrapper>
       <SelectorText>Search by:</SelectorText>
-      <TypeSelector value={selectedOption} onChange={handleChange}>
+      <TypeSelector value={searchType} onChange={handleChange}>
         <SelectorOption value="title">Title</SelectorOption>
         <SelectorOption value="ingredients">Ingredients</SelectorOption>
       </TypeSelector>

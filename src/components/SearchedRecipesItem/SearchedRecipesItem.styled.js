@@ -3,6 +3,14 @@ import styled from 'styled-components';
 export const RecipeItem = styled.li`
   position: relative;
 
+  cursor: pointer;
+
+  &:hover,
+  :focus {
+    transform: scale(1.05);
+    transition: all 250ms linear 0s;
+  }
+
   @media (max-width: 767px) {
     &:not(:last-child) {
       margin-bottom: 32px;

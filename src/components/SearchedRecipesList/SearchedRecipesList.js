@@ -6,8 +6,20 @@ import SearchedRecipesItem from 'components/SearchedRecipesItem';
 
 import { RecipesList } from './SearchedRecipesList.styled';
 
+import { selectStatus } from 'redux/selectors';
+
 const SearchedRecipesList = () => {
   const results = useSelector(selectResults);
+  const { isLoading, isResolved } = useSelector(selectStatus);
+
+  if (isLoading) {
+    // потрібно добавити компонент Loader сюди.
+    return 'loading';
+  }
+
+  if (isResolved && results.length === 0) {
+    return <div>Empty page</div>;
+  }
 
   return (
     <RecipesList>
