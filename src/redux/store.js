@@ -19,7 +19,7 @@ import { searchReducer } from './searchSlice';
 const persistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'theme'],
 };
 
 const rootReducer = combineReducers({

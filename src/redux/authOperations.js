@@ -82,3 +82,56 @@ export const fetchUserLogout = createAsyncThunk(
     }
   }
 );
+
+
+export const themeSwicher = createAsyncThunk(
+  'auth/theme',
+  () => {
+
+  }
+)
+
+export const updateUser = createAsyncThunk(
+  'auth/update-user',
+  async (formData, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const persistedToken = state.auth.token;
+
+      if (persistedToken === null) {
+        return thunkAPI.rejectWithValue();
+      }
+      token.set(persistedToken);
+
+      const response = await axios.patch('/users/update-user', formData);
+
+      return response.data.data.user;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const subscribeUser = createAsyncThunk(
+  'auth/subscribe',
+  async (email, thunkAPI) => {
+      try {
+      const state = thunkAPI.getState();
+      const persistedToken = state.auth.token;
+
+      if (persistedToken === null) {
+        return thunkAPI.rejectWithValue();
+      }
+      token.set(persistedToken);
+
+      const response = await axios.post('/users/subscribe', email);
+
+      return response.data.data.user;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+
+

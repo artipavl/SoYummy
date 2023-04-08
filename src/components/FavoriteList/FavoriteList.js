@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { getFavoriteRecipes, deleteFavoriteRecipe } from 'api/index';
 import MyRecipeItem from 'components/MyRecipeItem/MyRecipeItem';
 import { Loader } from '../Loader/Loader';
+import Pagination from '../Pagination/Pagination';
+
 
 import { List, ListText, LoaderBox, } from './FavoriteList.styled.js';
 
@@ -19,7 +21,7 @@ const FavoriteList = () => {
       setLoading(true);
       try {
         const data = await getFavoriteRecipes(page);
-        setAllRecipes(data);
+        setAllRecipes(data.result);
 
         const totalCountPage = Math.ceil(data.total / 4);
         if (totalCountPage > 1) {
@@ -73,11 +75,16 @@ const FavoriteList = () => {
         <ListText>You don't have your recipes</ListText>
       )}
       {totalPage && (
-        <div change={handleChange}>Paginator</div>
-        //   <Paginator
-        //     count={totalPage}
-        //     page={page}
-        //     change={handleChange} />
+        // <div
+        // // change={handleChange}
+        // >
+        //   Paginator
+        // </div>
+          <Pagination
+            count={totalPage}
+            page={page}
+            change={handleChange}
+          />
       )}
     </List>
   );
