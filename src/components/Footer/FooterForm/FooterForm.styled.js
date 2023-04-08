@@ -1,5 +1,17 @@
-import emailIcon from '../../../images/icons/email.svg';
 import styled from 'styled-components';
+import { ReactComponent as EmailIcon } from '../../../images/icons/email.svg';
+
+export const EmailIconStyled = styled(EmailIcon)`
+  position: absolute;
+  /* width: 20px; */
+
+  path {
+    stroke: ${({ error, touched }) =>
+    touched ? (error ? '#E74A3B' : '#3CBC81') : '#ccc'};
+
+  }
+
+`
 
 export const FormFooter = styled.form`
   display: flex;
@@ -16,7 +28,10 @@ export const FormFooter = styled.form`
     margin-top: 28px;
   }
 `
+export const InputWrapper = styled.div`
+position: relative;
 
+`
 export const FormFooterInput = styled.input`
   box-sizing: border-box;
   display: block;
@@ -25,21 +40,32 @@ export const FormFooterInput = styled.input`
   padding-left: 42px;
   width: 204px;
   height: 38px;
+  font-size: 10px;
   background-color: transparent;
-  background-image: url('${emailIcon}');
   background-repeat: no-repeat;
   background-position: 15px 13px;
   background-size: 16px 12px;
-  color: inherit;
-  font-size: inherit;
+  color: ${({ error, touched }) =>
+    touched ? (error ? '#E74A3B' : '#3CBC81') : '#3CBC81'};
   border-radius: 6px;
-  border: 1px solid rgba(236, 236, 236, 0.16);
+  /* border: 1px solid rgba(236, 236, 236, 0.16); */
+  border: 1px solid ${({ error, touched }) =>
+  touched ? (error ? '#E74A3B' : '#3CBC81') : '#3CBC81'};
+
+  @media ${props => props.theme.device.tablet} {
+      font-size: 14px;
+    }
+
+    @media ${props => props.theme.device.desktop} {
+      font-size: 18px;
+    }
+
 
   &::placeholder {
-    background-image: url('${emailIcon}') no-repeat;
     font-size: 10px;
     font-weight: 400;
-    color: ${props => props.theme.colors.textWhite};
+    color: ${({ error, touched }) =>
+      touched ? (error ? '#E74A3B' : '#3CBC81') : '#3CBC81'};;
     opacity: 1;
 
     @media ${props => props.theme.device.tablet} {
@@ -66,6 +92,12 @@ export const FormFooterInput = styled.input`
 
 `
 
+export const Error = styled.div`
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+`;
+
 export const FormFooterBtn = styled.button`
   display: block;
   margin: 0 auto;
@@ -79,6 +111,17 @@ export const FormFooterBtn = styled.button`
   &:hover, &:focus {
     color: ${props => props.theme.colors.accentDark}
   }
+  :disabled {
+    background-color: ${props => props.theme.colors.accentDarkMuted};
+    color: ${props => props.theme.colors.textWhiteMuted};
+   &:hover:disabled, &:focus:disabled {
+      
+      color: initial;
+      cursor: not-allowed;
+    }
+
+  }
+
 
   @media ${props => props.theme.device.tablet} {
     margin-top: 0;
