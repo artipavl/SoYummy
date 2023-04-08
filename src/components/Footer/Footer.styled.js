@@ -7,13 +7,12 @@ import { ReactComponent as Twitter } from '../../images/icons/twitter-logo.svg';
 import { ReactComponent as Youtube } from '../../images/icons/youtube-logo.svg';
 import { ReactComponent as Instagram } from '../../images/icons/instagram-logo.svg';
 
-import bgMobile from '../../images/bg/footerBG_mobile.webp';
-import bgMobileRetina from '../../images/bg/footerBG_mobile@2x.webp';
+
+import emailIcon from '../../images/icons/email.svg'
 import bgTablet from '../../images/bg/footerBG_Tablet.webp';
 import bgTabletRetina from '../../images/bg/footerBG_Tablet@2x.webp';
 import bgDesktop from '../../images/bg/footerBG_Desktop.webp';
 import bgDesktopRetina from '../../images/bg/footerBG_Desktop@2x.webp';
-
 import bgSharedDesktop from '../../images/bg/footerSharedDB_Desktop.webp';
 
 //iconStyled

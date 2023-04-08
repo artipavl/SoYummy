@@ -6,13 +6,25 @@ import {
 } from './SearchedRecipesItem.styled';
 
 const SearchedRecipesItem = ({ title, preview }) => {
+  const animation = title.length > 34;
   return (
-    <RecipeItem>
-      <RecipeImage src={preview} alt={title} />
-      <RecipeTitleContainer>
-        <RecipeTitleName>{title}</RecipeTitleName>
-      </RecipeTitleContainer>
-    </RecipeItem>
+    <>
+      {animation ? (
+        <RecipeItem animation>
+          <RecipeImage src={preview} alt={title} />
+          <RecipeTitleContainer>
+            <RecipeTitleName>{title}</RecipeTitleName>
+          </RecipeTitleContainer>
+        </RecipeItem>
+      ) : (
+        <RecipeItem>
+          <RecipeImage src={preview} alt={title} />
+          <RecipeTitleContainer>
+            <RecipeTitleName>{title}</RecipeTitleName>
+          </RecipeTitleContainer>
+        </RecipeItem>
+      )}
+    </>
   );
 };
 
