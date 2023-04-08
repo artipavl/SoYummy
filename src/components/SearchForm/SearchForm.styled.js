@@ -32,6 +32,7 @@ export const SearchValue = styled.input`
   height: 53px;
 
   padding: 0;
+  padding-left: 32px;
 
   border: 1px solid #f0f0f0;
   border-radius: 24px 44px;
@@ -45,12 +46,16 @@ export const SearchValue = styled.input`
     width: 362px;
     height: 57px;
 
+    padding-left: 38px;
+
     font-size: 14px;
   }
 
   @media ${props => props.theme.device.desktop} {
     width: 510px;
     height: 70px;
+
+    padding-left: 48px;
 
     font-size: 16px;
   }
