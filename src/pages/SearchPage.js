@@ -1,16 +1,18 @@
 import { useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import MainTitle from 'components/MainTitle/MainTitle';
 import SearchBar from 'components/SearchBar';
 import SearchedRecipesList from 'components/SearchedRecipesList';
 
-import { searchRecipes } from 'redux/searchOperations';
+import { searchRecipes, searchIngredient } from 'redux/searchOperations';
+
+import { selectSearchType } from 'redux/selectors';
 
 const SearchPage = () => {
   const [searchParams] = useSearchParams();
-
+  const searchType = useSelector(selectSearchType);
   const dispatch = useDispatch();
 
   const query = searchParams.get('query');
@@ -20,10 +22,12 @@ const SearchPage = () => {
       return;
     }
 
-    console.log(query);
-
-    dispatch(searchRecipes(query));
-  }, [dispatch, query]);
+    if (searchType === 'title') {
+      dispatch(searchRecipes(query));
+    } else {
+      dispatch(searchIngredient(query));
+    }
+  }, [dispatch, query, searchType]);
 
   return (
     <div>
