@@ -7,25 +7,29 @@ export const Header = styled.header`
   left: 50%;
   transform: translateX(-50%);
 
-  width: 100%;
   padding-right: 16px;
   padding-left: 16px;
   padding-top: 18px;
-
   z-index: 999;
+
+  @media (min-width: 280px) and (max-width: 374px) {
+    min-width: 280px;
+    max-width: 374px;
+
+  }
 
   @media ${props => props.theme.device.mobile} {
     width: 375px;
   }
 
   @media ${props => props.theme.device.tablet} {
-    width: 704px;
+    width: 768px;
     padding-right: 32px;
     padding-left: 32px;
 
   }
    @media ${props => props.theme.device.desktop} {
-    width: 1240px;
+    width: 1440px;
     padding-right: 100px;
     padding-left: 100px;
   }
@@ -60,23 +64,18 @@ export const SearchText = styled.p`
       display: none;
     }
 `
-
+export const UserToogleWrap = styled.div `
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 export const UserWrapButton = styled.button`
   position: relative;
   display: flex;
   align-items: center;
-  margin-left: 166px;
   cursor: pointer;
-   @media ${props => props.theme.device.mobile} {
 
-   }
-
-    @media ${props => props.theme.device.tablet} {
-      margin-left: 477px;
-    }
-    @media ${props => props.theme.device.desktop} {
-      margin-left: 226px;
-    }
 `
 
 export const UserIcon = styled.img`
@@ -123,15 +122,20 @@ export const TempAvatar = styled.label`
 `
 export const ToogleWrap = styled.div`
     display: none;
+
   @media ${props => props.theme.device.desktop} {
     display: block;
-    margin-left: auto;
+    margin-left: 50px;
 }
 `
 export const Burger = styled.button`
     width: 28px;
     height: 28px;
-    margin-left: auto;
+    margin-left: 50px;
+  @media (min-width: 280px) and (max-width: 374px) {
+      margin-left: 15px;
+
+  }
 
   @media ${props => props.theme.device.desktop} {
   display: none;

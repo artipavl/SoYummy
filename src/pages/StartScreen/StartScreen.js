@@ -8,10 +8,7 @@ import {
   StartTitle,
   StartNav,
   StyledLink,
-
 } from './StartScreen.styled';
-
-
 
 export const StartScreen = () => {
   return (
@@ -20,12 +17,11 @@ export const StartScreen = () => {
         <StartScreenLogo src={logoIcon} alt="logo" width={44} />
         <StartSubtitle>Welcome to the app!</StartSubtitle>
         <StartTitle>
-          This app offers more than just a collection of recipes - it is designed
-          to be your very own digital cookbook. You can easily save and retrieve
-          your own recipes at any time.
+          This app offers more than just a collection of recipes - it is
+          designed to be your very own digital cookbook. You can easily save and
+          retrieve your own recipes at any time.
         </StartTitle>
         <StartNav>
-
           <StyledLink to="/register">Registration</StyledLink>
           <StyledLink to="/signin">Sing In</StyledLink>
         </StartNav>

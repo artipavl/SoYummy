@@ -27,7 +27,7 @@ export const Green1 = styled.div`
   height: 8px;
   left: 104px;
   top: 14px;
-  background: ${props => props.theme.colors.modes.accent};
+  background: ${props => props.theme.colors.modes.white.accent};
   border-radius: 3px;
   transform: rotate(-25deg);
 

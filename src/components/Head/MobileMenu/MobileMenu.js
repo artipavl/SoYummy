@@ -1,8 +1,5 @@
 import logo from '../../../images/icons/logo_Desktop.svg';
 import cross from '../../../images/icons/cross.svg'
-import search from '../../../images/icons/search_Icon.svg';
-
-
 
 import {
   MobileMenuSection,
@@ -14,11 +11,10 @@ import {
   NavItems,
   NavItem,
   Navigator,
-  SearchIcon,
   SearchText,
 } from './MobileMenu.styled'
 
-
+import { SearchIconStyled } from '../DesktopMenu/DesktopMenu.styles';
 
 export const MobileMenu = ({openState, handleMenuClick, children}) => {
   return (
@@ -69,7 +65,7 @@ export const MobileMenu = ({openState, handleMenuClick, children}) => {
 
           <NavItem>
             <Navigator to="/search" onClick={handleMenuClick}>
-              <SearchIcon src={search} alt="search icon" width={24} height={24} />
+              <SearchIconStyled>Search</SearchIconStyled>
               <SearchText>Search</SearchText>
             </Navigator>
           </NavItem>

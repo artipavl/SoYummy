@@ -1,21 +1,96 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-import emailIcon from '../../images/icons/email.svg';
+import { ReactComponent as Facebook } from '../../images/icons/facebook-logo.svg';
+import { ReactComponent as Twitter } from '../../images/icons/twitter-logo.svg';
+import { ReactComponent as Youtube } from '../../images/icons/youtube-logo.svg';
+import { ReactComponent as Instagram } from '../../images/icons/instagram-logo.svg';
 
 import bgMobile from "../../images/bg/footerBG_mobile.webp";
 import bgMobileRetina from "../../images/bg/footerBG_mobile@2x.webp";
 import bgTablet from '../../images/bg/footerBG_Tablet.webp';
 import bgTabletRetina from '../../images/bg/footerBG_Tablet@2x.webp';
 import bgDesktop from '../../images/bg/footerBG_Desktop.webp'
-import bgDesktopRetina from '../../images/bg/footerBG_Desktop@2x.webp'
+import bgDesktopRetina from '../../images/bg/footerBG_Desktop@2x.webp';
 
+import bgSharedDesktop from '../../images/bg/footerSharedDB_Desktop.webp'
+
+//iconStyled
+export const FacebookIconStyled = styled(Facebook)`
+  width: 20px;
+  path {
+    fill: ${props => props.theme.colors.accent};
+    transition: fill 250ms linear;
+  }
+  :hover path,
+  :focus path {
+    fill: ${props => props.theme.colors.white}
+  }
+
+`
+export const TwitterIconStyled = styled(Twitter)`
+  width: 20px;
+  path {
+    fill: ${props => props.theme.colors.accent};
+    transition: fill 250ms linear;
+  }
+  :hover path,
+  :focus path {
+    fill: ${props => props.theme.colors.white}
+  }
+
+`
+
+export const YoutubeIconStyled = styled(Youtube)`
+  width: 20px;
+  path {
+    fill: ${props => props.theme.colors.accent};
+    transition: fill 250ms linear;
+  }
+  :hover path,
+  :focus path {
+    fill: ${props => props.theme.colors.white}
+  }
+
+`
+
+export const InstagramIconStyled = styled(Instagram)`
+  width: 20px;
+  path {
+    fill: ${props => props.theme.colors.accent};
+    transition: fill 250ms linear;
+  }
+  :hover path,
+  :focus path {
+    fill: ${props => props.theme.colors.white}
+  }
+
+`
+//
 
 export const FooterSection = styled.div`
+  position: relative;
   background-color: ${props => props.theme.colors.accentDark};
   padding-top: 28px;
   padding-bottom: 28px;
   min-height: 50vh;
+  /* z-index: 10; */
+
+   /* &::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 558px;
+    top: -210px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(${bgSharedDesktop});
+    background-repeat: no-repeat;
+    background-size: 558px 882px;
+    background-position: left center;
+    z-index: -1;
+  } */
 
     @media  ${props => props.theme.device.tablet} {
       padding-top: 50px;
@@ -30,9 +105,9 @@ export const FooterSection = styled.div`
       padding-left: 100px;
       padding-right: 100px;
   }
-
-
 `
+
+
 export const Container = styled.div`
   color: ${props => props.theme.colors.textWhite};
 
@@ -48,6 +123,7 @@ export const Container = styled.div`
     @media ${props => props.theme.device.desktop} {
       width: 1240px;
   }
+
 
 `
 export const LogoCapLinkWrap = styled.div`
@@ -188,22 +264,6 @@ display: none;
 
 `
 
-export const FormFooter = styled.form`
-  display: flex;
-  flex-direction: column;
-  margin-top: 32px;
-  @media ${props => props.theme.device.tablet} {
-    margin-top: 72px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-  @media ${props => props.theme.device.desktop} {
-    display: block;
-    margin-top: 28px;
-  }
-`
-
 export const FormFooterInput = styled.input`
   box-sizing: border-box;
   display: block;
@@ -283,6 +343,7 @@ export const FormFooterBtn = styled.button`
   }
 `
 
+
 export const SocialWrap = styled.ul`
   display: flex;
   justify-content: center;
@@ -296,20 +357,21 @@ export const SocialWrap = styled.ul`
   }
 
 `
-export const SocialIcon = styled.li`
+
+
+export const SocialLink = styled(NavLink)`
+display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   &:not(:first-child){
     margin-left: 10px;
   }
-
-`
-
-export const SocialLink = styled(NavLink)`
-  color: white;
 `
 
 export const SocialImg = styled.img`
- fill: inherit;
+ fill: ${props => props.theme.colors.textWhite};
+
 
 `
 export const SubFooterBgContainer = styled.div`

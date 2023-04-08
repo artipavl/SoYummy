@@ -92,6 +92,7 @@ export const lightTheme = {
     subFooterBtn: '#FAFAFA', // текст, який розташований у кнопці футера
 
 
+
     modes: {
       white: {
         text: '#23262A', //текст
@@ -142,15 +143,14 @@ export const darkTheme = {
     dark: '#000000', //чорний
 
     whiteMuted: '#D9D9D9', //білий пригнічений деякі кнопки та інпути
+
     bgWhite: '#1E1F28', //! чорний замість білого з bg
 
     bgDark: '#ECECEC', //білий замість чорного з bg
     accent: '#22252A', //! чорний замість зеленого акценту
     accentMuted: '#EBF3D4', //зелений акцен пригнічений
-
     accentDark: '#8BAA36', //чорний що протиставляється акцену
     accentDarkMuted: '#2A2C36', //! зелений замість чорного що протиставляється акцену пригнічений
-
     text: '#FAFAFA', //текст
     textDark: '#3E4462', //текст сірий
     textWhite: '#FAFAFA', //текст білий
@@ -159,7 +159,6 @@ export const darkTheme = {
     textError: "fa2c2c", // червоний текст помилки
     subFooterText: '#FAFAFA', // текст, який розташований під футером
     subFooterBtn: '#FAFAFA', // текст, який розташований у кнопці футера
-
 
     modes: {
       white: {
@@ -173,7 +172,6 @@ export const darkTheme = {
       dark: {
         text: '#FAFAFA', //текст
         background: '#1E1F28',
-
         accentDark: '#FAFAFA', //! білий що протиставляється акцену
         accentDarkMuted: '#2A2C36', //чорний що протиставляється акцену пригнічений
       },
