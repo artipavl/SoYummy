@@ -8,7 +8,8 @@ import { ReactComponent as Youtube } from '../../images/icons/youtube-logo.svg';
 import { ReactComponent as Instagram } from '../../images/icons/instagram-logo.svg';
 
 
-import emailIcon from '../../images/icons/email.svg'
+import bgMobile from "../../images/bg/footerBG_mobile.webp";
+import bgMobileRetina from "../../images/bg/footerBG_mobile@2x.webp";
 import bgTablet from '../../images/bg/footerBG_Tablet.webp';
 import bgTabletRetina from '../../images/bg/footerBG_Tablet@2x.webp';
 import bgDesktop from '../../images/bg/footerBG_Desktop.webp';
