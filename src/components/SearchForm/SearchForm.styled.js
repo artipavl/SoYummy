@@ -71,7 +71,7 @@ export const SearchBtn = styled.button`
   display: flex;
   align-items: center;
 
-  background-color: ${props => props.theme.colors.accent};
+  background-color: ${props => props.theme.colors.accentCurrent};
   color: ${props => props.theme.colors.modes.dark.text};
 
   border-radius: 24px 44px;

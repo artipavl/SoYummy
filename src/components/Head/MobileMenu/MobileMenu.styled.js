@@ -10,7 +10,8 @@ export const MobileMenuSection = styled.section`
   box-sizing: border-box;
   position: fixed;
   padding: 18px 16px;
-  background-color: #EBF3D4;
+  /* background-color: #EBF3D4; */
+  background-color: ${props => props.theme.colors.modes.white.accentMuted};
   background-image: url('${BgMobile}');
   background-repeat: no-repeat;
   background-size: contain;
