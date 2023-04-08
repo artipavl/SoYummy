@@ -21,6 +21,11 @@ export const theme = {
     textError: "fa2c2c", // червоний текст помилки
     subFooterText: '#22252A', // текст, який розташований під футером
     subFooterBtn: '#FAFAFA', // текст, який розташований у кнопці футера
+    socialLinkIcons: '#8BAA36',
+    socialLinkIconsHover: '#FAFAFA',
+    searchIconStyled: '#22252A',
+    defLight: '#FAFAFA',
+    blackAndWhiteBrorderList: '#e0e0e0',
 
     modes: {
       white: {
@@ -90,8 +95,11 @@ export const lightTheme = {
     textError: "fa2c2c", // червоний текст помилки
     subFooterText: '#22252A', // текст, який розташований під футером
     subFooterBtn: '#FAFAFA', // текст, який розташований у кнопці футера
-
-
+    socialLinkIcons: '#8BAA36',
+    socialLinkIconsHover: '#FAFAFA',
+    searchIconStyled: '#22252A',
+    defLight: '#FAFAFA',
+    blackAndWhiteBrorderList: '#e0e0e0',
 
     modes: {
       white: {
@@ -139,7 +147,7 @@ export const lightTheme = {
 
 export const darkTheme = {
   colors: {
-    white: '#FFFFFF', //білий
+    white: '#2A2C36', //! темний замість білого
     dark: '#000000', //чорний
 
     whiteMuted: '#D9D9D9', //білий пригнічений деякі кнопки та інпути
@@ -152,13 +160,18 @@ export const darkTheme = {
     accentDark: '#8BAA36', //чорний що протиставляється акцену
     accentDarkMuted: '#2A2C36', //! зелений замість чорного що протиставляється акцену пригнічений
     text: '#FAFAFA', //текст
-    textDark: '#3E4462', //текст сірий
+    textDark: '#FAFAFA', //текст білий замість сірого
     textWhite: '#FAFAFA', //текст білий
     textWhiteMuted: 'rgba(250, 250, 250, 0.6)', //текст білий пригнічений
     textTitle: '#001833', //текст синій
     textError: "fa2c2c", // червоний текст помилки
     subFooterText: '#FAFAFA', // текст, який розташований під футером
     subFooterBtn: '#FAFAFA', // текст, який розташований у кнопці футера
+    socialLinkIcons: '#FAFAFA',
+    socialLinkIconsHover: '#22252A',
+    searchIconStyled: '#FAFAFA',
+    defLight: '#FAFAFA',
+    blackAndWhiteBrorderList: '#fafafa4d',
 
     modes: {
       white: {

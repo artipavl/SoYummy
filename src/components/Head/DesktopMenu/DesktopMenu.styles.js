@@ -43,7 +43,7 @@ export const SearchIconStyled = styled(Search)`
   width: 20px;
 
   path {
-    stroke: ${props => props.theme.colors.accentDark};
+    stroke: ${props => props.theme.colors.searchIconStyled};
     transition: stroke 250ms linear;
   }
   :hover path,
