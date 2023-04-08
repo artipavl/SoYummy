@@ -111,3 +111,27 @@ export const updateUser = createAsyncThunk(
     }
   }
 );
+
+export const subscribeUser = createAsyncThunk(
+  'auth/subscribe',
+  async (email, thunkAPI) => {
+      try {
+      const state = thunkAPI.getState();
+      const persistedToken = state.auth.token;
+
+      if (persistedToken === null) {
+        return thunkAPI.rejectWithValue();
+      }
+      token.set(persistedToken);
+
+      const response = await axios.post('/users/subscribe', email);
+
+      return response.data.data.user;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+
+

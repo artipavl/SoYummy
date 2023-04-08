@@ -6,8 +6,8 @@ import {
   fetchCurrentUser,
   fetchUserLogout,
   themeSwicher,
-
-  updateUser
+  updateUser,
+  subscribeUser,
 
 } from './authOperations';
 
@@ -22,7 +22,8 @@ const initialState = {
   isError: false,
   isLoading: false,
   isLoggedIn: false,
-  isUpdatingUser: false
+  isUpdatingUser: false,
+  isSubscribed: false,
 };
 
 const authSlice = createSlice({
@@ -116,6 +117,18 @@ const authSlice = createSlice({
       state.isError = action.payload;
       state.isLoading = false;
 
+    },
+    [subscribeUser.fulfilled](state, action) {
+      state.isError = null;
+      state.isLoading = false;
+      state.isSubscribed = true;
+    },
+    [subscribeUser.pending](state) {
+      state.isLoading = true;
+    },
+    [subscribeUser.rejected](state, action) {
+      state.isError = action.payload;
+      state.isSubscribed = false;
     },
 
   },

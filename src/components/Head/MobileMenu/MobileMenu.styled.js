@@ -111,7 +111,7 @@ export const Navigator = styled(NavLink)`
     stroke: ${props => props.theme.colors.accent};
   }
 
-  &:hover, &focus {
+  &:hover, &:focus {
     color: ${props => props.theme.colors.accent};
   }
 
