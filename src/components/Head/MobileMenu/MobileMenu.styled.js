@@ -37,6 +37,8 @@ export const MobileMenuSection = styled.section`
   @media ${props => props.theme.device.tablet}{
     padding: 18px 32px;
     width: 768px;
+    right: 50%;
+    transform: translateX(50%);
     background-image: url('${BgTablet}');
     @media ${props => props.theme.retinaBackgroundImage} {
       background-image: url('${BgTabletRetina}');
@@ -44,7 +46,6 @@ export const MobileMenuSection = styled.section`
 
   }
 
-@media
 
 @media ${props => props.theme.device.desktop}{
     display: none
