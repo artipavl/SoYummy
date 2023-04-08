@@ -44,15 +44,19 @@ export const theme = {
   },
 
   size: {
-    mobile: '375px',
+    mobile: '320',
+    // mobile: '375px',
     tablet: '768px',
-    desktop: '1440px',
+    // desktop: '1440px',
+    desktop: '1200px',
   },
 
   device: {
-    mobile: `(min-width: 375px)`,
+    mobile: `(min-width: 320px)`,
+    // mobile: `(min-width: 375px)`,
     tablet: `(min-width: 768px)`,
-    desktop: `(min-width: 1440px)`,
+    // desktop: `(min-width: 1440px)`,
+    desktop: `(min-width: 1200px)`,
   },
 
   retinaBackgroundImage: `(min-device-pixel-ratio: 2),

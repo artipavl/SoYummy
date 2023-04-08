@@ -11,7 +11,6 @@ export const Title = styled.h2`
   font-size: 28px;
   line-height: 100%;
   padding-top: 74px;
-
   @media ${props => props.theme.device.tablet} {
     font-size: 32px;
     padding-top: 102px;
@@ -42,7 +41,7 @@ export const Green1 = styled.div`
     left: 228px;
     top: 54px;
   }
-`
+`;
 
 export const Green2 = styled.div`
   position: absolute;
@@ -65,7 +64,7 @@ export const Green2 = styled.div`
     left: 1150px;
     top: 67px;
   }
-`
+`;
 export const Black1 = styled.div`
   position: absolute;
   width: 6px;
