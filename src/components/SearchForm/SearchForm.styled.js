@@ -77,7 +77,10 @@ export const SearchBtn = styled.button`
   font-size: 14px;
   line-height: 1.5;
 
-  /* transition: all 250ms linear 0s; */
+  &:hover {
+    background-color: ${props => props.theme.colors.accentDark};
+    transition: all 250ms linear 0s;
+  }
 
   @media ${props => props.theme.device.tablet} {
     font-size: 16px;

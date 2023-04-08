@@ -19,6 +19,12 @@ const SearchForm = ({ searchType }) => {
   const onSubmit = ({ query }) => {
     setSearchParams({ query });
 
+    if (query.trim() === '') {
+      setSearchParams();
+
+      return null;
+    }
+
     switch (searchType) {
       case 'title':
         dispatch(searchRecipes(query));
@@ -29,6 +35,7 @@ const SearchForm = ({ searchType }) => {
         break;
 
       default:
+        setSearchParams('');
         break;
     }
   };

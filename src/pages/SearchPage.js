@@ -20,6 +20,8 @@ const SearchPage = () => {
       return;
     }
 
+    console.log(query);
+
     dispatch(searchRecipes(query));
   }, [dispatch, query]);
 
