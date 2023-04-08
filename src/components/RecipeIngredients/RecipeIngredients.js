@@ -17,17 +17,24 @@ import { useEffect, useState } from 'react';
 import { getShopList } from 'api/services/axios/axiosService';
 import { useSelector } from 'react-redux';
 import { selectToken } from 'redux/selectors';
+import { IngredientsItem } from 'components/IngredientsItem/IngredientsItem';
 
-const RecipeIngredients = ({ ingredients }) => {
+const RecipeIngredients = ({ ingredients, recipeId }) => {
   const [shopList, setShopList] = useState([]);
 
-  const token = useSelector(selectToken);
-  const config = {
-    headers: { Authorization: `Bearer ${token}` },
-  };
+  // const token = useSelector(selectToken);
+  // const config = {
+  //   headers: { Authorization: `Bearer ${token}` },
+  // };
 
   useEffect(() => {
-    getShopList(config).then(res => console.log(`shop-list: ${res}`));
+    getShopList().then(res => {
+      const { result } = res.data.data;
+      const filteredShopList = result.filter(
+        item => item.recipeId === recipeId
+      );
+      setShopList(filteredShopList);
+    });
   }, []);
   return (
     <IngredientsSection>
@@ -42,24 +49,13 @@ const RecipeIngredients = ({ ingredients }) => {
         <ul>
           {ingredients.map(ingr => {
             return (
-              <IngredientItem key={ingr._id}>
-                <FlexWrapper>
-                  {ingr.thb ? (
-                    <IngredientImg src={ingr.thb} alt={ingr.ttl} />
-                  ) : (
-                    <IngredientPlaceholder>
-                      <use href={placeholders + '#ph-apple-60px'} />
-                    </IngredientPlaceholder>
-                  )}
-                  <IngredientName>{ingr.ttl}</IngredientName>
-                </FlexWrapper>
-                <FlexWrapper>
-                  <IngredientNumber>{ingr.measure}</IngredientNumber>
-                  <label>
-                    <Checkbox />
-                  </label>
-                </FlexWrapper>
-              </IngredientItem>
+              <IngredientsItem
+                key={ingr._id}
+                image={ingr.thb}
+                title={ingr.ttl}
+                measure={ingr.measure}
+                shopList={shopList}
+              ></IngredientsItem>
             );
           })}
         </ul>

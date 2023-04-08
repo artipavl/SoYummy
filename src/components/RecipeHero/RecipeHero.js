@@ -8,6 +8,7 @@ import {
   RecepyDescr,
   RecipeTime,
   RecipeTimeWrapper,
+  TextWrap,
 } from './RecipeHero.styled';
 import { Container } from 'reusableComponents/Container/Container.styled';
 import {
@@ -38,8 +39,10 @@ const RecipeHero = ({ title, description, time, isFavoriteProp, recipeId }) => {
   return (
     <HeroSection>
       <Container>
-        <HeroTitle>{title}</HeroTitle>
-        <RecepyDescr>{description}</RecepyDescr>
+        <TextWrap>
+          <HeroTitle>{title}</HeroTitle>
+          <RecepyDescr>{description}</RecepyDescr>
+        </TextWrap>
         <ButtonWrap>
           {isFavorite ? (
             <FavoriteBtn onClick={() => handleFavoriteRemove(recipeId)}>

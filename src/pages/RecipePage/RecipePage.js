@@ -51,7 +51,10 @@ const RecipePage = () => {
         isFavoriteProp={isFavorite}
         recipeId={recipeId}
       ></RecipeHero>
-      <RecipeIngredients ingredients={ingredients}></RecipeIngredients>
+      <RecipeIngredients
+        ingredients={ingredients}
+        recipeId={recipeId}
+      ></RecipeIngredients>
       <RecipeInstructions
         instructions={instructions}
         picture={recipe.preview}

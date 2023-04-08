@@ -23,9 +23,8 @@ export const removeFromFavorites = async id => {
   );
 };
 
-export const getShopList = async config => {
+export const getShopList = async () => {
   return await axios.get(
-    `https://so-yummy-api.onrender.com/users/shop-list`,
-    config
+    `https://so-yummy-api.onrender.com/api/users/shopping-list`
   );
 };

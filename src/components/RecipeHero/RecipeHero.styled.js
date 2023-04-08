@@ -40,6 +40,20 @@ export const HeroSection = styled.section`
   }
 `;
 
+export const TextWrap = styled.div`
+  max-width: 303px;
+  margin-right: auto;
+  margin-left: auto;
+  @media ${props => props.theme.device.tablet} {
+    margin-bottom: 24px;
+    max-width: 506px;
+  }
+  @media ${props => props.theme.device.desktop} {
+    margin-bottom: 30px;
+    max-width: 656px;
+  }
+`;
+
 export const HeroTitle = styled.h1`
   margin-bottom: 18px;
 
@@ -58,7 +72,6 @@ export const HeroTitle = styled.h1`
 `;
 
 export const RecepyDescr = styled.p`
-  max-width: 300px;
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 24px;
@@ -75,12 +88,6 @@ export const RecepyDescr = styled.p`
 
   @media ${props => props.theme.device.tablet} {
     font-size: 18px;
-    margin-bottom: 24px;
-    max-width: 506px;
-  }
-  @media ${props => props.theme.device.desktop} {
-    margin-bottom: 30px;
-    max-width: 656px;
   }
 `;
 
