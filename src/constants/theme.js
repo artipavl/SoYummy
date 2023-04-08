@@ -32,14 +32,12 @@ export const theme = {
         text: '#23262A', //текст
         textDark: '#3E4462', //текст сірий
         background: '#ECECEC',
-
         accent: '#8BAA36', //зелений акцен
         accentMuted: '#EBF3D4', //зелений акцен пригнічений
       },
       dark: {
         text: '#FAFAFA', //текст
         background: '#1E1F28',
-
         accentDark: '#22252A', //чорний що протиставляється акцену
         accentDarkMuted: '#2A2C36', //чорний що протиставляється акцену пригнічений
       },
@@ -53,15 +51,19 @@ export const theme = {
   },
 
   size: {
+    // mobile: '320',
     mobile: '375px',
     tablet: '768px',
     desktop: '1440px',
+    // desktop: '1200px',
   },
 
   device: {
+    // mobile: `(min-width: 320px)`,
     mobile: `(min-width: 375px)`,
     tablet: `(min-width: 768px)`,
     desktop: `(min-width: 1440px)`,
+    // desktop: `(min-width: 1200px)`,
   },
 
   retinaBackgroundImage: `(min-device-pixel-ratio: 2),
