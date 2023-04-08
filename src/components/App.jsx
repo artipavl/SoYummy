@@ -25,16 +25,6 @@ const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
 const MyRecipes = lazy(() => import('../pages/MyRecipes/MyRecipes'));
 const SearchPage = lazy(() => import('../pages/SearchPage'));
 
-//
-
-const tempStyles = {
-  paddingTop: 100,
-  paddingBottom: 100,
-  fontSize: 50,
-  textAlign: 'center',
-};
-
-
 
 
 const StyledApp = styled.div`
