@@ -186,14 +186,14 @@ export const darkTheme = {
       white: {
         text: '#23262A', //текст
         textDark: '#3E4462', //текст сірий
-        background: '#ECECEC',
+        background: '#000000',
 
         accent: '#8BAA36', //зелений акцен
-        accentMuted: '#EBF3D4', //зелений акцен пригнічений
+        accentMuted: '#2A2C36', //! чорний замість зеленого акценту пригніченого
       },
       dark: {
         text: '#FAFAFA', //текст
-        background: '#1E1F28',
+        background: '#ECECEC',
         accentDark: '#FAFAFA', //! білий що протиставляється акцену
         accentDarkMuted: '#2A2C36', //чорний що протиставляється акцену пригнічений
       },

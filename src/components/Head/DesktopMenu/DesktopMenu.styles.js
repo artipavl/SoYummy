@@ -35,7 +35,7 @@ export const Navigator = styled(NavLink)`
   line-height: 1.6;
   transition: color 250ms linear;
     &:hover, &:focus {
-      color: ${props => props.theme.colors.accent};
+      color: ${props => props.theme.colors.accentCurrent};
 }
 `
 
@@ -48,7 +48,7 @@ export const SearchIconStyled = styled(Search)`
   }
   :hover path,
   :focus path {
-    stroke: ${props => props.theme.colors.accent};
+    stroke: ${props => props.theme.colors.accentCurrent};
   }
 
 `
