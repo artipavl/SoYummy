@@ -118,3 +118,11 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+
+//! білий що протиставляється акцену
+
+//! зелений замість чорного що протиставляється акцену пригнічений
+
+//! чорний замість білого з bg
+
+//! чорний замість зеленого акценту
