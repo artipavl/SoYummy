@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import {
   RecipeItem,
   RecipeImage,
@@ -6,25 +7,14 @@ import {
 } from './SearchedRecipesItem.styled';
 
 const SearchedRecipesItem = ({ title, preview }) => {
-  const animation = title.length > 34;
+  const tit = useRef();
   return (
-    <>
-      {animation ? (
-        <RecipeItem animation>
-          <RecipeImage src={preview} alt={title} />
-          <RecipeTitleContainer>
-            <RecipeTitleName>{title}</RecipeTitleName>
-          </RecipeTitleContainer>
-        </RecipeItem>
-      ) : (
-        <RecipeItem>
-          <RecipeImage src={preview} alt={title} />
-          <RecipeTitleContainer>
-            <RecipeTitleName>{title}</RecipeTitleName>
-          </RecipeTitleContainer>
-        </RecipeItem>
-      )}
-    </>
+    <RecipeItem width={tit.current?.scrollWidth}>
+      <RecipeImage src={preview} alt={title} />
+      <RecipeTitleContainer>
+        <RecipeTitleName ref={tit}>{title}</RecipeTitleName>
+      </RecipeTitleContainer>
+    </RecipeItem>
   );
 };
 

@@ -23,16 +23,19 @@ export const RecipeItem = styled.li`
   &:hover,
   &:focus {
     h2 {
-      overflow: ${props => props.animation && 'visible'};
-      animation: ${props => props.animation && 'ticker 9s linear infinite'};
-      position: ${props => props.animation && 'absolute'};
-      left: ${props => props.animation && '307px'};
+      overflow: ${props => props.width > 307 && 'visible'};
+      animation: ${props => props.width > 307 && 'ticker 9s linear infinite'};
+      position: ${props => props.width > 307 && 'absolute'};
+      left: ${props => props.width > 307 && '307px'};
       @keyframes ticker {
         0% {
           transform: translate(0, 0);
         }
         100% {
-          transform: translate(-200%, 0);
+          transform: translate(
+            -${props => 100 + (307 * 100) / Number(props.width)}%,
+            0
+          );
         }
       }
     }
