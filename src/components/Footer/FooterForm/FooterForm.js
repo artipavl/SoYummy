@@ -78,8 +78,8 @@ const validationSchema = yup.object().shape({
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           error={formik.errors.email}
-          // touched={formik.touched.email}
-          touched={formik.errors.email}
+          touched={formik.touched.email}
+          // touched={formik.errors.email}
           required
 
         />

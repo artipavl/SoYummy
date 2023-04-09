@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import { ReactComponent as EmailIcon } from '../../../images/icons/email-icon-for-footer.svg';
 import { ReactComponent as ErrorLogo } from '../../../images/icons/Error-logo.svg';
-import { ReactComponent as SuccessLogo} from "../../../images/icons/Success-logo.svg"
+import { ReactComponent as SuccessLogo } from "../../../images/icons/Success-logo.svg"
+
+// import { CiMail } from "react-icons/ci";
 
 export const EmailIconStyled = styled(EmailIcon)`
   position: absolute;
@@ -10,14 +12,12 @@ export const EmailIconStyled = styled(EmailIcon)`
   top: 50%;
   transform: translateY(-50%);
 
-
   path {
     stroke: ${({ error, touched }) =>
-    touched ? (error ? '#E74A3B' : '#3CBC81') : '#ccc'};
-
+  touched ? (error ? '#E74A3B' : '#3CBC81') : '#3CBC81'};
   }
-
 `
+
 export const ErrorLogoStyled = styled(ErrorLogo)`
 `
 
