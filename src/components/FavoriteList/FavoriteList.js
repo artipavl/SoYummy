@@ -5,8 +5,7 @@ import MyRecipeItem from 'components/MyRecipeItem/MyRecipeItem';
 import { Loader } from '../Loader/Loader';
 import Pagination from '../Pagination/Pagination';
 
-
-import { List, ListText, LoaderBox, } from './FavoriteList.styled.js';
+import { List, ListText, LoaderBox } from './FavoriteList.styled.js';
 
 const FavoriteList = () => {
   const [loading, setLoading] = useState(true);
@@ -38,7 +37,7 @@ const FavoriteList = () => {
     try {
       await deleteFavoriteRecipe(id);
       const data = await getFavoriteRecipes(page);
-      setAllRecipes(data);
+      setAllRecipes(data.result);
     } catch (error) {
       console.log(error);
     }
