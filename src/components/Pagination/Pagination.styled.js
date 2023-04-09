@@ -20,7 +20,7 @@ export const Box = styled.div`
   .pagination {
     display: flex;
     list-style: none;
-    color: #656565;
+    color: ${props => props.theme.colors.socialLinkIcons};
   }
 
   .pagination > li {
@@ -29,11 +29,10 @@ export const Box = styled.div`
     border-radius: 50%;
     margin: 0 10px;
     font-size: 18px;
-    color: #656565;
   }
 
   .pagination > .active > a {
-    background-color: ${props => props.theme.colors.modes.dark.text};
+    background-color: ${props => props.theme.colors.modes.white.accentGreen};
   }
 
   .pagination > li > a {
@@ -43,31 +42,13 @@ export const Box = styled.div`
     border-radius: 50%;
     align-items: center;
     justify-content: center;
-    /* outline: none; */
     cursor: pointer;
-  }
-
-  .pagination > .active > a,
-  .pagination > .active > span {
-    background-color: #ebf3d4;
   }
 
   .pagination > li > a:hover,
   .pagination > li > span:hover,
   .pagination > li > a:focus,
   .pagination > li > span:focus {
-    background-color: #8baa36;
+    background-color: ${props => props.theme.colors.modes.white.accentGreen};
   }
-
-  /* .pagination > li > a,
-  .pagination > li > span {
-    color: #656565;
-  } */
-
-  /* .pagination > li:first-child > a,
-  .pagination > li:first-child > span,
-  .pagination > li:last-child > a,
-  .pagination > li:last-child > span {
-    border-radius: unset;
-  } */
 `;
