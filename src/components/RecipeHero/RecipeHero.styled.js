@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import bgMobile from '../../images/recipePage/recipePage-bg-mb-1x-min.png';
+
 import bgMobileRetina from '../../images/recipePage/recipepage-bg-mb-2x-min.png';
 import bgTablet from '../../images/recipePage/recipepage-bg-tablet-1x-min.png';
 import bgTabletRetina from '../../images/recipePage/recipepage-bg-tablet-2x-min.png';
@@ -9,7 +9,7 @@ import bgDesktopRetina from '../../images/recipePage/recipepage-bg-desk-2x-min.p
 export const HeroSection = styled.section`
   padding-top: 144px;
   padding-bottom: 90px;
-  background-image: url('${bgMobile}');
+
   background-repeat: no-repeat;
   /* background-position: 100% 100%; */
   background-size: cover;
