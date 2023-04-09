@@ -3,9 +3,7 @@ import { useParams } from 'react-router-dom';
 import RecipeHero from 'components/RecipeHero/RecipeHero';
 import RecipeIngredients from 'components/RecipeIngredients/RecipeIngredients';
 import RecipeInstructions from 'components/RecipeInstructions/RecipeInstructions';
-import { useSelector } from 'react-redux';
-import { selectToken } from 'redux/selectors';
-import { getFavorites, getRecipeById } from 'api/services/axios/axiosService';
+import { getRecipeById } from 'api/services/axios/axiosService';
 
 const RecipePage = () => {
   const { recipeId } = useParams();
@@ -14,13 +12,8 @@ const RecipePage = () => {
   const [ingredients, setIngredients] = useState([]);
   // const [isFavorite, setIsFavorite] = useState(false);
 
-  const token = useSelector(selectToken);
-  const config = {
-    headers: { Authorization: `Bearer ${token}` },
-  };
-
   useEffect(() => {
-    getRecipeById(recipeId, config)
+    getRecipeById(recipeId)
       .then(res => {
         const { result } = res.data.data;
         setRecipe(result[0]);
@@ -40,7 +33,7 @@ const RecipePage = () => {
     //   }, false);
     //   isFavorite && setIsFavorite(isFavorite);
     // });
-  }, []);
+  }, [recipeId]);
   return (
     <div>
       <RecipeHero

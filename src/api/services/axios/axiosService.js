@@ -1,9 +1,8 @@
 import axios from 'axios';
 
-export const getRecipeById = async (id, config) => {
+export const getRecipeById = async (id) => {
   return await axios.get(
-    `https://so-yummy-api.onrender.com/api/recipes/${id}`,
-    config
+    `https://so-yummy-api.onrender.com/api/recipes/${id}`
   );
 };
 
