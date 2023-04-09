@@ -21,7 +21,6 @@ import { useEffect, useState } from 'react';
 
 const RecipeHero = ({ title, description, time, recipeId }) => {
   const [isFavorite, setIsFavorite] = useState(false);
-  // const [isOwnRecipe, setIsOwnRecipe] = useState(false);
 
   const handleFavoriteAdd = id => {
     addToFavorites(id)
