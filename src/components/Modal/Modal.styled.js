@@ -3,6 +3,10 @@ import styled from 'styled-components';
 import coctail_mob from '../../../images/Modal/coctail_mob.webp';
 import coctail_tablet from '../../../images/Modal/coctail_tablet.webp';
 import coctail_desktop from '../../../images/Modal/coctail_desktop.webp';
+import coctail_mob2x from '../../../images/Modal/coctail_mob2x.webp';
+import coctail_tablet2x from '../../../images/Modal/coctail_tablet2x.webp';
+import coctail_desktop2x from '../../../images/Modal/coctail_desktop2x.webp';
+
 
 export const Overlay= styled.div`
   position: fixed;
@@ -21,12 +25,18 @@ export const ModalContainer= styled.div`
   max-width: 100%;
   max-height: 100%;
   background: url('${coctail_mob}');
+  @media ${props => props.theme.retinaBackgroundImage} {
+    background-image: url('${coctail_mob2x}');
+  }
 
   @media ${props => props.theme.device.tablet} {
   width: 400px;
   height: 400px;
   background: url('${coctail_tablet}');
   border-radius:30px;
+   @media ${props => props.theme.retinaBackgroundImage} {
+    background-image: url('${coctail_tablet2x}');
+  }
   }
 
   @media ${props => props.theme.device.desktop} {
@@ -34,6 +44,9 @@ export const ModalContainer= styled.div`
   height: 500px;
   background: url('${coctail_desktop}');
   border-radius:30px;
+   @media ${props => props.theme.retinaBackgroundImage} {
+    background-image: url('${coctail_desktop2x}');
+  }
   }
 `;
 
@@ -99,3 +112,4 @@ export const BtnIcon = styled.img`
   
 `;
 
+// color: ${props => props.theme.colors.textWhite};
