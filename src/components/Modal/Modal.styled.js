@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+import coctail_mob from '../../../images/Modal/coctail_mob.webp';
+import coctail_tablet from '../../../images/Modal/coctail_tablet.webp';
+import coctail_desktop from '../../../images/Modal/coctail_desktop.webp';
+
 export const Overlay= styled.div`
   position: fixed;
   top: 0;
@@ -16,6 +20,21 @@ export const Overlay= styled.div`
 export const ModalContainer= styled.div`
   max-width: 100%;
   max-height: 100%;
+  background: url('${coctail_mob}');
+
+  @media ${props => props.theme.device.tablet} {
+  width: 400px;
+  height: 400px;
+  background: url('${coctail_tablet}');
+  border-radius:30px;
+  }
+
+  @media ${props => props.theme.device.desktop} {
+  width: 500px;
+  height: 500px;
+  background: url('${coctail_desktop}');
+  border-radius:30px;
+  }
 `;
 
 export const TextContainer = styled.div`
@@ -23,12 +42,36 @@ export const TextContainer = styled.div`
  height: 269px;
  padding:44px 26px 89px 26px;
  filter:blur();
+
+@media ${props => props.theme.device.tablet} {
+ width:268px;
+ height: 242px;
+ padding:32px 24px 90px 24px;
+ filter:blur();
+  }
+
+@media ${props => props.theme.device.desktop} {
+ width:268px;
+ height: 242px;
+ padding:32px 24px 90px 24px;
+  filter:blur();
+  }
+
 `;
 
 
 export const ModalText = styled.p`
  font-Size: 32px;
  font-family: 'Poppins';
+
+@media ${props => props.theme.device.tablet} {
+ font-Size: 28px;
+  }
+
+@media ${props => props.theme.device.desktop} {
+ font-Size: 28px;
+  }
+
 `;
 
 export const ModalImage = styled.img`
