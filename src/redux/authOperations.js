@@ -32,9 +32,8 @@ export const login = createAsyncThunk(
   async ({ email, password }, thunkAPI) => {
     try {
       const response = await axios.post('/users/login', { email, password });
-
+      // console.log(response.data.data.user.token);
       token.set(response.data.data.user.token);
-
       return response.data.data.user;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -48,18 +47,91 @@ export const fetchCurrentUser = createAsyncThunk(
     try {
       const state = thunkAPI.getState();
       const persistedToken = state.auth.token;
-      console.log(persistedToken);
+
       if (persistedToken === null) {
         return thunkAPI.rejectWithValue();
       }
-
       token.set(persistedToken);
 
       const response = await axios.get('/users/current');
 
-      return response.data;
+      return response.data.data.user;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
+
+export const fetchUserLogout = createAsyncThunk(
+  'auth/logout',
+  async (_, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const persistedToken = state.auth.token;
+
+      if (persistedToken === null) {
+        return thunkAPI.rejectWithValue();
+      }
+      token.set(persistedToken);
+
+      await axios.post('/users/logout');
+      token.set('');
+      return true;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+
+export const themeSwicher = createAsyncThunk(
+  'auth/theme',
+  () => {
+
+  }
+)
+
+export const updateUser = createAsyncThunk(
+  'auth/update-user',
+  async (formData, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const persistedToken = state.auth.token;
+
+      if (persistedToken === null) {
+        return thunkAPI.rejectWithValue();
+      }
+      token.set(persistedToken);
+
+      const response = await axios.patch('/users/update-user', formData);
+
+      return response.data.data.user;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const subscribeUser = createAsyncThunk(
+  'auth/subscribe',
+  async (email, thunkAPI) => {
+      try {
+      const state = thunkAPI.getState();
+      const persistedToken = state.auth.token;
+
+      if (persistedToken === null) {
+        return thunkAPI.rejectWithValue();
+      }
+      token.set(persistedToken);
+
+      const response = await axios.post('/users/subscribe', email);
+
+      return response.data.data.user;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+
+

@@ -1,10 +1,9 @@
 import { NavLink } from "react-router-dom"
 import styled from 'styled-components';
+import {ReactComponent as Search} from '../../../images/icons/search_Icon.svg'
 
 export const NavStyled = styled.nav`
-@media ${props => props.theme.device.mobile}{
-  display: none
-}
+  display: none;
 
 @media ${props => props.theme.device.desktop}{
   display: block;
@@ -36,12 +35,20 @@ export const Navigator = styled(NavLink)`
   line-height: 1.6;
   transition: color 250ms linear;
     &:hover, &:focus {
-      color: ${props => props.theme.colors.accent};
+      color: ${props => props.theme.colors.accentCurrent};
 }
 `
-export const SearchIcon = styled.img`
-fill: ${props => props.theme.colors.accentDark};
-  &:hover, &focus {
-    fill: ${props => props.theme.colors.accent};
-}
+
+export const SearchIconStyled = styled(Search)`
+  width: 20px;
+
+  path {
+    stroke: ${props => props.theme.colors.searchIconStyled};
+    transition: stroke 250ms linear;
+  }
+  :hover path,
+  :focus path {
+    stroke: ${props => props.theme.colors.accentCurrent};
+  }
+
 `
