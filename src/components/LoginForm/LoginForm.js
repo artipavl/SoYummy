@@ -19,7 +19,7 @@ import {
   FormTitle,
   FormBtn,
   FormNavLink,
-} from '../../utils/CombinedFormStyles.styled';
+} from '../RegForm/CombinedFormStyles.styled';
 
 const LoginForm = () => {
   const dispatch = useDispatch();

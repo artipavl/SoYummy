@@ -10,16 +10,16 @@ import { selectStatus } from 'redux/selectors';
 
 const SearchedRecipesList = () => {
   const results = useSelector(selectResults);
-  const { isLoading, isResolved } = useSelector(selectStatus);
+  const { isLoading } = useSelector(selectStatus);
 
   if (isLoading) {
     // потрібно добавити компонент Loader сюди.
     return 'loading';
   }
 
-  if (isResolved && results.length === 0) {
-    return <div>Empty page</div>;
-  }
+  //   if (isResolved && results.length === 0) {
+  //     return <img src="" alt="" />;
+  //   }
 
   return (
     <RecipesList>
