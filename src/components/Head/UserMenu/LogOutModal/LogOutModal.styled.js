@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const BackdropLogOutModal = styled.div`
+  font-family: 'Poppins', sans-serif;
   position: fixed;
   top: 0;
   left: 0;
@@ -43,31 +44,42 @@ export const LogOutModalWrap = styled.div`
     opacity: 1;
     visibility: visible;
   }
+
+  @media ${props => props.theme.device.tablet} {
+    padding: 50px;
+    width: 480px;
+  }
+
+  @media ${props => props.theme.device.desktop} {
+    width: 500px;
+  }
 `
 
 export const Title = styled.h2`
   font-size: 14px;
   color: ${props => props.theme.colors.text};
+
+  @media ${props => props.theme.device.desktop} {
+    font-size: 18px;
+  }
+
 `
-
-
-
-
 export const CloseButton = styled.img`
  position: absolute;
  right: 18px;
  top: 18px;
 
 `
-
 export const BottonsWrap = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 24px;
+  @media ${props => props.theme.device.tablet} {
+    margin-top: 32px;
+  }
 
 
 `
-
 export const Button = styled.button`
   display: block;
   width: 137px;
@@ -76,14 +88,33 @@ export const Button = styled.button`
   color: ${props => props.theme.colors.textWhite};
   background-color: ${props => props.theme.colors.accent} ;
   border-radius: 6px;
-  transition: color 250ms linear;
+  transition: background-color 250ms linear;
+
+  @media ${props => props.theme.device.tablet} {
+    width: 137px;
+    height: 49px;
+    font-size: 16px;
+  }
+  @media ${props => props.theme.device.destop} {
+    width: 192px;
+    height: 59px;
+    font-size: 18px;
+  }
+
 
   &:hover, &:focus {
-    color: ${props => props.theme.colors.accentDark}
+    background-color: ${props => props.theme.colors.accentDark};
   }
   &:last-child {
+    border: 1px solid ${props => props.theme.colors.whiteMuted};
     color: ${props => props.theme.colors.text};
     background-color:  ${props => props.theme.colors.whiteMuted};
+    transition: all 250ms linear;
+
+    &:hover, &:focus {
+    background-color: transparent;
+    border: 1px solid ${props => props.theme.colors.accentDark}
+  }
   }
 `
 

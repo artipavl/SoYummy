@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from '../../images/icons/logo-Lite-Icon.svg';
 
+
+
 import {
   FooterSection,
   Container,
@@ -17,16 +19,13 @@ import {
   SubscFomrWrap,
   SubscribeWrap,
   SocialWrap,
-  SocialLink,
-  FacebookIconStyled,
-  TwitterIconStyled,
-  YoutubeIconStyled,
-  InstagramIconStyled,
   SubFooter,
   SubFooterText,
 } from "./Footer.styled";
 
 import FooterForm from './FooterForm';
+
+import SocialLinksComponent from 'reusableComponents/SocialLinks';
 
 export const Footer = () => {
 
@@ -88,26 +87,7 @@ export const Footer = () => {
           </LogoCapLinkFormWrap>
 
           <SocialWrap>
-
-            <SocialLink to='https://www.facebook.com/' target='_blank'>
-              <FacebookIconStyled />
-            </SocialLink>
-
-
-            <SocialLink to='https://www.youtube.com/' target='_blank'>
-              <YoutubeIconStyled />
-            </SocialLink>
-
-
-            <SocialLink to='https://twitter.com/' target='_blank'>
-              <TwitterIconStyled />
-            </SocialLink>
-
-            <SocialLink to='https://www.instagram.com/' target='_blank'>
-              <InstagramIconStyled />
-            </SocialLink>
-
-
+              <SocialLinksComponent/>
           </SocialWrap>
 
         </Container>

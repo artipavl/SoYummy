@@ -1,17 +1,33 @@
 import styled from 'styled-components';
-import { ReactComponent as EmailIcon } from '../../../images/icons/email.svg';
+import { ReactComponent as EmailIcon } from '../../../images/icons/email-icon-for-footer.svg';
+import { ReactComponent as ErrorLogo } from '../../../images/icons/Error-logo.svg';
+import { ReactComponent as SuccessLogo } from "../../../images/icons/Success-logo.svg"
+
+// import { CiMail } from "react-icons/ci";
 
 export const EmailIconStyled = styled(EmailIcon)`
   position: absolute;
-  /* width: 20px; */
+  width: 25px;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
 
   path {
     stroke: ${({ error, touched }) =>
-    touched ? (error ? '#E74A3B' : '#3CBC81') : '#ccc'};
-
+  touched ? (error ? '#E74A3B' : '#3CBC81') : '#3CBC81'};
   }
-
 `
+
+export const ErrorLogoStyled = styled(ErrorLogo)`
+`
+
+export const SuccessLogoStyled = styled(SuccessLogo)`
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+`
+
 
 export const FormFooter = styled.form`
   display: flex;
@@ -38,6 +54,7 @@ export const FormFooterInput = styled.input`
   margin: 0 auto;
   padding: 0;
   padding-left: 42px;
+  padding-right: 42px;
   width: 204px;
   height: 38px;
   font-size: 10px;
@@ -48,7 +65,6 @@ export const FormFooterInput = styled.input`
   color: ${({ error, touched }) =>
     touched ? (error ? '#E74A3B' : '#3CBC81') : '#3CBC81'};
   border-radius: 6px;
-  /* border: 1px solid rgba(236, 236, 236, 0.16); */
   border: 1px solid ${({ error, touched }) =>
   touched ? (error ? '#E74A3B' : '#3CBC81') : '#3CBC81'};
 
@@ -92,8 +108,25 @@ export const FormFooterInput = styled.input`
 
 `
 
+export const ResetFormInput = styled.button`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+
+
+`
+
 export const Error = styled.div`
-  color: red;
+  position: absolute;
+  /* top: -25px; */
+  bottom: -17px;
+  right: 50%;
+  transform: translateX(50%);
+  color: #E74A3B;
   font-size: 0.8rem;
   margin-top: 0.5rem;
 `;
@@ -101,12 +134,16 @@ export const Error = styled.div`
 export const FormFooterBtn = styled.button`
   display: block;
   margin: 0 auto;
-  margin-top: 8px;
+  margin-top: 15px;
   padding: 11px 71px;
   font-size: 12px;
   background-color: ${props => props.theme.colors.accent} ;
   border-radius: 6px;
   transition: color 250ms linear;
+
+  @media ${props => props.theme.device.tablet} {
+    margin-top: 8px;
+  }
 
   &:hover, &:focus {
     color: ${props => props.theme.colors.accentDark}
@@ -115,7 +152,7 @@ export const FormFooterBtn = styled.button`
     background-color: ${props => props.theme.colors.accentDarkMuted};
     color: ${props => props.theme.colors.textWhiteMuted};
    &:hover:disabled, &:focus:disabled {
-      
+
       color: initial;
       cursor: not-allowed;
     }

@@ -2,11 +2,6 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 import { ReactComponent as emailIcon } from '../../images/icons/email.svg';
-import { ReactComponent as Facebook } from '../../images/icons/facebook-logo.svg';
-import { ReactComponent as Twitter } from '../../images/icons/twitter-logo.svg';
-import { ReactComponent as Youtube } from '../../images/icons/youtube-logo.svg';
-import { ReactComponent as Instagram } from '../../images/icons/instagram-logo.svg';
-
 
 import bgMobile from "../../images/bg/footerBG_mobile.webp";
 import bgMobileRetina from "../../images/bg/footerBG_mobile@2x.webp";
@@ -14,80 +9,15 @@ import bgTablet from '../../images/bg/footerBG_Tablet.webp';
 import bgTabletRetina from '../../images/bg/footerBG_Tablet@2x.webp';
 import bgDesktop from '../../images/bg/footerBG_Desktop.webp';
 import bgDesktopRetina from '../../images/bg/footerBG_Desktop@2x.webp';
-import bgSharedDesktop from '../../images/bg/footerSharedDB_Desktop.webp';
+// import bgSharedDesktop from '../../images/bg/footerSharedDB_Desktop.webp';
 
-//iconStyled
-export const FacebookIconStyled = styled(Facebook)`
-  width: 20px;
-  path {
-    fill: ${props => props.theme.colors.socialLinkIcons};
-    transition: fill 250ms linear;
-  }
-  :hover path,
-  :focus path {
-    fill: ${props => props.theme.colors.socialLinkIconsHover};
-  }
-`;
-export const TwitterIconStyled = styled(Twitter)`
-  width: 20px;
-  path {
-    fill: ${props => props.theme.colors.socialLinkIcons};
-    transition: fill 250ms linear;
-  }
-  :hover path,
-  :focus path {
-    fill: ${props => props.theme.colors.socialLinkIconsHover};
-  }
-`;
-
-export const YoutubeIconStyled = styled(Youtube)`
-  width: 20px;
-  path {
-    fill: ${props => props.theme.colors.socialLinkIcons};
-    transition: fill 250ms linear;
-  }
-  :hover path,
-  :focus path {
-    fill: ${props => props.theme.colors.socialLinkIconsHover};
-  }
-`;
-
-export const InstagramIconStyled = styled(Instagram)`
-  width: 20px;
-  path {
-    fill: ${props => props.theme.colors.socialLinkIcons};
-    transition: fill 250ms linear;
-  }
-  :hover path,
-  :focus path {
-    fill: ${props => props.theme.colors.socialLinkIconsHover};
-  }
-`;
-//
 
 export const FooterSection = styled.div`
   position: relative;
   background-color: ${props => props.theme.colors.accentDark};
   padding-top: 28px;
   padding-bottom: 28px;
-  min-height: 50vh;
-  /* z-index: 10; */
 
-  /* &::after {
-    content: "";
-    position: absolute;
-    display: inline-block;
-    width: 558px;
-    top: -210px;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(${bgSharedDesktop});
-    background-repeat: no-repeat;
-    background-size: 558px 882px;
-    background-position: left center;
-    z-index: -1;
-  } */
 
   @media ${props => props.theme.device.tablet} {
     padding-top: 50px;
@@ -331,32 +261,17 @@ export const FormFooterBtn = styled.button`
   }
 `;
 
-export const SocialWrap = styled.ul`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 44px;
+export const SocialWrap = styled.div`
+   margin-top: 44px;
   @media ${props => props.theme.device.tablet} {
     margin-top: 38px;
   }
   @media ${props => props.theme.device.desktop} {
     margin-top: 41px;
   }
-`;
+`
 
-export const SocialLink = styled(NavLink)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  &:not(:first-child) {
-    margin-left: 10px;
-  }
-`;
 
-export const SocialImg = styled.img`
-  fill: ${props => props.theme.colors.textWhite};
-`;
 export const SubFooterBgContainer = styled.div``;
 export const SubFooter = styled.div`
   padding-top: 28px;
