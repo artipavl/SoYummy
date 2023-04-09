@@ -42,18 +42,33 @@ const RecipeIngredients = ({ ingredients }) => {
     //   console.log(id);
     // });
   };
-
-  useEffect(() => {
-    getShopList()
+  const shopListArr = useMemo(() => {
+    return getShopList()
       .then(res => {
         const { result } = res.data.data;
         const filteredShopList = result.filter(
           item => item.recipeId === recipeId
         );
-        setShopList(filteredShopList);
+        return filteredShopList;
       })
       .catch(err => console.log(err.message));
-  }, []);
+  });
+
+  useEffect(() => {
+    getFilteredShopList();
+
+    async function getFilteredShopList() {
+      getShopList()
+        .then(res => {
+          const { result } = res.data.data;
+          const filteredShopList = result.filter(
+            item => item.recipeId === recipeId
+          );
+          setShopList(filteredShopList);
+        })
+        .catch(err => console.log(err.message));
+    }
+  }, [recipeId]);
 
   return (
     <IngredientsSection>
@@ -85,7 +100,7 @@ const RecipeIngredients = ({ ingredients }) => {
                     <Checkbox
                       ingrId={ingr._id}
                       shopList={shopList}
-                      checked={isChecked(ingr._id)}
+                      // checked={isChecked(ingr._id)}
                     />
                   </label>
                 </FlexWrapper>

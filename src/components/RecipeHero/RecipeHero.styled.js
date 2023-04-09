@@ -11,9 +11,9 @@ export const HeroSection = styled.section`
   padding-bottom: 90px;
   background-image: url('${bgMobile}');
   background-repeat: no-repeat;
-  background-position: 100% 100%;
+  /* background-position: 100% 100%; */
   background-size: cover;
-  max-width: 1600px;
+  /* max-width: 1600px; */
   height: auto;
 
   @media ${props => props.theme.retinaBackgroundImage} {

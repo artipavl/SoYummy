@@ -7,6 +7,12 @@ export const getRecipeById = async (id, config) => {
   );
 };
 
+export const getOwnRecipes = async () => {
+  return await axios.get(
+    `https://so-yummy-api.onrender.com/api/recipes/own-recipes`
+  );
+};
+
 export const getFavorites = async () => {
   return await axios.get(`https://so-yummy-api.onrender.com/api/favorites`);
 };
