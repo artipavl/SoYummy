@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import bgMobile from 'images/recipepage/recipepage-bg-mb-1x-min.png';
+import bgMobile from 'images/recipepage/recipepageMb1.png';
 import bgMobileRetina from 'images/recipepage/recipepage-bg-mb-2x-min.png';
 import bgTablet from 'images/recipepage/recipepage-bg-tablet-1x-min.png';
 import bgTabletRetina from 'images/recipepage/recipepage-bg-tablet-2x-min.png';
