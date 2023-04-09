@@ -34,7 +34,8 @@ export const ModalContainer= styled.div`
   height: 400px;
   background: url('${coctail_tablet}');
   border-radius:30px;
-   @media ${props => props.theme.retinaBackgroundImage} {
+  
+  @media ${props => props.theme.retinaBackgroundImage} {
     background-image: url('${coctail_tablet2x}');
   }
   }
@@ -44,7 +45,8 @@ export const ModalContainer= styled.div`
   height: 500px;
   background: url('${coctail_desktop}');
   border-radius:30px;
-   @media ${props => props.theme.retinaBackgroundImage} {
+  
+  @media ${props => props.theme.retinaBackgroundImage} {
     background-image: url('${coctail_desktop2x}');
   }
   }
@@ -76,6 +78,22 @@ export const TextContainer = styled.div`
 export const ModalText = styled.p`
  font-Size: 32px;
  font-family: 'Poppins';
+ color: ${props => props.theme.colors.textWhite};
+
+@media ${props => props.theme.device.tablet} {
+ font-Size: 28px;
+  }
+
+@media ${props => props.theme.device.desktop} {
+ font-Size: 28px;
+  }
+
+`;
+
+export const WowText = styled.span`
+ font-Size: 32px;
+ font-family: 'Poppins';
+ color: ${props => props.theme.colors.accent};
 
 @media ${props => props.theme.device.tablet} {
  font-Size: 28px;
@@ -112,4 +130,3 @@ export const BtnIcon = styled.img`
   
 `;
 
-// color: ${props => props.theme.colors.textWhite};
