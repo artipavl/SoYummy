@@ -1,16 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
 
 import notiflix from "notiflix";
+
+import { useFormik } from 'formik';
+import { editUserValidationSchema } from 'utils/editUserValidationSchema';
 
 import { selectUserName, selectAvatarURL } from 'redux/selectors';
 import { updateUser } from '../../../../redux/authOperations';
 
-import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
-
 import addAvatarImg from '../../../../images/icons/plus-icon.svg';
-import crossIcon from '../../../../images/icons/cross.svg'
+import crossIcon from '../../../../images/icons/cross.svg';
 
 import {
   BackdropEditUserMOdal,
@@ -32,37 +31,45 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
   const userName = useSelector(selectUserName);
   const avatarURL = useSelector(selectAvatarURL);
 
-  const [name, setName] = useState(userName);
-  const [avatar, setAvatar] = useState(avatarURL);
+  const formik = useFormik({
+  initialValues: {
+      avatar: avatarURL || '',
+      name: userName || ''
+    },
+    validationSchema: editUserValidationSchema,
+    onSubmit: ({avatar, name}) => {
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('avatar', avatar)
+      dispatch(updateUser(formData))
+        .then((res, rej) => {
+          console.log(res, rej)
+        })
+    }
+  })
+
 
   const handleAvatarChange = (e) => {
     const newAvatar = e.target.files[0];
-    setAvatar(newAvatar);
+    formik.setValues({ ...formik.values, avatar: newAvatar });
   };
 
-  const handleNameChange = (e) => {
-    const newName = e.target.value;
-    setName(newName);
+  const handleResetName = () => {
+    formik.resetForm({
+      values: {
+        ...formik.values,
+        name: ''
+      }
+    });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (avatar && !avatar.name.match(/\.(jpg|jpeg|png)$/)) {
-      notiflix.Notify.failure("Only JPG, JPEG, and PNG files are allowed.");
-      setAvatar(avatarURL)
-    return;
-  }
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('avatar', avatar);
-    dispatch(updateUser(formData, {
-    headers: { 'Content-Type': 'multipart/form-data' }
-  })).then(() => {
-    notiflix.Notify.success('User updated successfully!');
-    handleOpenEditModal();
-  }).catch((error) => {
-    console.log(error);
-  });
+  const handleResetImage = () => {
+    formik.resetForm({
+      values: {
+        ...formik.values,
+        avatar: null
+      }
+    });
   };
 
   return (
@@ -79,35 +86,71 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
           <CloseButton src={crossIcon} alt="close button" width={20} />
         </button>
 
-        <form onSubmit={handleSubmit}>
+        <button
+          type='button'
+          onClick={handleResetName}
+        >ResetName</button>
+
+        <button
+          type='button'
+          onClick={handleResetImage}
+        >ResetImage</button>
+
+        <form onSubmit={formik.handleSubmit}>
           <PreviewWrap>
             <PreviewImageWrap htmlFor="file-upload">
 
               <PreviewImage
-                src={avatar instanceof File ? URL.createObjectURL(avatar) : avatarURL}
+                src={formik.values.avatar instanceof File ? URL.createObjectURL(formik.values.avatar) : avatarURL}
                 alt="User avatar"
                 style={{ display: 'block', margin: '0 auto' }}
               />
             </PreviewImageWrap>
+            {formik.touched.avatar && formik.errors.avatar ? (
+              <div>{formik.errors.avatar}</div>
+            ) : <div>123</div>}
 
 
             <AddImageButton htmlFor="file-upload">
               <img src={addAvatarImg} alt="Upload icon" />
-              <input id="file-upload" type="file" onChange={handleAvatarChange} style={{ display: 'none' }} />
+              <input
+                style={{ display: 'none' }}
+                id="file-upload"
+                type="file"
+                name='avatar'
+                onChange={handleAvatarChange}
+                onBlur={formik.handleBlur}
+                error={formik.errors.avatar}
+                touched={formik.touched.avatar}
+                required
+              />
             </AddImageButton>
-
-
           </PreviewWrap>
 
-
           <EditNameFormWrap>
-            <EditNameFormStyled type="text" onChange={handleNameChange} value={name} />
+            <EditNameFormStyled
+              type="text"
+              id="name"
+              placeholder="Enter your name"
+              value={formik.values.name}
+              onChange={formik.handleChange}
+              onBlur={formik.name}
+              error={formik.errors.name}
+              touched={formik.touched.name}
+            />
+
           </EditNameFormWrap>
+          {formik.touched.name && formik.errors.name ? (
+            <div>{formik.errors.name}</div>
+          ) : null}
+
           <EditBtnWrap>
-            <EditModalBtn type='submit'>Save Changes</EditModalBtn>
+            <EditModalBtn
+              type='submit' disabled={!formik.isValid}>Save Changes</EditModalBtn>
           </EditBtnWrap>
         </form>
       </ModalEditUser>
     </BackdropEditUserMOdal>
   );
 };
+

@@ -1,15 +1,15 @@
 import * as yup from 'yup';
 
-export const validationSchema = yup.object().shape({
-  image: yup.mixed()
+export const editUserValidationSchema = yup.object().shape({
+  avatar: yup.mixed()
     .required('Please upload an image')
     .test('fileSize', 'The file is too large', (value) => {
       if (!value) return false;
-      return value.size <= 5000000;
+      return value.size <= 2000000;
     })
     .test('fileType', 'Unsupported file format', (value) => {
       if (!value) return false;
-      return ['image/jpeg', 'image/png', 'image/gif'].includes(value.type);
+      return ['image/jpeg', 'image/png', 'image/jpg'].includes(value.type);
     }),
   name: yup.string()
     .required('Please enter your name')
