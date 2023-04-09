@@ -32,7 +32,7 @@ export const login = createAsyncThunk(
   async ({ email, password }, thunkAPI) => {
     try {
       const response = await axios.post('/users/login', { email, password });
-
+      console.log(response.data.data.user.token);
       token.set(response.data.data.user.token);
       return response.data.data.user;
     } catch (e) {
