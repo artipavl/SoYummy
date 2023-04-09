@@ -21,7 +21,7 @@ import { useEffect, useState } from 'react';
 
 const RecipeHero = ({ title, description, time, recipeId }) => {
   const [isFavorite, setIsFavorite] = useState(false);
-  const [isOwnRecipe, setIsOwnRecipe] = useState(false);
+  // const [isOwnRecipe, setIsOwnRecipe] = useState(false);
 
   const handleFavoriteAdd = id => {
     addToFavorites(id)
@@ -50,10 +50,8 @@ const RecipeHero = ({ title, description, time, recipeId }) => {
       isFavorite && setIsFavorite(isFavorite);
     });
 
-    getOwnRecipes().then(res => {
-      const { result } = res.data.data;
-    });
-  }, []);
+    getOwnRecipes();
+  }, [recipeId]);
   return (
     <HeroSection>
       <Container>
