@@ -47,7 +47,7 @@ export const Green2 = styled.div`
   position: absolute;
   width: 8px;
   height: 8px;
-  left: 333px;
+  left: 315px;
   top: 46px;
   background: ${props => props.theme.colors.modes.white.accent};
   border-radius: 3px;
@@ -56,12 +56,12 @@ export const Green2 = styled.div`
   @media ${props => props.theme.device.tablet} {
     width: 14px;
     height: 14px;
-    left: 674px;
+    left: 655px;
     top: 36px;
   }
 
   @media ${props => props.theme.device.desktop} {
-    left: 1150px;
+    left: 1050px;
     top: 67px;
   }
 `;
