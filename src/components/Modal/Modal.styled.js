@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-import coctail_mob from '../../../images/Modal/coctail_mob.webp';
-import coctail_tablet from '../../../images/Modal/coctail_tablet.webp';
-import coctail_desktop from '../../../images/Modal/coctail_desktop.webp';
-import coctail_mob2x from '../../../images/Modal/coctail_mob2x.webp';
-import coctail_tablet2x from '../../../images/Modal/coctail_tablet2x.webp';
-import coctail_desktop2x from '../../../images/Modal/coctail_desktop2x.webp';
+import coctail_mob from '../../../src/images/Modal/coctail_mob.webp';
+import coctail_tablet from '../../../src/images/Modal/coctail_tablet.webp';
+import coctail_desktop from '../../../src/images/Modal/coctail_desktop.webp';
+import coctail_mob2x from '../../../src/images/Modal/coctail_mob2x.webp';
+import coctail_tablet2x from '../../../src/images/Modal/coctail_tablet2x.webp';
+import coctail_desktop2x from '../../../src/images/Modal/coctail_desktop2x.webp';
 
 
 export const Overlay= styled.div`
