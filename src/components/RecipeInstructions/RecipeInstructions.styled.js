@@ -99,4 +99,8 @@ export const RecipeImg = styled.img`
     width: 433px;
     height: 332px;
   }
+  @media ${props => props.theme.device.desktop} {
+    width: 433px;
+    height: 332px;
+  }
 `;

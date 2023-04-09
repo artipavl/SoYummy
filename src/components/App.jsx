@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 
 import MyRecipes from '../pages/MyRecipes/MyRecipes';
-import RecipePage from 'pages/RecipePage/RecipePage';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivatRoute';
 
@@ -24,6 +23,7 @@ import { useState } from 'react';
 const SharedLayout = lazy(() => import('../components/SharedLayout'));
 //const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
 const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
+const RecipePage = lazy(() => import('../pages/RecipePage/RecipePage'));
 
 const ShoppingList = lazy(() =>
   import('../pages/ShoppingList/ShoppingList.js')
@@ -123,7 +123,7 @@ export const App = () => {
                 path="recipe/:recipeId"
                 element={
                   <PrivateRoute
-                    component={<StyledApp>RecipiesPage</StyledApp>}
+                    component={<RecipePage/>}
                   />
                 }
               />
