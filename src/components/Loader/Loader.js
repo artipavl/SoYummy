@@ -12,7 +12,7 @@ export const Loader = () => {
         visible={true}
         outerCircleColor="#8BAA36"
         innerCircleColor="#3E4462"
-        barColor="#1E1F28"
+        barColor="#3E4462"
         ariaLabel="circles-with-bar-loading"
       />
     </>

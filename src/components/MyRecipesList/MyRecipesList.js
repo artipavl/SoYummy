@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-// import { useLocation } from 'react-router';
 
 import { getMyRecipes, deleteMyRecipe } from 'api/index';
 import MyRecipeItem from 'components/MyRecipeItem/MyRecipeItem';
 import { Loader } from '../Loader/Loader';
+import Pagination from '../Pagination/Pagination';
 
 import { List, ListText, LoaderBox } from '../FavoriteList/FavoriteList.styled';
 
@@ -12,14 +12,13 @@ const MyRecipesList = () => {
   const [allRecipes, setAllRecipes] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(null);
-  // const location = useLocation();
 
   useEffect(() => {
     const renderMovies = async () => {
       setLoading(true);
       try {
         const data = await getMyRecipes(page);
-        setAllRecipes(data);
+        setAllRecipes(data.result);
 
         const totalCountPage = Math.ceil(data.total / 4);
         if (totalCountPage > 1) {
@@ -38,14 +37,14 @@ const MyRecipesList = () => {
     try {
       await deleteMyRecipe(id);
       const data = await getMyRecipes(page);
-      setAllRecipes(data);
+      setAllRecipes(data.result);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const handleChange = (event, value) => {
-    setPage(value);
+  const handleChange = e => {
+    setPage(e.selected + 1);
   };
 
   return (
@@ -73,11 +72,7 @@ const MyRecipesList = () => {
         <ListText>You don't have your recipes</ListText>
       )}
       {totalPage && (
-        <div change={handleChange}>Paginator</div>
-        //   <Paginator
-        //     count={totalPage}
-        //     page={page}
-        //     change={handleChange} />
+        <Pagination pageCount={totalPage} page={page} change={handleChange} />
       )}
     </List>
   );
