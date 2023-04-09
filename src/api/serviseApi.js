@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+axios.defaults.baseURL = 'https://so-yummy-api.onrender.com/api';
+
 export const getFavoriteRecipes = async (page = 1, limit = 4) => {
   try {
     const { data } = await axios.get(`/favorites?page=${page}&limit=${limit}`);
@@ -20,7 +22,9 @@ export const deleteFavoriteRecipe = async id => {
 
 export const getMyRecipes = async (page = 1, limit = 4) => {
   try {
-    const { data } = await axios.get(`/recipes/own-recipes?page=${page}&limit=${limit}`);
+    const { data } = await axios.get(
+      `/recipes/own-recipes?page=${page}&limit=${limit}`
+    );
     return data.data.result;
   } catch (error) {
     console.log(error);
@@ -33,5 +37,28 @@ export const deleteMyRecipe = async id => {
     return data;
   } catch (error) {
     console.log(error);
+  }
+};
+
+//!                  Shopping List component
+export const getShoppingList = async () => {
+  try {
+    const { data } = await axios.get(`/users/shopping-list`);
+    return data.data.result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deleteShoppingList = async _id => {
+  try {
+    const response = await axios.patch(`/users/shopping-list`, { _id });
+    if (response.status === 200) {
+      return response.data.data.result;
+    } else {
+      throw new Error('Server returned an error');
+    }
+  } catch (error) {
+    console.log('error.message: ', error.message);
   }
 };

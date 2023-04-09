@@ -24,15 +24,15 @@ import {
   UserName,
   ToogleWrap,
   Burger,
-} from './Head.styled'
+} from './Head.styled';
 
 export const Head = () => {
   const [open, setOpen] = useState(false);
   const [openUser, setOpenUser] = useState(false);
   const [checked, setChecked] = useState(false);
 
-  const userName = useSelector(selectUserName)
-  const userAvatar = useSelector(selectAvatarURL)
+  const userName = useSelector(selectUserName);
+  const userAvatar = useSelector(selectAvatarURL);
 
   const handleChange = nextChecked => {
     setChecked(nextChecked);
@@ -56,7 +56,6 @@ export const Head = () => {
     <>
       <Header>
         <Container>
-
           <LinkLogo to="/main">
             <NavLogo src={logo} alt="logo" />
             <NavLogoLite src={lightLogo} alt="logo" width={40} />
@@ -71,17 +70,13 @@ export const Head = () => {
             </UserWrapButton>
 
             <Burger onClick={handleMenuClick}>
-              <img src={burgerIcon} alt='open mobile menu' width={32} />
+              <img src={burgerIcon} alt="open mobile menu" width={32} />
             </Burger>
 
-            <ToogleWrap >
-              <ThemeToogle
-                handleChange={handleChange}
-                checked={checked}
-              />
+            <ToogleWrap>
+              <ThemeToogle handleChange={handleChange} checked={checked} />
             </ToogleWrap>
           </UserToogleWrap>
-
         </Container>
       </Header>
 
@@ -89,9 +84,7 @@ export const Head = () => {
         openUser={openUser}
         handleOpenSmallUserMenu={handleOpenSmallUserMenu}
       />
-      <MobileMenu
-        openState={open}
-        handleMenuClick={handleMenuClick}>
+      <MobileMenu openState={open} handleMenuClick={handleMenuClick}>
         <ThemeToogle />
       </MobileMenu>
     </>

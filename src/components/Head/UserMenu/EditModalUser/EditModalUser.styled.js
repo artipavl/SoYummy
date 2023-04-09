@@ -25,11 +25,11 @@ export const ModalEditUser = styled.div`
   flex-direction: column;
   flex-grow: 1;
   padding: 32px 24px;
-  background-color: ${props => props.theme.colors.textWhite};
+  background-color: ${props => props.theme.colors.editProfileModal};
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%
+  width: 100%;
   height: auto;
   text-align: center;
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
@@ -119,7 +119,7 @@ export const EditNameFormStyled = styled.input`
   color: inherit;
   font-size: inherit;
   border-radius: 6px;
-  border: 1px solid ${props => props.theme.colors.whiteMuted};
+  border: 1px solid ${props => props.theme.colors.dark};
 
 `
 
@@ -134,12 +134,12 @@ export const  EditModalBtn = styled.button`
   padding: 14px 84px;
   font-size: 14px;
   color: ${props => props.theme.colors.textWhite};
-  background-color: ${props => props.theme.colors.accent} ;
+  background-color: ${props => props.theme.colors.accentCurrent} ;
   border-radius: 6px;
   transition: color 250ms linear;
 
   &:hover, &:focus {
-    color: ${props => props.theme.colors.accentDark}
+    color: ${props => props.theme.colors.dark}
   }
 
 `

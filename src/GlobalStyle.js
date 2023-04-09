@@ -15,7 +15,6 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 14px;
         line-height: 18px;
         color: #23262a;
-
     }
     code {
         font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

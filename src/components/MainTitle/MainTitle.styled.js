@@ -11,7 +11,6 @@ export const Title = styled.h2`
   font-size: 28px;
   line-height: 100%;
   padding-top: 74px;
-
   @media ${props => props.theme.device.tablet} {
     font-size: 32px;
     padding-top: 102px;

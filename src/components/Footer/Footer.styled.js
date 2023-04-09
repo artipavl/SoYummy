@@ -20,47 +20,47 @@ import bgSharedDesktop from '../../images/bg/footerSharedDB_Desktop.webp';
 export const FacebookIconStyled = styled(Facebook)`
   width: 20px;
   path {
-    fill: ${props => props.theme.colors.accent};
+    fill: ${props => props.theme.colors.socialLinkIcons};
     transition: fill 250ms linear;
   }
   :hover path,
   :focus path {
-    fill: ${props => props.theme.colors.white};
+    fill: ${props => props.theme.colors.socialLinkIconsHover};
   }
 `;
 export const TwitterIconStyled = styled(Twitter)`
   width: 20px;
   path {
-    fill: ${props => props.theme.colors.accent};
+    fill: ${props => props.theme.colors.socialLinkIcons};
     transition: fill 250ms linear;
   }
   :hover path,
   :focus path {
-    fill: ${props => props.theme.colors.white};
+    fill: ${props => props.theme.colors.socialLinkIconsHover};
   }
 `;
 
 export const YoutubeIconStyled = styled(Youtube)`
   width: 20px;
   path {
-    fill: ${props => props.theme.colors.accent};
+    fill: ${props => props.theme.colors.socialLinkIcons};
     transition: fill 250ms linear;
   }
   :hover path,
   :focus path {
-    fill: ${props => props.theme.colors.white};
+    fill: ${props => props.theme.colors.socialLinkIconsHover};
   }
 `;
 
 export const InstagramIconStyled = styled(Instagram)`
   width: 20px;
   path {
-    fill: ${props => props.theme.colors.accent};
+    fill: ${props => props.theme.colors.socialLinkIcons};
     transition: fill 250ms linear;
   }
   :hover path,
   :focus path {
-    fill: ${props => props.theme.colors.white};
+    fill: ${props => props.theme.colors.socialLinkIconsHover};
   }
 `;
 //
