@@ -3,14 +3,14 @@ import styled from "styled-components";
 export const BtnDel = styled.button`
   background-color: ${props =>
     ({
-      black: props.theme.colors.accentMuted,
-      white: props.theme.colors.accent,
+      black: props.theme.colors.modes.white.accentGrey,
+      green: props.theme.colors.accentCurrent,
     }[props.battonDel])};
 
   color: ${props =>
     ({
       black: props.theme.colors.buttonDelAccent,
-      white: props.theme.colors.defLight,
+      green: props.theme.colors.defLight,
     }[props.battonDel])};
 
   width: 24px;
@@ -36,13 +36,13 @@ export const BtnDel = styled.button`
     background-color: ${props =>
       ({
         black: props.theme.colors.accent,
-        white: props.theme.colors.accentDark,
+        green: props.theme.colors.modes.white.backgroundAccent,
       }[props.battonDel])};
 
     color: ${props =>
       ({
         black: props.theme.colors.textWhite,
-        white: props.theme.colors.whiteMuted,
+        green: props.theme.colors.whiteMuted,
       }[props.battonDel])};
   }
 `;

@@ -64,7 +64,7 @@ const MyRecipesList = () => {
             title={title}
             id={_id}
             handelDelete={handelDelete}
-            styleDel="white"
+            styleDel="green"
             styleBtn="dark"
           />
         ))
