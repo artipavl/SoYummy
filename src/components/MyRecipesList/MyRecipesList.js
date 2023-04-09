@@ -37,7 +37,7 @@ const MyRecipesList = () => {
     try {
       await deleteMyRecipe(id);
       const data = await getMyRecipes(page);
-      setAllRecipes(data);
+      setAllRecipes(data.result);
     } catch (error) {
       console.log(error);
     }
