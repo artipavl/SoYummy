@@ -100,6 +100,7 @@ export const EditText = styled.p`
 export const EditIcon = styled.img`
   width: 14px;
   height: 14px;
+
 `
 
 export const LogOutButton = styled.button`
@@ -115,8 +116,8 @@ export const LogOutButton = styled.button`
 
 
   &:hover, &:focus {
-    background-color: ${props => props.theme.colors.accent};
-    border: 1px solid ${props => props.theme.colors.accent};
+    background-color: ${props => props.theme.colors.accentDark};
+    border: 1px solid ${props => props.theme.colors.accentDark};
   }
   @media ${props => props.theme.device.tablet} {
     padding: 12px 32px;
@@ -127,6 +128,7 @@ export const LogOutButtonText = styled.p`
   font-size: 14px;
 `
 export const LogOutButtonImg = styled.img`
+  margin-left: 4px;
 
 `
 
