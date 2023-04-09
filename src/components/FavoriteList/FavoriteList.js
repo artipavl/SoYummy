@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-// import { useLocation } from 'react-router';
 
 import { getFavoriteRecipes, deleteFavoriteRecipe } from 'api/index';
 import MyRecipeItem from 'components/MyRecipeItem/MyRecipeItem';
@@ -14,7 +13,6 @@ const FavoriteList = () => {
   const [allRecipes, setAllRecipes] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(null);
-  // const location = useLocation();
 
   useEffect(() => {
     const renderMovies = async () => {
@@ -46,8 +44,8 @@ const FavoriteList = () => {
     }
   };
 
-  const handleChange = (event, value) => {
-    setPage(value);
+  const handleChange = e => {
+    setPage(e.selected + 1);
   };
 
   return (
@@ -75,16 +73,7 @@ const FavoriteList = () => {
         <ListText>You don't have your recipes</ListText>
       )}
       {totalPage && (
-        // <div
-        // // change={handleChange}
-        // >
-        //   Paginator
-        // </div>
-          <Pagination
-            count={totalPage}
-            page={page}
-            change={handleChange}
-          />
+        <Pagination pageCount={totalPage} page={page} change={handleChange} />
       )}
     </List>
   );
