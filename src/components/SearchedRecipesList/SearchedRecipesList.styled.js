@@ -25,13 +25,6 @@ export const RecipesList = styled.ul`
     flex-direction: row;
     flex-wrap: wrap;
 
-    gap: 32px;
-
-    /* display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    gap: 0px 32px; */
-
     ${() => {
       return GetDeviceImages(350, 225, recipeNotFoundImgTabletDesktop);
     }}

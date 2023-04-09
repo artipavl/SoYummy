@@ -7,7 +7,7 @@ import SearchBar from 'components/SearchBar';
 import SearchedRecipesList from 'components/SearchedRecipesList';
 import { Loader } from 'components/Loader/Loader';
 
-import { Page } from './Favorite/Favorite.styled';
+import { SearchPageSection } from './SearchPage.styled';
 
 import { searchRecipes, searchIngredient } from 'redux/searchOperations';
 
@@ -33,11 +33,11 @@ const SearchPage = () => {
   }, [dispatch, query, searchType]);
 
   return (
-    <div>
+    <SearchPageSection>
       <MainTitle text="Search" />
       <SearchBar />
       <SearchedRecipesList />
-    </div>
+    </SearchPageSection>
   );
 };
 
