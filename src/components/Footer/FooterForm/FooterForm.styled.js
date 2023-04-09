@@ -46,6 +46,10 @@ export const FormFooter = styled.form`
 `
 export const InputWrapper = styled.div`
 position: relative;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 204px;
+    margin: 0 auto;
+  }
 
 `
 export const FormFooterInput = styled.input`

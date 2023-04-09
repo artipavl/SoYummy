@@ -6,7 +6,11 @@ import notiflix from "notiflix";
 import { selectUserName, selectAvatarURL } from 'redux/selectors';
 import { updateUser } from '../../../../redux/authOperations';
 
-import addAvatarImg from '../../../../images/icons/plus-icon.svg'
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+
+import addAvatarImg from '../../../../images/icons/plus-icon.svg';
+import crossIcon from '../../../../images/icons/cross.svg'
 
 import {
   BackdropEditUserMOdal,
@@ -21,9 +25,6 @@ import {
   EditBtnWrap,
   EditModalBtn,
 } from "./EditModalUser.styled";
-
-
-import crossIcon from '../../../../images/icons/cross.svg'
 
 export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagation, }) => {
 
@@ -54,7 +55,6 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
     const formData = new FormData();
     formData.append('name', name);
     formData.append('avatar', avatar);
-    console.log(formData)
     dispatch(updateUser(formData, {
     headers: { 'Content-Type': 'multipart/form-data' }
   })).then(() => {
@@ -111,4 +111,3 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
     </BackdropEditUserMOdal>
   );
 };
-
