@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 
-import { useSelector } from 'react-redux';
-import { selectStatus, selectResults } from 'redux/selectors';
-
-import recipeNotFoundImgDesktop from '../../images/bg/recipe-not-found-desktop.webp';
-import recipeNotFoundImgDesktopRetina from '../../images/bg/recipe-not-found-desktop-2x.webp';
-import recipeNotFoundImgTablet from '../../images/bg/recipe-not-found-tablet.webp';
-import recipeNotFoundImgTabletRetina from '../../images/bg/recipe-not-found-tablet-2x.webp';
+import recipeNotFoundImgTabletDesktop from '../../images/bg/recipe-not-found-tablet-desktop.webp';
+import recipeNotFoundImgTabletDesktopRetina from '../../images/bg/recipe-not-found-tablet-desktop-2x.webp';
 import recipeNotFoundImgMobile from '../../images/bg/recipe-not-found-mobile.webp';
 import recipeNotFoundImgMobileRetina from '../../images/bg/recipe-not-found-mobile-2x.webp';
+
+import GetDeviceImages from 'utils/GetDeviceImages';
 
 export const RecipesList = styled.ul`
   display: flex;
@@ -16,24 +13,9 @@ export const RecipesList = styled.ul`
   justify-content: center;
   align-items: center;
 
-  background-image: ${() => {
-    const results = useSelector(selectResults);
-    const { isResolved } = useSelector(selectStatus);
-
-    const noRecipeFound = isResolved && results.length === 0;
-
-    if (noRecipeFound) {
-      return `
-          background-image: none;
-
-          &::before {
-            content: '';
-            width: 208px;
-            height: 133px;
-            background-image: url(${recipeNotFoundImgMobile});
-          `;
-    }
-  }};
+  ${() => {
+    return GetDeviceImages(208, 133, recipeNotFoundImgMobile);
+  }}
 
   @media ${props => props.theme.retinaBackgroundImage} {
     background-image: url('${recipeNotFoundImgMobileRetina}');
@@ -42,7 +24,21 @@ export const RecipesList = styled.ul`
   @media ${props => props.theme.device.tablet} {
     flex-direction: row;
     flex-wrap: wrap;
+
     gap: 32px;
+
+    /* display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    gap: 0px 32px; */
+
+    ${() => {
+      return GetDeviceImages(350, 225, recipeNotFoundImgTabletDesktop);
+    }}
+  }
+
+  @media ${props => props.theme.retinaBackgroundImage} {
+    background-image: url('${recipeNotFoundImgTabletDesktopRetina}');
   }
 
   @media ${props => props.theme.device.desktop} {
@@ -50,5 +46,27 @@ export const RecipesList = styled.ul`
 
     padding-left: 100px;
     padding-right: 100px;
+  }
+`;
+
+export const RecipeNotFoundText = styled.p`
+  font-weight: ${props => props.theme.fontWeights.medium};
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+
+  text-align: center;
+
+  margin-top: 24px;
+  margin-bottom: 100px;
+
+  color: ${props => props.theme.colors.dark};
+  opacity: 0.5;
+
+  @media ${props => props.theme.device.tablet} {
+    font-size: 24px;
+
+    margin-top: 32px;
+    margin-bottom: 200px;
   }
 `;

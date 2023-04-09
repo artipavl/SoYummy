@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import MainTitle from 'components/MainTitle/MainTitle';
 import SearchBar from 'components/SearchBar';
 import SearchedRecipesList from 'components/SearchedRecipesList';
+import { Loader } from 'components/Loader/Loader';
+
+import { Page } from './Favorite/Favorite.styled';
 
 import { searchRecipes, searchIngredient } from 'redux/searchOperations';
 
