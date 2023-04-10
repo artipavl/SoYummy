@@ -14,3 +14,9 @@ export const SearchPageSection = styled.section`
     padding-right: 100px;
   }
 `;
+
+// export const LoaderWrapper = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// `;

@@ -5,7 +5,11 @@ import { selectResults } from 'redux/selectors';
 import SearchedRecipesItem from 'components/SearchedRecipesItem';
 import { Loader } from 'components/Loader/Loader';
 
-import { RecipesList, RecipeNotFoundText } from './SearchedRecipesList.styled';
+import {
+  LoaderWrapper,
+  RecipesList,
+  RecipeNotFoundText,
+} from './SearchedRecipesList.styled';
 
 import { selectStatus } from 'redux/selectors';
 
@@ -16,7 +20,9 @@ const SearchedRecipesList = () => {
   return (
     <>
       {isLoading ? (
-        <Loader />
+        <LoaderWrapper>
+          <Loader />
+        </LoaderWrapper>
       ) : (
         <RecipesList>
           {results.map(({ _id, title, preview }) => {

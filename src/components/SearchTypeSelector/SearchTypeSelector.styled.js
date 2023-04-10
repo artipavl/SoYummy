@@ -73,4 +73,7 @@ export const TypeSelector = styled.select`
   }
 `;
 
-export const SelectorOption = styled.option``;
+export const SelectorOption = styled.option`
+  /* border-radius: 0px 0px 6px 6px; */
+  /* background-color: red; */
+`;

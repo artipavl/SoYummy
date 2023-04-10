@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { registerValidationSchema } from 'utils/authValidationSchema';
 import formStyles from 'utils/formStyles';
@@ -9,6 +9,10 @@ import orderIcon from '../../images/icons/order-food-pana.svg';
 
 import AuthFormInput from 'components/AuthFormInput';
 import Password from './Password';
+
+import ButtonLoader from 'components/ButtonLoader';
+
+import { selectAuthIsLoading } from 'redux/selectors';
 
 import { register, login } from 'redux/authOperations';
 
@@ -23,11 +27,12 @@ import {
 
 const RegForm = () => {
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectAuthIsLoading);
 
   const onSubmit = values => {
     dispatch(register(values))
       .then(() => dispatch(login(values)))
-      .catch(error => console.log(error));
+      .catch(error => error);
   };
 
   return (
@@ -75,7 +80,9 @@ const RegForm = () => {
 
                 <Password />
 
-                <FormBtn type="submit">Sign up</FormBtn>
+                <FormBtn type="submit">
+                  {isLoading ? <ButtonLoader /> : 'Sign up'}
+                </FormBtn>
               </Form>
               <FormNavLink to="/signin">Sign In</FormNavLink>
             </div>

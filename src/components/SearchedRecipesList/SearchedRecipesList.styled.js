@@ -7,6 +7,14 @@ import recipeNotFoundImgMobileRetina from '../../images/bg/recipe-not-found-mobi
 
 import GetDeviceImages from 'utils/GetDeviceImages';
 
+export const LoaderWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 100px;
+`;
+
 export const RecipesList = styled.ul`
   display: flex;
   flex-direction: column;

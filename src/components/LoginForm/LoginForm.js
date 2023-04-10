@@ -8,9 +8,14 @@ import orderIcon from '../../images/icons/order-food-pana.svg';
 import AuthFormInput from 'components/AuthFormInput';
 import Password from 'components/RegForm/Password';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { login } from 'redux/authOperations';
+import { selectAuthIsLoading } from 'redux/selectors';
+
+import Notiflix from 'notiflix';
+
+import ButtonLoader from 'components/ButtonLoader';
 
 import {
   Wrapper,
@@ -24,8 +29,12 @@ import {
 const LoginForm = () => {
   const dispatch = useDispatch();
 
+  const isLoading = useSelector(selectAuthIsLoading);
+
   const onSubmit = values => {
-    dispatch(login(values));
+    dispatch(login(values)).finally(error =>
+      Notiflix.Notify.failure('There is no user with such credentials.')
+    );
   };
 
   return (
@@ -52,14 +61,16 @@ const LoginForm = () => {
                   {...getFieldProps('email')}
                 />
                 {errors.email && touched.email && (
-                  <div style={{ ...formStyles.message.warning }}>
+                  <div style={{ ...formStyles.message.error }}>
                     {errors.email}
                   </div>
                 )}
 
                 <Password />
 
-                <FormBtn type="submit">Sign In</FormBtn>
+                <FormBtn type="submit">
+                  {isLoading ? <ButtonLoader /> : 'Sign In'}
+                </FormBtn>
               </Form>
 
               <FormNavLink to="/register">Registration</FormNavLink>
