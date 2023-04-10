@@ -6,6 +6,8 @@ import MainTitle from 'components/MainTitle/MainTitle';
 import SearchBar from 'components/SearchBar';
 import SearchedRecipesList from 'components/SearchedRecipesList';
 
+import { SearchPageSection } from './SearchPage.styled';
+
 import { searchRecipes, searchIngredient } from 'redux/searchOperations';
 
 import { selectSearchType } from 'redux/selectors';
@@ -30,11 +32,11 @@ const SearchPage = () => {
   }, [dispatch, query, searchType]);
 
   return (
-    <div>
+    <SearchPageSection>
       <MainTitle text="Search" />
       <SearchBar />
       <SearchedRecipesList />
-    </div>
+    </SearchPageSection>
   );
 };
 

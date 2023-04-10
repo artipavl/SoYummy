@@ -12,6 +12,7 @@ export const Page = styled.section`
   @media ${props => props.theme.device.tablet} {
     padding-left: 32px;
     padding-right: 32px;
+    padding-bottom: 203px;
     width: 704px;
   }
 

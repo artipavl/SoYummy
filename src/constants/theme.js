@@ -30,6 +30,8 @@ export const theme = {
     blackAndWhiteBrorderList: '#e0e0e0',
     editProfileModal: '#FAFAFA',
 
+    
+
     modes: {
       white: {
         text: '#23262A', //текст
@@ -110,6 +112,7 @@ export const lightTheme = {
     blackAndWhiteBrorderList: '#e0e0e0',
     editProfileModal: '#FAFAFA',
 
+
     modes: {
       white: {
         text: '#23262A', //текст
@@ -187,6 +190,7 @@ export const darkTheme = {
     defLight: '#FAFAFA',
     blackAndWhiteBrorderList: '#fafafa4d',
     editProfileModal: '#1E1F28',
+
 
     modes: {
       white: {
