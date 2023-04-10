@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 export const Btn = styled(NavLink)`
   background-color: ${props =>
     ({
-      normal: props.theme.colors.dark,
-      dark: props.theme.colors.accent,
+      normal: props.theme.colors.accentDark,
+      dark: props.theme.colors.accentCurrent,
       transparent: 'transparent',
     }[props.variant])};
 
@@ -13,7 +13,7 @@ export const Btn = styled(NavLink)`
   padding: 14px 6px;
 
   border: none;
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.textWhite};
   transition: all 250ms linear;
 
   font-family: 'Poppins';
@@ -40,7 +40,7 @@ export const Btn = styled(NavLink)`
     background-color: ${props =>
       ({
         normal: props.theme.colors.accent,
-        dark: props.theme.colors.dark,
+        dark: props.theme.colors.modes.white.backgroundAccent,
         transparent: props.theme.colors.accent,
       }[props.variant])};
 
