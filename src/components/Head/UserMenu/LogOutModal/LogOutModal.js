@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import notiflix from "notiflix";
 import crossIcon from '../../../../images/icons/cross.svg';
 import {
   BackdropLogOutModal,
@@ -20,7 +21,10 @@ export const LogOutModal = ({
   const dispatch = useDispatch();
 
   const onLogout = () => {
-    dispatch(fetchUserLogout());
+    notiflix.Notify.success('Goodbay');
+    setTimeout(() => {
+      dispatch(fetchUserLogout());
+    }, 1000);
   };
 
   useEffect(() => {

@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
-// import { useEffect } from 'react';
-
-// import notiflix from "notiflix";
+import notiflix from "notiflix";
 
 import { useFormik } from 'formik';
 import { editUserValidationSchema } from 'utils/editUserValidationSchema';
@@ -36,12 +35,12 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
 
 
   const formik = useFormik({
-  initialValues: {
+    initialValues: {
       avatar: avatarURL || '',
       name: userName || ''
     },
     validationSchema: editUserValidationSchema,
-    onSubmit: ({avatar, name}) => {
+    onSubmit: ({ avatar, name }) => {
       const formData = new FormData();
       formData.append('name', name);
       formData.append('avatar', avatar)
@@ -52,7 +51,21 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
 
       handleOpenEditModal()
     }
-  })
+  });
+
+  useEffect(() => {
+    if (openEditMenu) {
+      const handleKeyDown = e => {
+
+        if (e.code === 'Escape') {
+          handleOpenEditModal();
+        }
+      };
+
+      document.addEventListener('keydown', handleKeyDown);
+      return () => { document.removeEventListener('keydown', handleKeyDown); }
+    }
+  }, [handleOpenEditModal, openEditMenu]);
 
 
   const handleAvatarChange = (e) => {
