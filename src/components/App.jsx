@@ -24,6 +24,7 @@ const SharedLayout = lazy(() => import('../components/SharedLayout'));
 //const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
 const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
 const RecipePage = lazy(() => import('../pages/RecipePage/RecipePage'));
+const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
 
 const ShoppingList = lazy(() =>
   import('../pages/ShoppingList/ShoppingList.js')
@@ -129,9 +130,7 @@ export const App = () => {
               />
               <Route
                 path="*"
-                element={
-                  <PrivateRoute component={<StyledApp>NotFound</StyledApp>} />
-                }
+                element={<PrivateRoute component={<NotFound />} />}
               />
             </Route>
           </Routes>
