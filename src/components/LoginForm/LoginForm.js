@@ -13,8 +13,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login } from 'redux/authOperations';
 import { selectAuthIsLoading } from 'redux/selectors';
 
-import Notiflix from 'notiflix';
-
 import ButtonLoader from 'components/ButtonLoader';
 
 import {
@@ -32,9 +30,7 @@ const LoginForm = () => {
   const isLoading = useSelector(selectAuthIsLoading);
 
   const onSubmit = values => {
-    dispatch(login(values)).finally(error =>
-      Notiflix.Notify.failure('There is no user with such credentials.')
-    );
+    dispatch(login(values));
   };
 
   return (

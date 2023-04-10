@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import Notiflix from 'notiflix';
 
 import {
   register,
@@ -59,6 +60,7 @@ const authSlice = createSlice({
       state.isError = true;
       state.isLoggedIn = false;
       state.isLoading = false;
+      Notiflix.Notify.failure('There is no user with such credentials.');
     },
 
     [fetchCurrentUser.fulfilled](state, action) {
