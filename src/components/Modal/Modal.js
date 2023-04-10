@@ -7,7 +7,7 @@ import { Overlay,ModalContainer,ModalText,WowText, ButtonClose,BtnIcon,ModalImag
 
 const modalRoot = document.querySelector('#modal-root');
 
-export default function Modal ({src, title, onClose}) {
+export default function Modal ({ title, onClose}) {
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
@@ -36,16 +36,17 @@ export default function Modal ({src, title, onClose}) {
     return createPortal(
       <Overlay onClick={handleBackdropClick}>
         <ModalContainer>
-                <ModalImage src={src} alt="image" />
                 <TextContainer>
-                <ModalText><WowText>Wow!</WowText>You have created your first shopping list!</ModalText>
+                <ModalText><WowText>Wow!</WowText>{title }</ModalText>
                 </TextContainer>
                 <ButtonClose type='button' onClick={buttonCloseClick}>
-                    <BtnIcon src={cross} alt='logo'/>
+                    <BtnIcon src={cross} alt='cross'/>
                 </ButtonClose>
         </ModalContainer>
       </Overlay>,
       modalRoot
-    );
+  );
+  
+
 }
   
