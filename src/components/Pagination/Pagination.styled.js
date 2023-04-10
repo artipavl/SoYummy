@@ -4,66 +4,51 @@ export const Box = styled.div`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  display: inline-block;
-  padding: 0;
-  height: 51px;
+  display: block;
   background: ${props => props.theme.colors.white};
   box-shadow: 0px 4px 4px rgba(135, 135, 135, 0.2);
-  border-radius: 26px;
-  font-size: 18px;
-  margin: auto;
-  line-height: 55px;
+  height: 51px;
+  border-radius: 25.5px;
+  padding: 12px;
 
   @media ${props => props.theme.device.tablet} {
     height: 55px;
+    border-radius: 27.5px;
+    padding: 14px;
   }
 
   .pagination {
     display: flex;
     list-style: none;
-    color: #656565;
+    color: ${props => props.theme.colors.socialLinkIcons};
+  }
+
+  .pagination > li {
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    margin: 0 10px;
+    font-size: 18px;
   }
 
   .pagination > .active > a {
-    background-color: ${props => props.theme.colors.modes.dark.text};
+    background-color: ${props => props.theme.colors.modes.white.accentGreen};
   }
 
   .pagination > li > a {
-    width: 51px;
-    height: 51px;
-    text-align: center;
-    outline: none;
-    cursor: pointer;
-
-    @media ${props => props.theme.device.tablet} {
-      width: 55px;
-      height: 55px;
-    }
-    @media ${props => props.theme.device.desktop} {
-      width: 55px;
-      height: 55px;
-    }
-  }
-
-  .pagination > .active > a,
-  .pagination > .active > span,
-  .pagination > .active > a:hover,
-  .pagination > .active > span:hover,
-  .pagination > .active > a:focus,
-  .pagination > .active > span:focus {
-    background-color: #ebf3d4;
+    width: 27px;
+    display: flex;
+    height: 27px;
     border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
   }
 
-  .pagination > li > a,
-  .pagination > li > span {
-    color: #656565;
-  }
-
-  .pagination > li:first-child > a,
-  .pagination > li:first-child > span,
-  .pagination > li:last-child > a,
-  .pagination > li:last-child > span {
-    border-radius: unset;
+  .pagination > li > a:hover,
+  .pagination > li > span:hover,
+  .pagination > li > a:focus,
+  .pagination > li > span:focus {
+    background-color: ${props => props.theme.colors.modes.white.accentGreen};
   }
 `;

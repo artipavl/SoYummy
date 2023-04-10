@@ -22,37 +22,6 @@ export const ListText = styled.h3`
   }
 `;
 
-export const ButtonDelete = styled.button`
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 24px;
-  height: 24px;
-  border-radius: 4px;
-  background: ${props => props.theme.colors.accent};
-  color: ${props => props.theme.colors.textWhite};
-  font-size: 14px;
-  text-align: center;
-
-  :hover,
-  :focus {
-    background: #22252a;
-    color: ${props => props.theme.colors.textWhite};
-    scale: 1.1;
-  }
-
-  @media ${props => props.theme.device.tablet} {
-    font-size: 22px;
-    width: 38px;
-    height: 38px;
-  }
-  @media ${props => props.theme.device.desktop} {
-    font-size: 24px;
-    width: 44px;
-    height: 44px;
-  }
-`;
-
 export const LoaderBox = styled.div`
   width: 100%;
   padding-top: 5vw;
