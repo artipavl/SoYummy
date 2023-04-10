@@ -66,7 +66,7 @@ export const Head = () => {
           <DesktopMenu />
 
           <UserToogleWrap>
-            {isLoading ? (<Loader width={40} height={ 40} />) : (<UserWrapButton onClick={handleOpenSmallUserMenu}>
+            {isLoading ? (<Loader/>) : (<UserWrapButton onClick={handleOpenSmallUserMenu}>
               <UserIcon src={userAvatar} alt="user avatar" width={44} />
               <UserName>{userName}</UserName>
 
