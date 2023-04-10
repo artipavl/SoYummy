@@ -135,8 +135,8 @@ export const LogOutButton = styled.button`
   width: 100%;
 
   &:hover, &:focus {
-    background-color: ${props => props.theme.colors.accentCurrent};
-    border: 1px solid ${props => props.theme.colors.accentCurrent};
+    background-color: ${props => props.theme.colors.accentDark};
+    border: 1px solid ${props => props.theme.colors.accentDark};
   }
 
 `
