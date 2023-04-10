@@ -12,6 +12,7 @@ import { updateUser } from '../../../../redux/authOperations';
 import addAvatarImg from '../../../../images/icons/plus-icon.svg';
 import crossIcon from '../../../../images/icons/cross.svg';
 
+
 import {
   BackdropEditUserMOdal,
   ModalEditUser,
@@ -45,9 +46,7 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
       formData.append('name', name);
       formData.append('avatar', avatar)
       dispatch(updateUser(formData))
-        .then((res, rej) => {
-          console.log(res, rej)
-        })
+
 
       handleOpenEditModal()
     }
@@ -67,6 +66,20 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
     }
   }, [handleOpenEditModal, openEditMenu]);
 
+  useEffect(() => {
+  if (openEditMenu) {
+    const scrollY = window.scrollY;
+
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = '';
+      window.scrollTo(0, scrollY);
+    };
+  }
+}, [openEditMenu]);
+
+
 
   const handleAvatarChange = (e) => {
     const newAvatar = e.target.files[0];
@@ -82,14 +95,14 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
     });
   };
 
-  const handleResetImage = () => {
-    formik.resetForm({
-      values: {
-        ...formik.values,
-        avatar: null
-      }
-    });
-  };
+  // const handleResetImage = () => {
+  //   formik.resetForm({
+  //     values: {
+  //       ...formik.values,
+  //       avatar: null
+  //     }
+  //   });
+  // };
 
   return (
     <BackdropEditUserMOdal
@@ -110,10 +123,10 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
           onClick={handleResetName}
         >ResetName</button>
 
-        <button
+        {/* <button
           type='button'
           onClick={handleResetImage}
-        >ResetImage</button>
+        >ResetImage</button> */}
 
         <form onSubmit={formik.handleSubmit}>
           <PreviewWrap>
