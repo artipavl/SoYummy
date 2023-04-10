@@ -106,9 +106,9 @@ export const EditProfileButton = styled.button`
 
   &:hover .hoverText,
   &:hover .hoverIcon {
-    color: ${props => props.theme.colors.accent};
+    color: ${props => props.theme.colors.accentCurrent};
     path {
-      stroke: ${props => props.theme.colors.accent};
+      stroke: ${props => props.theme.colors.accentCurrent};
     }
   }
 `
