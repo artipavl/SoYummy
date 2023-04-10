@@ -1,3 +1,4 @@
+import { useParams } from 'react-router-dom';
 import {
   CheckboxContainer,
   HiddenCheckbox,
@@ -5,39 +6,32 @@ import {
   StyledCheckbox,
 } from './Checkbox.styled';
 import checkbox from 'images/icons/checkbox.svg';
+import { addShopItem, removeShopItem } from 'api/services/axios/axiosService';
 
 const { useState, useEffect } = require('react');
 
-const Checkbox = ({ ingrId, shopList }) => {
+const Checkbox = ({ ingrId, shopList, ingrMeasure }) => {
   const [checked, setChecked] = useState(false);
+  const { recipeId } = useParams();
 
   const handleCheckboxChange = event => {
+    const shopItem = shopList.find(item => item.ingredientId === ingrId);
     setChecked(event.target.checked);
-  };
-
-  const isChecked = id => {
-    shopList.reduce((acc, item) => {
-      console.log(item._id);
-      if (item._id === id) {
-        acc = true;
-        return acc;
-      }
-      return acc;
-    }, false);
+    checked
+      ? removeShopItem(shopItem._id)
+      : addShopItem(recipeId, ingrId, ingrMeasure);
   };
 
   useEffect(() => {
     const isChecked = shopList.reduce((acc, item) => {
-      console.log(`itemId: ${item.ingredientId}`);
-      console.log(`ingrId: ${ingrId}`);
       if (item.ingredientId === ingrId) {
         acc = true;
         return acc;
       }
       return acc;
     }, false);
-    console.log(isChecked);
-  }, []);
+    setChecked(isChecked);
+  }, [ingrId, shopList]);
 
   return (
     <CheckboxContainer>
