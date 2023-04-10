@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import notiflix from "notiflix";
+// import { useEffect } from 'react';
+
+// import notiflix from "notiflix";
 
 import { useFormik } from 'formik';
 import { editUserValidationSchema } from 'utils/editUserValidationSchema';
@@ -25,11 +27,13 @@ import {
   EditModalBtn,
 } from "./EditModalUser.styled";
 
+
 export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagation, }) => {
 
   const dispatch = useDispatch();
   const userName = useSelector(selectUserName);
   const avatarURL = useSelector(selectAvatarURL);
+
 
   const formik = useFormik({
   initialValues: {
@@ -45,6 +49,8 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
         .then((res, rej) => {
           console.log(res, rej)
         })
+
+      handleOpenEditModal()
     }
   })
 
@@ -102,13 +108,14 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
 
               <PreviewImage
                 src={formik.values.avatar instanceof File ? URL.createObjectURL(formik.values.avatar) : avatarURL}
+
                 alt="User avatar"
                 style={{ display: 'block', margin: '0 auto' }}
               />
             </PreviewImageWrap>
-            {formik.touched.avatar && formik.errors.avatar ? (
+            {formik.errors.avatar ? (
               <div>{formik.errors.avatar}</div>
-            ) : <div>123</div>}
+            ) : <div>Valid image</div>}
 
 
             <AddImageButton htmlFor="file-upload">
@@ -140,9 +147,9 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
             />
 
           </EditNameFormWrap>
-          {formik.touched.name && formik.errors.name ? (
+          {formik.errors.name ? (
             <div>{formik.errors.name}</div>
-          ) : null}
+          ) : <div>Valid Name</div>}
 
           <EditBtnWrap>
             <EditModalBtn

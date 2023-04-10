@@ -1,13 +1,14 @@
-import editIcon from '../../../../images/icons/edit-icon.svg';
+// import editIcon from '../../../../images/icons/edit-icon.svg';
 import logOutImg from '../../../../images/icons/arrow-right.svg'
 
 import {
+  EditIconStyled,
   UserModalSmallBackdrop,
   Container,
   UserModalSmall,
   EditProfileButton,
   EditText,
-  EditIcon,
+  // EditIcon,
   LogOutButton,
   LogOutButtonText,
   LogOutButtonImg,
@@ -23,8 +24,6 @@ export const SmallModalUser = ({
 
 }) => {
 
-
-
   return (
     <UserModalSmallBackdrop
       onClick={handleOpenSmallUserMenu}
@@ -37,8 +36,8 @@ export const SmallModalUser = ({
           onClick={stopPropagation}>
 
           <EditProfileButton onClick={handleOpenEditModal}>
-            <EditText>Edit profile</EditText>
-            <EditIcon src={editIcon} alt='edit user icon' width={14} />
+            <EditText className='hoverText'>Edit profile</EditText>
+           <EditIconStyled className='hoverIcon'/>
           </EditProfileButton >
           <LogOutButton onClick={handleOpenLogoutMenu}>
             <LogOutButtonText>Log out</LogOutButtonText>

@@ -102,6 +102,7 @@ export const AddImageButton = styled.label`
 
 `
 
+
 export const EditNameFormWrap = styled.div`
   margin-top: 48px;
   position: relative;
