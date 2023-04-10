@@ -13,7 +13,11 @@ import addAvatarImg from '../../../../images/icons/plus-icon.svg';
 import crossIcon from '../../../../images/icons/cross.svg';
 
 
+
 import {
+  UserIconStyled,
+  RedCrossStyled,
+  ResetNameButton,
   BackdropEditUserMOdal,
   ModalEditUser,
   CloseButton,
@@ -21,6 +25,7 @@ import {
   PreviewImageWrap,
   PreviewImage,
   AddImageButton,
+  ValidImageText,
   EditNameFormWrap,
   EditNameFormStyled,
   EditBtnWrap,
@@ -95,14 +100,14 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
     });
   };
 
-  // const handleResetImage = () => {
-  //   formik.resetForm({
-  //     values: {
-  //       ...formik.values,
-  //       avatar: null
-  //     }
-  //   });
-  // };
+  const handleResetImage = () => {
+    formik.resetForm({
+      values: {
+        ...formik.values,
+        avatar: avatarURL
+      }
+    });
+  };
 
   return (
     <BackdropEditUserMOdal
@@ -118,12 +123,12 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
           <CloseButton src={crossIcon} alt="close button" width={20} />
         </button>
 
-        <button
+        {/* <button
           type='button'
           onClick={handleResetName}
         >ResetName</button>
 
-        {/* <button
+        <button
           type='button'
           onClick={handleResetImage}
         >ResetImage</button> */}
@@ -140,8 +145,8 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
               />
             </PreviewImageWrap>
             {formik.errors.avatar ? (
-              <div>{formik.errors.avatar}</div>
-            ) : <div>Valid image</div>}
+              <ValidImageText>{formik.errors.avatar}</ValidImageText>
+            ) : <ValidImageText>Valid image</ValidImageText>}
 
 
             <AddImageButton htmlFor="file-upload">
@@ -171,11 +176,18 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
               error={formik.errors.name}
               touched={formik.touched.name}
             />
+           <UserIconStyled style={{ stroke: formik.errors.name ? 'red' : 'green'}}
+  />
+
+            <ResetNameButton onClick={handleResetName} type='button'>
+              <RedCrossStyled />
+            </ResetNameButton>
+
 
           </EditNameFormWrap>
-          {formik.errors.name ? (
-            <div>{formik.errors.name}</div>
-          ) : <div>Valid Name</div>}
+          {formik.errors.name? (
+            <ValidImageText>{formik.errors.name}</ValidImageText>
+          ) : <ValidImageText>Valid Name</ValidImageText>}
 
           <EditBtnWrap>
             <EditModalBtn

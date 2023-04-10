@@ -5,9 +5,9 @@ export const editUserValidationSchema = yup.object().shape({
     .required('Please upload an image')
     .test('fileSize', 'The file is too large', (value) => {
       if (!value) return false;
-      return value.size <= 2000000;
+      return value.size <= 5000000;
     })
-    .test('fileType', 'Unsupported file format', (value) => {
+    .test('fileType', 'Supported only jpeg, jpg, png', (value) => {
       if (!value) return false;
       return ['image/jpeg', 'image/png', 'image/jpg'].includes(value.type);
     }),
