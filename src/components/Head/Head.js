@@ -67,11 +67,12 @@ export const Head = () => {
             <UserWrapButton onClick={handleOpenSmallUserMenu}>
               <UserIcon src={userAvatar} alt="user avatar" width={44} />
               <UserName>{userName}</UserName>
-              <UserMenu
-        openUser={openUser}
-        handleOpenSmallUserMenu={handleOpenSmallUserMenu}
-      />
+
             </UserWrapButton>
+            <UserMenu
+                openUser={openUser}
+                handleOpenSmallUserMenu={handleOpenSmallUserMenu}
+              />
 
             <Burger onClick={handleMenuClick}>
               <img src={burgerIcon} alt="open mobile menu" width={32} />

@@ -35,7 +35,9 @@ export const SmallModalUser = ({
       document.addEventListener('keydown', handleKeyDown);
       return () => { document.removeEventListener('keydown', handleKeyDown); }
     }
-  }, [handleOpenSmallUserMenu, openUser]);
+ }, [handleOpenSmallUserMenu, openUser]);
+
+
 
 
   return (
@@ -49,11 +51,12 @@ export const SmallModalUser = ({
           className={openUser ? "open" : ""}
           onClick={stopPropagation}>
 
-          <EditProfileButton onClick={handleOpenEditModal}>
+          <EditProfileButton type='button' onClick={handleOpenEditModal}>
             <EditText className='hoverText'>Edit profile</EditText>
            <EditIconStyled className='hoverIcon'/>
           </EditProfileButton >
-          <LogOutButton onClick={handleOpenLogoutMenu}>
+
+          <LogOutButton type='button' onClick={handleOpenLogoutMenu}>
             <LogOutButtonText>Log out</LogOutButtonText>
             <ArrowRight style={{marginLeft: 4}}/>
 

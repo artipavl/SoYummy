@@ -16,6 +16,7 @@ export const LogOutModal = ({
   stopPropagation,
   handleOpenLogoutMenu,
 }) => {
+
   const dispatch = useDispatch();
 
   const onLogout = () => {
@@ -35,6 +36,19 @@ export const LogOutModal = ({
       return () => { document.removeEventListener('keydown', handleKeyDown); }
     }
   }, [handleOpenLogoutMenu, openLogoutMenu]);
+
+ useEffect(() => {
+  if (openLogoutMenu) {
+    const scrollY = window.scrollY;
+
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = '';
+      window.scrollTo(0, scrollY);
+    };
+  }
+}, [openLogoutMenu]);
 
   return (
     <BackdropLogOutModal

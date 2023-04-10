@@ -21,7 +21,6 @@ export const Header = styled.header`
 
 `
 export const Container = styled.div`
-  /* max-width: 1440px; */
   max-width: 1440px;
   padding-left: 16px;
   padding-right: 16px;

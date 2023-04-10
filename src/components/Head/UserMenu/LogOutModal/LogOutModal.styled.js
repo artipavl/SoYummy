@@ -47,11 +47,12 @@ export const LogOutModalWrap = styled.div`
   }
 
   @media ${props => props.theme.device.tablet} {
-    padding: 50px;
+    padding: 50px 40px;
     width: 480px;
   }
 
   @media ${props => props.theme.device.desktop} {
+    padding: 50px;
     width: 500px;
   }
 `
@@ -60,7 +61,7 @@ export const Title = styled.h2`
   font-size: 14px;
   color: ${props => props.theme.colors.text};
 
-  @media ${props => props.theme.device.desktop} {
+  @media ${props => props.theme.device.tablet} {
     font-size: 18px;
   }
 
@@ -92,15 +93,13 @@ export const Button = styled.button`
   transition: background-color 250ms linear;
 
   @media ${props => props.theme.device.tablet} {
-    width: 137px;
-    height: 49px;
-    font-size: 16px;
-  }
-  @media ${props => props.theme.device.destop} {
     width: 192px;
     height: 59px;
-    font-size: 18px;
+    font-size: 16px;
   }
+  /* @media ${props => props.theme.device.destop} {
+    font-size: 18px;
+  } */
 
 
   &:hover, &:focus {
