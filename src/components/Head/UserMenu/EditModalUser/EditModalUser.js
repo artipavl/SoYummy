@@ -50,9 +50,11 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
       const formData = new FormData();
       formData.append('name', name);
       formData.append('avatar', avatar)
-      dispatch(updateUser(formData))
-
-
+      dispatch(updateUser(formData)).then(() => {
+        return notiflix.Notify.success('User update successful');
+      }).catch((error) => {
+        return notiflix.Notify.failure('Error updating');
+    })
       handleOpenEditModal()
     }
   });
@@ -84,8 +86,6 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
   }
 }, [openEditMenu]);
 
-
-
   const handleAvatarChange = (e) => {
     const newAvatar = e.target.files[0];
     formik.setValues({ ...formik.values, avatar: newAvatar });
@@ -100,14 +100,14 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
     });
   };
 
-  const handleResetImage = () => {
-    formik.resetForm({
-      values: {
-        ...formik.values,
-        avatar: avatarURL
-      }
-    });
-  };
+  // const handleResetImage = () => {
+  //   formik.resetForm({
+  //     values: {
+  //       ...formik.values,
+  //       avatar: avatarURL
+  //     }
+  //   });
+  // };
 
   return (
     <BackdropEditUserMOdal
@@ -123,16 +123,6 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
           <CloseButton src={crossIcon} alt="close button" width={20} />
         </button>
 
-        {/* <button
-          type='button'
-          onClick={handleResetName}
-        >ResetName</button>
-
-        <button
-          type='button'
-          onClick={handleResetImage}
-        >ResetImage</button> */}
-
         <form onSubmit={formik.handleSubmit}>
           <PreviewWrap>
             <PreviewImageWrap htmlFor="file-upload">
@@ -144,6 +134,7 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
                 style={{ display: 'block', margin: '0 auto' }}
               />
             </PreviewImageWrap>
+
             {formik.errors.avatar ? (
               <ValidImageText>{formik.errors.avatar}</ValidImageText>
             ) : <ValidImageText>Valid image</ValidImageText>}
@@ -176,8 +167,8 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
               error={formik.errors.name}
               touched={formik.touched.name}
             />
-           <UserIconStyled style={{ stroke: formik.errors.name ? 'red' : 'green'}}
-  />
+            <UserIconStyled style={{ stroke: formik.errors.name ? "#fa2c2c" : "#8BAA36" }}
+            />
 
             <ResetNameButton onClick={handleResetName} type='button'>
               <RedCrossStyled />
@@ -185,7 +176,7 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
 
 
           </EditNameFormWrap>
-          {formik.errors.name? (
+          {formik.errors.name ? (
             <ValidImageText>{formik.errors.name}</ValidImageText>
           ) : <ValidImageText>Valid Name</ValidImageText>}
 

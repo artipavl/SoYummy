@@ -1,8 +1,6 @@
 import React from 'react';
 import logo from '../../images/icons/logo-Lite-Icon.svg';
 
-
-
 import {
   FooterSection,
   Container,

@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-
 import {ReactComponent as RedCross } from '../../../..//images/icons/Error-logo.svg'
-
 import { FiUser } from 'react-icons/fi';
 
 export const UserIconStyled = styled(FiUser)`
@@ -11,6 +9,10 @@ export const UserIconStyled = styled(FiUser)`
   transform: translateY(-50%);
   width: 18px;
   height: 18px;
+  @media ${props => props.theme.device.tablet} {
+    width: 24px;
+    height: 24px;
+  }
 
 `
 
@@ -28,14 +30,9 @@ export const ResetNameButton = styled.button`
   top: 50%;
   right: 13px;
   transform: translateY(-50%);
-  /* &:hover {
-    transform: rotate(90deg);
-  } */
+
 
 `
-
-
-
 
 export const BackdropEditUserMOdal = styled.div`
   position: fixed;
@@ -78,7 +75,14 @@ export const ModalEditUser = styled.div`
     @media ${props => props.theme.device.mobile} {
       width: 330px;
     }
-
+    @media ${props => props.theme.device.tablet} {
+      width: 480px;
+      padding: 50px 40px
+    }
+    @media ${props => props.theme.device.desktop} {
+      width: 500px;
+      padding: 60px 50px
+    }
 
 
   &.open {
@@ -103,7 +107,6 @@ export const PreviewImageWrap = styled.label`
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-
   width: 88px;
   height: 88px;
   border-radius: 50%;
@@ -117,13 +120,6 @@ export const PreviewImageWrap = styled.label`
 `
 export const PreviewImage = styled.img`
     max-width: 160px;
-    /* height: 130px; */
-    /* @media ${props => props.theme.device.tablet} {
-    width: 103px;
-    height: 103px;
-  } */
-
-
 
 `
 
@@ -134,7 +130,8 @@ export const AddImageButton = styled.label`
   top: 66px;
   @media ${props => props.theme.device.tablet} {
 
-  top: 80px;
+  top: 70px;
+  right: 150px;
   }
 
 `
@@ -144,17 +141,15 @@ export const ValidImageText = styled.p`
   if (children === 'Valid Name' || children === 'Valid image') {
       return '#8BAA36'
   }
-  return "#fa2c2c"
-}}
-
-
+  return "#fa2c2c";
+}};
 `
-
 
 export const EditNameFormWrap = styled.div`
   margin-top: 35px;
   position: relative;
 `
+
 export const EditNameFormStyled = styled.input`
   position: relative;
   box-sizing: border-box;
@@ -162,6 +157,7 @@ export const EditNameFormStyled = styled.input`
   margin: 0 auto;
   padding: 0;
   padding-left: 42px;
+  padding-right: 42px;
   width: 100%;
   height: 48px;
   background-color: transparent;
@@ -184,17 +180,22 @@ export const EditNameFormStyled = styled.input`
   return '#8BAA36';
 }};
 
+  @media ${props => props.theme.device.tablet} {
+    height: 58px;
+    font-size: 18px;
+}
+
 `
 
 
 export const EditBtnWrap = styled.div`
-  margin-top: 24px;
+  margin-top: 5px;
 
 `
 export const  EditModalBtn = styled.button`
   display: block;
   width: 100%;
-  padding: 14px 84px;
+  height: 49px;
   font-size: 14px;
   color: ${props => props.theme.colors.textWhite};
   background-color: ${props => props.theme.colors.accentCurrent} ;
@@ -203,6 +204,12 @@ export const  EditModalBtn = styled.button`
 
   &:hover, &:focus {
     color: ${props => props.theme.colors.dark}
+  }
+
+  @media ${props => props.theme.device.tablet} {
+    height: 59px;
+    font-size: 16px;
+
   }
 
 `

@@ -1,12 +1,13 @@
 import { useState } from 'react';
 
-import { selectUserName, selectAvatarURL } from 'redux/selectors';
+import { selectUserName, selectAvatarURL, selectAuthIsLoading } from 'redux/selectors';
 import { useSelector } from 'react-redux';
 
 import ThemeToogle from 'components/ThemeToogle';
 import DesktopMenu from './DesktopMenu';
 import MobileMenu from './MobileMenu';
 import UserMenu from './UserMenu';
+import { Loader } from 'components/Loader/Loader';
 
 import logo from '../../images/icons/logo_Desktop.svg';
 import lightLogo from '../../images/icons/logo-Lite-Icon.svg';
@@ -33,6 +34,7 @@ export const Head = () => {
 
   const userName = useSelector(selectUserName);
   const userAvatar = useSelector(selectAvatarURL);
+  const isLoading = useSelector(selectAuthIsLoading)
 
   const handleChange = nextChecked => {
     setChecked(nextChecked);
@@ -64,11 +66,12 @@ export const Head = () => {
           <DesktopMenu />
 
           <UserToogleWrap>
-            <UserWrapButton onClick={handleOpenSmallUserMenu}>
+            {isLoading ? (<Loader width={40} height={ 40} />) : (<UserWrapButton onClick={handleOpenSmallUserMenu}>
               <UserIcon src={userAvatar} alt="user avatar" width={44} />
               <UserName>{userName}</UserName>
 
-            </UserWrapButton>
+            </UserWrapButton>) }
+
             <UserMenu
                 openUser={openUser}
                 handleOpenSmallUserMenu={handleOpenSmallUserMenu}
