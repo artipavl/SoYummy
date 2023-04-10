@@ -143,7 +143,7 @@ export const MeasureProduct = styled.p`
 
 export const LoaderDiv = styled.div`
   width: 100%;
-  padding-top: 50px;
+  padding-top: 5vw;
   display: flex;
   align-items: center;
   justify-content: center;
