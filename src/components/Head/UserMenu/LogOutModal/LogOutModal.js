@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import crossIcon from '../../../../images/icons/cross.svg';
 import {
   BackdropLogOutModal,
@@ -20,6 +21,20 @@ export const LogOutModal = ({
   const onLogout = () => {
     dispatch(fetchUserLogout());
   };
+
+  useEffect(() => {
+    if (openLogoutMenu) {
+      const handleKeyDown = e => {
+
+        if (e.code === 'Escape') {
+          handleOpenLogoutMenu();
+        }
+      };
+
+      document.addEventListener('keydown', handleKeyDown);
+      return () => { document.removeEventListener('keydown', handleKeyDown); }
+    }
+  }, [handleOpenLogoutMenu, openLogoutMenu]);
 
   return (
     <BackdropLogOutModal

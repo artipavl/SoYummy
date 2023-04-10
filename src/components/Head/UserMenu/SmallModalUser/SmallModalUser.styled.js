@@ -143,9 +143,6 @@ export const LogOutButton = styled.button`
 export const LogOutButtonText = styled.p`
   font-size: 14px;
 `
-export const LogOutButtonImg = styled.img`
-  margin-left: 4px;
 
-`
 
 

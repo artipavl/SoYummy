@@ -12,6 +12,7 @@ export const BackdropLogOutModal = styled.div`
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  z-index: 2000;
 
   &.open {
     opacity: 1;
@@ -35,7 +36,7 @@ export const LogOutModalWrap = styled.div`
   text-align: center;
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 24px;
-  z-index: 1001;
+
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
