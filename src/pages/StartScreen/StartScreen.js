@@ -23,7 +23,7 @@ export const StartScreen = () => {
         </StartTitle>
         <StartNav>
           <StyledLink to="/register">Registration</StyledLink>
-          <StyledLink to="/signin">Sing In</StyledLink>
+          <StyledLink to="/signin">Sign In</StyledLink>
         </StartNav>
       </Container>
     </StartScreenSection>

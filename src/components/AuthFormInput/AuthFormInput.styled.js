@@ -25,6 +25,11 @@ export const FormValueContainer = styled.div`
     top: 16px;
     left: 45px;
 
+    @media ${props => props.theme.device.tablet} {
+      top: 23px;
+      left: 50px;
+    }
+
     @media ${props => props.theme.device.desktop} {
       top: 23px;
       left: 50px;

@@ -13,6 +13,17 @@ export const RecipeItem = styled.li`
       margin-bottom: 32px;
     }
   }
+
+  @media ${props => props.theme.device.tablet} and (max-width: 1439px) {
+    &:nth-child(odd) {
+      margin-right: 30px;
+    }
+
+    :not(:nth-last-child(-n + 2)) {
+      margin-bottom: 32px;
+    }
+  }
+
   @media ${props => props.theme.device.desktop} {
   }
   &:hover,
@@ -33,9 +44,22 @@ export const RecipeItem = styled.li`
     }
   }
 `;
+
 export const RecipeImage = styled.img`
+  width: 343px;
+  height: 323px;
+
   border-radius: 8px;
+
+  @media ${props => props.theme.device.tablet} {
+    width: 336px;
+  }
+
+  @media ${props => props.theme.device.tablet} {
+    width: 300px;
+  }
 `;
+
 export const RecipeTitleContainer = styled.div`
   width: 307px;
   height: 52px;
@@ -46,7 +70,16 @@ export const RecipeTitleContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   overflow: hidden;
+
+  @media ${props => props.theme.device.tablet} {
+    width: 300px;
+  }
+
+  @media ${props => props.theme.device.tablet} {
+    width: 268px;
+  }
 `;
+
 export const RecipeTitleName = styled.h2`
   font-weight: 500;
   font-size: 16px;
