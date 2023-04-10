@@ -27,32 +27,32 @@ const RecipeIngredients = ({ ingredients }) => {
   // const config = {
   //   headers: { Authorization: `Bearer ${token}` },
   // };
-  const isChecked = id => {
-    const result = shopList.reduce((acc, item) => {
-      console.log(item._id);
-      console.log(id);
-      if (item._id === id) {
-        acc = true;
-        return acc;
-      }
-      return acc;
-    }, false);
-    // shopList.map(item => {
-    //   console.log(item._id);
-    //   console.log(id);
-    // });
-  };
-  const shopListArr = useMemo(() => {
-    return getShopList()
-      .then(res => {
-        const { result } = res.data.data;
-        const filteredShopList = result.filter(
-          item => item.recipeId === recipeId
-        );
-        return filteredShopList;
-      })
-      .catch(err => console.log(err.message));
-  });
+  // const isChecked = id => {
+  //   const result = shopList.reduce((acc, item) => {
+  //     console.log(item._id);
+  //     console.log(id);
+  //     if (item._id === id) {
+  //       acc = true;
+  //       return acc;
+  //     }
+  //     return acc;
+  //   }, false);
+  //   // shopList.map(item => {
+  //   //   console.log(item._id);
+  //   //   console.log(id);
+  //   // });
+  // };
+  // const shopListArr = useMemo(() => {
+  //   return getShopList()
+  //     .then(res => {
+  //       const { result } = res.data.data;
+  //       const filteredShopList = result.filter(
+  //         item => item.recipeId === recipeId
+  //       );
+  //       return filteredShopList;
+  //     })
+  //     .catch(err => console.log(err.message));
+  // });
 
   useEffect(() => {
     getFilteredShopList();
