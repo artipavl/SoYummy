@@ -97,9 +97,9 @@ export const Button = styled.button`
     height: 59px;
     font-size: 16px;
   }
-  /* @media ${props => props.theme.device.destop} {
+  @media ${props => props.theme.device.desktop} {
     font-size: 18px;
-  } */
+  }
 
 
   &:hover, &:focus {
