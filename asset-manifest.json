@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/SoYummy/static/css/main.0d51cdca.css",
-    "main.js": "/SoYummy/static/js/main.7c4a3c13.js",
-    "static/js/322.57840b40.chunk.js": "/SoYummy/static/js/322.57840b40.chunk.js",
+    "main.js": "/SoYummy/static/js/main.e355e2e4.js",
+    "static/js/10.7992919d.chunk.js": "/SoYummy/static/js/10.7992919d.chunk.js",
     "static/js/884.0f87718b.chunk.js": "/SoYummy/static/js/884.0f87718b.chunk.js",
     "static/js/284.34340e2b.chunk.js": "/SoYummy/static/js/284.34340e2b.chunk.js",
     "static/js/172.948359fe.chunk.js": "/SoYummy/static/js/172.948359fe.chunk.js",
@@ -11,14 +11,18 @@
     "static/js/652.8b11e160.chunk.js": "/SoYummy/static/js/652.8b11e160.chunk.js",
     "static/media/mainBG_Desktop_2x.webp": "/SoYummy/static/media/mainBG_Desktop_2x.fd4ee28321ee80b61045.webp",
     "static/media/mainBG_Tablet_2x.webp": "/SoYummy/static/media/mainBG_Tablet_2x.1ecdc050d4b84aa685a3.webp",
+    "static/media/footerSharedDB_Desktop@2x.webp": "/SoYummy/static/media/footerSharedDB_Desktop@2x.851cc36f664fb0aced43.webp",
     "static/media/order-food-pana.svg": "/SoYummy/static/media/order-food-pana.ee7f4016a1f4c5ef85265923bf07ebbd.svg",
+    "static/media/footerSharedDB_Tablet@2x.webp": "/SoYummy/static/media/footerSharedDB_Tablet@2x.e0d4dbc507a623f405cc.webp",
     "static/media/plateDekctopRetina.webp": "/SoYummy/static/media/plateDekctopRetina.67a251b2a2b6aa7b7711.webp",
     "static/media/recipepage-bg-desk-2x-min.webp": "/SoYummy/static/media/recipepage-bg-desk-2x-min.ddac7f0e4cbc1a8a6c69.webp",
     "static/media/menuBG_Tablet@2x.webp": "/SoYummy/static/media/menuBG_Tablet@2x.4634bf88aaa193891cd6.webp",
     "static/media/mainBG_Mobile_2x.webp": "/SoYummy/static/media/mainBG_Mobile_2x.e2039bd1188905bbbc4e.webp",
     "static/media/mainBG_Desktop.webp": "/SoYummy/static/media/mainBG_Desktop.a899e31d5253f5b31526.webp",
     "static/media/footerBG_Desktop@2x.webp": "/SoYummy/static/media/footerBG_Desktop@2x.02f799649c1c099632aa.webp",
+    "static/media/footerSharedDB_Desktop.webp": "/SoYummy/static/media/footerSharedDB_Desktop.4f95cdef49fd41ad1109.webp",
     "static/media/plateTabletRetina.webp": "/SoYummy/static/media/plateTabletRetina.6fa70626825438d7c9dd.webp",
+    "static/media/footerSharedDB_Mobile@2x.webp": "/SoYummy/static/media/footerSharedDB_Mobile@2x.71a9feddf4f8d3fecd81.webp",
     "static/media/mainBG_Tablet.webp": "/SoYummy/static/media/mainBG_Tablet.30ec62d328cbba586d3b.webp",
     "static/media/plateMobileRetina.webp": "/SoYummy/static/media/plateMobileRetina.9ad84139cb4454559e42.webp",
     "static/media/menuBG_Mobile@2x.webp": "/SoYummy/static/media/menuBG_Mobile@2x.cdc16ca5e4843eaecc03.webp",
@@ -30,6 +34,7 @@
     "static/media/plateDesktop.webp": "/SoYummy/static/media/plateDesktop.8b8896dbf15ef27380f7.webp",
     "static/media/recipepage-bg-tablet-2x-min.webp": "/SoYummy/static/media/recipepage-bg-tablet-2x-min.20cc2817922c68d488ad.webp",
     "static/media/footerBG_Tablet@2x.webp": "/SoYummy/static/media/footerBG_Tablet@2x.d6c00a70924f0ce22d47.webp",
+    "static/media/footerSharedDB_Tablet.webp": "/SoYummy/static/media/footerSharedDB_Tablet.abe34756b55880407d0b.webp",
     "static/media/recipepage-bg-desk-1x-min.webp": "/SoYummy/static/media/recipepage-bg-desk-1x-min.ef64e8f18e5d1b2013a0.webp",
     "static/media/menuBG_Tablet.webp": "/SoYummy/static/media/menuBG_Tablet.de5c9a470d5a5c930761.webp",
     "static/media/plateTablet.webp": "/SoYummy/static/media/plateTablet.0dccc28a7bbdde424e70.webp",
@@ -40,6 +45,7 @@
     "static/media/plateMobile.webp": "/SoYummy/static/media/plateMobile.68d0904c4d3179e16cce.webp",
     "static/media/recipe-not-found-tablet-desktop.webp": "/SoYummy/static/media/recipe-not-found-tablet-desktop.a27b8fb814038ed67dc3.webp",
     "static/media/mainBG_Mobile.webp": "/SoYummy/static/media/mainBG_Mobile.3ac4716913dfc3ce220d.webp",
+    "static/media/footerSharedDB_Mobile.webp": "/SoYummy/static/media/footerSharedDB_Mobile.05f2039f86205be7ffd4.webp",
     "static/media/menuBG_Mobile.webp": "/SoYummy/static/media/menuBG_Mobile.95c4b4c9bc3dbc0161fe.webp",
     "static/media/footerBG_mobile@2x.webp": "/SoYummy/static/media/footerBG_mobile@2x.1ac0affd2e63241c6bf2.webp",
     "static/media/recipepage-bg-tablet-1x-min.webp": "/SoYummy/static/media/recipepage-bg-tablet-1x-min.d6815bc14357b902417e.webp",
@@ -75,8 +81,8 @@
     "static/media/burger.svg": "/SoYummy/static/media/burger.99954b2cb14dc7a13c5ef2896bf6c275.svg",
     "static/media/arrow-down.svg": "/SoYummy/static/media/arrow-down.4c0759d592b9bf854db97289ce89a574.svg",
     "main.0d51cdca.css.map": "/SoYummy/static/css/main.0d51cdca.css.map",
-    "main.7c4a3c13.js.map": "/SoYummy/static/js/main.7c4a3c13.js.map",
-    "322.57840b40.chunk.js.map": "/SoYummy/static/js/322.57840b40.chunk.js.map",
+    "main.e355e2e4.js.map": "/SoYummy/static/js/main.e355e2e4.js.map",
+    "10.7992919d.chunk.js.map": "/SoYummy/static/js/10.7992919d.chunk.js.map",
     "884.0f87718b.chunk.js.map": "/SoYummy/static/js/884.0f87718b.chunk.js.map",
     "284.34340e2b.chunk.js.map": "/SoYummy/static/js/284.34340e2b.chunk.js.map",
     "172.948359fe.chunk.js.map": "/SoYummy/static/js/172.948359fe.chunk.js.map",
@@ -86,6 +92,6 @@
   },
   "entrypoints": [
     "static/css/main.0d51cdca.css",
-    "static/js/main.7c4a3c13.js"
+    "static/js/main.e355e2e4.js"
   ]
 }
