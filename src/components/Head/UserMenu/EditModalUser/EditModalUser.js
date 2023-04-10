@@ -12,8 +12,6 @@ import { updateUser } from '../../../../redux/authOperations';
 import addAvatarImg from '../../../../images/icons/plus-icon.svg';
 import crossIcon from '../../../../images/icons/cross.svg';
 
-
-
 import {
   UserIconStyled,
   RedCrossStyled,
@@ -31,7 +29,6 @@ import {
   EditBtnWrap,
   EditModalBtn,
 } from "./EditModalUser.styled";
-
 
 export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagation, }) => {
 
@@ -53,7 +50,7 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
       dispatch(updateUser(formData)).then(() => {
         return notiflix.Notify.success('User update successful');
       }).catch((error) => {
-        return notiflix.Notify.failure('Error updating');
+        return notiflix.Notify.failure(error);
     })
       handleOpenEditModal()
     }
