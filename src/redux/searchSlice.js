@@ -6,7 +6,6 @@ const initialState = {
   results: [],
   status: 'idle',
   searchType: 'title',
-  isPageLoading: false,
 };
 
 export const searchSlice = createSlice({
@@ -15,29 +14,25 @@ export const searchSlice = createSlice({
   extraReducers: {
     [searchRecipes.fulfilled](state, action) {
       state.results = action.payload;
-      state.isPageLoading = false;
+
       state.status = 'resolved';
     },
     [searchRecipes.pending](state) {
-      state.isPageLoading = true;
       state.status = 'loading';
     },
     [searchRecipes.rejected](state) {
-      state.isPageLoading = false;
       state.status = 'error';
     },
 
     [searchIngredient.fulfilled](state, action) {
       state.results = action.payload;
-      state.isPageLoading = false;
+
       state.status = 'resolved';
     },
     [searchIngredient.pending](state) {
-      state.isPageLoading = true;
       state.status = 'loading';
     },
     [searchIngredient.rejected](state) {
-      state.isPageLoading = false;
       state.status = 'error';
     },
   },
