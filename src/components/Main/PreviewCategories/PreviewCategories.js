@@ -1,4 +1,4 @@
-import recipies from './recipes.json';
+import recipies from 'api/recipes/recipes.json';
 
 import {
   CardLink,
@@ -11,27 +11,22 @@ import {
   List,
   SeeAll,
   Box,
+  ButtonBox,
 } from 'components/Main/PreviewCategories/PreviewCategories.styled';
 import { RoundedButton } from 'reusableComponents/Btn/Btn';
 
 export const PreviewCategories = () => {
-  const filterBreakfast = recipies.filter(item =>
-    item.tags.includes('Breakfast')
+  const filterBreakfast = recipies.filter(
+    item => item.category === 'Breakfast'
   );
 
   const filterMiscellaneous = recipies.filter(
     item => item.category === 'Miscellaneous'
   );
 
-  
-  const filterChicken = recipies.filter(
-    item => item.category === 'Chicken'
-  );
-  
+  const filterChicken = recipies.filter(item => item.category === 'Chicken');
+
   const filterDesserts = recipies.filter(item => item.category === 'Dessert');
-
-
-
 
   const variant = 'normal';
   return (
@@ -117,7 +112,9 @@ export const PreviewCategories = () => {
             See all
           </SeeAll>
         </Box>
-        <RoundedButton title={'search'} />
+        <ButtonBox>
+          <RoundedButton title={'Other categories'} />
+        </ButtonBox>
       </Container>
     </>
   );

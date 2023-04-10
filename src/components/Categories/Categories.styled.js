@@ -1,24 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
+
 export const Container = styled.div`
-  max-width: 375px;
-  margin-top: 147px;
-  display: flex;
-  flex-direction: column;
-align-items: center;
-  @media ${props => props.theme.device.tablet} {
-    max-width: 768px;
-    margin-top: 202px;
-  }
-
-  @media ${props => props.theme.device.desktop} {
-    max-width: 1440px;
-    margin-top: 235px;
-  }
-`;
-
-export const Box = styled.div`
   position: relative;
   height: 445px;
 
@@ -30,6 +14,8 @@ export const Box = styled.div`
     height: 505px;
   }
 `;
+
+
 
 export const Title = styled.p`
   font-family: 'Poppins';
@@ -131,53 +117,3 @@ export const TitleCard = styled.p`
   padding-top: 16px;
   padding-left: 16px;
 `;
-
-export const SeeAll = styled(NavLink)`
-  position: absolute;
-  right: 0;
-  margin-top: 24px;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 24px;
-  gap: 8px;
-
-  width: 94px;
-  height: 38px;
-
-  background: #8aa936;
-  border-radius: 6px;
-
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-
-  color: ${props => props.theme.colors.textWhite};
-
-  @media ${props => props.theme.device.tablet} {
-    margin-top: 50px;
-  }
-
-  background-color: ${props =>
-    ({
-      normal: props => props.theme.colors.accent,
-      dark: props => props.theme.colors.dark,
-    }[props.variant])};
-
-  :hover,
-  :focus {
-    background-color: ${props =>
-      ({
-        normal: props => props.theme.colors.dark,
-        dark: props => props.theme.colors.accent,
-      }[props.variant])};
-  }
-`;
-
-export const ButtonBox = styled.div`
-width: 239px;
-`

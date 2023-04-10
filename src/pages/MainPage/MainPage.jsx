@@ -12,14 +12,14 @@ import { PreviewCategories } from 'components/Main/PreviewCategories/PreviewCate
 
 export const MainPage = () => {
   return (
-    <><ConteinerFlex>
-
-      <ConteinerGrid>
-        <СhooseYourBreakfast />
-        <Search />
-      </ConteinerGrid>
-        <PreviewCategories/>
-    </ConteinerFlex>
+    <>
+      <ConteinerFlex>
+        <ConteinerGrid>
+          <СhooseYourBreakfast />
+          <Search />
+        </ConteinerGrid>
+        <PreviewCategories />
+      </ConteinerFlex>
     </>
   );
 };

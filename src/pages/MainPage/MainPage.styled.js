@@ -1,21 +1,28 @@
-import { theme } from "constants/theme";
-import styled from "styled-components";
-
-
+import styled from 'styled-components';
 
 export const ConteinerFlex = styled.div`
+  padding-top: 132px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media ${props => props.theme.device.tablet} {
+    padding-top: 159px;
+  }
+
+  @media ${props => props.theme.device.desktop} {
+    padding-top: 126px;
+  }
 `;
 
 export const ConteinerGrid = styled.div`
-  @media ${theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     display: flex;
     flex-direction: column;
   }
 
-  @media ${theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     max-width: 768px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -24,7 +31,7 @@ export const ConteinerGrid = styled.div`
     grid-row-gap: 0px;
   }
 
-  @media ${theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
     max-width: 1440px;
   }
 `;
