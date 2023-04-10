@@ -1,4 +1,6 @@
 import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import notiflix from "notiflix";
 import crossIcon from '../../../../images/icons/cross.svg';
 import {
   BackdropLogOutModal,
@@ -15,11 +17,42 @@ export const LogOutModal = ({
   stopPropagation,
   handleOpenLogoutMenu,
 }) => {
+
   const dispatch = useDispatch();
 
   const onLogout = () => {
-    dispatch(fetchUserLogout());
+    notiflix.Notify.success('Goodbay');
+    setTimeout(() => {
+      dispatch(fetchUserLogout());
+    }, 1000);
   };
+
+  useEffect(() => {
+    if (openLogoutMenu) {
+      const handleKeyDown = e => {
+
+        if (e.code === 'Escape') {
+          handleOpenLogoutMenu();
+        }
+      };
+
+      document.addEventListener('keydown', handleKeyDown);
+      return () => { document.removeEventListener('keydown', handleKeyDown); }
+    }
+  }, [handleOpenLogoutMenu, openLogoutMenu]);
+
+ useEffect(() => {
+  if (openLogoutMenu) {
+    const scrollY = window.scrollY;
+
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = '';
+      window.scrollTo(0, scrollY);
+    };
+  }
+}, [openLogoutMenu]);
 
   return (
     <BackdropLogOutModal

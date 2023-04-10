@@ -12,6 +12,7 @@ export const BackdropLogOutModal = styled.div`
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  z-index: 2000;
 
   &.open {
     opacity: 1;
@@ -35,7 +36,7 @@ export const LogOutModalWrap = styled.div`
   text-align: center;
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 24px;
-  z-index: 1001;
+
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
@@ -46,11 +47,12 @@ export const LogOutModalWrap = styled.div`
   }
 
   @media ${props => props.theme.device.tablet} {
-    padding: 50px;
+    padding: 50px 40px;
     width: 480px;
   }
 
   @media ${props => props.theme.device.desktop} {
+    padding: 50px;
     width: 500px;
   }
 `
@@ -59,7 +61,7 @@ export const Title = styled.h2`
   font-size: 14px;
   color: ${props => props.theme.colors.text};
 
-  @media ${props => props.theme.device.desktop} {
+  @media ${props => props.theme.device.tablet} {
     font-size: 18px;
   }
 
@@ -91,13 +93,11 @@ export const Button = styled.button`
   transition: background-color 250ms linear;
 
   @media ${props => props.theme.device.tablet} {
-    width: 137px;
-    height: 49px;
-    font-size: 16px;
-  }
-  @media ${props => props.theme.device.destop} {
     width: 192px;
     height: 59px;
+    font-size: 16px;
+  }
+  @media ${props => props.theme.device.desktop} {
     font-size: 18px;
   }
 

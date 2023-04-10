@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+import { ReactComponent as EditIcon } from '../../../../images/icons/edit-icon.svg';
+
+export const EditIconStyled = styled(EditIcon)`
+  width: 14px;
+  transition: color 250ms linear;
+`
+
 export const UserModalSmallBackdrop = styled.div`
   position: fixed;
   top: 0;
@@ -47,6 +54,7 @@ export const UserModalSmall = styled.div`
     top: 78px;
     width: 177px;
     height: 134px;
+    border: none;
   }
   @media ${props => props.theme.device.desktop} {
     right: 211px;
@@ -82,54 +90,59 @@ export const EditProfileButton = styled.button`
   width: 100%;
   cursor: pointer;
   font-size: 14px;
+  color: ${props => props.theme.colors.text};
+  transition: color 250ms linear;
 
+  .hoverText,
+  .hoverIcon {
+    color: ${props => props.theme.colors.text};
+    transition: color 250ms linear;
+    path {
+      stroke: ${props => props.theme.colors.text};
+      transition: stroke 250ms linear;
+    }
 
+  }
+
+  &:hover .hoverText,
+  &:hover .hoverIcon {
+    color: ${props => props.theme.colors.accent};
+    path {
+      stroke: ${props => props.theme.colors.accent};
+    }
+  }
 `
 
 export const EditText = styled.p`
   display: block;
   font-size: 14px;
-  font-weight: ${props => props.theme.fontWeights.medium};
+  font-weight: ${props => props.theme.fontWeights.bold};
   color: ${props => props.theme.colors.text};
-  transition: color 250ms linear;
-  &:hover {
-    color: ${props => props.theme.colors.accent};
-  }
-
 `
-export const EditIcon = styled.img`
-  width: 14px;
-  height: 14px;
 
-`
 
 export const LogOutButton = styled.button`
   margin-top: auto;
   display: flex;
-
+  justify-content: center;
+  align-items: center;
   background-color: ${props => props.theme.colors.accentCurrent};
   color: rgb(255, 255, 255);
   border-radius: 24px 44px;
   border: 1px solid ${props => props.theme.colors.accentCurrent};
   transition: all 250ms linear;
-  padding: 12px 24px;
-
+  height: 43px;
+  width: 100%;
 
   &:hover, &:focus {
-    background-color: ${props => props.theme.colors.accentCurrent};
-    border: 1px solid ${props => props.theme.colors.accentCurrent};
-  }
-  @media ${props => props.theme.device.tablet} {
-    padding: 12px 32px;
+    background-color: ${props => props.theme.colors.accentDark};
+    border: 1px solid ${props => props.theme.colors.accentDark};
   }
 
 `
 export const LogOutButtonText = styled.p`
   font-size: 14px;
 `
-export const LogOutButtonImg = styled.img`
-  margin-left: 4px;
 
-`
 
 
