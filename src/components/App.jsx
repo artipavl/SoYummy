@@ -2,6 +2,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 
+import MyRecipes from '../pages/MyRecipes/MyRecipes';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivatRoute';
 
@@ -22,7 +23,7 @@ import { useState } from 'react';
 const SharedLayout = lazy(() => import('../components/SharedLayout'));
 //const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
 const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
-const MyRecipes = lazy(() => import('../pages/MyRecipes/MyRecipes'));
+const RecipePage = lazy(() => import('../pages/RecipePage/RecipePage'));
 
 const ShoppingList = lazy(() =>
   import('../pages/ShoppingList/ShoppingList.js')
@@ -38,6 +39,7 @@ const StyledApp = styled.div`
   transition: all 1s ease;
 `;
 
+
 export const App = () => {
   const [start, setStart] = useState(false);
   const dispatch = useDispatch();
@@ -51,6 +53,7 @@ export const App = () => {
   }, [dispatch]);
 
   return (
+
     <>
       {start && (
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
@@ -120,7 +123,7 @@ export const App = () => {
                 path="recipe/:recipeId"
                 element={
                   <PrivateRoute
-                    component={<StyledApp>RecipiesPage</StyledApp>}
+                    component={<RecipePage/>}
                   />
                 }
               />

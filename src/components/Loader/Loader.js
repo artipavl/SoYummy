@@ -1,20 +1,13 @@
-import { CirclesWithBar } from 'react-loader-spinner';
+import Fork from '../../images/icons/fork.svg';
+import Knife from '../../images/icons/knife.svg';
 
-export const Loader = ({width, height}) => {
+import { Wrapp, LoaderImage } from './Loader.styled';
+
+export const Loader = () => {
   return (
-    <>
-      <CirclesWithBar
-        height={height ? height : '100'}
-        width={width ? width : '100'}
-        color="#4fa94d"
-        wrapperStyle={{}}
-        wrapperClass=""
-        visible={true}
-        outerCircleColor="#8BAA36"
-        innerCircleColor="#3E4462"
-        barColor="#1E1F28"
-        ariaLabel="circles-with-bar-loading"
-      />
-    </>
+    <Wrapp>
+      <LoaderImage src={Fork} alt="Spinner" />
+      <LoaderImage src={Knife} alt="Spinner" />
+    </Wrapp>
   );
 };
