@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-import { ReactComponent as emailIcon } from '../../images/icons/email.svg';
+// import { ReactComponent as emailIcon } from '../../images/icons/email.svg';
 
 import bgMobile from "../../images/bg/footerBG_mobile.webp";
 import bgMobileRetina from "../../images/bg/footerBG_mobile@2x.webp";
@@ -9,7 +9,7 @@ import bgTablet from '../../images/bg/footerBG_Tablet.webp';
 import bgTabletRetina from '../../images/bg/footerBG_Tablet@2x.webp';
 import bgDesktop from '../../images/bg/footerBG_Desktop.webp';
 import bgDesktopRetina from '../../images/bg/footerBG_Desktop@2x.webp';
-// import bgSharedDesktop from '../../images/bg/footerSharedDB_Desktop.webp';
+
 
 
 export const FooterSection = styled.div`
@@ -17,6 +17,7 @@ export const FooterSection = styled.div`
   background-color: ${props => props.theme.colors.accentDark};
   padding-top: 28px;
   padding-bottom: 28px;
+  z-index: 3;
 
 
   @media ${props => props.theme.device.tablet} {
@@ -182,84 +183,6 @@ export const SubscribeWrap = styled.div`
   }
 `;
 
-export const FormFooterInput = styled.input`
-  box-sizing: border-box;
-  display: block;
-  margin: 0 auto;
-  padding: 0;
-  padding-left: 42px;
-  width: 204px;
-  height: 38px;
-  background-color: transparent;
-  background-image: url('${emailIcon}');
-  background-repeat: no-repeat;
-  background-position: 15px 13px;
-  background-size: 16px 12px;
-  color: inherit;
-  font-size: inherit;
-  border-radius: 6px;
-  border: 1px solid rgba(236, 236, 236, 0.16);
-
-  &::placeholder {
-    background-image: url('${emailIcon}') no-repeat;
-    font-size: 10px;
-    font-weight: 400;
-    color: ${props => props.theme.colors.textWhite};
-    opacity: 1;
-
-    @media ${props => props.theme.device.tablet} {
-      font-size: 14px;
-    }
-
-    @media ${props => props.theme.device.desktop} {
-      font-size: 18px;
-    }
-  }
-
-  @media ${props => props.theme.device.tablet} {
-    margin: 0;
-    padding-left: 51px;
-    width: 259px;
-    height: 50px;
-    background-position: 15px 12px;
-    background-size: 20px 16px;
-    background-position: 18px 15px;
-  }
-  @media ${props => props.theme.device.desktop} {
-    width: 100%;
-  }
-`;
-
-export const FormFooterBtn = styled.button`
-  display: block;
-  margin: 0 auto;
-  margin-top: 8px;
-  padding: 11px 71px;
-  font-size: 12px;
-  background-color: ${props => props.theme.colors.accent};
-  color: ${props => props.theme.colors.subFooterBtn};
-  border-radius: 6px;
-  transition: color 250ms linear;
-
-  &:hover,
-  &:focus {
-    color: ${props => props.theme.colors.accentDark};
-  }
-
-  @media ${props => props.theme.device.tablet} {
-    margin-top: 0;
-    margin: 0;
-    margin-left: 12px;
-    padding: 16px 50px;
-    font-size: 16px;
-  }
-
-  @media ${props => props.theme.device.desktop} {
-    margin-left: 0;
-    margin-top: 16px;
-    width: 100%;
-  }
-`;
 
 export const SocialWrap = styled.div`
    margin-top: 44px;

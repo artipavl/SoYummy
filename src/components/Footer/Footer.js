@@ -22,13 +22,14 @@ import {
 } from "./Footer.styled";
 
 import FooterForm from './FooterForm';
-
+import FooterSharedBg from './FooterSharedBg';
 import SocialLinksComponent from 'reusableComponents/SocialLinks';
 
 export const Footer = () => {
 
   return (
-    <footer>
+    <footer style={{position: 'relative', zIndex: 3}}>
+       <FooterSharedBg />
       <FooterSection>
 
         <Container>
@@ -85,7 +86,7 @@ export const Footer = () => {
           </LogoCapLinkFormWrap>
 
           <SocialWrap>
-              <SocialLinksComponent/>
+            <SocialLinksComponent />
           </SocialWrap>
 
         </Container>
