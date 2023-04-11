@@ -75,7 +75,14 @@ export const FormFooterInput = styled.input`
   width: 204px;
   height: 38px;
   font-size: 10px;
-  background-color: transparent;
+  background-color: ${props => {
+    if (props.themeName === 'dark') {
+      return 'white';
+    }
+  return 'transparent';
+}};
+
+
   background-repeat: no-repeat;
   background-position: 15px 13px;
   background-size: 16px 12px;
