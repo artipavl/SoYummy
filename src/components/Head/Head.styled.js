@@ -1,12 +1,13 @@
 import { NavLink } from "react-router-dom"
 import styled from 'styled-components';
-import userIconBG from '../../images/icons/user-icon.svg'
+import userIconBG from '../../images/icons/user-icon.svg';
+import { ReactComponent as BurgerIcon } from '../../images/icons/burger.svg';
 
 export const Header = styled.header`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-
+  width: 100%;
   padding-right: 16px;
   padding-left: 16px;
   padding-top: 18px;
@@ -18,27 +19,30 @@ export const Header = styled.header`
 
   }
 
+
+`
+export const Container = styled.div`
+  max-width: 1440px;
+  padding-left: 16px;
+  padding-right: 16px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
   @media ${props => props.theme.device.mobile} {
     width: 375px;
   }
-
   @media ${props => props.theme.device.tablet} {
     width: 768px;
     padding-right: 32px;
     padding-left: 32px;
 
   }
-   @media ${props => props.theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
     width: 1440px;
     padding-right: 100px;
     padding-left: 100px;
   }
-`
-export const Container = styled.div`
-  max-width: 1440px;
-  display: flex;
-  align-items: center;
-  margin: 0 auto;
+
   `
 
 
@@ -134,13 +138,29 @@ export const Burger = styled.button`
     height: 28px;
     margin-left: 50px;
   @media (min-width: 280px) and (max-width: 374px) {
-      margin-left: 15px;
+    margin-left: 15px;
 
   }
 
   @media ${props => props.theme.device.desktop} {
   display: none;
 }
+
+
 `
+
+export const BurgerIconStyled = styled(BurgerIcon)`
+  width: 28px;
+  height: 28px;
+  @media ${props => props.theme.device.tablet} {
+    width: 32px;
+    height: 32px;
+  }
+  path {
+    stroke: ${props => props.theme.colors.text}
+  }
+
+`
+
 
 

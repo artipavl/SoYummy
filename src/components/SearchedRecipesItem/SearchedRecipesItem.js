@@ -7,6 +7,7 @@ import {
 
 const SearchedRecipesItem = ({ title, preview }) => {
   const animation = title.length > 34;
+
   return (
     <>
       {animation ? (

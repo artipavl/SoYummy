@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import Notiflix from 'notiflix';
 
 import {
   register,
@@ -8,7 +9,6 @@ import {
   themeSwicher,
   updateUser,
   subscribeUser,
-
 } from './authOperations';
 
 const initialState = {
@@ -17,7 +17,7 @@ const initialState = {
     email: '',
     avatarURL: '',
   },
-  theme: "light",
+  theme: 'light',
   token: null,
   isError: false,
   isLoading: false,
@@ -36,10 +36,10 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
       state.isLoading = false;
     },
-    [register.pending](state, action) {
+    [register.pending](state) {
       state.isLoading = true;
     },
-    [register.rejected](state, action) {
+    [register.rejected](state) {
       state.isError = true;
       state.isLoggedIn = false;
       state.isLoading = false;
@@ -53,13 +53,14 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
       state.isLoading = false;
     },
-    [login.pending](state, action) {
+    [login.pending](state) {
       state.isLoading = true;
     },
-    [login.rejected](state, action) {
+    [login.rejected](state) {
       state.isError = true;
       state.isLoggedIn = false;
       state.isLoading = false;
+      Notiflix.Notify.failure('There is no user with such credentials.');
     },
 
     [fetchCurrentUser.fulfilled](state, action) {
@@ -72,13 +73,13 @@ const authSlice = createSlice({
     [fetchCurrentUser.pending](state) {
       state.isLoading = true;
     },
-    [fetchCurrentUser.rejected](state, action) {
+    [fetchCurrentUser.rejected](state) {
       state.isError = true;
       state.isLoggedIn = false;
       state.isLoading = false;
     },
 
-    [fetchUserLogout.fulfilled](state, action) {
+    [fetchUserLogout.fulfilled](state) {
       // state = initialState;
       state.user = initialState.user;
       state.token = null;
@@ -95,8 +96,8 @@ const authSlice = createSlice({
       state.isLoading = false;
     },
 
-    [themeSwicher.fulfilled](state, action) {
-      state.theme = state.theme === "light" ? "dark" : "light";
+    [themeSwicher.fulfilled](state) {
+      state.theme = state.theme === 'light' ? 'dark' : 'light';
     },
 
     // themeSwicher: (state, action) => {
@@ -116,9 +117,8 @@ const authSlice = createSlice({
     [updateUser.rejected](state, action) {
       state.isError = action.payload;
       state.isLoading = false;
-
     },
-    [subscribeUser.fulfilled](state, action) {
+    [subscribeUser.fulfilled](state) {
       state.isError = null;
       state.isLoading = false;
       state.isSubscribed = true;
@@ -128,11 +128,9 @@ const authSlice = createSlice({
     },
     [subscribeUser.rejected](state, action) {
       state.isError = action.payload;
-      state.isSubscribed = false;
+      state.isLoading = false;
     },
-
   },
-
 });
 
 export const authReducer = authSlice.reducer;

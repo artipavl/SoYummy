@@ -1,24 +1,37 @@
 import styled from 'styled-components';
+
 import { ReactComponent as EmailIcon } from '../../../images/icons/email-icon-for-footer.svg';
 import { ReactComponent as ErrorLogo } from '../../../images/icons/Error-logo.svg';
-import { ReactComponent as SuccessLogo } from "../../../images/icons/Success-logo.svg"
+import { ReactComponent as SuccessLogo } from "../../../images/icons/Success-logo.svg";
 
 // import { CiMail } from "react-icons/ci";
 
+//icons
 export const EmailIconStyled = styled(EmailIcon)`
   position: absolute;
-  width: 25px;
-  left: 16px;
+  display: inline-block;
+  width: 26px;
+  height: 12px;
+  left: 14px;
   top: 50%;
   transform: translateY(-50%);
-
   path {
-    stroke: ${({ error, touched }) =>
-  touched ? (error ? '#E74A3B' : '#3CBC81') : '#3CBC81'};
+    stroke: ${props => props.errorformik? '#E74A3B' : '#3CBC81'}
   }
+  @media ${props => props.theme.device.tablet} {
+    left: 16px;
+    width: 22px;
+    height: 19px;
+  }
+
 `
 
 export const ErrorLogoStyled = styled(ErrorLogo)`
+    width: 20px;
+    transition: transform 0.5s ease;
+  &:hover {
+    transform: rotate(360deg);
+  }
 `
 
 export const SuccessLogoStyled = styled(SuccessLogo)`
@@ -27,7 +40,7 @@ export const SuccessLogoStyled = styled(SuccessLogo)`
   top: 50%;
   transform: translateY(-50%);
 `
-
+//
 
 export const FormFooter = styled.form`
   display: flex;
@@ -46,6 +59,10 @@ export const FormFooter = styled.form`
 `
 export const InputWrapper = styled.div`
 position: relative;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 204px;
+    margin: 0 auto;
+  }
 
 `
 export const FormFooterInput = styled.input`
@@ -58,7 +75,14 @@ export const FormFooterInput = styled.input`
   width: 204px;
   height: 38px;
   font-size: 10px;
-  background-color: transparent;
+  background-color: ${props => {
+    if (props.themeName === 'dark') {
+      return 'white';
+    }
+  return 'transparent';
+}};
+
+
   background-repeat: no-repeat;
   background-position: 15px 13px;
   background-size: 16px 12px;
@@ -66,7 +90,14 @@ export const FormFooterInput = styled.input`
     touched ? (error ? '#E74A3B' : '#3CBC81') : '#3CBC81'};
   border-radius: 6px;
   border: 1px solid ${({ error, touched }) =>
-  touched ? (error ? '#E74A3B' : '#3CBC81') : '#3CBC81'};
+    touched ? (error ? '#E74A3B' : '#3CBC81') : '#3CBC81'};
+
+  color: ${props => {
+    console.log(props.themeName)
+
+  }
+  };
+
 
   @media ${props => props.theme.device.tablet} {
       font-size: 14px;
@@ -83,6 +114,7 @@ export const FormFooterInput = styled.input`
     color: ${({ error, touched }) =>
       touched ? (error ? '#E74A3B' : '#3CBC81') : '#3CBC81'};;
     opacity: 1;
+
 
     @media ${props => props.theme.device.tablet} {
       font-size: 14px;
@@ -117,7 +149,6 @@ export const ResetFormInput = styled.button`
   top: 50%;
   transform: translateY(-50%);
 
-
 `
 
 export const Error = styled.div`
@@ -125,6 +156,7 @@ export const Error = styled.div`
   /* top: -25px; */
   bottom: -17px;
   right: 50%;
+  width: 100%;
   transform: translateX(50%);
   color: #E74A3B;
   font-size: 0.8rem;

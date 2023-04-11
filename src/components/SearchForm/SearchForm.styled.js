@@ -2,8 +2,6 @@ import styled from 'styled-components';
 
 export const Form = styled.form`
   margin-top: 50px;
-  margin-left: 40px;
-  margin-right: 40px;
 
   display: flex;
   align-items: center;
@@ -19,11 +17,14 @@ export const Form = styled.form`
 export const SearchContainer = styled.div`
   position: relative;
 
-  @media (max-width: 767px) {
-    width: 100%;
+  width: 295px;
+
+  @media ${props => props.theme.device.tablet} {
+    width: 362px;
   }
 
   @media ${props => props.theme.device.desktop} {
+    width: 510px;
   }
 `;
 
@@ -43,7 +44,7 @@ export const SearchValue = styled.input`
   color: ${props => props.theme.colors.textDark};
 
   @media ${props => props.theme.device.tablet} {
-    width: 362px;
+    width: 100%;
     height: 57px;
 
     padding-left: 38px;
@@ -52,7 +53,7 @@ export const SearchValue = styled.input`
   }
 
   @media ${props => props.theme.device.desktop} {
-    width: 510px;
+    width: 100%;
     height: 70px;
 
     padding-left: 48px;
