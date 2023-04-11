@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/SoYummy/static/css/main.0d51cdca.css",
-    "main.js": "/SoYummy/static/js/main.ed270508.js",
-    "static/js/796.c4e7ad90.chunk.js": "/SoYummy/static/js/796.c4e7ad90.chunk.js",
+    "main.js": "/SoYummy/static/js/main.6920c0cf.js",
+    "static/js/10.a03cdcda.chunk.js": "/SoYummy/static/js/10.a03cdcda.chunk.js",
     "static/js/884.0f87718b.chunk.js": "/SoYummy/static/js/884.0f87718b.chunk.js",
     "static/js/852.0679c1f1.chunk.js": "/SoYummy/static/js/852.0679c1f1.chunk.js",
     "static/js/284.34340e2b.chunk.js": "/SoYummy/static/js/284.34340e2b.chunk.js",
@@ -70,19 +70,20 @@
     "static/media/knife.svg": "/SoYummy/static/media/knife.984352de47dcde5585756d76a50814de.svg",
     "static/media/edit-icon.svg": "/SoYummy/static/media/edit-icon.4c4148cdc0d8503de5270d56876863a1.svg",
     "static/media/facebook-logo.svg": "/SoYummy/static/media/facebook-logo.bddff187a269cf93eeec0f7f6eb42b38.svg",
-    "static/media/email-icon-for-footer.svg": "/SoYummy/static/media/email-icon-for-footer.8296e88591ae63190db2ad6e771a9947.svg",
+    "static/media/email-icon-for-footer.svg": "/SoYummy/static/media/email-icon-for-footer.508505e1103af0b751a8466462ebe633.svg",
     "static/media/name.svg": "/SoYummy/static/media/name.0fa796ea25ccf40a3ad47a8fc4a2c1e9.svg",
     "static/media/Success-logo.svg": "/SoYummy/static/media/Success-logo.f70d8571f174566ba7b310743be99f06.svg",
     "static/media/Warning-logo.svg": "/SoYummy/static/media/Warning-logo.62f01b2c7f407322ed18c03cba684f53.svg",
     "static/media/user-icon.svg": "/SoYummy/static/media/user-icon.5c507f2e9af2b34877fc629716ccb806.svg",
     "static/media/plus-icon.svg": "/SoYummy/static/media/plus-icon.2b124f485a7da985715b3d7d56b1f159.svg",
     "static/media/search_Icon.svg": "/SoYummy/static/media/search_Icon.2d4b1287190860783c7dcfa23feb9e37.svg",
+    "static/media/cross.svg": "/SoYummy/static/media/cross.cb141696dc3bbdc6b872eb5777cf3281.svg",
     "static/media/arrow-right.svg": "/SoYummy/static/media/arrow-right.828da05f548f4ad2c5e6cdb3379e45aa.svg",
     "static/media/burger.svg": "/SoYummy/static/media/burger.99954b2cb14dc7a13c5ef2896bf6c275.svg",
     "static/media/arrow-down.svg": "/SoYummy/static/media/arrow-down.4c0759d592b9bf854db97289ce89a574.svg",
     "main.0d51cdca.css.map": "/SoYummy/static/css/main.0d51cdca.css.map",
-    "main.ed270508.js.map": "/SoYummy/static/js/main.ed270508.js.map",
-    "796.c4e7ad90.chunk.js.map": "/SoYummy/static/js/796.c4e7ad90.chunk.js.map",
+    "main.6920c0cf.js.map": "/SoYummy/static/js/main.6920c0cf.js.map",
+    "10.a03cdcda.chunk.js.map": "/SoYummy/static/js/10.a03cdcda.chunk.js.map",
     "884.0f87718b.chunk.js.map": "/SoYummy/static/js/884.0f87718b.chunk.js.map",
     "852.0679c1f1.chunk.js.map": "/SoYummy/static/js/852.0679c1f1.chunk.js.map",
     "284.34340e2b.chunk.js.map": "/SoYummy/static/js/284.34340e2b.chunk.js.map",
@@ -93,6 +94,6 @@
   },
   "entrypoints": [
     "static/css/main.0d51cdca.css",
-    "static/js/main.ed270508.js"
+    "static/js/main.6920c0cf.js"
   ]
 }
