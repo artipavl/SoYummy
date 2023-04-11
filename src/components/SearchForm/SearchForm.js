@@ -10,7 +10,7 @@ import {
 } from './SearchForm.styled';
 
 const SearchForm = () => {
-  const [, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const onSubmit = ({ query }) => {
     const trimmedQuery = query.trim();
@@ -25,7 +25,10 @@ const SearchForm = () => {
   };
 
   return (
-    <Formik initialValues={{ query: '' }} onSubmit={onSubmit}>
+    <Formik
+      initialValues={{ query: searchParams.get('query') || '' }}
+      onSubmit={onSubmit}
+    >
       {({ handleSubmit, handleChange, values }) => {
         return (
           <Form onSubmit={handleSubmit}>

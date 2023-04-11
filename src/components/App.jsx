@@ -13,15 +13,18 @@ import { StartScreen } from 'pages';
 import RegisterPage from '../pages/RegisterPage';
 import SignInPage from '../pages/SignInPage';
 
-import { MainPage } from 'pages/mainPaige/MainPage';
+import { MainPage } from 'pages/MainPage/MainPage';
 
 import { selectorSwicherTheme } from 'redux/selectors';
 import { lightTheme, darkTheme } from '../constants/theme';
 import { useMemo } from 'react';
 import { useState } from 'react';
+import { CategoriesPage } from 'pages/CategoriesPage/CategoriesPage';
 
+const Verification = lazy(() => import('pages/Varification/Verification'));
 const SharedLayout = lazy(() => import('../components/SharedLayout'));
 //const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
+const Modal= lazy(() => import('../components/Modal'));
 const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
 const AddRecipePage = lazy(() =>
   import('../pages/AddRecipePage/AddRecipePage')
@@ -78,6 +81,7 @@ export const App = () => {
                 <PublicRoute component={<SignInPage />} redirectTo="/main" />
               }
             />
+            <Route path="verification/:id" element={<Verification />} />
 
             <Route path="/" element={<SharedLayout />}>
               <Route
@@ -88,14 +92,14 @@ export const App = () => {
               <Route
                 path="categories"
                 element={
-                  <PrivateRoute component={<StyledApp>Categories</StyledApp>} />
+                  <PrivateRoute component={<StyledApp><CategoriesPage/></StyledApp>} />
                 }
               />
               <Route
                 path="categories/:categoryName"
                 element={
                   <PrivateRoute
-                    component={<StyledApp>CategoriesName</StyledApp>}
+                    component={<StyledApp><CategoriesPage/></StyledApp>}
                   />
                 }
               />
@@ -126,6 +130,10 @@ export const App = () => {
               <Route
                 path="*"
                 element={<PrivateRoute component={<NotFound />} />}
+              />
+              <Route
+                path="modal"
+                element={<PrivateRoute component={<Modal />} />}
               />
             </Route>
           </Routes>
