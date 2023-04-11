@@ -37,16 +37,17 @@ const RecipeHero = ({ title, description, time, recipeId }) => {
       })
       .catch(err => console.log(err.message));
   };
-  const isArrHasRecipeId = arr => {
-    return arr.reduce((acc, item) => {
-      if (item._id === recipeId) {
-        acc = true;
-      }
-      return acc;
-    }, false);
-  };
 
   useEffect(() => {
+    const isArrHasRecipeId = arr => {
+      return arr.reduce((acc, item) => {
+        if (item._id === recipeId) {
+          acc = true;
+        }
+        return acc;
+      }, false);
+    };
+
     getFavorites()
       .then(res => {
         const { result: favorites } = res.data.data;
@@ -57,7 +58,7 @@ const RecipeHero = ({ title, description, time, recipeId }) => {
 
     getOwnRecipes()
       .then(res => {
-        const { result: ownRecipes } = res.data;
+        const { result: ownRecipes } = res.data.data;
         const ownRecipe = isArrHasRecipeId(ownRecipes);
         ownRecipe && setIsOwnRecipe(ownRecipe);
       })
@@ -76,7 +77,10 @@ const RecipeHero = ({ title, description, time, recipeId }) => {
               Remove from favorites
             </FavoriteBtn>
           ) : (
-            <FavoriteBtn onClick={() => handleFavoriteAdd(recipeId)}>
+            <FavoriteBtn
+              onClick={() => handleFavoriteAdd(recipeId)}
+              disabled={isOwnRecipe}
+            >
               Add to favorites
             </FavoriteBtn>
           )}

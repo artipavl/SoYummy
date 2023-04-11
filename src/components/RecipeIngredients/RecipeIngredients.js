@@ -35,7 +35,7 @@ const RecipeIngredients = ({ ingredients }) => {
         })
         .catch(err => console.log(err.message));
     }
-  }, [recipeId]);
+  });
 
   return (
     <IngredientsSection>

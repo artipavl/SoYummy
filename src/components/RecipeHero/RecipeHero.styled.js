@@ -11,9 +11,8 @@ export const HeroSection = styled.section`
   padding-bottom: 90px;
   background-image: url('${bgMobile}');
   background-repeat: no-repeat;
-  /* background-position: 100% 100%; */
   background-size: cover;
-  /* max-width: 1600px; */
+  background-position: center;
   height: auto;
 
   @media ${props => props.theme.retinaBackgroundImage} {
@@ -101,6 +100,19 @@ export const FavoriteBtn = styled.button`
 
   font-size: 10px;
   line-height: 1.5;
+
+  &:disabled {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
 
   @media ${props => props.theme.device.tablet} {
     padding: 18px 44px;

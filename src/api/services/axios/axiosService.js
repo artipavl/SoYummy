@@ -43,7 +43,7 @@ export const addShopItem = async (recipeId, ingredientId, measure) => {
   );
 };
 export const removeShopItem = async ingredientId => {
-  return await axios.patch(
+  await axios.patch(
     `https://so-yummy-api.onrender.com/api/users/shopping-list`,
     {
       _id: ingredientId,
