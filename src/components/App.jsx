@@ -13,12 +13,13 @@ import { StartScreen } from 'pages';
 import RegisterPage from '../pages/RegisterPage';
 import SignInPage from '../pages/SignInPage';
 
-import { MainPage } from 'pages/mainPaige/MainPage';
+import { MainPage } from 'pages/MainPage/MainPage';
 
 import { selectorSwicherTheme } from 'redux/selectors';
 import { lightTheme, darkTheme } from '../constants/theme';
 import { useMemo } from 'react';
 import { useState } from 'react';
+import { CategoriesPage } from 'pages/CategoriesPage/CategoriesPage';
 
 const Verification = lazy(() => import('pages/Varification/Verification'));
 const SharedLayout = lazy(() => import('../components/SharedLayout'));
@@ -91,14 +92,14 @@ export const App = () => {
               <Route
                 path="categories"
                 element={
-                  <PrivateRoute component={<StyledApp>Categories</StyledApp>} />
+                  <PrivateRoute component={<StyledApp><CategoriesPage/></StyledApp>} />
                 }
               />
               <Route
                 path="categories/:categoryName"
                 element={
                   <PrivateRoute
-                    component={<StyledApp>CategoriesName</StyledApp>}
+                    component={<StyledApp><CategoriesPage/></StyledApp>}
                   />
                 }
               />
