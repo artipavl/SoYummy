@@ -11,7 +11,7 @@ import { Loader } from 'components/Loader/Loader';
 
 import logo from '../../images/icons/logo_Desktop.svg';
 import lightLogo from '../../images/icons/logo-Lite-Icon.svg';
-import burgerIcon from '../../images/icons/burger.svg';
+
 
 import {
   Header,
@@ -25,6 +25,7 @@ import {
   UserName,
   ToogleWrap,
   Burger,
+  BurgerIconStyled,
 } from './Head.styled';
 
 export const Head = () => {
@@ -78,7 +79,7 @@ export const Head = () => {
               />
 
             <Burger onClick={handleMenuClick}>
-              <img src={burgerIcon} alt="open mobile menu" width={32} />
+              <BurgerIconStyled/>
             </Burger>
 
             <ToogleWrap>

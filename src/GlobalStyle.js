@@ -15,6 +15,9 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 14px;
         line-height: 18px;
         color: #23262a;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
     }
     code {
         font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

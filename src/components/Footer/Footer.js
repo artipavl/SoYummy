@@ -22,13 +22,20 @@ import {
 } from "./Footer.styled";
 
 import FooterForm from './FooterForm';
-
+import FooterSharedBg from './FooterSharedBg';
 import SocialLinksComponent from 'reusableComponents/SocialLinks';
 
 export const Footer = () => {
 
   return (
-    <footer>
+    <footer style={{
+      position: 'relative',
+      zIndex: 3,
+      // position: 'absolute',
+      // bottom: 0,
+      // width: '100%',
+    }}>
+       <FooterSharedBg />
       <FooterSection>
 
         <Container>
@@ -63,7 +70,7 @@ export const Footer = () => {
 
               <nav>
                 <FooterLinkWrap>
-                  <li><FooterLink to='/'>Ingredients</FooterLink></li>
+                  <li><FooterLink to='/search'>Ingredients</FooterLink></li>
                   <li><FooterLink to='/add'>Add recipes</FooterLink></li>
                   <li><FooterLink to='/my'>My recipes</FooterLink></li>
                   <li><FooterLink to='/favorite'>Favorite</FooterLink></li>
@@ -85,7 +92,7 @@ export const Footer = () => {
           </LogoCapLinkFormWrap>
 
           <SocialWrap>
-              <SocialLinksComponent/>
+            <SocialLinksComponent />
           </SocialWrap>
 
         </Container>

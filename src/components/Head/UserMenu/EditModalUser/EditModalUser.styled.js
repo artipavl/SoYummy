@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import {ReactComponent as RedCross } from '../../../..//images/icons/Error-logo.svg'
+import { ReactComponent as RedCross } from '../../../..//images/icons/Error-logo.svg';
+import {ReactComponent as CloseButton} from '../../../../images/icons/cross.svg'
 import { FiUser } from 'react-icons/fi';
 import { RiCloseLine } from 'react-icons/ri';
 
@@ -98,6 +99,7 @@ export const ModalEditUser = styled.div`
 //  top: 18px;
 // `
 
+
 export const CloseIcon = styled(RiCloseLine)`
   color: ${props => props.theme.colors.profileModalCloseIcon};
   color: ${props => props.theme.colors.profileModalCloseIcon};
@@ -148,15 +150,22 @@ export const AddImageButton = styled.label`
 export const ValidImageText = styled.p`
   color: ${({ children }) => {
   if (children === 'Valid Name' || children === 'Valid image') {
-      return '#8BAA36'
+      return '#3CBC81'
   }
-  return "#fa2c2c";
+  return "#E74A3B";
 }};
+
+
 `
 
 export const EditNameFormWrap = styled.div`
   margin-top: 35px;
   position: relative;
+  height: 48px;
+  @media ${props => props.theme.device.tablet} {
+    height: 58px;
+}
+
 `
 
 export const EditNameFormStyled = styled.input`
@@ -173,9 +182,9 @@ export const EditNameFormStyled = styled.input`
   color: ${({error}) => {
 
   if (error) {
-    return "#fa2c2c"
+    return "#E74A3B"
   }
-  return '#8BAA36';
+  return '#3CBC81';
 }};
 
   font-size: inherit;
@@ -184,9 +193,9 @@ export const EditNameFormStyled = styled.input`
   border-color: ${({error}) => {
 
   if (error) {
-    return "#fa2c2c"
+    return "#E74A3B"
   }
-  return '#8BAA36';
+  return '#3CBC81';
 }};
 
   @media ${props => props.theme.device.tablet} {
