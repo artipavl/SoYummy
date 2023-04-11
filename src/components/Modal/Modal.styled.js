@@ -57,9 +57,8 @@ export const ModalContainer= styled.div`
   background-image:url(${props => mobImages[Math.floor(Math.random() * mobImages.length)]});
   background-repeat:no-repeat;
   background-size:cover;
-  /* background: url('${coctail_mob}'); */
   @media ${props => props.theme.retinaBackgroundImage} {
-   background-image:url(${props => mob2xImages[Math.floor(Math.random() * mob2xImages.length)]});
+  background-image:url(${props => mob2xImages[Math.floor(Math.random() * mob2xImages.length)]});
   }
 
   @media ${props => props.theme.device.tablet} {
@@ -69,7 +68,7 @@ export const ModalContainer= styled.div`
   border-radius:30px;
   
   @media ${props => props.theme.retinaBackgroundImage} {
-   background-image:url(${props => tablet2xImages[Math.floor(Math.random() * tablet2xImages.length)]});
+  background-image:url(${props => tablet2xImages[Math.floor(Math.random() * tablet2xImages.length)]});
   }
   }
 
@@ -80,7 +79,7 @@ export const ModalContainer= styled.div`
   border-radius:30px;
   
   @media ${props => props.theme.retinaBackgroundImage} {
-   background-image:url(${props => desktop2xImages[Math.floor(Math.random() * desktop2xImages.length)]});
+  background-image:url(${props => desktop2xImages[Math.floor(Math.random() * desktop2xImages.length)]});
   }
   }
 `;
@@ -135,7 +134,6 @@ export const WowText = styled.span`
 @media ${props => props.theme.device.desktop} {
  font-Size: 28px;
   }
-
 `;
 
 export const ModalImage = styled.img`
