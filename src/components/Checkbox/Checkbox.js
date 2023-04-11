@@ -11,19 +11,29 @@ import { useMemo } from 'react';
 
 const { useState, useEffect } = require('react');
 
-const Checkbox = ({ ingrId, shopList, ingrMeasure }) => {
+const Checkbox = ({ ingrId, shopListProp, ingrMeasure }) => {
   const [checked, setChecked] = useState(false);
+  const [shopList, setShopList] = useState([]);
   const { recipeId } = useParams();
 
-  const handleCheckboxChange = event => {
+  const handleCheckboxChange = async event => {
     setChecked(event.target.checked);
-    checked
-      ? removeShopItem(shopItem._id)
-      : addShopItem(recipeId, ingrId, ingrMeasure);
+    if (checked) {
+      const res = await removeShopItem(shopItem._id);
+    } else {
+      const res = await addShopItem(recipeId, ingrId, ingrMeasure);
+      const { result: newShopList } = res.data.data;
+      setShopList(newShopList);
+    }
   };
+
   const shopItem = useMemo(() => {
     return shopList.find(item => item.ingredientId === ingrId);
   }, [ingrId, shopList]);
+
+  useEffect(() => {
+    setShopList(shopListProp);
+  }, [shopListProp]);
 
   useEffect(() => {
     shopItem ? setChecked(true) : setChecked(false);

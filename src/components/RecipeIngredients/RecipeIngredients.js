@@ -22,20 +22,16 @@ const RecipeIngredients = ({ ingredients }) => {
   const { recipeId } = useParams();
 
   useEffect(() => {
-    getFilteredShopList();
-
-    async function getFilteredShopList() {
-      getShopList()
-        .then(res => {
-          const { result } = res.data.data;
-          const filteredShopList = result.filter(
-            item => item.recipeId === recipeId
-          );
-          setShopList(filteredShopList);
-        })
-        .catch(err => console.log(err.message));
-    }
-  });
+    getShopList()
+      .then(res => {
+        const { result } = res.data.data;
+        const filteredShopList = result.filter(
+          item => item.recipeId === recipeId
+        );
+        setShopList(filteredShopList);
+      })
+      .catch(err => console.log(err.message));
+  }, [recipeId]);
 
   return (
     <IngredientsSection>
@@ -66,7 +62,7 @@ const RecipeIngredients = ({ ingredients }) => {
                   <label>
                     <Checkbox
                       ingrId={ingr._id}
-                      shopList={shopList}
+                      shopListProp={shopList}
                       ingrMeasure={ingr.measure}
                     />
                   </label>
