@@ -23,7 +23,7 @@ export const TitlePopularRecipe = styled.h3`
   font-size: 24px;
   line-height: 1;
   letter-spacing: -0.24px;
-  color: ${props => props.theme.colors.modes.white.textDark};
+  color: ${props => props.theme.colors.recipesFonts};
 `;
 
 export const ItemList = styled.ul`
@@ -41,7 +41,7 @@ export const ItemBox = styled.li`
   display: flex;
   padding-top: 24px;
   padding-bottom: 13px;
-  border-bottom: 1px solid #7070702b; // Світла і темна теми
+  border-bottom: 1px solid ${props => props.theme.colors.popularRecipesItemBox}; 
   column-gap: 12px;
   width: 100%;
 
@@ -78,7 +78,7 @@ export const TitleRecipe = styled.p`
   font-size: 16px;
   line-height: 1.25;
   letter-spacing: -0.24px;
-  color: ${props => props.theme.colors.modes.white.textDark};
+  color: ${props => props.theme.colors.recipesFonts};
 `;
 
 export const Description = styled.p`
@@ -86,8 +86,7 @@ export const Description = styled.p`
   font-size: 12px;
   line-height: 1.3;
   letter-spacing: -0.24px;
-  color: #fafafa99; // Темна тема
-  color: #7e7e7e; //    Світла тема
+  color:  ${props => props.theme.colors.recipesFonts};
 
   // Обрізає лишній текст
   max-height: calc(3 * var(--line-height));
