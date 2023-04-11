@@ -8,9 +8,8 @@ import { editUserValidationSchema } from 'utils/editUserValidationSchema';
 
 import { selectUserName, selectAvatarURL } from 'redux/selectors';
 import { updateUser } from '../../../../redux/authOperations';
-
 import addAvatarImg from '../../../../images/icons/plus-icon.svg';
-import crossIcon from '../../../../images/icons/cross.svg';
+
 
 import {
   UserIconStyled,
@@ -18,7 +17,7 @@ import {
   ResetNameButton,
   BackdropEditUserMOdal,
   ModalEditUser,
-  CloseButton,
+  CloseButtonStyled,
   PreviewWrap,
   PreviewImageWrap,
   PreviewImage,
@@ -117,7 +116,7 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
         <button
           type='button'
           onClick={handleOpenEditModal}>
-          <CloseButton src={crossIcon} alt="close button" width={20} />
+          <CloseButtonStyled/>
         </button>
 
         <form onSubmit={formik.handleSubmit}>
@@ -164,7 +163,8 @@ export const EditUserModal = ({ openEditMenu, handleOpenEditModal, stopPropagati
               error={formik.errors.name}
               touched={formik.touched.name}
             />
-            <UserIconStyled style={{ stroke: formik.errors.name ? "#fa2c2c" : "#8BAA36" }}
+            <UserIconStyled
+            style={{ stroke: formik.errors.name ? "#E74A3B" : "#3CBC81" }}
             />
 
             <ResetNameButton onClick={handleResetName} type='button'>

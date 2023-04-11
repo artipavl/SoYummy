@@ -1,12 +1,9 @@
-import logo from '../../../images/icons/logo_Desktop.svg';
-
-import cross from '../../../images/icons/cross.svg';
+import { useEffect } from 'react';
 
 import {
   MobileMenuSection,
   MobileMenuHeader,
   LinkLogo,
-  CrossImg,
   NavLogo,
   NavStyled,
   NavItems,
@@ -15,9 +12,39 @@ import {
   SearchText,
 } from './MobileMenu.styled';
 
+import { CloseButtonStyled } from '../UserMenu/EditModalUser/EditModalUser.styled';
 import { SearchIconStyled } from '../DesktopMenu/DesktopMenu.styles';
+import logo from '../../../images/icons/logo_Desktop.svg';
 
 export const MobileMenu = ({ openState, handleMenuClick, children }) => {
+
+  useEffect(() => {
+    if (openState) {
+      const handleKeyDown = e => {
+
+        if (e.code === 'Escape') {
+          handleMenuClick();
+        }
+      };
+
+      document.addEventListener('keydown', handleKeyDown);
+      return () => { document.removeEventListener('keydown', handleKeyDown); }
+    }
+  }, [handleMenuClick, openState]);
+
+  useEffect(() => {
+  if (openState) {
+    const scrollY = window.scrollY;
+
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = '';
+      window.scrollTo(0, scrollY);
+    };
+  }
+  }, [openState]);
+
   return (
     <MobileMenuSection className={openState ? 'open' : ''}>
       <MobileMenuHeader onClick={handleMenuClick}>
@@ -25,7 +52,7 @@ export const MobileMenu = ({ openState, handleMenuClick, children }) => {
           <NavLogo src={logo} alt="logo" width={40} />
         </LinkLogo>
         <button>
-          <CrossImg src={cross} alt="close menu" width={32} />
+          <CloseButtonStyled style={{position: 'static'}} />
         </button>
       </MobileMenuHeader>
 

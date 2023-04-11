@@ -1,16 +1,17 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import notiflix from "notiflix";
-import crossIcon from '../../../../images/icons/cross.svg';
+
 import {
   BackdropLogOutModal,
   LogOutModalWrap,
   Title,
-  CloseButton,
   BottonsWrap,
   Button,
 } from './LogOutModal.styled';
 import { fetchUserLogout } from 'redux/authOperations';
+
+import { CloseButtonStyled } from '../EditModalUser/EditModalUser.styled';
 
 export const LogOutModal = ({
   openLogoutMenu,
@@ -64,7 +65,7 @@ export const LogOutModal = ({
         onClick={stopPropagation}
       >
         <button type="button" onClick={handleOpenLogoutMenu}>
-          <CloseButton src={crossIcon} alt="close button" width={20} />
+          <CloseButtonStyled/>
         </button>
         <Title>Are you sure you want to log out?</Title>
         <BottonsWrap>

@@ -10,12 +10,14 @@ const Layout = styled.div`
 
 export const SharedLayout = ({ children }) => {
   return (
-    <Layout>
+    <Layout style={{height: '100vh', display: 'flex', flexDirection: 'column'}}>
       <Head />
+      <main style={{flexGrow: 1}}>
       <Suspense fallback={<Loader/>}>
-        <Outlet />
-      </Suspense>
-      <Footer />
+        <Outlet/>
+        </Suspense>
+      </main>
+      <Footer styled={{marginTop: 'auto'}} />
     </Layout>
   );
 };
