@@ -93,7 +93,7 @@ export const updateUser = createAsyncThunk(
         return thunkAPI.rejectWithValue();
       }
       token.set(persistedToken);
-
+      console.log(formData);
       const response = await axios.patch('/users/update-user', formData);
 
       return response.data.data.user;

@@ -73,3 +73,35 @@ export const getPopularRecipes = async () => {
     console.log(error);
   }
 };
+
+//!                  Add Recipe component
+export const getAllCategories = async () => {
+  try {
+    const { data } = await axios.get('/recipes/category-list');
+    const { result } = await data.data;
+
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getAllIngredients = async () => {
+  try {
+    const { data } = await axios.get('/recipes/ingredients');
+    const { result } = await data.data;
+
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const addRecipe = async credentials => {
+  try {
+    const response = await axios.post('/recipes/own-recipes', credentials);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};

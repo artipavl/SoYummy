@@ -23,9 +23,7 @@ import { useState } from 'react';
 const SharedLayout = lazy(() => import('../components/SharedLayout'));
 //const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
 const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
-const AddRecipePage = lazy(() =>
-  import('../pages/AddRecipePage/AddRecipePage')
-);
+const AddRecipe = lazy(() => import('../pages/AddRecipe/AddRecipe'));
 const RecipePage = lazy(() => import('../pages/RecipePage/RecipePage'));
 
 const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
@@ -105,7 +103,12 @@ export const App = () => {
               />
               <Route
                 path="add"
-                element={<PrivateRoute component={<AddRecipePage />} />}
+                element={
+                  <PrivateRoute
+                    component={<AddRecipe />}
+                    redirectTo="/own-recipes"
+                  />
+                }
               />
               <Route
                 path="my"
