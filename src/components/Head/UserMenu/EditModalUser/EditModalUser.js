@@ -119,7 +119,7 @@ export const EditUserModal = ({
         className={openEditMenu ? 'open' : ''}
         onClick={stopPropagation}
       >
-        {/* 
+        {/*
         <button
           type='button'
           onClick={handleOpenEditModal}>
@@ -177,7 +177,7 @@ export const EditUserModal = ({
               touched={formik.touched.name}
             />
             <UserIconStyled
-              style={{ stroke: formik.errors.name ? '#fa2c2c' : '#8BAA36' }}
+              style={{ stroke: formik.errors.name ? '#E74A3B' : '#3CBC81' }}
             />
 
             <ResetNameButton onClick={handleResetName} type="button">
