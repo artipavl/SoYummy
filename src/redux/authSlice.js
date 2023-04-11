@@ -128,7 +128,7 @@ const authSlice = createSlice({
     },
     [subscribeUser.rejected](state, action) {
       state.isError = action.payload;
-      state.isSubscribed = false;
+      state.isLoading = false;
     },
   },
 });
