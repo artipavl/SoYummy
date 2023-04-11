@@ -15,7 +15,7 @@ export const Page = styled.section`
     padding-left: 32px;
     padding-right: 32px;
     padding-bottom: 200px;
-    margin: 0;
+    /* margin: 0; */
   }
 
   @media ${props => props.theme.device.desktop} {
