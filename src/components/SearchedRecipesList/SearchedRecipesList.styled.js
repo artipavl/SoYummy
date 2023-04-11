@@ -19,6 +19,9 @@ export const RecipesList = styled.ul`
   justify-content: center;
   align-items: center;
 
+  position: relative;
+  z-index: 99;
+
   @media ${props => props.theme.device.tablet} {
     flex-direction: row;
     flex-wrap: wrap;

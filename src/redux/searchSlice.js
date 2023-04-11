@@ -14,7 +14,6 @@ export const searchSlice = createSlice({
   extraReducers: {
     [searchRecipes.fulfilled](state, action) {
       state.results = action.payload;
-      console.log(state.status);
       state.status = 'resolved';
     },
     [searchRecipes.pending](state) {
@@ -26,7 +25,6 @@ export const searchSlice = createSlice({
 
     [searchIngredient.fulfilled](state, action) {
       state.results = action.payload;
-      console.log(state.status);
       state.status = 'resolved';
     },
     [searchIngredient.pending](state) {
