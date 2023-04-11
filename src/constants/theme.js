@@ -38,7 +38,7 @@ export const theme = {
         text: '#23262A', //текст
         textDark: '#3E4462', //текст сірий
         background: '#ECECEC',
-        
+
         accent: '#8BAA36', //зелений акцен
         accentMuted: '#EBF3D4', //зелений акцен пригнічений
       },
@@ -78,9 +78,6 @@ export const theme = {
             (min-resolution: 2dppx)`,
 };
 
-
-
-
 export const lightTheme = {
   colors: {
     white: '#FFFFFF', //білий
@@ -103,7 +100,7 @@ export const lightTheme = {
     textWhite: '#FAFAFA', //текст білий
     textWhiteMuted: 'rgba(250, 250, 250, 0.6)', //текст білий пригнічений
     textTitle: '#001833', //текст синій
-    textError: 'fa2c2c', // червоний текст помилки
+    textError: '#fa2c2c', // червоний текст помилки
     subFooterText: '#22252A', // текст, який розташований під футером
     subFooterBtn: '#FAFAFA', // текст, який розташований у кнопці футера
     socialLinkIcons: '#8BAA36',
@@ -159,8 +156,6 @@ export const lightTheme = {
             (min-resolution: 192dpi),
             (min-resolution: 2dppx)`,
 };
-
-
 
 export const darkTheme = {
   colors: {
