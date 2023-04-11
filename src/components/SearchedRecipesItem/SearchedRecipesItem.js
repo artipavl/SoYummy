@@ -14,7 +14,7 @@ const SearchedRecipesItem = ({ title, preview, id }) => {
     <>
       {animation ? (
         <RecipeItem animation>
-          <RecipeLink>
+          <RecipeLink to={`/recipes/${id}`}>
             <RecipeWrapper>
               <RecipeImage src={preview} alt={title} />
               <RecipeTitleContainer>
@@ -25,7 +25,7 @@ const SearchedRecipesItem = ({ title, preview, id }) => {
         </RecipeItem>
       ) : (
         <RecipeItem>
-          <RecipeLink>
+          <RecipeLink to={`/recipes/${id}`}>
             <RecipeWrapper>
               <RecipeImage src={preview} alt={title} />
               <RecipeTitleContainer>
