@@ -6,11 +6,9 @@ export const CheckboxContainer = styled.div`
 `;
 
 export const Icon = styled.svg`
-  padding: 3px;
   width: 10px;
   height: 10px;
   @media ${props => props.theme.device.tablet} {
-    padding: 9px;
     width: 17px;
     height: 17px;
   }
@@ -30,15 +28,18 @@ export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
 `;
 
 export const StyledCheckbox = styled.div`
+  padding: 3px;
   border: 1px solid rgba(126, 126, 126, 0.5);
   border-radius: 4px;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   transition: all 250ms linear;
+  display: flex;
 
   @media ${props => props.theme.device.tablet} {
-    width: 33px;
-    height: 33px;
+    padding: 9px;
+    width: 35px;
+    height: 35px;
   }
 
   ${Icon} {

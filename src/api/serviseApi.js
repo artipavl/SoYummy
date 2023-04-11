@@ -63,7 +63,15 @@ export const deleteShoppingList = async _id => {
   }
 };
 
-//!             Popular recipe        //
+export const getMainPage = async () => {
+  try {
+    const { data } = await axios.get(`/recipes/main-page`);
+    const result = data.data.result;
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const getPopularRecipes = async () => {
   try {
@@ -74,12 +82,22 @@ export const getPopularRecipes = async () => {
   }
 };
 
+
 //!                  Add Recipe component
 export const getAllCategories = async () => {
   try {
     const { data } = await axios.get('/recipes/category-list');
     const { result } = await data.data;
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
+export const getCategoryPage = async () => {
+  try {
+    const { data } = await axios.get(`/recipes/category-list`);
+    const result = data.data.result;
     return result;
   } catch (error) {
     console.log(error);
@@ -90,12 +108,22 @@ export const getAllIngredients = async () => {
   try {
     const { data } = await axios.get('/recipes/ingredients');
     const { result } = await data.data;
-
     return result;
   } catch (error) {
     console.log(error);
   }
 };
+
+export const getCategoryList = async e => {
+  try {
+    const { data } = await axios.get(`/recipes/list/${e}`);
+    const result = data.data.result;
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 
 export const addRecipe = async credentials => {
   try {
@@ -104,4 +132,9 @@ export const addRecipe = async credentials => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const getVerificationUser = async id => {
+  const { data } = await axios.get(`/users/verify/${id}`);
+  return data.data;
 };

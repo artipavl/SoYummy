@@ -14,6 +14,14 @@ export const IngredientsSection = styled.section`
   }
 `;
 
+export const LoaderDiv = styled.div`
+  width: 100%;
+  padding-top: 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const IngredientsHeader = styled.div`
   padding: 12px 14px;
   margin-bottom: 24px;

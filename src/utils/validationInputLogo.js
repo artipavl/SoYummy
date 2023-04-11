@@ -12,7 +12,6 @@ const validationInputLogo = ({ error, touched, warn, value }) => {
   if (error) {
     return `url(${ErrorLogo})`;
   }
-
   return `url(${SuccessLogo})`;
 };
 
