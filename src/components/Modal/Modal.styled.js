@@ -52,8 +52,11 @@ export const Overlay= styled.div`
 
 
 export const ModalContainer= styled.div`
-  width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 300px;
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)  ;
+  position:relative;    
+  
 
   background-image:url(${props => mobImages[Math.floor(Math.random() * mobImages.length)]});
   background-repeat:no-repeat;
@@ -87,10 +90,13 @@ export const ModalContainer= styled.div`
 `;
 
 export const TextContainer = styled.div`
- width:299px;
- height: 269px;
- padding:44px 26px 89px 26px;
- margin:285px 38px 258px 38px;
+ width:200px;
+ height: 180px;
+ padding:18px 18px 66px 18px;
+ margin:102px 50px 18px 50px;
+ position:absolute;
+ bottom:40px;
+ position:relative;
 
 
  
@@ -111,35 +117,58 @@ export const TextContainer = styled.div`
 
 `;
 
+export const Wrapper = styled.div`
+ width:170px;
+ height: 100px;
+ margin: 0 auto;
+ position:absolute;
+ top:150px;
+ left:50%;
+ transform: translate(-50%, -50%);
+
+@media ${props => props.theme.device.tablet} {
+ width:220px;
+ height: 120px;
+  }
+
+@media ${props => props.theme.device.desktop} {
+ width:220px;
+ height: 120px;
+  }
+
+
+ `;
+
 
 export const ModalText = styled.p`
- font-Size: 32px;
- font-family: 'Poppins';
- letter-spacing:1.06;
+ font-size:20px;
+ font-weight:600;
+ line-height:1.2;
  text-align:center;
  color: ${props => props.theme.colors.textWhite};
 
 @media ${props => props.theme.device.tablet} {
- font-Size: 28px;
+ font-size: 28px;
   }
 
 @media ${props => props.theme.device.desktop} {
- font-Size: 28px;
+ font-size: 28px;
   }
 
 `;
 
 export const WowText = styled.span`
- font-Size: 32px;
- font-family: 'Poppins';
+ font-size: 20px;
+ line-height:1.2;
+ font-weight:600;
  color: ${props => props.theme.colors.accent};
 
 @media ${props => props.theme.device.tablet} {
- font-Size: 28px;
+ font-size: 28px;
   }
 
 @media ${props => props.theme.device.desktop} {
- font-Size: 28px;
+ font-size: 28px;
   }
 `;
 
@@ -153,16 +182,31 @@ export const TextSvg = styled.img`
 
 
 export const ButtonClose = styled.button`
-  width:48px;
-  height:48px;
+  width:40px;
+  height:40px;
   border-Radius: 50%;
   background-Color: #8BAA36;
- position:relative;
+  position:relative;
+  position:absolute;
   padding: 0px;
   
-  top: 10px;
-  right: 140px;
+  top:110%;
+  left:50%;
+  transform:translate(-50%,-50%);
   cursor: pointer;
+
+  @media ${props => props.theme.device.tablet} {
+  width:48px;
+  height:48px;
+    top:95%;
+  }
+
+ @media ${props => props.theme.device.desktop} {
+   width:48px;
+  height:48px;
+  top:95%;
+  }
+
 `;
 
 
