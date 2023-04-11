@@ -7,7 +7,7 @@ import ThemeToogle from 'components/ThemeToogle';
 import DesktopMenu from './DesktopMenu';
 import MobileMenu from './MobileMenu';
 import UserMenu from './UserMenu';
-import { Loader } from 'components/Loader/Loader';
+import ButtonLoader from 'components/ButtonLoader';
 
 import logo from '../../images/icons/logo_Desktop.svg';
 import lightLogo from '../../images/icons/logo-Lite-Icon.svg';
@@ -67,11 +67,13 @@ export const Head = () => {
           <DesktopMenu />
 
           <UserToogleWrap>
-            {isLoading ? (<Loader/>) : (<UserWrapButton onClick={handleOpenSmallUserMenu}>
-              <UserIcon src={userAvatar} alt="user avatar" width={44} />
+
+            <UserWrapButton onClick={handleOpenSmallUserMenu}>
+              {isLoading? <ButtonLoader/> : <UserIcon src={userAvatar} alt="user avatar" width={44} />}
+
               <UserName>{userName}</UserName>
 
-            </UserWrapButton>) }
+            </UserWrapButton>
 
             <UserMenu
                 openUser={openUser}
