@@ -20,6 +20,7 @@ import { lightTheme, darkTheme } from '../constants/theme';
 import { useMemo } from 'react';
 import { useState } from 'react';
 
+const Verification = lazy(() => import('pages/Varification/Verification'));
 const SharedLayout = lazy(() => import('../components/SharedLayout'));
 //const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
 const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
@@ -78,6 +79,7 @@ export const App = () => {
                 <PublicRoute component={<SignInPage />} redirectTo="/main" />
               }
             />
+            <Route path="verification/:id" element={<Verification />} />
 
             <Route path="/" element={<SharedLayout />}>
               <Route

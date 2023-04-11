@@ -73,3 +73,8 @@ export const getPopularRecipes = async () => {
     console.log(error);
   }
 };
+
+export const getVerificationUser = async id => {
+  const { data } = await axios.get(`/users/verify/${id}`);
+  return data.data;
+};
