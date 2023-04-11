@@ -30,8 +30,9 @@ export const theme = {
     blackAndWhiteBrorderList: '#e0e0e0',
     editProfileModal: '#FAFAFA',
     profileModalCloseIcon: '#333333',
-
-    
+    popularRecipeDescription: '#7e7e7e',
+    popularRecipesItemBox: '#7070702b',
+    recipesFonts: '#3E4462',
 
     modes: {
       white: {
@@ -100,7 +101,7 @@ export const lightTheme = {
     textWhite: '#FAFAFA', //текст білий
     textWhiteMuted: 'rgba(250, 250, 250, 0.6)', //текст білий пригнічений
     textTitle: '#001833', //текст синій
-    textError: '#fa2c2c', // червоний текст помилки
+    textError: 'fa2c2c', // червоний текст помилки
     subFooterText: '#22252A', // текст, який розташований під футером
     subFooterBtn: '#FAFAFA', // текст, який розташований у кнопці футера
     socialLinkIcons: '#8BAA36',
@@ -110,7 +111,9 @@ export const lightTheme = {
     blackAndWhiteBrorderList: '#e0e0e0',
     editProfileModal: '#FAFAFA',
     profileModalCloseIcon: '#333333',
-
+    popularRecipeDescription: '#7e7e7e',
+    popularRecipesItemBox: '#7070702b',
+    recipesFonts: '#3E4462',
 
     modes: {
       white: {
@@ -188,7 +191,9 @@ export const darkTheme = {
     blackAndWhiteBrorderList: '#fafafa4d',
     editProfileModal: '#1E1F28',
     profileModalCloseIcon: '#FAFAFA',
-
+    popularRecipeDescription: '#fafafa99',
+    popularRecipesItemBox: '#7070702b',
+    recipesFonts: '#FAFAFA',
 
     modes: {
       white: {
