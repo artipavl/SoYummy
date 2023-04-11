@@ -13,7 +13,6 @@ export const ShoppingListContainer = styled.div`
 
 export const ShoppingListTitle = styled.h3`
   display: flex;
-  margin: 0 -8px;
   justify-content: space-between;
   font-weight: ${props => props.theme.fontWeights.bold};
   font-size: 12px;
