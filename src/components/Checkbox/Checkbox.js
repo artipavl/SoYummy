@@ -13,7 +13,6 @@ const { useState, useEffect } = require('react');
 
 const Checkbox = ({ ingrId, shopList, ingrMeasure }) => {
   const [checked, setChecked] = useState(false);
-  // const [shopItem, setShopItem] = useState([]);
   const { recipeId } = useParams();
 
   const handleCheckboxChange = event => {
@@ -28,7 +27,6 @@ const Checkbox = ({ ingrId, shopList, ingrMeasure }) => {
 
   useEffect(() => {
     shopItem ? setChecked(true) : setChecked(false);
-    // shopItem && setShopItem(shopItem);
   }, [shopItem]);
 
   return (
