@@ -23,6 +23,7 @@ import { useState } from 'react';
 const Verification = lazy(() => import('pages/Varification/Verification'));
 const SharedLayout = lazy(() => import('../components/SharedLayout'));
 //const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
+const Modal= lazy(() => import('../components/Modal'));
 const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
 const AddRecipePage = lazy(() =>
   import('../pages/AddRecipePage/AddRecipePage')
@@ -128,6 +129,10 @@ export const App = () => {
               <Route
                 path="*"
                 element={<PrivateRoute component={<NotFound />} />}
+              />
+              <Route
+                path="modal"
+                element={<PrivateRoute component={<Modal />} />}
               />
             </Route>
           </Routes>
