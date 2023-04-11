@@ -9,8 +9,7 @@ import { editUserValidationSchema } from 'utils/editUserValidationSchema';
 import { selectUserName, selectAvatarURL } from 'redux/selectors';
 import { updateUser } from '../../../../redux/authOperations';
 import addAvatarImg from '../../../../images/icons/plus-icon.svg';
-import crossIcon from '../../../../images/icons/cross.svg';
-
+// import crossIcon from '../../../../images/icons/cross.svg';
 
 import {
   UserIconStyled,
@@ -18,7 +17,6 @@ import {
   ResetNameButton,
   BackdropEditUserMOdal,
   ModalEditUser,
-  CloseButtonStyled,
   PreviewWrap,
   PreviewImageWrap,
   PreviewImage,
@@ -28,7 +26,6 @@ import {
   EditNameFormStyled,
   EditBtnWrap,
   EditModalBtn,
-
   CloseIcon,
 } from './EditModalUser.styled';
 
@@ -37,7 +34,6 @@ export const EditUserModal = ({
   handleOpenEditModal,
   stopPropagation,
 }) => {
-
   const dispatch = useDispatch();
   const userName = useSelector(selectUserName);
   const avatarURL = useSelector(selectAvatarURL);
