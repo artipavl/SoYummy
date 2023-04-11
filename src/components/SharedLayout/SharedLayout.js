@@ -12,7 +12,12 @@ const Layout = styled.div`
 
 export const SharedLayout = ({ children }) => {
   return (
-    <Layout style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+    <Layout style={{
+      minHeight: '100vh',
+      maxHeight: '100%',
+      display: 'flex',
+      flexDirection: 'column'
+    }}>
       <Head />
       <main style={{ flexGrow: 1, zIndex: 5 }}>
         <Suspense fallback={<Loader />}>
