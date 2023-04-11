@@ -13,6 +13,7 @@ export const ShoppingListContainer = styled.div`
 
 export const ShoppingListTitle = styled.h3`
   display: flex;
+  margin: 0 -8px;
   justify-content: space-between;
   font-weight: ${props => props.theme.fontWeights.bold};
   font-size: 12px;
@@ -21,6 +22,7 @@ export const ShoppingListTitle = styled.h3`
   padding: 10px;
   background: ${props => props.theme.colors.modes.white.accent};
   @media ${props => props.theme.device.tablet} {
+    margin: 0;
     padding: 20px;
     font-size: 18px;
     letter-spacing: 0.03em;
@@ -54,7 +56,7 @@ export const RightBox = styled.div`
 
 export const ShoppingListItem = styled.li`
   display: flex;
-  padding: 24px 24px 24px 8px;
+  padding: 24px 16px 24px 0;
 
   border-bottom: 1px solid
     ${props => props.theme.colors.blackAndWhiteBrorderList};
