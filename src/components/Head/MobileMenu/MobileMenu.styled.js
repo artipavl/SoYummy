@@ -76,10 +76,6 @@ export const NavLogo = styled.img`
   }
 
 `
-export const CrossImg = styled.img`
-  width: 32px;
-  height: 32px;
-`
 
 export const NavItems = styled.ul`
 `

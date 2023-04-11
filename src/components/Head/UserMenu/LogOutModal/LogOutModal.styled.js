@@ -27,7 +27,7 @@ export const LogOutModalWrap = styled.div`
   flex-direction: column;
   flex-grow: 1;
   padding: 44px 24px;
-  background-color: ${props => props.theme.colors.textWhite};
+  background-color: ${props => props.theme.colors.editProfileModal};
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

@@ -82,7 +82,7 @@ const validationSchema = yup.object().shape({
           required
 
         />
-        <EmailIconStyled/>
+        <EmailIconStyled style={{ fill: formik.errors.email ? "#fa2c2c" : "#8BAA36" }}/>
         {!formik.isValid ? (
           <ResetFormInput
             type='button'
