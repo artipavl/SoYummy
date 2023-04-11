@@ -1,13 +1,13 @@
 import { useEffect} from 'react';
 import { createPortal } from 'react-dom';
-import cross from '../../images/icons/logo-Lite-Icon.svg';
-
-import { Overlay,ModalContainer,ModalText,WowText, ButtonClose,BtnIcon,TextContainer } from "./Modal.styled";
+import close from '../../../src/images/Modal/close.svg';
+import text_bg from '../../../src/images/Modal/text_bg.svg';
+import { Overlay,ModalContainer,ModalText,WowText, ButtonClose,BtnIcon,TextContainer,TextSvg } from "./Modal.styled";
 
 
 const modalRoot = document.querySelector('#modal-root');
 
-export default function Modal ({ title, onClose}) {
+export default function Modal ({ text, onClose}) {
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
@@ -33,15 +33,19 @@ export default function Modal ({ title, onClose}) {
     };
 
   
+  
     return createPortal(
       <Overlay onClick={handleBackdropClick}>
         <ModalContainer>
-                <TextContainer>
-                <ModalText><WowText>Wow!</WowText>{title }</ModalText>
-                </TextContainer>
-                <ButtonClose type='button' onClick={buttonCloseClick}>
-                    <BtnIcon src={cross} alt='cross'/>
+          
+          <TextContainer>
+            <TextSvg src={text_bg} alt='text-background'/>
+            <ModalText><WowText>Wow!</WowText>{text}</ModalText>
+             <ButtonClose type='button' onClick={buttonCloseClick}>
+                   <BtnIcon src={close} alt='cross'/>
                 </ButtonClose>
+                </TextContainer>
+               
         </ModalContainer>
       </Overlay>,
       modalRoot

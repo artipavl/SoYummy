@@ -52,11 +52,13 @@ export const Overlay= styled.div`
 
 
 export const ModalContainer= styled.div`
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
+
   background-image:url(${props => mobImages[Math.floor(Math.random() * mobImages.length)]});
   background-repeat:no-repeat;
   background-size:cover;
+
   @media ${props => props.theme.retinaBackgroundImage} {
   background-image:url(${props => mob2xImages[Math.floor(Math.random() * mob2xImages.length)]});
   }
@@ -88,20 +90,23 @@ export const TextContainer = styled.div`
  width:299px;
  height: 269px;
  padding:44px 26px 89px 26px;
- filter:blur();
+ margin:285px 38px 258px 38px;
+
+
+ 
 
 @media ${props => props.theme.device.tablet} {
  width:268px;
  height: 242px;
  padding:32px 24px 90px 24px;
- filter:blur();
+ margin:134px 66px 24px 66px;
   }
 
 @media ${props => props.theme.device.desktop} {
  width:268px;
  height: 242px;
  padding:32px 24px 90px 24px;
-  filter:blur();
+ margin:218px 116px 40px 116px;
   }
 
 `;
@@ -110,6 +115,8 @@ export const TextContainer = styled.div`
 export const ModalText = styled.p`
  font-Size: 32px;
  font-family: 'Poppins';
+ letter-spacing:1.06;
+ text-align:center;
  color: ${props => props.theme.colors.textWhite};
 
 @media ${props => props.theme.device.tablet} {
@@ -136,28 +143,38 @@ export const WowText = styled.span`
   }
 `;
 
-export const ModalImage = styled.img`
-  width: 100%;
+export const TextSvg = styled.img`
+ width:299px;
+ height: 269px;
+ filter: grayscale(100%);
+ margin:0 auto;
+
 `;
+
 
 export const ButtonClose = styled.button`
   width:48px;
   height:48px;
   border-Radius: 50%;
   background-Color: #8BAA36;
-  align-items: center;
-  justify-content: center;
+ position:relative;
   padding: 0px;
-  position: absolute;
+  
   top: 10px;
   right: 140px;
   cursor: pointer;
 `;
 
+
+
 export const BtnIcon = styled.img`
-  width:48px;
-  height:48px;
+  width:12px;
+  height:12px;
   fill:#FAFAFA;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
   
 `;
 
