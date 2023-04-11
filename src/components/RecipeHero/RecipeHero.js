@@ -21,7 +21,7 @@ import { useEffect, useState } from 'react';
 
 const RecipeHero = ({ title, description, time, recipeId }) => {
   const [isFavorite, setIsFavorite] = useState(false);
-  // const [isOwnRecipe, setIsOwnRecipe] = useState(false);
+  const [isOwnRecipe, setIsOwnRecipe] = useState(false);
 
   const handleFavoriteAdd = id => {
     addToFavorites(id)
@@ -37,20 +37,31 @@ const RecipeHero = ({ title, description, time, recipeId }) => {
       })
       .catch(err => console.log(err.message));
   };
+  const isArrHasRecipeId = arr => {
+    return arr.reduce((acc, item) => {
+      if (item._id === recipeId) {
+        acc = true;
+      }
+      return acc;
+    }, false);
+  };
 
   useEffect(() => {
-    getFavorites().then(res => {
-      const { result: favorites } = res.data.data;
-      const isFavorite = favorites.reduce((acc, favorite) => {
-        if (favorite._id === recipeId) {
-          acc = true;
-        }
-        return acc;
-      }, false);
-      isFavorite && setIsFavorite(isFavorite);
-    });
+    getFavorites()
+      .then(res => {
+        const { result: favorites } = res.data.data;
+        const isFavorite = isArrHasRecipeId(favorites);
+        isFavorite && setIsFavorite(isFavorite);
+      })
+      .catch(err => console.log(err.message));
 
-    getOwnRecipes();
+    getOwnRecipes()
+      .then(res => {
+        const { result: ownRecipes } = res.data;
+        const ownRecipe = isArrHasRecipeId(ownRecipes);
+        ownRecipe && setIsOwnRecipe(ownRecipe);
+      })
+      .catch(err => console.log(err.message));
   }, [recipeId]);
   return (
     <HeroSection>
