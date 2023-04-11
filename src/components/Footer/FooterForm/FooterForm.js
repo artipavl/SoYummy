@@ -1,6 +1,6 @@
 import { selectUserEmail } from 'redux/selectors';
 import { useSelector, useDispatch } from 'react-redux';
-// import { selectorSwicherTheme } from 'redux/selectors';
+import { selectorSwicherTheme } from 'redux/selectors';
 import { subscribeUser } from 'redux/authOperations';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
@@ -22,7 +22,7 @@ export const FooterForm = () => {
 
 const dispatch = useDispatch();
 const userEmail = useSelector(selectUserEmail);
-// const theme = useSelector(selectorSwicherTheme);
+const theme = useSelector(selectorSwicherTheme);
 
 const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
@@ -69,7 +69,8 @@ const validationSchema = yup.object().shape({
   }
 
   return (
-    <FormFooter onSubmit={formik.handleSubmit}>
+    <FormFooter onSubmit={formik.handleSubmit}
+    >
       <InputWrapper>
         <FormFooterInput
           type="email"
@@ -82,9 +83,10 @@ const validationSchema = yup.object().shape({
           error={formik.errors.email}
           touched={formik.touched.email}
           required
+          themeName={theme}
 
         />
-        <EmailIconStyled errorFormik={formik.errors.email } />
+        <EmailIconStyled errorformik={formik.errors.email } />
         {!formik.isValid ? (
           <ResetFormInput
             type='button'

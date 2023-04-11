@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { ReactComponent as EmailIcon } from '../../../images/icons/email-icon-for-footer.svg';
 import { ReactComponent as ErrorLogo } from '../../../images/icons/Error-logo.svg';
-import { ReactComponent as SuccessLogo } from "../../../images/icons/Success-logo.svg"
+import { ReactComponent as SuccessLogo } from "../../../images/icons/Success-logo.svg";
 
 // import { CiMail } from "react-icons/ci";
 
@@ -16,7 +16,7 @@ export const EmailIconStyled = styled(EmailIcon)`
   top: 50%;
   transform: translateY(-50%);
   path {
-    stroke: ${props => props.errorFormik? '#E74A3B' : '#3CBC81'}
+    stroke: ${props => props.errorformik? '#E74A3B' : '#3CBC81'}
   }
   @media ${props => props.theme.device.tablet} {
     left: 16px;
@@ -79,14 +79,17 @@ export const FormFooterInput = styled.input`
   background-repeat: no-repeat;
   background-position: 15px 13px;
   background-size: 16px 12px;
-  color: ${({ error, touched, theme }) =>
+  color: ${({ error, touched }) =>
     touched ? (error ? '#E74A3B' : '#3CBC81') : '#3CBC81'};
   border-radius: 6px;
   border: 1px solid ${({ error, touched }) =>
-  touched ? (error ? '#E74A3B' : '#3CBC81') : '#3CBC81'};
-/*
-  color: ${props => console.log(props)} */
+    touched ? (error ? '#E74A3B' : '#3CBC81') : '#3CBC81'};
 
+  color: ${props => {
+    console.log(props.themeName)
+
+  }
+  };
 
 
   @media ${props => props.theme.device.tablet} {

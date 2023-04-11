@@ -1,4 +1,5 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, } from 'react-redux';
+
 import { useEffect } from 'react';
 
 import notiflix from 'notiflix';
@@ -9,7 +10,6 @@ import { editUserValidationSchema } from 'utils/editUserValidationSchema';
 import { selectUserName, selectAvatarURL } from 'redux/selectors';
 import { updateUser } from '../../../../redux/authOperations';
 import addAvatarImg from '../../../../images/icons/plus-icon.svg';
-// import crossIcon from '../../../../images/icons/cross.svg';
 
 import {
   UserIconStyled,
@@ -37,27 +37,6 @@ export const EditUserModal = ({
   const dispatch = useDispatch();
   const userName = useSelector(selectUserName);
   const avatarURL = useSelector(selectAvatarURL);
-
-  const formik = useFormik({
-    initialValues: {
-      avatar: avatarURL || '',
-      name: userName || '',
-    },
-    validationSchema: editUserValidationSchema,
-    onSubmit: ({ avatar, name }) => {
-      const formData = new FormData();
-      formData.append('name', name);
-      formData.append('avatar', avatar);
-      dispatch(updateUser(formData))
-        .then(() => {
-          return notiflix.Notify.success('User update successful');
-        })
-        .catch(error => {
-          return notiflix.Notify.failure('Error updating');
-        });
-      handleOpenEditModal();
-    },
-  });
 
   useEffect(() => {
     if (openEditMenu) {
@@ -87,16 +66,48 @@ export const EditUserModal = ({
     }
   }, [openEditMenu]);
 
+  const formik = useFormik({
+    initialValues: {
+      avatar: avatarURL || '',
+      name: userName || '',
+    },
+
+    validationSchema: editUserValidationSchema,
+    onSubmit: ({ avatar, name }) => {
+      const formData = new FormData();
+      formData.append('name', name);
+
+      if (avatar !== avatarURL) {
+        formData.append('avatar', avatar);
+      }
+
+      dispatch(updateUser(formData))
+        .then(() => {
+          return notiflix.Notify.success('User update successful');
+        })
+        .catch(error => {
+          return notiflix.Notify.failure('Error updating');
+        });
+      handleOpenEditModal();
+    },
+  });
+
   const handleAvatarChange = e => {
     const newAvatar = e.target.files[0];
     formik.setValues({ ...formik.values, avatar: newAvatar });
   };
 
+  const handleChangeName = e => {
+    console.log(e.target.value)
+    console.log(formik.values)
+    formik.setValues({...formik.values, name: e.target.value })
+  }
+
   const handleResetName = () => {
     formik.resetForm({
       values: {
         ...formik.values,
-        name: '',
+        name: ''
       },
     });
   };
@@ -119,12 +130,7 @@ export const EditUserModal = ({
         className={openEditMenu ? 'open' : ''}
         onClick={stopPropagation}
       >
-        {/*
-        <button
-          type='button'
-          onClick={handleOpenEditModal}>
-          <CloseButton src={crossIcon} alt="close button" width={20} />
-        </button> */}
+
         <button type="button" onClick={handleOpenEditModal}>
           <CloseIcon />
         </button>
@@ -159,8 +165,8 @@ export const EditUserModal = ({
                 onChange={handleAvatarChange}
                 onBlur={formik.handleBlur}
                 error={formik.errors.avatar}
-                touched={formik.touched.avatar}
-                required
+                // touched={formik.touched.avatar}
+
               />
             </AddImageButton>
           </PreviewWrap>
@@ -171,10 +177,10 @@ export const EditUserModal = ({
               id="name"
               placeholder="Enter your name"
               value={formik.values.name}
-              onChange={formik.handleChange}
+              onChange={handleChangeName}
               onBlur={formik.name}
               error={formik.errors.name}
-              touched={formik.touched.name}
+              // touched={formik.touched.name}
             />
             <UserIconStyled
               style={{ stroke: formik.errors.name ? '#E74A3B' : '#3CBC81' }}
