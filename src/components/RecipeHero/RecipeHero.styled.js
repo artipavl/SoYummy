@@ -43,12 +43,13 @@ export const TextWrap = styled.div`
   max-width: 303px;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: ${props => (props.addMargin ? '101px' : '24px')};
   @media ${props => props.theme.device.tablet} {
-    margin-bottom: 24px;
+    margin-bottom: ${props => (props.addMargin ? '143px' : '24px')};
     max-width: 506px;
   }
   @media ${props => props.theme.device.desktop} {
-    margin-bottom: 30px;
+    margin-bottom: ${props => (props.addMargin ? '137px' : '30px')};
     max-width: 656px;
   }
 `;
@@ -62,8 +63,7 @@ export const HeroTitle = styled.h1`
   line-height: 1;
   letter-spacing: -0.02em;
   text-align: center;
-  color: ${props => props.theme.colors.accent};
-
+  color: #8baa36;
   @media ${props => props.theme.device.tablet} {
     margin-bottom: 24px;
     font-size: 44px;
@@ -73,7 +73,6 @@ export const HeroTitle = styled.h1`
 export const RecepyDescr = styled.p`
   margin-right: auto;
   margin-left: auto;
-  margin-bottom: 24px;
 
   font-style: normal;
   font-weight: ${props => props.theme.fontWeights.normal};
@@ -83,7 +82,7 @@ export const RecepyDescr = styled.p`
   text-align: center;
   letter-spacing: -0.02em;
 
-  color: ${props => props.theme.colors.accentDark};
+  color: #22252a;
 
   @media ${props => props.theme.device.tablet} {
     font-size: 18px;
@@ -95,11 +94,22 @@ export const FavoriteBtn = styled.button`
   background-color: transparent;
   color: #22252a;
   border-radius: 24px 44px;
-  border: 1px solid ${props => props.theme.colors.accent};
+  border: 1px solid #8baa36;
   transition: all 250ms linear;
 
   font-size: 10px;
   line-height: 1.5;
+
+  @media ${props => props.theme.device.tablet} {
+    padding: 18px 44px;
+    font-size: 16px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: #8baa36;
+    border: 1px solid #8baa36;
+  }
 
   &:disabled {
     position: absolute;
@@ -112,17 +122,6 @@ export const FavoriteBtn = styled.button`
     clip-path: inset(100%);
     clip: rect(0 0 0 0);
     overflow: hidden;
-  }
-
-  @media ${props => props.theme.device.tablet} {
-    padding: 18px 44px;
-    font-size: 16px;
-  }
-
-  &:hover,
-  &:focus {
-    background-color: ${props => props.theme.colors.accent};
-    border: 1px solid ${props => props.theme.colors.accent};
   }
 `;
 
@@ -165,8 +164,7 @@ export const RecipeTime = styled.p`
   line-height: 1.4;
   letter-spacing: -0.24px;
 
-  color: ${props => props.theme.colors.text};
-
+  color: #23262a;
   @media ${props => props.theme.device.tablet} {
     font-size: 14px;
   }

@@ -67,7 +67,7 @@ const RecipeHero = ({ title, description, time, recipeId }) => {
   return (
     <HeroSection>
       <Container>
-        <TextWrap>
+        <TextWrap addMargin={isOwnRecipe}>
           <HeroTitle>{title}</HeroTitle>
           <RecepyDescr>{description}</RecepyDescr>
         </TextWrap>

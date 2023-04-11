@@ -19,7 +19,7 @@ const Checkbox = ({ ingrId, shopListProp, ingrMeasure }) => {
   const handleCheckboxChange = async event => {
     setChecked(event.target.checked);
     if (checked) {
-      const res = await removeShopItem(shopItem._id);
+      await removeShopItem(shopItem._id);
     } else {
       const res = await addShopItem(recipeId, ingrId, ingrMeasure);
       const { result: newShopList } = res.data.data;
