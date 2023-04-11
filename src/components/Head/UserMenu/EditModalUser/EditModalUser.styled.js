@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { ReactComponent as RedCross } from '../../../..//images/icons/Error-logo.svg';
 import {ReactComponent as CloseButton} from '../../../../images/icons/cross.svg'
 import { FiUser } from 'react-icons/fi';
+import { RiCloseLine } from 'react-icons/ri';
 
 export const UserIconStyled = styled(FiUser)`
   position: absolute;
@@ -92,15 +93,21 @@ export const ModalEditUser = styled.div`
   }
 `
 
-export const CloseButtonStyled = styled(CloseButton)`
- position: absolute;
- right: 18px;
- top: 18px;
- path {
-  stroke: ${props => props.theme.colors.text};
- }
+// export const CloseButton = styled.img`
+//  position: absolute;
+//  right: 18px;
+//  top: 18px;
+// `
 
-`
+
+export const CloseIcon = styled(RiCloseLine)`
+  color: ${props => props.theme.colors.profileModalCloseIcon};
+  color: ${props => props.theme.colors.profileModalCloseIcon};
+  font-size: 20px;
+  position: absolute;
+  right: 18px;
+  top: 18px;
+`;
 
 export const PreviewWrap = styled.div`
   position: relative;

@@ -29,6 +29,7 @@ export const theme = {
     defLight: '#FAFAFA',
     blackAndWhiteBrorderList: '#e0e0e0',
     editProfileModal: '#FAFAFA',
+    profileModalCloseIcon: '#333333',
 
     
 
@@ -111,6 +112,7 @@ export const lightTheme = {
     defLight: '#FAFAFA',
     blackAndWhiteBrorderList: '#e0e0e0',
     editProfileModal: '#FAFAFA',
+    profileModalCloseIcon: '#333333',
 
 
     modes: {
@@ -190,6 +192,7 @@ export const darkTheme = {
     defLight: '#FAFAFA',
     blackAndWhiteBrorderList: '#fafafa4d',
     editProfileModal: '#1E1F28',
+    profileModalCloseIcon: '#FAFAFA',
 
 
     modes: {
