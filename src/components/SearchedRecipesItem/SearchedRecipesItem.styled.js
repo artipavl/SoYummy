@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const RecipeItem = styled.li`
   position: relative;
@@ -44,6 +45,10 @@ export const RecipeItem = styled.li`
     }
   }
 `;
+
+export const RecipeLink = styled(Link)``;
+
+export const RecipeWrapper = styled.div``;
 
 export const RecipeImage = styled.img`
   width: 343px;

@@ -10,13 +10,7 @@ export const SearchPageSection = styled.section`
   }
 
   @media ${props => props.theme.device.desktop} {
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 99px;
+    padding-right: 99px;
   }
 `;
-
-// export const LoaderWrapper = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// `;

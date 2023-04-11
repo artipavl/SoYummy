@@ -1,28 +1,38 @@
 import {
   RecipeItem,
+  RecipeLink,
+  RecipeWrapper,
   RecipeImage,
   RecipeTitleContainer,
   RecipeTitleName,
 } from './SearchedRecipesItem.styled';
 
-const SearchedRecipesItem = ({ title, preview }) => {
+const SearchedRecipesItem = ({ title, preview, id }) => {
   const animation = title.length > 34;
 
   return (
     <>
       {animation ? (
         <RecipeItem animation>
-          <RecipeImage src={preview} alt={title} />
-          <RecipeTitleContainer>
-            <RecipeTitleName>{title}</RecipeTitleName>
-          </RecipeTitleContainer>
+          <RecipeLink>
+            <RecipeWrapper>
+              <RecipeImage src={preview} alt={title} />
+              <RecipeTitleContainer>
+                <RecipeTitleName>{title}</RecipeTitleName>
+              </RecipeTitleContainer>
+            </RecipeWrapper>
+          </RecipeLink>
         </RecipeItem>
       ) : (
         <RecipeItem>
-          <RecipeImage src={preview} alt={title} />
-          <RecipeTitleContainer>
-            <RecipeTitleName>{title}</RecipeTitleName>
-          </RecipeTitleContainer>
+          <RecipeLink>
+            <RecipeWrapper>
+              <RecipeImage src={preview} alt={title} />
+              <RecipeTitleContainer>
+                <RecipeTitleName>{title}</RecipeTitleName>
+              </RecipeTitleContainer>
+            </RecipeWrapper>
+          </RecipeLink>
         </RecipeItem>
       )}
     </>

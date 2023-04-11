@@ -8,13 +8,14 @@ import { Loader } from 'components/Loader/Loader';
 import {
   LoaderWrapper,
   RecipesList,
+  RecipeNotFoundImage,
   RecipeNotFoundText,
 } from './SearchedRecipesList.styled';
 
 import { selectStatus } from 'redux/selectors';
 
 const SearchedRecipesList = () => {
-  const results = useSelector(selectResults);
+  const recipes = useSelector(selectResults);
   const { isLoading, isResolved } = useSelector(selectStatus);
 
   return (
@@ -25,17 +26,25 @@ const SearchedRecipesList = () => {
         </LoaderWrapper>
       ) : (
         <RecipesList>
-          {results.map(({ _id, title, preview }) => {
+          {recipes.map(({ _id, title, preview }) => {
             return (
-              <SearchedRecipesItem key={_id} title={title} preview={preview} />
+              <SearchedRecipesItem
+                key={_id}
+                title={title}
+                preview={preview}
+                id={_id}
+              />
             );
           })}
         </RecipesList>
       )}
-      {isResolved && results.length === 0 && (
-        <RecipeNotFoundText>
-          Try looking for something else..
-        </RecipeNotFoundText>
+      {isResolved && recipes.length === 0 && (
+        <>
+          <RecipeNotFoundImage />
+          <RecipeNotFoundText>
+            Try looking for something else..
+          </RecipeNotFoundText>
+        </>
       )}
     </>
   );
