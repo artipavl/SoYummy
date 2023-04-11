@@ -25,11 +25,12 @@ export const RecipeItem = styled.li`
   }
   &:hover,
   &:focus {
-    h2 {
-      overflow: ${props => props.animation && 'visible'};
-      animation: ${props => props.animation && 'ticker 9s linear infinite'};
-      position: ${props => props.animation && 'absolute'};
-      left: ${props => props.animation && '307px'};
+    p {
+      overflow: ${props => (props.animation ? 'visible' : 'hidden')};
+      animation: ${props =>
+        props.animation ? 'ticker 9s linear infinite' : ''};
+      position: ${props => (props.animation ? 'absolute' : '')};
+      left: ${props => (props.animation ? '307px' : '')};
       @keyframes ticker {
         0% {
           transform: translate(0, 0);
