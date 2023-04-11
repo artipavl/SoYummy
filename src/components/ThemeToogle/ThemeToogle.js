@@ -6,7 +6,10 @@ import styled from 'styled-components';
 
 
 const StyledSwitch = styled(Switch)`
-  box-shadow: inset 0 6px 8px 3px rgba(0,0,0,.1);
+  .react-switch-bg {
+    box-shadow: inset 0 6px 8px 3px rgba(0,0,0,.1);
+  }
+
 `;
 
 export const ThemeToogle = () => {

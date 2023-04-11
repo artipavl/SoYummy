@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom"
 import styled from 'styled-components';
-import userIconBG from '../../images/icons/user-icon.svg'
+import userIconBG from '../../images/icons/user-icon.svg';
+import { ReactComponent as BurgerIcon } from '../../images/icons/burger.svg';
 
 export const Header = styled.header`
   position: absolute;
@@ -137,13 +138,29 @@ export const Burger = styled.button`
     height: 28px;
     margin-left: 50px;
   @media (min-width: 280px) and (max-width: 374px) {
-      margin-left: 15px;
+    margin-left: 15px;
 
   }
 
   @media ${props => props.theme.device.desktop} {
   display: none;
 }
+
+
 `
+
+export const BurgerIconStyled = styled(BurgerIcon)`
+  width: 28px;
+  height: 28px;
+  @media ${props => props.theme.device.tablet} {
+    width: 32px;
+    height: 32px;
+  }
+  path {
+    stroke: ${props => props.theme.colors.text}
+  }
+
+`
+
 
 
