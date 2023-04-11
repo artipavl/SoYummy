@@ -24,7 +24,7 @@ export const Categories = () => {
   const [categoryList, setCategoryList] = useState([]);
   const [itemArray, setItemArray] = useState([]);
   const [oneParam] = useState(useParams().categoryName);
-
+  console.log(isLoading);
   useEffect(() => {
     const fetchProductList = async () => {
       setIsLoading(true);

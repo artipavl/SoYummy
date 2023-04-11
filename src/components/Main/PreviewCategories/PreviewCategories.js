@@ -1,4 +1,3 @@
-import recipies from 'api/recipes/recipes.json';
 import { getMainPage } from 'api/serviseApi';
 import { useState, useEffect } from 'react';
 
@@ -21,7 +20,7 @@ import { RoundedButton } from 'reusableComponents/Btn/Btn';
 export const PreviewCategories = ({ location }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [mainArray, setMainArray] = useState([]);
-
+  console.log(isLoading);
   useEffect(() => {
     const fetchMainPage = async () => {
       setIsLoading(true);
@@ -42,8 +41,6 @@ export const PreviewCategories = ({ location }) => {
   }, {});
 
   const { Breakfast, Miscellaneous, Chicken, Dessert } = sortedRecipes;
-
-
 
   const variant = 'normal';
   return (
