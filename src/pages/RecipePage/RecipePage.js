@@ -22,7 +22,7 @@ const RecipePage = () => {
       .catch(error => console.error(error));
   }, [recipeId]);
   return (
-    <div>
+    <>
       <RecipeHero
         title={recipe.title}
         description={recipe.description}
@@ -35,7 +35,7 @@ const RecipePage = () => {
         picture={recipe.preview}
         alt={recipe.title}
       ></RecipeInstructions>
-    </div>
+    </>
   );
 };
 
