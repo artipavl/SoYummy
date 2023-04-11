@@ -1,4 +1,4 @@
-import { Btn } from '../Btn/btn.style';
+import { Btn } from './btn.style';
 
 export const RoundedButton = ({ title, to, variant = 'normal' }) => {
   return (

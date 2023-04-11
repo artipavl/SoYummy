@@ -5,6 +5,9 @@
  - PreviewCategories"
  */
 
+import { useLocation } from 'react-router-dom';
+
+
 import { СhooseYourBreakfast } from 'components/Main/СhooseYourBreakfast/СhooseYourBreakfast';
 import { Search } from 'components/Main/Search/Search';
 import { ConteinerFlex, ConteinerGrid } from './MainPage.styled';
@@ -12,15 +15,18 @@ import { PreviewCategories } from 'components/Main/PreviewCategories/PreviewCate
 
 
 export const MainPage = () => {
-  return (
-    <><ConteinerFlex>
 
-      <ConteinerGrid>
-        <СhooseYourBreakfast />
-        <Search />
-      </ConteinerGrid>
-        <PreviewCategories/>
-    </ConteinerFlex>
+  const location = useLocation();
+
+  return (
+    <>
+      <ConteinerFlex>
+        <ConteinerGrid>
+          <СhooseYourBreakfast />
+          <Search />
+        </ConteinerGrid>
+        <PreviewCategories location={location} />
+      </ConteinerFlex>
     </>
   );
 };

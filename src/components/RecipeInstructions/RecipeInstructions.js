@@ -4,7 +4,6 @@ import {
   DesktopFlex,
   InstructionItem,
   InstructionText,
-  InstructionsList,
   InstructionsSection,
   InstructionsTitle,
   ItemNumber,
@@ -17,7 +16,7 @@ const RecipeInstructions = ({ instructions, picture, alt }) => {
       <DesktopFlex>
         <ContentWrapper>
           <InstructionsTitle>Recipe preparation</InstructionsTitle>
-          <InstructionsList>
+          <ol>
             {instructions.map(instruction => {
               return (
                 <InstructionItem key={nanoid()}>
@@ -32,7 +31,7 @@ const RecipeInstructions = ({ instructions, picture, alt }) => {
                 </InstructionItem>
               );
             })}
-          </InstructionsList>
+          </ol>
         </ContentWrapper>
         {picture ? (
           <RecipeImg src={picture} alt={alt}></RecipeImg>

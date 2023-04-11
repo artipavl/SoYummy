@@ -63,12 +63,40 @@ export const deleteShoppingList = async _id => {
   }
 };
 
-//!             Popular recipe        //
+export const getMainPage = async () => {
+  try {
+    const { data } = await axios.get(`/recipes/main-page`);
+    const result = data.data.result;
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const getPopularRecipes = async () => {
   try {
     const { data } = await axios.get(`/recipes/popular-recipe`);
     return data.data.result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getCategoryPage = async () => {
+  try {
+    const { data } = await axios.get(`/recipes/category-list`);
+    const result = data.data.result;
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getCategoryList = async e => {
+  try {
+    const { data } = await axios.get(`/recipes/list/${e}`);
+    const result = data.data.result;
+    return result;
   } catch (error) {
     console.log(error);
   }

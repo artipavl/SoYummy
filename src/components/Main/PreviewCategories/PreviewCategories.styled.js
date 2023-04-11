@@ -1,16 +1,18 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { theme } from 'constants/theme';
 
 export const Container = styled.div`
   max-width: 375px;
   margin-top: 147px;
-  @media ${theme.device.tablet} {
+  display: flex;
+  flex-direction: column;
+align-items: center;
+  @media ${props => props.theme.device.tablet} {
     max-width: 768px;
     margin-top: 202px;
   }
 
-  @media ${theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
     max-width: 1440px;
     margin-top: 235px;
   }
@@ -20,11 +22,11 @@ export const Box = styled.div`
   position: relative;
   height: 445px;
 
-  @media ${theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     height: 485px;
   }
 
-  @media ${theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
     height: 505px;
   }
 `;
@@ -55,7 +57,7 @@ export const List = styled.ul`
       display: none;
     }
   }
-  @media ${theme.device.tablet} and (max-width: 1439px) {
+  @media ${props => props.theme.device.tablet} and (max-width: 1439px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
@@ -66,7 +68,7 @@ export const List = styled.ul`
     }
   }
 
-  @media ${theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
@@ -88,11 +90,11 @@ export const Card = styled.img`
   width: 343px;
   height: 323px;
   border-radius: 8px;
-  @media ${theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     width: 336px;
     height: 323px;
   }
-  @media ${theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
     width: 300px;
     height: 323px;
   }
@@ -105,14 +107,14 @@ export const TitleBox = styled.div`
   left: 18px;
   top: 245px;
 
-  background: ${theme.colors.white};
+  background: ${props => props.theme.colors.white};
   border-radius: 8px;
 
-  @media ${theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     width: 300px;
   }
 
-  @media ${theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
     width: 268px;
   }
 `;
@@ -125,7 +127,7 @@ export const TitleCard = styled.p`
   line-height: 20px;
   letter-spacing: -0.24px;
 
-  color: ${theme.colors.textDark};
+  color: ${props => props.theme.colors.textDark};
   padding-top: 16px;
   padding-left: 16px;
 `;
@@ -154,24 +156,28 @@ export const SeeAll = styled(NavLink)`
   font-size: 14px;
   line-height: 18px;
 
-  color: ${theme.colors.textWhite};
+  color: ${props => props.theme.colors.textWhite};
 
-  @media ${theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     margin-top: 50px;
   }
 
   background-color: ${props =>
     ({
-      normal: theme.colors.accent,
-      dark: theme.colors.dark,
+      normal: props => props.theme.colors.accent,
+      dark: props => props.theme.colors.dark,
     }[props.variant])};
 
   :hover,
   :focus {
     background-color: ${props =>
       ({
-        normal: theme.colors.dark,
-        dark: theme.colors.accent,
+        normal: props => props.theme.colors.dark,
+        dark: props => props.theme.colors.accent,
       }[props.variant])};
   }
 `;
+
+export const ButtonBox = styled.div`
+width: 239px;
+`
