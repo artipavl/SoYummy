@@ -1,10 +1,10 @@
 import IngredientsShoppingList from 'components/IngredientsShoppingList/IngredientsShoppingList';
 import MainTitle from 'components/MainTitle/MainTitle';
-import { Page } from '../Favorite/Favorite.styled';
+import { Container } from '../../reusableComponents/Container/Container.styled';
 const ShoppingList = () => (
-  <Page>
+  <Container>
     <MainTitle text="Shopping List" />
     <IngredientsShoppingList />
-  </Page>
+  </Container>
 );
 export default ShoppingList;

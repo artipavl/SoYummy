@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { getPopularRecipes } from '../../api/serviseApi';
 import { Loader } from 'components/Loader/Loader';
 
@@ -15,6 +15,7 @@ import {
   TitleRecipe,
   Description,
   ErrorText,
+  StyledNavLink,
 } from './PopularRecipe.styled';
 
 const PopularRecipe = () => {
@@ -44,19 +45,20 @@ const PopularRecipe = () => {
       ) : (
         <>
           <TitlePopularRecipe>Popular recipe</TitlePopularRecipe>
-
           {recipeList ? (
             <ItemList>
               {recipeList.map(({ _id, title, preview, description }) => (
-                <ItemBox key={_id}>
-                  <Link to={`/recipe/${_id}`}>
-                    <Preview src={preview} alt="Ingredient" />
-                    <TextBox>
-                      <TitleRecipe>{title}</TitleRecipe>
-                      <Description>{description}</Description>
-                    </TextBox>
-                  </Link>
-                </ItemBox>
+                <li key={_id}>
+                  <StyledNavLink to={`/recipe/${_id}`}>
+                    <ItemBox>
+                      <Preview src={preview} alt="Ingredient" />
+                      <TextBox>
+                        <TitleRecipe>{title}</TitleRecipe>
+                        <Description>{description}</Description>
+                      </TextBox>
+                    </ItemBox>
+                  </StyledNavLink>
+                </li>
               ))}
             </ItemList>
           ) : (

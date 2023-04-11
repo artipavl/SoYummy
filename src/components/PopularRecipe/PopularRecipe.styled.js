@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const LoaderDiv = styled.div`
@@ -9,10 +10,6 @@ export const LoaderDiv = styled.div`
 `;
 
 export const ContainerPopularRecipe = styled.div`
-  padding-top: 72px;
-  @media ${props => props.theme.device.tablet} {
-    padding-top: 100px;
-  }
   @media ${props => props.theme.device.desktop} {
     width: 320px;
   }
@@ -26,6 +23,10 @@ export const TitlePopularRecipe = styled.h3`
   color: ${props => props.theme.colors.modes.white.textDark};
 `;
 
+export const StyledNavLink = styled(NavLink)`
+  display: block;
+`;
+
 export const ItemList = styled.ul`
   padding-top: 8px;
   @media ${props => props.theme.device.tablet} {
@@ -35,9 +36,14 @@ export const ItemList = styled.ul`
   @media ${props => props.theme.device.desktop} {
     display: block;
   }
+  @media ${props => props.theme.device.tablet} and (max-width: 1439px) {
+    li:not(:nth-child(-n + 2)) {
+      display: none;
+    }
+  }
 `;
 
-export const ItemBox = styled.li`
+export const ItemBox = styled.div`
   display: flex;
   padding-top: 24px;
   padding-bottom: 13px;
@@ -45,17 +51,8 @@ export const ItemBox = styled.li`
   column-gap: 12px;
   width: 100%;
 
-  @media ${props => props.theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} and (max-width: 1439px) {
     padding-top: 32px;
-    &:nth-last-child(-n + 2) {
-      display: none;
-    }
-  }
-
-  @media ${props => props.theme.device.desktop} {
-    &:nth-last-child(-n + 2) {
-      display: flex;
-    }
   }
 `;
 
