@@ -23,13 +23,16 @@ import { useState } from 'react';
 const SharedLayout = lazy(() => import('../components/SharedLayout'));
 //const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
 const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
+const AddRecipePage = lazy(() =>
+  import('../pages/AddRecipePage/AddRecipePage')
+);
 const RecipePage = lazy(() => import('../pages/RecipePage/RecipePage'));
+
 const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
 
 const ShoppingList = lazy(() =>
   import('../pages/ShoppingList/ShoppingList.js')
 );
-
 const SearchPage = lazy(() => import('../pages/SearchPage'));
 
 const StyledApp = styled.div`
@@ -39,7 +42,6 @@ const StyledApp = styled.div`
   background-color: ${props => props.theme.accent};
   transition: all 1s ease;
 `;
-
 
 export const App = () => {
   const [start, setStart] = useState(false);
@@ -54,7 +56,6 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-
     <>
       {start && (
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
@@ -104,9 +105,7 @@ export const App = () => {
               />
               <Route
                 path="add"
-                element={
-                  <PrivateRoute component={<StyledApp>Add</StyledApp>} />
-                }
+                element={<PrivateRoute component={<AddRecipePage />} />}
               />
               <Route
                 path="my"
@@ -122,11 +121,7 @@ export const App = () => {
               />
               <Route
                 path="recipe/:recipeId"
-                element={
-                  <PrivateRoute
-                    component={<RecipePage/>}
-                  />
-                }
+                element={<PrivateRoute component={<RecipePage />} />}
               />
               <Route
                 path="*"
