@@ -8,10 +8,6 @@ export const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
-
-  unset(token) {
-    axios.defaults.headers.common.Authorization = '';
-  },
 };
 
 export const register = createAsyncThunk(
@@ -32,8 +28,9 @@ export const login = createAsyncThunk(
   async ({ email, password }, thunkAPI) => {
     try {
       const response = await axios.post('/users/login', { email, password });
-      // console.log(response.data.data.user.token);
+
       token.set(response.data.data.user.token);
+
       return response.data.data.user;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -83,13 +80,7 @@ export const fetchUserLogout = createAsyncThunk(
   }
 );
 
-
-export const themeSwicher = createAsyncThunk(
-  'auth/theme',
-  () => {
-
-  }
-)
+export const themeSwicher = createAsyncThunk('auth/theme', () => {});
 
 export const updateUser = createAsyncThunk(
   'auth/update-user',
@@ -115,7 +106,7 @@ export const updateUser = createAsyncThunk(
 export const subscribeUser = createAsyncThunk(
   'auth/subscribe',
   async (email, thunkAPI) => {
-      try {
+    try {
       const state = thunkAPI.getState();
       const persistedToken = state.auth.token;
 
@@ -132,6 +123,3 @@ export const subscribeUser = createAsyncThunk(
     }
   }
 );
-
-
-

@@ -79,11 +79,10 @@ const validationSchema = yup.object().shape({
           onBlur={formik.handleBlur}
           error={formik.errors.email}
           touched={formik.touched.email}
-          // touched={formik.errors.email}
           required
 
         />
-        <EmailIconStyled/>
+        <EmailIconStyled style={{ fill: formik.errors.email ? "#fa2c2c" : "#8BAA36" }}/>
         {!formik.isValid ? (
           <ResetFormInput
             type='button'

@@ -14,23 +14,25 @@ export const searchSlice = createSlice({
   extraReducers: {
     [searchRecipes.fulfilled](state, action) {
       state.results = action.payload;
+
       state.status = 'resolved';
     },
-    [searchRecipes.pending](state, action) {
+    [searchRecipes.pending](state) {
       state.status = 'loading';
     },
-    [searchRecipes.rejected](state, action) {
+    [searchRecipes.rejected](state) {
       state.status = 'error';
     },
 
     [searchIngredient.fulfilled](state, action) {
       state.results = action.payload;
+
       state.status = 'resolved';
     },
-    [searchIngredient.pending](state, action) {
+    [searchIngredient.pending](state) {
       state.status = 'loading';
     },
-    [searchIngredient.rejected](state, action) {
+    [searchIngredient.rejected](state) {
       state.status = 'error';
     },
   },

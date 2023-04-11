@@ -1,16 +1,16 @@
-import editIcon from '../../../../images/icons/edit-icon.svg';
-import logOutImg from '../../../../images/icons/arrow-right.svg'
+import { useEffect } from 'react';
+import { ReactComponent as ArrowRight } from '../../../../images/icons/arrow-right.svg'
+
 
 import {
+  EditIconStyled,
   UserModalSmallBackdrop,
   Container,
   UserModalSmall,
   EditProfileButton,
   EditText,
-  EditIcon,
   LogOutButton,
   LogOutButtonText,
-  LogOutButtonImg,
 } from './SmallModalUser.styled'
 
 
@@ -22,6 +22,21 @@ export const SmallModalUser = ({
   handleOpenLogoutMenu
 
 }) => {
+
+ useEffect(() => {
+    if (openUser) {
+      const handleKeyDown = e => {
+
+        if (e.code === 'Escape') {
+          handleOpenSmallUserMenu();
+        }
+      };
+
+      document.addEventListener('keydown', handleKeyDown);
+      return () => { document.removeEventListener('keydown', handleKeyDown); }
+    }
+ }, [handleOpenSmallUserMenu, openUser]);
+
 
 
 
@@ -36,13 +51,14 @@ export const SmallModalUser = ({
           className={openUser ? "open" : ""}
           onClick={stopPropagation}>
 
-          <EditProfileButton onClick={handleOpenEditModal}>
-            <EditText>Edit profile</EditText>
-            <EditIcon src={editIcon} alt='edit user icon' width={14} />
+          <EditProfileButton type='button' onClick={handleOpenEditModal}>
+            <EditText className='hoverText'>Edit profile</EditText>
+           <EditIconStyled className='hoverIcon'/>
           </EditProfileButton >
-          <LogOutButton onClick={handleOpenLogoutMenu}>
+
+          <LogOutButton type='button' onClick={handleOpenLogoutMenu}>
             <LogOutButtonText>Log out</LogOutButtonText>
-            <LogOutButtonImg src={logOutImg} alt='logout image' width={18} />
+            <ArrowRight style={{marginLeft: 4}}/>
 
           </LogOutButton>
 

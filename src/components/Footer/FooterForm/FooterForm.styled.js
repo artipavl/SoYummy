@@ -5,20 +5,23 @@ import { ReactComponent as SuccessLogo } from "../../../images/icons/Success-log
 
 // import { CiMail } from "react-icons/ci";
 
+//icons
 export const EmailIconStyled = styled(EmailIcon)`
   position: absolute;
-  width: 25px;
+  width: 20px;
+  height: 16px;
   left: 16px;
   top: 50%;
   transform: translateY(-50%);
 
-  path {
-    stroke: ${({ error, touched }) =>
-  touched ? (error ? '#E74A3B' : '#3CBC81') : '#3CBC81'};
-  }
 `
 
 export const ErrorLogoStyled = styled(ErrorLogo)`
+    width: 20px;
+    transition: transform 0.5s ease;
+  &:hover {
+    transform: rotate(360deg);
+  }
 `
 
 export const SuccessLogoStyled = styled(SuccessLogo)`
@@ -27,7 +30,7 @@ export const SuccessLogoStyled = styled(SuccessLogo)`
   top: 50%;
   transform: translateY(-50%);
 `
-
+//
 
 export const FormFooter = styled.form`
   display: flex;
@@ -46,6 +49,10 @@ export const FormFooter = styled.form`
 `
 export const InputWrapper = styled.div`
 position: relative;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 204px;
+    margin: 0 auto;
+  }
 
 `
 export const FormFooterInput = styled.input`
