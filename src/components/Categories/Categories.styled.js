@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-
 export const Container = styled.div`
   position: relative;
   height: 445px;
@@ -14,8 +13,6 @@ export const Container = styled.div`
     height: 505px;
   }
 `;
-
-
 
 export const Title = styled.p`
   font-family: 'Poppins';
@@ -70,6 +67,25 @@ export const CardLink = styled(NavLink)``;
 
 export const ImgBox = styled.div`
   position: relative;
+
+  &:hover,
+  &:focus {
+    p {
+      overflow: ${props => (props.animation ? 'visible' : 'hidden')};
+      animation: ${props =>
+        props.animation ? 'ticker 9s linear infinite' : ''};
+      position: ${props => (props.animation ? 'absolute' : '')};
+      left: ${props => (props.animation ? '307px' : '')};
+      @keyframes ticker {
+        0% {
+          transform: translate(0, 0);
+        }
+        100% {
+          transform: translate(-200%, 0);
+        }
+      }
+    }
+  }
 `;
 
 export const Card = styled.img`
@@ -103,6 +119,8 @@ export const TitleBox = styled.div`
   @media ${props => props.theme.device.desktop} {
     width: 268px;
   }
+
+  overflow: hidden;
 `;
 
 export const TitleCard = styled.p`
@@ -116,4 +134,8 @@ export const TitleCard = styled.p`
   color: ${props => props.theme.colors.textDark};
   padding-top: 16px;
   padding-left: 16px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;

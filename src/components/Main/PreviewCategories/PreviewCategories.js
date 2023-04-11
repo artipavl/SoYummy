@@ -49,10 +49,10 @@ export const PreviewCategories = ({ location }) => {
         <Box>
           <Title>Breakfast</Title>
           <List>
-            {Breakfast?.map(({ title, thumb }) => (
+            {Breakfast?.map(({ title, thumb, _id }) => (
               <li key={title}>
-                <NavLink>
-                  <ImgBox>
+                <NavLink to={`/recipe/${_id}`}>
+                  <ImgBox animation={title.length > 34}>
                     <Card alt={title} src={thumb} />
                     <TitleBox>
                       <TitleCard>{title}</TitleCard>
@@ -73,10 +73,10 @@ export const PreviewCategories = ({ location }) => {
         <Box>
           <Title>Miscellaneous</Title>
           <List>
-            {Miscellaneous?.map(({ title, thumb }) => (
+            {Miscellaneous?.map(({ title, thumb, _id }) => (
               <li key={title}>
-                <CardLink>
-                  <ImgBox>
+                <CardLink to={`/recipe/${_id}`}>
+                  <ImgBox animation={title.length > 34}>
                     <Card alt={title} src={thumb} />
                     <TitleBox>
                       <TitleCard>{title}</TitleCard>
@@ -97,10 +97,10 @@ export const PreviewCategories = ({ location }) => {
         <Box>
           <Title>Chicken</Title>
           <List>
-            {Chicken?.map(({ title, thumb }) => (
+            {Chicken?.map(({ title, thumb, _id }) => (
               <li key={title}>
-                <CardLink>
-                  <ImgBox>
+                <CardLink to={`/recipe/${_id}`}>
+                  <ImgBox animation={title.length > 34}>
                     <Card alt={title} src={thumb} />
                     <TitleBox>
                       <TitleCard>{title}</TitleCard>
@@ -121,10 +121,10 @@ export const PreviewCategories = ({ location }) => {
         <Box>
           <Title>Dessert</Title>
           <List>
-            {Dessert?.map(({ title, thumb }) => (
+            {Dessert?.map(({ title, thumb, _id }) => (
               <li key={title}>
-                <CardLink>
-                  <ImgBox>
+                <CardLink to={`/recipe/${_id}`}>
+                  <ImgBox animation={title.length > 34}>
                     <Card alt={title} src={thumb} />
                     <TitleBox>
                       <TitleCard>{title}</TitleCard>

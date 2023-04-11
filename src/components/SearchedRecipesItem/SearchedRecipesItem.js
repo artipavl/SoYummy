@@ -12,29 +12,16 @@ const SearchedRecipesItem = ({ title, preview, id }) => {
 
   return (
     <>
-      {animation ? (
-        <RecipeItem animation>
-          <RecipeLink to={`/recipes/${id}`}>
-            <RecipeWrapper>
-              <RecipeImage src={preview} alt={title} />
-              <RecipeTitleContainer>
-                <RecipeTitleName>{title}</RecipeTitleName>
-              </RecipeTitleContainer>
-            </RecipeWrapper>
-          </RecipeLink>
-        </RecipeItem>
-      ) : (
-        <RecipeItem>
-          <RecipeLink to={`/recipes/${id}`}>
-            <RecipeWrapper>
-              <RecipeImage src={preview} alt={title} />
-              <RecipeTitleContainer>
-                <RecipeTitleName>{title}</RecipeTitleName>
-              </RecipeTitleContainer>
-            </RecipeWrapper>
-          </RecipeLink>
-        </RecipeItem>
-      )}
+      <RecipeItem animation={animation}>
+        <RecipeLink to={`/recipe/${id}`}>
+          <RecipeWrapper>
+            <RecipeImage src={preview} alt={title} />
+            <RecipeTitleContainer>
+              <RecipeTitleName>{title}</RecipeTitleName>
+            </RecipeTitleContainer>
+          </RecipeWrapper>
+        </RecipeLink>
+      </RecipeItem>
     </>
   );
 };
