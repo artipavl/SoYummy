@@ -1,5 +1,6 @@
 import { selectUserEmail } from 'redux/selectors';
 import { useSelector, useDispatch } from 'react-redux';
+import { selectorSwicherTheme } from 'redux/selectors';
 import { subscribeUser } from 'redux/authOperations';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
@@ -21,6 +22,7 @@ export const FooterForm = () => {
 
 const dispatch = useDispatch();
 const userEmail = useSelector(selectUserEmail);
+const theme = useSelector(selectorSwicherTheme);
 
 const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
@@ -38,7 +40,7 @@ const validationSchema = yup.object().shape({
     onSubmit: (values) => {
       dispatch(subscribeUser({ email: values.email }))
         .then((rejected) => {
-          console.log(rejected.payload)
+
           if (rejected.payload === 'Request failed with status code 404') {
             return notiflix.Notify.warning('It`s not yours Email');
           }
@@ -67,7 +69,8 @@ const validationSchema = yup.object().shape({
   }
 
   return (
-    <FormFooter onSubmit={formik.handleSubmit}>
+    <FormFooter onSubmit={formik.handleSubmit}
+    >
       <InputWrapper>
         <FormFooterInput
           type="email"
@@ -79,18 +82,18 @@ const validationSchema = yup.object().shape({
           onBlur={formik.handleBlur}
           error={formik.errors.email}
           touched={formik.touched.email}
-          // touched={formik.errors.email}
           required
+          themeName={theme}
 
         />
-        <EmailIconStyled/>
+        <EmailIconStyled errorformik={formik.errors.email } />
         {!formik.isValid ? (
           <ResetFormInput
             type='button'
             onClick={onClickResetButton}
           >
             <ErrorLogoStyled /></ResetFormInput>) : (<SuccessLogoStyled />)}
-        {formik.touched.email && formik.errors.email ? (
+        {formik.errors.email ? (
           <Error>{formik.errors.email}</Error>
         ) : null}
 

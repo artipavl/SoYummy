@@ -4,6 +4,7 @@ export const Page = styled.section`
   padding-top: 62px;
   padding-left: 16px;
   padding-right: 16px;
+  padding-bottom: 100px;
   width: 343px;
   margin: 0 auto;
   background: ${props => props.theme.colors.modes.white.background};
@@ -17,6 +18,6 @@ export const Page = styled.section`
   @media ${props => props.theme.device.desktop} {
     padding-left: 100px;
     padding-right: 100px;
-    min-width: 1240px;
+    width: 1240px;
   }
 `;

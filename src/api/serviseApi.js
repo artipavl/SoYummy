@@ -2,9 +2,9 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://so-yummy-api.onrender.com/api';
 
-export const getFavoriteRecipes = async (page = 1, limit = 4) => {
+export const getFavoriteRecipes = async page => {
   try {
-    const { data } = await axios.get(`/favorites?page=${page}&limit=${limit}`);
+    const { data } = await axios.get(`/favorites?page=${page}&limit=4`);
     return data.data;
   } catch (error) {
     console.log(error);
@@ -20,12 +20,12 @@ export const deleteFavoriteRecipe = async id => {
   }
 };
 
-export const getMyRecipes = async (page = 1, limit = 4) => {
+export const getMyRecipes = async page => {
   try {
     const { data } = await axios.get(
-      `/recipes/own-recipes?page=${page}&limit=${limit}`
+      `/recipes/own-recipes?page=${page}&limit=4`
     );
-    return data.data.result;
+    return data.data;
   } catch (error) {
     console.log(error);
   }
@@ -73,6 +73,15 @@ export const getMainPage = async () => {
   }
 };
 
+export const getPopularRecipes = async () => {
+  try {
+    const { data } = await axios.get(`/recipes/popular-recipe`);
+    return data.data.result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const getCategoryPage = async () => {
   try {
     const { data } = await axios.get(`/recipes/category-list`);
@@ -91,4 +100,9 @@ export const getCategoryList = async e => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const getVerificationUser = async id => {
+  const { data } = await axios.get(`/users/verify/${id}`);
+  return data.data;
 };

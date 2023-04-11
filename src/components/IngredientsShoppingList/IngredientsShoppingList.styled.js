@@ -114,8 +114,8 @@ export const TitleProduct = styled.p`
 `;
 
 export const CloseIcon = styled(RiCloseLine)`
-  color: ${props => props.theme.colors.accentDark};
-  color: ${props => props.theme.colors.accentDark};
+  color: ${props => props.theme.colors.profileModalCloseIcon};
+  color: ${props => props.theme.colors.profileModalCloseIcon};
   font-size: 15px;
   @media ${props => props.theme.device.tablet} {
     font-size: 21px;
@@ -143,7 +143,7 @@ export const MeasureProduct = styled.p`
 
 export const LoaderDiv = styled.div`
   width: 100%;
-  padding-top: 50px;
+  padding-top: 5vw;
   display: flex;
   align-items: center;
   justify-content: center;

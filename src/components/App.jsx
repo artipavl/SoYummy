@@ -2,6 +2,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 
+import MyRecipes from '../pages/MyRecipes/MyRecipes';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivatRoute';
 
@@ -20,15 +21,21 @@ import { useMemo } from 'react';
 import { useState } from 'react';
 import { CategoriesPage } from 'pages/CategoriesPage/CategoriesPage';
 
+const Verification = lazy(() => import('pages/Varification/Verification'));
 const SharedLayout = lazy(() => import('../components/SharedLayout'));
 //const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
+const Modal= lazy(() => import('../components/Modal'));
 const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
-const MyRecipes = lazy(() => import('../pages/MyRecipes/MyRecipes'));
+const AddRecipePage = lazy(() =>
+  import('../pages/AddRecipePage/AddRecipePage')
+);
+const RecipePage = lazy(() => import('../pages/RecipePage/RecipePage'));
+
+const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
 
 const ShoppingList = lazy(() =>
   import('../pages/ShoppingList/ShoppingList.js')
 );
-
 const SearchPage = lazy(() => import('../pages/SearchPage'));
 
 const StyledApp = styled.div`
@@ -74,6 +81,7 @@ export const App = () => {
                 <PublicRoute component={<SignInPage />} redirectTo="/main" />
               }
             />
+            <Route path="verification/:id" element={<Verification />} />
 
             <Route path="/" element={<SharedLayout />}>
               <Route
@@ -101,9 +109,7 @@ export const App = () => {
               />
               <Route
                 path="add"
-                element={
-                  <PrivateRoute component={<StyledApp>Add</StyledApp>} />
-                }
+                element={<PrivateRoute component={<AddRecipePage />} />}
               />
               <Route
                 path="my"
@@ -119,17 +125,15 @@ export const App = () => {
               />
               <Route
                 path="recipe/:recipeId"
-                element={
-                  <PrivateRoute
-                    component={<StyledApp>RecipiesPage</StyledApp>}
-                  />
-                }
+                element={<PrivateRoute component={<RecipePage />} />}
               />
               <Route
                 path="*"
-                element={
-                  <PrivateRoute component={<StyledApp>NotFound</StyledApp>} />
-                }
+                element={<PrivateRoute component={<NotFound />} />}
+              />
+              <Route
+                path="modal"
+                element={<PrivateRoute component={<Modal />} />}
               />
             </Route>
           </Routes>

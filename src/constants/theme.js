@@ -20,7 +20,7 @@ export const theme = {
     textWhite: '#FAFAFA', //текст білий
     textWhiteMuted: 'rgba(250, 250, 250, 0.6)', //текст білий пригнічений
     textTitle: '#001833', //текст синій
-    textError: "#fa2c2c", // червоний текст помилки
+    textError: '#fa2c2c', // червоний текст помилки
     subFooterText: '#22252A', // текст, який розташований під футером
     subFooterBtn: '#FAFAFA', // текст, який розташований у кнопці футера
     socialLinkIcons: '#8BAA36',
@@ -29,12 +29,16 @@ export const theme = {
     defLight: '#FAFAFA',
     blackAndWhiteBrorderList: '#e0e0e0',
     editProfileModal: '#FAFAFA',
+    profileModalCloseIcon: '#333333',
+
+    
 
     modes: {
       white: {
         text: '#23262A', //текст
         textDark: '#3E4462', //текст сірий
         background: '#ECECEC',
+        
         accent: '#8BAA36', //зелений акцен
         accentMuted: '#EBF3D4', //зелений акцен пригнічений
       },
@@ -88,7 +92,7 @@ export const lightTheme = {
     bgDark: '#1E1F28', //чорний з bg
     accent: '#8BAA36', //зелений акцен
     accentCurrent: '#8BAA36', //!зелений акцен без змін
-    buttonDelAccent: '#22252A', 
+    buttonDelAccent: '#22252A',
     accentMuted: '#EBF3D4', //зелений акцен пригнічений
 
     accentDark: '#22252A', //чорний що протиставляється акцену
@@ -99,7 +103,7 @@ export const lightTheme = {
     textWhite: '#FAFAFA', //текст білий
     textWhiteMuted: 'rgba(250, 250, 250, 0.6)', //текст білий пригнічений
     textTitle: '#001833', //текст синій
-    textError: "fa2c2c", // червоний текст помилки
+    textError: 'fa2c2c', // червоний текст помилки
     subFooterText: '#22252A', // текст, який розташований під футером
     subFooterBtn: '#FAFAFA', // текст, який розташований у кнопці футера
     socialLinkIcons: '#8BAA36',
@@ -108,14 +112,19 @@ export const lightTheme = {
     defLight: '#FAFAFA',
     blackAndWhiteBrorderList: '#e0e0e0',
     editProfileModal: '#FAFAFA',
+    profileModalCloseIcon: '#333333',
+
 
     modes: {
       white: {
         text: '#23262A', //текст
         textDark: '#3E4462', //текст сірий
         background: '#ECECEC',
+        backgroundAccent: '#000000',
 
         accent: '#8BAA36', //зелений акцен
+        accentGrey: '#EBF3D4', //зелений пригнічний на сірий
+        accentGreen: '#EBF3D4', //зелений пригнічний на сірий
         accentMuted: '#EBF3D4', //зелений акцен пригнічений
       },
       dark: {
@@ -173,8 +182,8 @@ export const darkTheme = {
     textDark: '#FAFAFA', //текст білий замість сірого
     textWhite: '#FAFAFA', //текст білий
     textWhiteMuted: 'rgba(250, 250, 250, 0.6)', //текст білий пригнічений
-    textTitle: '#001833', //текст синій
-    textError: "fa2c2c", // червоний текст помилки
+    textTitle: '#FAFAFA', //текст синій
+    textError: 'fa2c2c', // червоний текст помилки
     subFooterText: '#FAFAFA', // текст, який розташований під футером
     subFooterBtn: '#FAFAFA', // текст, який розташований у кнопці футера
     socialLinkIcons: '#FAFAFA',
@@ -183,14 +192,18 @@ export const darkTheme = {
     defLight: '#FAFAFA',
     blackAndWhiteBrorderList: '#fafafa4d',
     editProfileModal: '#1E1F28',
+    profileModalCloseIcon: '#FAFAFA',
+
 
     modes: {
       white: {
         text: '#23262A', //текст
         textDark: '#3E4462', //текст сірий
         background: '#000000',
-
+        backgroundAccent: '#000000',
         accent: '#8BAA36', //зелений акцен
+        accentGrey: '#1E1F28', //зелений пригнічний на сірий
+        accentGreen: '#8BAA36', //зелений пригнічний на сірий
         accentMuted: '#2A2C36', //! чорний замість зеленого акценту пригніченого
       },
       dark: {

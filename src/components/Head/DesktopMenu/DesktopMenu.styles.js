@@ -40,7 +40,7 @@ export const Navigator = styled(NavLink)`
 `
 
 export const SearchIconStyled = styled(Search)`
-  width: 20px;
+
 
   path {
     stroke: ${props => props.theme.colors.searchIconStyled};

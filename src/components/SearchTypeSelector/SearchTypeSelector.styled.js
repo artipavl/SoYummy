@@ -57,8 +57,9 @@ export const TypeSelector = styled.select`
 
   color: rgba(0, 0, 0, 0.5);
 
-  background: url(${arrowDown}) no-repeat right 19px center
-    ${props => props.theme.colors.whiteMuted};
+  background: url(${arrowDown}) right 19px center;
+  background-repeat: no-repeat;
+  background-color: ${props => props.theme.colors.whiteMuted};
   background-size: 7px;
 
   appearance: none;
@@ -73,4 +74,9 @@ export const TypeSelector = styled.select`
   }
 `;
 
-export const SelectorOption = styled.option``;
+export const SelectorOption = styled.option`
+  &:checked {
+    background-color: red;
+    color: blue;
+  }
+`;
