@@ -91,7 +91,7 @@ export const App = () => {
                 path="categories/:categoryName"
                 element={
                   <PrivateRoute
-                    component={<StyledApp>CategoriesName</StyledApp>}
+                    component={<StyledApp><CategoriesPage/></StyledApp>}
                   />
                 }
               />

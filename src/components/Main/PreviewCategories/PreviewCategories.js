@@ -1,4 +1,6 @@
 import recipies from 'api/recipes/recipes.json';
+import { getMainPage } from 'api/serviseApi';
+import { useState, useEffect } from 'react';
 
 import {
   CardLink,
@@ -13,20 +15,35 @@ import {
   Box,
   ButtonBox,
 } from 'components/Main/PreviewCategories/PreviewCategories.styled';
+import { NavLink } from 'react-router-dom';
 import { RoundedButton } from 'reusableComponents/Btn/Btn';
 
-export const PreviewCategories = () => {
-  const filterBreakfast = recipies.filter(
-    item => item.category === 'Breakfast'
-  );
+export const PreviewCategories = ({ location }) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [mainArray, setMainArray] = useState([]);
 
-  const filterMiscellaneous = recipies.filter(
-    item => item.category === 'Miscellaneous'
-  );
+  useEffect(() => {
+    const fetchMainPage = async () => {
+      setIsLoading(true);
+      try {
+        setMainArray(await getMainPage());
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchMainPage();
+  }, []);
 
-  const filterChicken = recipies.filter(item => item.category === 'Chicken');
+  const sortedRecipes = mainArray.reduce((acc, curr) => {
+    const { category, recipes } = curr;
+    return { ...acc, [category]: recipes };
+  }, {});
 
-  const filterDesserts = recipies.filter(item => item.category === 'Dessert');
+  const { Breakfast, Miscellaneous, Chicken, Dessert } = sortedRecipes;
+
+
 
   const variant = 'normal';
   return (
@@ -35,27 +52,31 @@ export const PreviewCategories = () => {
         <Box>
           <Title>Breakfast</Title>
           <List>
-            {filterBreakfast.map(({ title, thumb }) => (
+            {Breakfast?.map(({ title, thumb }) => (
               <li key={title}>
-                <CardLink>
+                <NavLink>
                   <ImgBox>
                     <Card alt={title} src={thumb} />
                     <TitleBox>
                       <TitleCard>{title}</TitleCard>
                     </TitleBox>
                   </ImgBox>
-                </CardLink>
+                </NavLink>
               </li>
             ))}
           </List>
-          <SeeAll variant={variant} to={'/main'}>
+          <SeeAll
+            variant={variant}
+            to={`/categories/Breakfast`}
+            state={{ from: location }}
+          >
             See all
           </SeeAll>
         </Box>
         <Box>
           <Title>Miscellaneous</Title>
           <List>
-            {filterMiscellaneous.map(({ title, thumb }) => (
+            {Miscellaneous?.map(({ title, thumb }) => (
               <li key={title}>
                 <CardLink>
                   <ImgBox>
@@ -68,14 +89,18 @@ export const PreviewCategories = () => {
               </li>
             ))}
           </List>
-          <SeeAll variant={variant} to={'/main'}>
+          <SeeAll
+            variant={variant}
+            to={`/categories/Miscellaneous`}
+            state={{ from: location }}
+          >
             See all
           </SeeAll>
         </Box>
         <Box>
           <Title>Chicken</Title>
           <List>
-            {filterChicken.map(({ title, thumb }) => (
+            {Chicken?.map(({ title, thumb }) => (
               <li key={title}>
                 <CardLink>
                   <ImgBox>
@@ -88,14 +113,18 @@ export const PreviewCategories = () => {
               </li>
             ))}
           </List>
-          <SeeAll variant={variant} to={'/main'}>
+          <SeeAll
+            variant={variant}
+            to={`/categories/Chicken`}
+            state={{ from: location }}
+          >
             See all
           </SeeAll>
         </Box>
         <Box>
-          <Title>Desserts</Title>
+          <Title>Dessert</Title>
           <List>
-            {filterDesserts.map(({ title, thumb }) => (
+            {Dessert?.map(({ title, thumb }) => (
               <li key={title}>
                 <CardLink>
                   <ImgBox>
@@ -108,12 +137,16 @@ export const PreviewCategories = () => {
               </li>
             ))}
           </List>
-          <SeeAll variant={variant} to={'/main'}>
+          <SeeAll
+            variant={variant}
+            to={`/categories/Dessert`}
+            state={{ from: location }}
+          >
             See all
           </SeeAll>
         </Box>
         <ButtonBox>
-          <RoundedButton title={'Other categories'} />
+          <RoundedButton title={'Other categories'} to={`/categories`} />
         </ButtonBox>
       </Container>
     </>
