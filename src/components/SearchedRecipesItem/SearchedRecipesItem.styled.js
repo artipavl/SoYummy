@@ -1,13 +1,10 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const RecipeItem = styled.li`
   position: relative;
   cursor: pointer;
-  &:hover,
-  :focus {
-    transform: scale(1.05);
-    transition: all 250ms linear 0s;
-  }
+
   @media (max-width: 767px) {
     &:not(:last-child) {
       margin-bottom: 32px;
@@ -45,6 +42,16 @@ export const RecipeItem = styled.li`
   }
 `;
 
+export const RecipeLink = styled(Link)``;
+
+export const RecipeWrapper = styled.div`
+  &:hover,
+  :focus {
+    transform: scale(1.05);
+    transition: all 250ms linear 0s;
+  }
+`;
+
 export const RecipeImage = styled.img`
   width: 343px;
   height: 323px;
@@ -63,11 +70,15 @@ export const RecipeImage = styled.img`
 export const RecipeTitleContainer = styled.div`
   width: 307px;
   height: 52px;
+
   border-radius: 8px;
+
   background-color: ${props => props.theme.colors.white};
+
   position: absolute;
   bottom: 0;
   left: 50%;
+
   transform: translate(-50%, -50%);
   overflow: hidden;
 
@@ -80,14 +91,19 @@ export const RecipeTitleContainer = styled.div`
   }
 `;
 
-export const RecipeTitleName = styled.h2`
+export const RecipeTitleName = styled.p`
   font-weight: 500;
   font-size: 16px;
+
   line-height: 1.25;
   letter-spacing: -0.24px;
+
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  color: ${props => props.theme.colors.modes.white.textDark};
+
   padding-left: 16px;
   padding-top: 16px;
   padding-bottom: 16px;
