@@ -74,6 +74,7 @@ export const Categories = () => {
   }, [id, oneParam]);
 
   const handleChange = (event, newValue) => {
+    setPage(1);
     setValue(newValue);
   };
 
@@ -89,7 +90,6 @@ export const Categories = () => {
       } else {
         setTotalPage(1);
       }
-      setPage(1);
     });
   }, [nameEl, page]);
 
@@ -137,7 +137,7 @@ export const Categories = () => {
           </Tabs>
         </Box>
 
-        <List>
+        <List item={itemArray.length}>
           {itemArray.map(({ _id, title, thumb }) => (
             <li key={_id}>
               <CardLink to={`/recipe/${_id}`}>
@@ -153,7 +153,11 @@ export const Categories = () => {
         </List>
         <BoxPagination>
           <Stack spacing={2}>
-            <PaginationBtn onChange={handleChangePage} count={totalPage} />
+            <PaginationBtn
+              onChange={handleChangePage}
+              count={totalPage}
+              page={page}
+            />
           </Stack>
         </BoxPagination>
       </Container>
