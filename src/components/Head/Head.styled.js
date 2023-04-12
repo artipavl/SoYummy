@@ -11,6 +11,7 @@ export const Header = styled.header`
   padding-right: 16px;
   padding-left: 16px;
   padding-top: 18px;
+  font-family: 'Poppins';
   z-index: 999;
 
   @media (min-width: 280px) and (max-width: 374px) {
