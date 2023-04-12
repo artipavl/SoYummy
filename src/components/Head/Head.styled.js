@@ -5,38 +5,29 @@ import { ReactComponent as BurgerIcon } from '../../images/icons/burger.svg';
 
 export const Header = styled.header`
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  padding-right: 16px;
-  padding-left: 16px;
+  top: 0;
+  left: 0;
   padding-top: 18px;
+  width: 100%;
   font-family: 'Poppins';
   z-index: 999;
 
-  @media (min-width: 280px) and (max-width: 374px) {
-    min-width: 280px;
-    max-width: 374px;
-
-  }
-
-
 `
 export const Container = styled.div`
-  max-width: 1440px;
-  padding-left: 16px;
-  padding-right: 16px;
   display: flex;
   align-items: center;
+  width: 375px;
   margin: 0 auto;
-  @media ${props => props.theme.device.mobile} {
-    width: 375px;
+  padding-left: 16px;
+  padding-right: 16px;
+  @media (min-width: 280px) and (max-width: 374px) {
+    min-width: 280px;
+    max-width: 320px;
   }
   @media ${props => props.theme.device.tablet} {
     width: 768px;
     padding-right: 32px;
     padding-left: 32px;
-
   }
   @media ${props => props.theme.device.desktop} {
     width: 1440px;
@@ -44,8 +35,7 @@ export const Container = styled.div`
     padding-left: 100px;
   }
 
-  `
-
+`
 
 export const LinkLogo = styled(NavLink)`
 `
@@ -64,7 +54,6 @@ export const NavLogoLite = styled.img`
 `
 export const SearchText = styled.p`
     font-size: 18px;
-
     @media ${props => props.theme.device.tablet} {
       display: none;
     }
@@ -80,7 +69,6 @@ export const UserWrapButton = styled.button`
   display: flex;
   align-items: center;
   cursor: pointer;
-
 `
 
 export const UserIcon = styled.img`
@@ -88,7 +76,6 @@ export const UserIcon = styled.img`
   height: 34px;
   border-radius: 50%;
   overflow: hidden;
-
  @media ${props => props.theme.device.tablet} {
   width: 44px;
   height: 44px;
@@ -102,7 +89,6 @@ export const UserName = styled.p`
   @media ${props => props.theme.device.tablet} {
     font-size: 14px;
 }
-
 `
 
 export const TempAvatar = styled.label`
@@ -119,16 +105,13 @@ export const TempAvatar = styled.label`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-
   @media ${props => props.theme.device.tablet} {
   width: 44px;
   height: 44px;
 }
-
 `
 export const ToogleWrap = styled.div`
     display: none;
-
   @media ${props => props.theme.device.desktop} {
     display: block;
     margin-left: 50px;
@@ -140,14 +123,10 @@ export const Burger = styled.button`
     margin-left: 50px;
   @media (min-width: 280px) and (max-width: 374px) {
     margin-left: 15px;
-
   }
-
   @media ${props => props.theme.device.desktop} {
   display: none;
 }
-
-
 `
 
 export const BurgerIconStyled = styled(BurgerIcon)`
@@ -160,8 +139,4 @@ export const BurgerIconStyled = styled(BurgerIcon)`
   path {
     stroke: ${props => props.theme.colors.text}
   }
-
 `
-
-
-
