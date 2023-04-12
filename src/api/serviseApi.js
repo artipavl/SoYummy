@@ -92,10 +92,11 @@ export const getCategoryPage = async () => {
   }
 };
 
-export const getCategoryList = async e => {
+export const getCategoryList = async (e, page = 1, limit = 8) => {
+  console.log(page)
   try {
-    const { data } = await axios.get(`/recipes/list/${e}`);
-    const result = data.data.result;
+    const { data } = await axios.get(`/recipes/list/${e}?page=${page}&limit=${limit}`);
+    const result = data.data;
     return result;
   } catch (error) {
     console.log(error);
