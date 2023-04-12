@@ -24,7 +24,6 @@ import { CategoriesPage } from 'pages/CategoriesPage/CategoriesPage';
 const Verification = lazy(() => import('pages/Varification/Verification'));
 const SharedLayout = lazy(() => import('../components/SharedLayout'));
 
-//const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
 const Modal = lazy(() => import('../components/Modal'));
 
 const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
