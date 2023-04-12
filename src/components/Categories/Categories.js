@@ -4,8 +4,12 @@ import { useParams } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 
 import { getCategoryPage, getCategoryList } from 'api/serviseApi';
+
+
 
 import {
   Container,
@@ -16,7 +20,17 @@ import {
   Card,
   TitleBox,
   TitleCard,
+  PaginationBtn,
+  BoxPagination,
 } from 'components/Categories/Categories.styled.js';
+
+import { createTheme } from '@mui/material/styles';
+
+createTheme({
+  castom: {
+    danger: '#8BAA36',
+  },
+});
 
 export const Categories = () => {
   const [value, setValue] = useState(0);
@@ -24,6 +38,9 @@ export const Categories = () => {
   const [categoryList, setCategoryList] = useState([]);
   const [itemArray, setItemArray] = useState([]);
   const [oneParam] = useState(useParams().categoryName);
+  const [totalPage, setTotalPage] = useState(1);
+  const [page, setPage] = useState(1);
+
   console.log(isLoading);
   useEffect(() => {
     const fetchProductList = async () => {
@@ -62,8 +79,21 @@ export const Categories = () => {
 
   useEffect(() => {
     if (nameEl === undefined) return;
-    getCategoryList(nameEl).then(setItemArray);
-  }, [nameEl]);
+    getCategoryList(nameEl, page).then(({ result, total }) => {
+      setItemArray(result);
+      const pageCounts = Math.ceil(total / 8);
+      if (pageCounts > 1) {
+        setTotalPage(pageCounts);
+      } else {
+        setTotalPage(null);
+      }
+    });
+  }, [nameEl, page]);
+
+  const handleChangePage = (e, newPage) => {
+    setPage(newPage);
+  }
+  
 
   return (
     <>
@@ -105,6 +135,7 @@ export const Categories = () => {
         </Box>
 
         <List>
+
           {itemArray.map(({ _id, title, thumb }) => (
             <li key={_id}>
               <CardLink to={`/recipe/${_id}`}>
@@ -118,6 +149,12 @@ export const Categories = () => {
             </li>
           ))}
         </List>
+        <BoxPagination>
+
+        <Stack spacing={2}>
+          <PaginationBtn onChange={handleChangePage} count={totalPage} />
+        </Stack>
+        </BoxPagination>
       </Container>
     </>
   );

@@ -92,14 +92,14 @@ export const App = () => {
               <Route
                 path="categories"
                 element={
-                  <PrivateRoute component={<StyledApp><CategoriesPage/></StyledApp>} />
+                  <PrivateRoute component={<CategoriesPage/>} />
                 }
               />
               <Route
                 path="categories/:categoryName"
                 element={
                   <PrivateRoute
-                    component={<StyledApp><CategoriesPage/></StyledApp>}
+                    component={<CategoriesPage/>}
                   />
                 }
               />

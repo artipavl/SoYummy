@@ -1,17 +1,51 @@
+import { Pagination } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
+export const BoxPagination = styled.div`
+display: flex;
+justify-content: center;
+margin-top: 25px;
+`
+
+export const PaginationBtn = styled(Pagination)`
+  && .Mui-selected {
+    background: #8baa36;
+  }
+`;
+
+
 export const Container = styled.div`
   position: relative;
-  height: 445px;
+  margin: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 100px;
+
+  min-height: 100vh;
+  padding-top: 10rem;
+  background-color: ${props => props.theme.accent};
+  transition: all 1s ease;
+
+  max-width: 375px;
 
   @media ${props => props.theme.device.tablet} {
-    height: 485px;
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-bottom: 200px;
   }
 
   @media ${props => props.theme.device.desktop} {
-    height: 505px;
+    padding-left: 99px;
+    padding-right: 99px;
+    max-width: 1440px;
   }
+`;
+
+
+export const BoxTitle = styled.div`
+  width: 100%;
 `;
 
 export const Title = styled.p`
@@ -24,42 +58,46 @@ export const Title = styled.p`
   font-feature-settings: 'liga' off;
   color: #001833;
 
-  margin-bottom: 32px;
+  margin-bottom: 60px;
+
+  @media ${props => props.theme.device.tablet} {
+  }
+
+  @media ${props => props.theme.device.desktop} {
+    margin-bottom: 110px;
+  }
 `;
 
 export const List = styled.ul`
   list-style: none;
+  margin-top: 32px;
 
   li:hover,
   :focus {
     transform: scale(1.05);
   }
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(8, 1fr);
+  grid-column-gap: px;
+  grid-row-gap: 28px;
 
-  @media (max-width: 767px) {
-    li:not(:first-child) {
-      display: none;
-    }
-  }
-  @media ${props => props.theme.device.tablet} and (max-width: 1439px) {
+  @media ${props => props.theme.device.tablet} {
+    margin-top: 50px;
+
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
+    grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 32px;
-    grid-row-gap: 0px;
-    li:not(:nth-child(-n + 2)) {
-      display: none;
-    }
+    grid-row-gap: 32px;
   }
 
   @media ${props => props.theme.device.desktop} {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr;
+    grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 14px;
-    grid-row-gap: 0px;
-    li:not(:nth-child(-n + 4)) {
-      display: none;
-    }
+    grid-row-gap: 100px;
   }
 `;
 
