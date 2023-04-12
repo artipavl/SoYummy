@@ -69,19 +69,19 @@ export const Head = () => {
           <UserToogleWrap>
 
             <UserWrapButton onClick={handleOpenSmallUserMenu}>
-              {isLoading? <ButtonLoader/> : <UserIcon src={userAvatar} alt="user avatar" width={44} />}
+              {isLoading ? <ButtonLoader /> : <UserIcon src={userAvatar} alt="user avatar" width={44} />}
 
               <UserName>{userName}</UserName>
 
             </UserWrapButton>
 
             <UserMenu
-                openUser={openUser}
-                handleOpenSmallUserMenu={handleOpenSmallUserMenu}
-              />
+              openUser={openUser}
+              handleOpenSmallUserMenu={handleOpenSmallUserMenu}
+            />
 
             <Burger onClick={handleMenuClick}>
-              <BurgerIconStyled/>
+              <BurgerIconStyled />
             </Burger>
 
             <ToogleWrap>
@@ -89,12 +89,13 @@ export const Head = () => {
             </ToogleWrap>
           </UserToogleWrap>
         </Container>
+        <MobileMenu openState={open} handleMenuClick={handleMenuClick}>
+          <ThemeToogle />
+        </MobileMenu>
       </Header>
 
 
-      <MobileMenu openState={open} handleMenuClick={handleMenuClick}>
-        <ThemeToogle />
-      </MobileMenu>
+
     </>
   );
 };

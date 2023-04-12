@@ -33,7 +33,7 @@ export const theme = {
     popularRecipeDescription: '#7e7e7e',
     popularRecipesItemBox: '#7070702b',
     recipesFonts: '#3E4462',
-    // categoriesListColor: "#BDBDBD",
+    selectRecipeBgcolor: "#FAFAFA",
 
     modes: {
       white: {
@@ -115,7 +115,7 @@ export const lightTheme = {
     popularRecipeDescription: '#7e7e7e',
     popularRecipesItemBox: '#7070702b',
     recipesFonts: '#3E4462',
-    // categoriesListColor: "#BDBDBD",
+    selectRecipeBgcolor: "#FAFAFA",
 
     modes: {
       white: {
@@ -167,7 +167,7 @@ export const darkTheme = {
     white: '#2A2C36', //! темний замість білого
     dark: '#FFFFFF', // світлий замість чорного
 
-    whiteMuted: '#D9D9D9', //білий пригнічений деякі кнопки та інпути
+    whiteMuted: 'rgb(34, 37, 42)', //! чоний  замість білого пригнічений деякі кнопки та інпути
 
     bgWhite: '#1E1F28', //! чорний замість білого з bg
 
@@ -196,7 +196,7 @@ export const darkTheme = {
     popularRecipeDescription: '#fafafa99',
     popularRecipesItemBox: '#7070702b',
     recipesFonts: '#FAFAFA',
-    // categoriesListColor: "#FAFAFA",
+    selectRecipeBgcolor: "#8BAA36",
 
     modes: {
       white: {

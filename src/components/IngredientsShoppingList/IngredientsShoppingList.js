@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 
 import { getShoppingList } from '../../api/serviseApi';
 import { Loader } from 'components/Loader/Loader';
-
 import IngredientIcon from '../../images/placeholder/ingredient.svg';
 
 import {
@@ -19,6 +18,8 @@ import {
   MeasureProduct,
   LoaderDiv,
   CloseIcon,
+  NotFoundImage,
+  NoShoppingListText,
 } from './IngredientsShoppingList.styled';
 import { useDispatch } from 'react-redux';
 import { removeIngredient } from 'redux/authOperations';
@@ -57,13 +58,22 @@ const IngredientsShoppingList = () => {
         </LoaderDiv>
       ) : (
         <>
-          <ShoppingListTitle>
-            <TitleName>Products</TitleName>
-            <RightBox>
-              <TitleName>Number</TitleName>
-              <TitleName>Remove</TitleName>
-            </RightBox>
-          </ShoppingListTitle>
+          {productList.length === 0 ? (
+            <>
+              <NotFoundImage />
+              <NoShoppingListText>
+                The shopping list is now empty
+              </NoShoppingListText>
+            </>
+          ) : (
+            <ShoppingListTitle>
+              <TitleName>Products</TitleName>
+              <RightBox>
+                <TitleName>Number</TitleName>
+                <TitleName>Remove</TitleName>
+              </RightBox>
+            </ShoppingListTitle>
+          )}
           <ShoppingList>
             {productList.map(({ _id, ttl, thb, measure }) => (
               <ShoppingListItem key={_id}>

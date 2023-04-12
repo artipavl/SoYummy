@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-
+import { animateScroll as scroll } from 'react-scroll';
 import { getMyRecipes, deleteMyRecipe } from 'api/index';
 import MyRecipeItem from 'components/MyRecipeItem/MyRecipeItem';
 import { Loader } from '../Loader/Loader';
@@ -8,7 +8,7 @@ import Pagination from '../Pagination/Pagination';
 import { List, ListText, LoaderBox } from '../FavoriteList/FavoriteList.styled';
 
 const MyRecipesList = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [allRecipes, setAllRecipes] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(null);
@@ -45,6 +45,7 @@ const MyRecipesList = () => {
 
   const handleChange = e => {
     setPage(e.selected + 1);
+    scroll.scrollToTop();
   };
 
   return (
