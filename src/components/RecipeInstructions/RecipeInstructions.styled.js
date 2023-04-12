@@ -32,7 +32,7 @@ export const InstructionsTitle = styled.h2`
 
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
-  color: ${props => props.theme.colors.modes.white.textDark};
+  color: ${props => props.theme.colors.recipesFonts};
 
   @media ${props => props.theme.device.tablet} {
     margin-bottom: 32px;
@@ -86,7 +86,8 @@ export const InstructionText = styled.p`
 
   letter-spacing: -0.02em;
 
-  color: rgba(0, 0, 0, 0.8);
+  /* color: rgba(0, 0, 0, 0.8); */
+  color: ${props => props.theme.colors.recipesFonts};
   @media ${props => props.theme.device.tablet} {
     font-size: 14px;
   }

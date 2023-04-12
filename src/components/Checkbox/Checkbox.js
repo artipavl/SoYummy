@@ -1,3 +1,4 @@
+import { useParams } from 'react-router-dom';
 import {
   CheckboxContainer,
   HiddenCheckbox,
@@ -5,32 +6,38 @@ import {
   StyledCheckbox,
 } from './Checkbox.styled';
 import checkbox from 'images/icons/checkbox.svg';
+import { addShopItem, removeShopItem } from 'api/services/axios/axiosService';
+import { useMemo } from 'react';
 
 const { useState, useEffect } = require('react');
 
-const Checkbox = props => {
+const Checkbox = ({ ingrId, shopListProp, ingrMeasure }) => {
   const [checked, setChecked] = useState(false);
+  const [shopList, setShopList] = useState([]);
+  const { recipeId } = useParams();
 
-  const handleCheckboxChange = event => {
+  const handleCheckboxChange = async event => {
     setChecked(event.target.checked);
+    if (checked) {
+      await removeShopItem(shopItem._id);
+    } else {
+      const res = await addShopItem(recipeId, ingrId, ingrMeasure);
+      const { result: newShopList } = res.data.data;
+      setShopList(newShopList);
+    }
   };
 
-  // const isChecked = id => {
-  //   console.log(props.shopList);
-  //   console.log(id);
-  //   props.shopList.reduce((acc, item) => {
-  //     console.log(item._id);
-  //     if (item._id === id) {
-  //       acc = true;
-  //       return acc;
-  //     }
-  //     return acc;
-  //   }, false);
-  // };
+  const shopItem = useMemo(() => {
+    return shopList.find(item => item.ingredientId === ingrId);
+  }, [ingrId, shopList]);
 
   useEffect(() => {
-    console.log(props);
-  }, [props]);
+    setShopList(shopListProp);
+  }, [shopListProp]);
+
+  useEffect(() => {
+    shopItem ? setChecked(true) : setChecked(false);
+  }, [shopItem]);
 
   return (
     <CheckboxContainer>

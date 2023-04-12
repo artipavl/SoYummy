@@ -30,7 +30,7 @@ export const CardItem = styled.li`
 export const ImgBox = styled.div`
   display: block;
   height: 100%;
-  min-width: 152px;
+  min-width: 124px;
   background-color: ${props => props.theme.colors.whiteMuted};
   background-image: url('${photo}');
   background-repeat: no-repeat;
@@ -40,10 +40,10 @@ export const ImgBox = styled.div`
 
   @media ${props => props.theme.device.tablet} {
     display: block;
-    min-width: 288px;
+    min-width: 228px;
   }
   @media ${props => props.theme.device.desktop} {
-    min-width: 404px;
+    min-width: 318px;
   }
 `;
 
