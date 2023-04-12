@@ -4,12 +4,10 @@ import { useParams } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Pagination from '@mui/material/Pagination';
+// import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
 import { getCategoryPage, getCategoryList } from 'api/serviseApi';
-
-
 
 import {
   Container,
@@ -92,8 +90,7 @@ export const Categories = () => {
 
   const handleChangePage = (e, newPage) => {
     setPage(newPage);
-  }
-  
+  };
 
   return (
     <>
@@ -135,7 +132,6 @@ export const Categories = () => {
         </Box>
 
         <List>
-
           {itemArray.map(({ _id, title, thumb }) => (
             <li key={_id}>
               <CardLink to={`/recipe/${_id}`}>
@@ -150,10 +146,9 @@ export const Categories = () => {
           ))}
         </List>
         <BoxPagination>
-
-        <Stack spacing={2}>
-          <PaginationBtn onChange={handleChangePage} count={totalPage} />
-        </Stack>
+          <Stack spacing={2}>
+            <PaginationBtn onChange={handleChangePage} count={totalPage} />
+          </Stack>
         </BoxPagination>
       </Container>
     </>

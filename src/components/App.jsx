@@ -1,4 +1,4 @@
-import styled, { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 
@@ -25,7 +25,7 @@ const Verification = lazy(() => import('pages/Varification/Verification'));
 const SharedLayout = lazy(() => import('../components/SharedLayout'));
 
 //const MainTitle = lazy(() => import('../components/MainTitle/MainTitle'));
-const Modal= lazy(() => import('../components/Modal'));
+const Modal = lazy(() => import('../components/Modal'));
 
 const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
 const AddRecipe = lazy(() => import('../pages/AddRecipe/AddRecipe'));
@@ -38,13 +38,13 @@ const ShoppingList = lazy(() =>
 );
 const SearchPage = lazy(() => import('../pages/SearchPage'));
 
-const StyledApp = styled.div`
-  min-height: 100vh;
-  text-align: center;
-  padding-top: 10rem;
-  background-color: ${props => props.theme.accent};
-  transition: all 1s ease;
-`;
+// const StyledApp = styled.div`
+//   min-height: 100vh;
+//   text-align: center;
+//   padding-top: 10rem;
+//   background-color: ${props => props.theme.accent};
+//   transition: all 1s ease;
+// `;
 
 export const App = () => {
   const [start, setStart] = useState(false);
@@ -91,17 +91,11 @@ export const App = () => {
               />
               <Route
                 path="categories"
-                element={
-                  <PrivateRoute component={<CategoriesPage/>} />
-                }
+                element={<PrivateRoute component={<CategoriesPage />} />}
               />
               <Route
                 path="categories/:categoryName"
-                element={
-                  <PrivateRoute
-                    component={<CategoriesPage/>}
-                  />
-                }
+                element={<PrivateRoute component={<CategoriesPage />} />}
               />
               <Route
                 path="search"
