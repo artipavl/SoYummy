@@ -71,5 +71,5 @@ export const SocialLink = styled(NavLink)`
 export const TitleSocial = styled.h3`
   font-size: 24px;
   margin-bottom: 42px;
-  color: ${props => props.theme.colors.modes.white.textDark};
+  color: ${props => props.theme.colors.recipesFonts};
 `;

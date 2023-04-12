@@ -33,6 +33,7 @@ export const theme = {
     popularRecipeDescription: '#7e7e7e',
     popularRecipesItemBox: '#7070702b',
     recipesFonts: '#3E4462',
+    // categoriesListColor: "#BDBDBD",
 
     modes: {
       white: {
@@ -114,6 +115,7 @@ export const lightTheme = {
     popularRecipeDescription: '#7e7e7e',
     popularRecipesItemBox: '#7070702b',
     recipesFonts: '#3E4462',
+    // categoriesListColor: "#BDBDBD",
 
     modes: {
       white: {
@@ -194,6 +196,7 @@ export const darkTheme = {
     popularRecipeDescription: '#fafafa99',
     popularRecipesItemBox: '#7070702b',
     recipesFonts: '#FAFAFA',
+    // categoriesListColor: "#FAFAFA",
 
     modes: {
       white: {
