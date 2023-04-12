@@ -128,7 +128,7 @@ export const removeIngredient = createAsyncThunk(
   'auth/removeIngredient',
   async (body, thunkAPI) => {
     try {
-      const response = await axios.patch('/users/shoping-list', body);
+      const response = await axios.patch('/users/shopping-list', { ...body });
 
       return response.data.data.result;
     } catch (e) {
@@ -141,7 +141,7 @@ export const addIngredient = createAsyncThunk(
   'auth/addIngredient',
   async (body, thunkAPI) => {
     try {
-      const response = await axios.post('/users/shoping-list', body);
+      const response = await axios.post('/users/shopping-list', body);
 
       return response.data.data.result;
     } catch (e) {
@@ -149,4 +149,3 @@ export const addIngredient = createAsyncThunk(
     }
   }
 );
-
