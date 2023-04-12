@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
-import { getShoppingList, deleteShoppingList } from '../../api/serviseApi';
 
+import { getShoppingList } from '../../api/serviseApi';
 import { Loader } from 'components/Loader/Loader';
-
 import IngredientIcon from '../../images/placeholder/ingredient.svg';
 
 import {
@@ -22,10 +21,14 @@ import {
   NotFoundImage,
   NoShoppingListText,
 } from './IngredientsShoppingList.styled';
+import { useDispatch } from 'react-redux';
+import { removeIngredient } from 'redux/authOperations';
 
 const IngredientsShoppingList = () => {
   const [productList, setProductList] = useState([]);
   const [isLoading, setIsLoading] = useState([]);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchProductList = async () => {
@@ -41,13 +44,10 @@ const IngredientsShoppingList = () => {
     fetchProductList();
   }, []);
 
-  const handleDeleteProduct = async _id => {
-    try {
-      await deleteShoppingList(_id);
+  const handleDeleteProduct = _id => {
+    dispatch(removeIngredient({ _id: _id })).then(() => {
       setProductList(productList.filter(item => item._id !== _id));
-    } catch (error) {
-      console.log(error);
-    }
+    });
   };
 
   return (
