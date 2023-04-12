@@ -180,20 +180,16 @@ export const SeeAll = styled(NavLink)`
   font-size: 14px;
   line-height: 18px;
 
+  background-color: ${props => props.theme.colors.accentCurrent};
   color: ${props => props.theme.colors.textWhite};
 
   @media ${props => props.theme.device.tablet} {
     margin-top: 50px;
   }
 
-  background-color: ${props =>
-    ({
-      normal: props => props.theme.colors.accent,
-      dark: props => props.theme.colors.dark,
-    }[props.variant])};
-
   :hover,
   :focus {
+    color: ${props => props.theme.colors.white};
     background-color: ${props =>
       ({
         normal: props => props.theme.colors.dark,

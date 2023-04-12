@@ -29,7 +29,8 @@ export const Navigator = styled(NavLink)`
   display: flex;
   padding-top: 10px;
   padding-bottom: 10px;
-  color: ${props => props.theme.colors.text};
+  /* color: ${props => props.theme.colors.text}; */
+  color: ${props => props.recipeid ? props.theme.colors.recipeHeaderList : props.theme.colors.text};
   font-weight: 500;
   font-size: 14px;
   line-height: 1.6;
@@ -43,7 +44,8 @@ export const SearchIconStyled = styled(Search)`
 
 
   path {
-    stroke: ${props => props.theme.colors.searchIconStyled};
+    /* stroke: ${props => props.theme.colors.searchIconStyled}; */
+    stroke: ${props => props.recipeid ? props.theme.colors.recipeHeaderList : props.theme.colors.searchIconStyled};
     transition: stroke 250ms linear;
   }
   :hover path,

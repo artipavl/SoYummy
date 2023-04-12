@@ -84,7 +84,7 @@ export const UserIcon = styled.img`
 export const UserName = styled.p`
   margin-left: 14px;
   font-size: 12px;
-  color: ${props => props.theme.colors.dark};
+  color: ${props => props.recipeid ? props.theme.colors.recipeHeaderList : props.theme.colors.dark};
   font-weight: ${props => props.theme.fontWeights.bold};
   @media ${props => props.theme.device.tablet} {
     font-size: 14px;
