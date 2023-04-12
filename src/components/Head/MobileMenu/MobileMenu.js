@@ -98,7 +98,7 @@ export const MobileMenu = ({ openState, handleMenuClick, children }) => {
         <div
           style={{
             position: 'absolute',
-            bottom: 18,
+            bottom: 50,
           }}
         >
           {children}
