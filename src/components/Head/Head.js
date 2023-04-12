@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { selectUserName, selectAvatarURL, selectAuthIsLoading } from 'redux/selectors';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router';
 
 import ThemeToogle from 'components/ThemeToogle';
 import DesktopMenu from './DesktopMenu';
@@ -36,6 +37,7 @@ export const Head = () => {
   const userName = useSelector(selectUserName);
   const userAvatar = useSelector(selectAvatarURL);
   const isLoading = useSelector(selectAuthIsLoading)
+  const { recipeId = null } = useParams();
 
   const handleChange = nextChecked => {
     setChecked(nextChecked);
@@ -71,7 +73,7 @@ export const Head = () => {
             <UserWrapButton onClick={handleOpenSmallUserMenu}>
               {isLoading? <ButtonLoader/> : <UserIcon src={userAvatar} alt="user avatar" width={44} />}
 
-              <UserName>{userName}</UserName>
+              <UserName recipeid={recipeId}>{userName}</UserName>
 
             </UserWrapButton>
 

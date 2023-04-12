@@ -1,3 +1,4 @@
+import { useParams } from 'react-router';
 import {
   NavStyled,
   NavItems,
@@ -7,47 +8,47 @@ import {
 } from './DesktopMenu.styles';
 
 export const DesktopMenu = () => {
-  return (
-    <NavStyled >
-      <NavItems>
+  const { recipeId = null } = useParams();
 
+  return (
+    <NavStyled>
+      <NavItems>
         <NavItem>
-          <Navigator to="/categories">
+          <Navigator recipeid={recipeId} to="/categories">
             Categories
           </Navigator>
         </NavItem>
 
         <NavItem>
-          <Navigator to="/add">
+          <Navigator recipeid={recipeId} to="/add">
             Add recipes
           </Navigator>
         </NavItem>
 
         <NavItem>
-          <Navigator to="/my">
+          <Navigator recipeid={recipeId} to="/my">
             My recipes
           </Navigator>
         </NavItem>
 
         <NavItem>
-          <Navigator to="/favorite">
+          <Navigator recipeid={recipeId} to="/favorite">
             Favorites
           </Navigator>
         </NavItem>
 
         <NavItem>
-          <Navigator to="/shopping-list">
+          <Navigator recipeid={recipeId} to="/shopping-list">
             Shopping list
           </Navigator>
         </NavItem>
 
         <NavItem>
-          <Navigator to="/search">
-            <SearchIconStyled/>
+          <Navigator recipeid={recipeId} to="/search">
+            <SearchIconStyled recipeid={recipeId} />
           </Navigator>
         </NavItem>
       </NavItems>
-
     </NavStyled>
   );
-}
+};
