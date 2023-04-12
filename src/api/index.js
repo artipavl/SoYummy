@@ -5,6 +5,9 @@ import {
   deleteMyRecipe,
   getShoppingList,
   deleteShoppingList,
+  getAllCategories,
+  getAllIngredients,
+  addRecipe,
 } from './serviseApi';
 
 export {
@@ -14,4 +17,7 @@ export {
   deleteMyRecipe,
   getShoppingList,
   deleteShoppingList,
+  getAllCategories,
+  getAllIngredients,
+  addRecipe,
 };

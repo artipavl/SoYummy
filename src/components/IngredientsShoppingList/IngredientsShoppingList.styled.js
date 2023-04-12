@@ -21,6 +21,7 @@ export const ShoppingListTitle = styled.h3`
   padding: 10px;
   background: ${props => props.theme.colors.modes.white.accent};
   @media ${props => props.theme.device.tablet} {
+    margin: 0;
     padding: 20px;
     font-size: 18px;
     letter-spacing: 0.03em;
@@ -31,9 +32,9 @@ export const ShoppingListTitle = styled.h3`
 `;
 
 export const ShoppingList = styled.ul`
-  padding-top: 8px;
+  padding: 8px 8px 0;
   @media ${props => props.theme.device.tablet} {
-    padding-top: 5px;
+    padding: 5px 0 0;
   }
 `;
 
@@ -54,7 +55,7 @@ export const RightBox = styled.div`
 
 export const ShoppingListItem = styled.li`
   display: flex;
-  padding: 24px 24px 24px 8px;
+  padding: 24px 17px 24px 0;
 
   border-bottom: 1px solid
     ${props => props.theme.colors.blackAndWhiteBrorderList};
@@ -77,12 +78,12 @@ export const ItemBoxLeft = styled.div`
 `;
 
 export const ItemBoxRight = styled(ItemBoxLeft)`
-  column-gap: 46px;
+  column-gap: 42px;
   @media ${props => props.theme.device.tablet} {
-    column-gap: 110px;
+    column-gap: 104px;
   }
   @media ${props => props.theme.device.desktop} {
-    column-gap: 174px;
+    column-gap: 168px;
   }
 `;
 

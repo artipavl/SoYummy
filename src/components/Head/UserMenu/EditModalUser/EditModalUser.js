@@ -10,6 +10,7 @@ import { editUserValidationSchema } from 'utils/editUserValidationSchema';
 import { selectUserName, selectAvatarURL } from 'redux/selectors';
 import { updateUser } from '../../../../redux/authOperations';
 import addAvatarImg from '../../../../images/icons/plus-icon.svg';
+// import notImage from '../../../../images/icons/not-supported-image.svg'
 
 import {
   UserIconStyled,
@@ -140,6 +141,7 @@ export const EditUserModal = ({
             <PreviewImageWrap htmlFor="file-upload">
               <PreviewImage
                 src={
+
                   formik.values.avatar instanceof File
                     ? URL.createObjectURL(formik.values.avatar)
                     : avatarURL
@@ -206,3 +208,5 @@ export const EditUserModal = ({
     </BackdropEditUserMOdal>
   );
 };
+
+

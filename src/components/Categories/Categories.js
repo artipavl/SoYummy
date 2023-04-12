@@ -135,10 +135,11 @@ export const Categories = () => {
         </Box>
 
         <List>
-          {itemArray.map(({ title, thumb }) => (
-            <li key={title}>
-              <CardLink>
-                <ImgBox>
+
+          {itemArray.map(({ _id, title, thumb }) => (
+            <li key={_id}>
+              <CardLink to={`/recipe/${_id}`}>
+                <ImgBox animation={title.length > 34}>
                   <Card alt={title} src={thumb} />
                   <TitleBox>
                     <TitleCard>{title}</TitleCard>

@@ -13,6 +13,7 @@ import bgDesktopRetina from '../../images/bg/footerBG_Desktop@2x.webp';
 
 
 export const FooterSection = styled.div`
+  font-family: 'Poppins';
   position: relative;
   background-color: ${props => props.theme.colors.accentDark};
   padding-top: 28px;
