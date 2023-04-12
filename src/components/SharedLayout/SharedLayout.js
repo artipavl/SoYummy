@@ -6,7 +6,8 @@ import styled from 'styled-components';
 import { Loader } from 'components/Loader/Loader';
 import { GoToTop } from 'utils/scrollToTop';
 const Layout = styled.div`
-  background-color: ${props => props.theme.colors.modes.white.background};
+  background-color: ${props =>
+    props.theme.colors.modes.white.background};
 `;
 
 
