@@ -89,6 +89,7 @@ export const Categories = () => {
       } else {
         setTotalPage(1);
       }
+      setPage(1);
     });
   }, [nameEl, page]);
 
