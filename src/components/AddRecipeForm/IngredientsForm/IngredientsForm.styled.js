@@ -24,8 +24,10 @@ export const IngredientsSelectInput = styled(Field)`
   width: 100%;
   padding: 16px;
   border-radius: 6px;
+  opacity: 50%;
   border: 1px solid ${props => props.theme.colors.whiteMuted};
   background-color: ${props => props.theme.colors.whiteMuted};
+  color: ${props => props.theme.colors.dark};
   outline: none;
   @media ${props => props.theme.device.tablet} {
     font-size: 18px;
@@ -71,8 +73,10 @@ export const MeasureInput = styled.input`
   border: none;
   border-radius: 6px 6px 6px 6px;
   outline: none;
+  opacity: 50%;
   border-color: ${props => props.theme.colors.whiteMuted};
   background-color: ${props => props.theme.colors.whiteMuted};
+  /* color: ${props => props.theme.colors.dark}; */
   color: ${props => props.theme.colors.dark};
 `;
 
@@ -86,6 +90,7 @@ export const MeasureSelect = styled.select`
   border: none;
   border-radius: 0 6px 6px 0;
   outline: none;
+  opacity: 50%;
   font-size: 12px;
   border-color: ${props => props.theme.colors.whiteMuted};
   background-color: ${props => props.theme.colors.whiteMuted};
