@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { selectResults } from 'redux/selectors';
+import { selectResults, selectStatus } from 'redux/selectors';
 
 import SearchedRecipesItem from 'components/SearchedRecipesItem';
 import { Loader } from 'components/Loader/Loader';
@@ -11,8 +11,6 @@ import {
   RecipeNotFoundImage,
   RecipeNotFoundText,
 } from './SearchedRecipesList.styled';
-
-import { selectStatus } from 'redux/selectors';
 
 const SearchedRecipesList = () => {
   const recipes = useSelector(selectResults);

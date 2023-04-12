@@ -1,6 +1,50 @@
 import styled from 'styled-components';
 import { RiCloseLine } from 'react-icons/ri';
 
+import NotFoundImgTabletDesktop from '../../images/bg/recipe-not-found-tablet-desktop.webp';
+import NotFoundImgTabletDesktopRetina from '../../images/bg/recipe-not-found-tablet-desktop-2x.webp';
+import NotFoundImgMobile from '../../images/bg/recipe-not-found-mobile.webp';
+import NotFoundImgMobileRetina from '../../images/bg/recipe-not-found-mobile-2x.webp';
+
+export const NotFoundImage = styled.div`
+  margin-top: 100px;
+  background-image: url(${NotFoundImgMobile});
+  width: 208px;
+  height: 133px;
+  background-size: cover;
+  margin: 0 auto;
+  margin-top: 10%;
+  @media ${props => props.theme.retinaBackgroundImage} {
+    background-image: url(${NotFoundImgMobileRetina});
+  }
+  @media ${props => props.theme.device.tablet} {
+    background-image: url(${NotFoundImgTabletDesktop});
+    width: 350px;
+    height: 225px;
+    margin-top: 20%;
+    @media ${props => props.theme.retinaBackgroundImage} {
+      background-image: url(${NotFoundImgTabletDesktopRetina});
+    }
+  }
+`;
+
+export const NoShoppingListText = styled.p`
+  font-weight: ${props => props.theme.fontWeights.medium};
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 100px;
+  color: ${props => props.theme.colors.dark};
+  opacity: 0.5;
+  @media ${props => props.theme.device.tablet} {
+    font-size: 24px;
+    margin-top: 32px;
+    margin-bottom: 200px;
+  }
+`;
+
 export const ShoppingListContainer = styled.div`
   padding: 50px 0 100px;
   @media ${props => props.theme.device.tablet} {
