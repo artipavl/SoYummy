@@ -10,7 +10,6 @@ export const MobileMenuSection = styled.section`
   box-sizing: border-box;
   position: fixed;
   padding: 18px 16px;
-  /* background-color: #EBF3D4; */
   background-color: ${props => props.theme.colors.modes.white.accentMuted};
   background-image: url('${BgMobile}');
   background-repeat: no-repeat;
@@ -18,14 +17,16 @@ export const MobileMenuSection = styled.section`
   background-position: 100% 100%;
   top: 0;
   right: 0;
+  transform: translateY(-100%);
   height: 100vh;
   width: 100vw;
   z-index: 999;
-  opacity: 0;
+  opacity: 1;
   visibility: hidden;
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out ;
 
   &.open {
+    transform: translateY(0%);
     opacity: 1;
     visibility: visible;
   }
@@ -37,9 +38,9 @@ export const MobileMenuSection = styled.section`
 
   @media ${props => props.theme.device.tablet}{
     padding: 18px 32px;
-    width: 768px;
-    right: 50%;
-    transform: translateX(50%);
+    /* width: 768px; */
+    /* right: 50%;
+    transform: translateX(50%); */
     background-image: url('${BgTablet}');
     @media ${props => props.theme.retinaBackgroundImage} {
       background-image: url('${BgTabletRetina}');

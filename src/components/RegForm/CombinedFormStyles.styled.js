@@ -9,6 +9,9 @@ export const Wrapper = styled.div`
       ${props => props.theme.colors.white} 50%,
       ${props => props.theme.colors.bgDark} 50%
     );
+    /* clip-path: polygon(25% 65%, 73% 65%, 100% 56%, 100% 80%, 100% 100%, 0 100%, 0% 80%, 0 54%); */
+
+
 
     padding-bottom: 118px;
 
