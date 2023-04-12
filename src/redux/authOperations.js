@@ -149,3 +149,14 @@ export const addIngredient = createAsyncThunk(
     }
   }
 );
+export const getShoppingList = createAsyncThunk(
+  'auth/getShoppingList',
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await axios.get(`/users/shopping-list`);
+      return data.data.result;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

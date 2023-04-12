@@ -11,6 +11,7 @@ import {
   subscribeUser,
   addIngredient,
   removeIngredient,
+  getShoppingList,
 } from './authOperations';
 
 const initialState = {
@@ -143,6 +144,13 @@ const authSlice = createSlice({
       state.user.shoppingList = action.payload;
     },
     [removeIngredient.rejected](state, action) {
+      state.isError = action.payload;
+    },
+
+    [getShoppingList.fulfilled](state, action) {
+      state.user.shoppingList = action.payload;
+    },
+    [getShoppingList.rejected](state, action) {
       state.isError = action.payload;
     },
   },
