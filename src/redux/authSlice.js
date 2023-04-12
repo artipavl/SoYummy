@@ -13,6 +13,7 @@ import {
 
 const initialState = {
   user: {
+    id: '',
     name: '',
     email: '',
     avatarURL: '',
@@ -46,9 +47,9 @@ const authSlice = createSlice({
     },
 
     [login.fulfilled](state, action) {
-      const { name, email, avatarURL, token } = action.payload;
+      const { name, email, avatarURL, token, _id } = action.payload;
 
-      state.user = { name, email, avatarURL };
+      state.user = { name, email, avatarURL, id: _id };
       state.token = token;
       state.isLoggedIn = true;
       state.isLoading = false;
@@ -64,9 +65,9 @@ const authSlice = createSlice({
     },
 
     [fetchCurrentUser.fulfilled](state, action) {
-      const { name, email, avatarURL } = action.payload;
+      const { name, email, avatarURL, _id } = action.payload;
 
-      state.user = { name, email, avatarURL };
+      state.user = { name, email, avatarURL, id: _id };
       state.isLoggedIn = true;
       state.isLoading = false;
     },
@@ -80,7 +81,6 @@ const authSlice = createSlice({
     },
 
     [fetchUserLogout.fulfilled](state) {
-      // state = initialState;
       state.user = initialState.user;
       state.token = null;
       state.isError = null;
@@ -100,9 +100,6 @@ const authSlice = createSlice({
       state.theme = state.theme === 'light' ? 'dark' : 'light';
     },
 
-    // themeSwicher: (state, action) => {
-    //   state.theme = state.theme === "light" ? "dark" : "light";
-    // },
     [updateUser.fulfilled](state, action) {
       const { name, avatarURL } = action.payload;
 
@@ -134,5 +131,3 @@ const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
-
-// export const { themeSwicher } = authSlice.actions;
