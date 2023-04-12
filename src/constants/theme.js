@@ -101,7 +101,7 @@ export const lightTheme = {
     textWhite: '#FAFAFA', //текст білий
     textWhiteMuted: 'rgba(250, 250, 250, 0.6)', //текст білий пригнічений
     textTitle: '#001833', //текст синій
-    textError: 'fa2c2c', // червоний текст помилки
+    textError: '#fa2c2c', // червоний текст помилки
     subFooterText: '#22252A', // текст, який розташований під футером
     subFooterBtn: '#FAFAFA', // текст, який розташований у кнопці футера
     socialLinkIcons: '#8BAA36',
@@ -181,7 +181,7 @@ export const darkTheme = {
     textWhite: '#FAFAFA', //текст білий
     textWhiteMuted: 'rgba(250, 250, 250, 0.6)', //текст білий пригнічений
     textTitle: '#FAFAFA', //текст синій
-    textError: 'fa2c2c', // червоний текст помилки
+    textError: '#fa2c2c', // червоний текст помилки
     subFooterText: '#FAFAFA', // текст, який розташований під футером
     subFooterBtn: '#FAFAFA', // текст, який розташований у кнопці футера
     socialLinkIcons: '#FAFAFA',

@@ -1,5 +1,6 @@
 import { Field } from 'formik';
 import styled from 'styled-components';
+import { RiCloseLine } from 'react-icons/ri';
 
 export const SelectIngredientWrapper = styled.div`
   width: 100%;
@@ -23,7 +24,7 @@ export const IngredientsSelectInput = styled(Field)`
   width: 100%;
   padding: 16px;
   border-radius: 6px;
-  border: none;
+  border: 1px solid ${props => props.theme.colors.whiteMuted};
   background-color: ${props => props.theme.colors.whiteMuted};
   outline: none;
   @media ${props => props.theme.device.tablet} {
@@ -59,7 +60,8 @@ export const MeasureContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  border-radius: 4px;
+  border: 1px solid ${props => props.theme.colors.whiteMuted};
+  border-radius: 6px;
 `;
 
 export const MeasureInput = styled.input`
@@ -104,7 +106,7 @@ export const DeleteButton = styled.button`
   height: 53px;
   align-items: center;
   justify-content: center;
-
+  width: 20px;
   &:hover,
   &:focus {
     color: ${props => props.theme.colors.accent};
@@ -112,4 +114,10 @@ export const DeleteButton = styled.button`
   @media ${props => props.theme.device.tablet} {
     margin-left: auto;
   }
+`;
+
+export const CloseIcon = styled(RiCloseLine)`
+  color: ${props => props.theme.colors.profileModalCloseIcon};
+
+  font-size: 20px;
 `;

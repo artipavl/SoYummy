@@ -43,5 +43,7 @@ export const SocialLinkWrap = styled.div`
   display: none;
   @media ${props => props.theme.device.desktop} {
     display: block;
+    margin-bottom: 102px;
+    padding-top: 100px;
   }
 `;
