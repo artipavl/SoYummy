@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import RecipeHero from 'components/RecipeHero/RecipeHero';
 import RecipeIngredients from 'components/RecipeIngredients/RecipeIngredients';
 import RecipeInstructions from 'components/RecipeInstructions/RecipeInstructions';
@@ -10,7 +10,7 @@ const RecipePage = () => {
   const [recipe, setRecipe] = useState(null);
   const [instructions, setInstructions] = useState([]);
   const [ingredients, setIngredients] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     getRecipeById(recipeId)
       .then(res => {
@@ -19,8 +19,11 @@ const RecipePage = () => {
         setInstructions(result[0].instructions.split('. '));
         setIngredients(result[0].ingredients);
       })
-      .catch(error => console.error(error));
-  }, [recipeId]);
+      .catch(error => {
+        console.error(error);
+        navigate('error');
+      });
+  }, [navigate, recipeId]);
   return (
     <>
       {recipe && (

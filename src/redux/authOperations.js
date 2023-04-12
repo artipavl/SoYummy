@@ -123,3 +123,30 @@ export const subscribeUser = createAsyncThunk(
     }
   }
 );
+
+export const removeIngredient = createAsyncThunk(
+  'auth/removeIngredient',
+  async (body, thunkAPI) => {
+    try {
+      const response = await axios.patch('/users/shoping-list', body);
+
+      return response.data.data.result;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const addIngredient = createAsyncThunk(
+  'auth/addIngredient',
+  async (body, thunkAPI) => {
+    try {
+      const response = await axios.post('/users/shoping-list', body);
+
+      return response.data.data.result;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+

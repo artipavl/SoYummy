@@ -9,6 +9,8 @@ import {
   themeSwicher,
   updateUser,
   subscribeUser,
+  addIngredient,
+  removeIngredient,
 } from './authOperations';
 
 const initialState = {
@@ -17,6 +19,7 @@ const initialState = {
     name: '',
     email: '',
     avatarURL: '',
+    shoppingList: [],
   },
   theme: 'light',
   token: null,
@@ -47,9 +50,10 @@ const authSlice = createSlice({
     },
 
     [login.fulfilled](state, action) {
-      const { name, email, avatarURL, token, _id } = action.payload;
+      const { name, email, avatarURL, token, _id, shoppingList } =
+        action.payload;
 
-      state.user = { name, email, avatarURL, id: _id };
+      state.user = { name, email, avatarURL, id: _id, shoppingList };
       state.token = token;
       state.isLoggedIn = true;
       state.isLoading = false;
@@ -65,9 +69,9 @@ const authSlice = createSlice({
     },
 
     [fetchCurrentUser.fulfilled](state, action) {
-      const { name, email, avatarURL, _id } = action.payload;
+      const { name, email, avatarURL, _id, shoppingList } = action.payload;
 
-      state.user = { name, email, avatarURL, id: _id };
+      state.user = { name, email, avatarURL, id: _id, shoppingList };
       state.isLoggedIn = true;
       state.isLoading = false;
     },
@@ -126,6 +130,20 @@ const authSlice = createSlice({
     [subscribeUser.rejected](state, action) {
       state.isError = action.payload;
       state.isLoading = false;
+    },
+
+    [addIngredient.fulfilled](state, action) {
+      state.user.shoppingList = action.payload;
+    },
+    [addIngredient.rejected](state, action) {
+      state.isError = action.payload;
+    },
+
+    [removeIngredient.fulfilled](state, action) {
+      state.user.shoppingList = action.payload;
+    },
+    [removeIngredient.rejected](state, action) {
+      state.isError = action.payload;
     },
   },
 });
