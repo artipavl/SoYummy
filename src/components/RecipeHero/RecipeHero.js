@@ -13,15 +13,25 @@ import {
 import { Container } from 'reusableComponents/Container/Container.styled';
 import {
   addToFavorites,
-  getFavorites,
-  getOwnRecipes,
   removeFromFavorites,
 } from 'api/services/axios/axiosService';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectUserId } from 'redux/selectors';
 
-const RecipeHero = ({ title, description, time, recipeId }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [isOwnRecipe, setIsOwnRecipe] = useState(false);
+const RecipeHero = ({
+  title,
+  description,
+  time,
+  recipeId,
+  favorites,
+  owner,
+}) => {
+  const userId = useSelector(selectUserId);
+  const [isFavorite, setIsFavorite] = useState(() =>
+    favorites ? favorites.includes(userId) : false
+  );
+  const [isOwnRecipe] = useState(() => owner === userId);
 
   const handleFavoriteAdd = id => {
     addToFavorites(id)
@@ -38,32 +48,6 @@ const RecipeHero = ({ title, description, time, recipeId }) => {
       .catch(err => console.log(err.message));
   };
 
-  useEffect(() => {
-    const isArrHasRecipeId = arr => {
-      return arr.reduce((acc, item) => {
-        if (item._id === recipeId) {
-          acc = true;
-        }
-        return acc;
-      }, false);
-    };
-
-    getFavorites()
-      .then(res => {
-        const { result: favorites } = res.data.data;
-        const isFavorite = isArrHasRecipeId(favorites);
-        isFavorite && setIsFavorite(isFavorite);
-      })
-      .catch(err => console.log(err.message));
-
-    getOwnRecipes()
-      .then(res => {
-        const { result: ownRecipes } = res.data.data;
-        const ownRecipe = isArrHasRecipeId(ownRecipes);
-        ownRecipe && setIsOwnRecipe(ownRecipe);
-      })
-      .catch(err => console.log(err.message));
-  }, [recipeId]);
   return (
     <HeroSection>
       <Container>

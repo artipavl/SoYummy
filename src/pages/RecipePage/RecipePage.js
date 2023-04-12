@@ -7,7 +7,7 @@ import { getRecipeById } from 'api/services/axios/axiosService';
 
 const RecipePage = () => {
   const { recipeId } = useParams();
-  const [recipe, setRecipe] = useState('');
+  const [recipe, setRecipe] = useState(null);
   const [instructions, setInstructions] = useState([]);
   const [ingredients, setIngredients] = useState([]);
 
@@ -23,18 +23,24 @@ const RecipePage = () => {
   }, [recipeId]);
   return (
     <>
-      <RecipeHero
-        title={recipe.title}
-        description={recipe.description}
-        time={recipe.time}
-        recipeId={recipeId}
-      ></RecipeHero>
-      <RecipeIngredients ingredients={ingredients}></RecipeIngredients>
-      <RecipeInstructions
-        instructions={instructions}
-        picture={recipe.preview}
-        alt={recipe.title}
-      ></RecipeInstructions>
+      {recipe && (
+        <>
+          <RecipeHero
+            title={recipe.title}
+            description={recipe.description}
+            time={recipe.time}
+            recipeId={recipeId}
+            favorites={recipe.favorites}
+            owner={recipe?.owner}
+          ></RecipeHero>
+          <RecipeIngredients ingredients={ingredients}></RecipeIngredients>
+          <RecipeInstructions
+            instructions={instructions}
+            picture={recipe.preview}
+            alt={recipe.title}
+          ></RecipeInstructions>
+        </>
+      )}
     </>
   );
 };
