@@ -10,8 +10,9 @@ import {
   MeasureInput,
   MeasureSelect,
   DeleteButton,
+  CloseIcon,
 } from './IngredientsForm.styled';
-import { ReactComponent as CloseIcon } from '../../../images/icons/close-icon.svg';
+
 export const IngredientsInput = ({
   allIngredients,
   form,

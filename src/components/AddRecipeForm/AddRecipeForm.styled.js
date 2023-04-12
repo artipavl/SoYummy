@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 import { Form, Field, ErrorMessage } from 'formik';
+import { AiOutlinePlus } from 'react-icons/ai';
+import { BsDashLg } from 'react-icons/bs';
 
 export const Error = styled(ErrorMessage)`
   width: 100%;
@@ -15,14 +17,17 @@ export const AddForma = styled(Form)`
   flex-direction: column;
   padding-top: 72px;
   width: 100%;
+  margin-bottom: 72px;
 
   @media ${props => props.theme.device.tablet} {
     flex-direction: row;
     flex-wrap: wrap;
     padding-top: 100px;
+    margin-bottom: 100px;
   }
   @media ${props => props.theme.device.desktop} {
     width: 800px;
+    margin-bottom: 0;
   }
 `;
 export const CustomInputContainer = styled.div`
@@ -85,7 +90,8 @@ export const InputField = styled(Field)`
   padding-bottom: 18px;
   margin-bottom: 24px;
   border: none;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid
+    ${props => props.theme.colors.blackAndWhiteBrorderList};
   outline: none;
   font-size: 14px;
   background-color: transparent;
@@ -109,7 +115,8 @@ export const WrapperSelectInput = styled.div`
   justify-content: space-between;
   width: 100%;
   margin: 0 0 24px 0;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid
+    ${props => props.theme.colors.blackAndWhiteBrorderList};
   padding-bottom: 18px;
 `;
 
@@ -205,16 +212,37 @@ export const IngredienLenght = styled.div`
   padding: 0 14px;
   width: 96px;
   height: 28px;
-  border: 1px solid rgba(51, 51, 51, 0.3);
+  border: 1px solid ${props => props.theme.colors.textDark};
+  opacity: 30%;
   border-radius: 18px;
 `;
 
 export const ButtonClickIngredient = styled.button`
+  display: flex;
+  align-items: center;
   border: none;
+  width: 14x;
   cursor: pointer;
   background-color: transparent;
+  color: ${props => props.theme.colors.textDark};
+
   &:hover {
-    color: ${props => props.theme.colors.accent};
+    color: ${props => props.theme.colors.accentCurrent};
+  }
+`;
+export const AddIngredientButton = styled(AiOutlinePlus)`
+  font-weight: 600;
+  width: 14px;
+`;
+export const DeleteIngredientButton = styled(BsDashLg)`
+  width: 14px;
+  font-weight: 600;
+`;
+export const IngredientsCount = styled.span`
+  font-size: 14px;
+  color: ${props => props.theme.colors.profileModalCloseIcon};
+  @media ${props => props.theme.device.tablet} {
+    font-size: 16px;
   }
 `;
 

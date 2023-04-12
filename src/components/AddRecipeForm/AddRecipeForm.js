@@ -21,16 +21,18 @@ import {
   TitleWrap,
   FormSectionTitle,
   IngredienLenght,
+  IngredientsCount,
   ButtonClickIngredient,
   AddRecipeButton,
   LoaderContainer,
+  AddIngredientButton,
+  DeleteIngredientButton,
 } from './AddRecipeForm.styled';
 
 import { IngredientsInput } from './IngredientsForm/IngrdedientsForm';
 import { AddRecipePreparation } from './RecipePreparation/AddRecipePreparation';
 import { Loader } from 'components/Loader/Loader';
-import { BsPlus } from 'react-icons/bs';
-import { VscDash } from 'react-icons/vsc';
+
 import { ReactComponent as UploadPhoto } from '../../images/icons/upload-photo.svg';
 
 const initialValues = {
@@ -208,10 +210,12 @@ export const AddRecipeForm = () => {
                               type="buttom"
                               onClick={() => ingredients.pop()}
                             >
-                              <VscDash />
+                              <DeleteIngredientButton />
                             </ButtonClickIngredient>
 
-                            <span>{ingredients.length}</span>
+                            <IngredientsCount>
+                              {ingredients.length}
+                            </IngredientsCount>
                             <ButtonClickIngredient
                               type="buttom"
                               onClick={() =>
@@ -221,7 +225,7 @@ export const AddRecipeForm = () => {
                                 })
                               }
                             >
-                              <BsPlus />
+                              <AddIngredientButton />
                             </ButtonClickIngredient>
                           </IngredienLenght>
                         </TitleWrap>
