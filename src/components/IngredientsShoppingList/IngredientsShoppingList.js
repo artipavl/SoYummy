@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-
 import { getShoppingList, deleteShoppingList } from '../../api/serviseApi';
+
 import { Loader } from 'components/Loader/Loader';
 
 import IngredientIcon from '../../images/placeholder/ingredient.svg';
@@ -19,11 +19,13 @@ import {
   MeasureProduct,
   LoaderDiv,
   CloseIcon,
+  NotFoundImage,
+  NoShoppingListText,
 } from './IngredientsShoppingList.styled';
 
 const IngredientsShoppingList = () => {
-  const [isLoading, setIsLoading] = useState(true);
   const [productList, setProductList] = useState([]);
+  const [isLoading, setIsLoading] = useState([]);
 
   useEffect(() => {
     const fetchProductList = async () => {
@@ -56,13 +58,22 @@ const IngredientsShoppingList = () => {
         </LoaderDiv>
       ) : (
         <>
-          <ShoppingListTitle>
-            <TitleName>Products</TitleName>
-            <RightBox>
-              <TitleName>Number</TitleName>
-              <TitleName>Remove</TitleName>
-            </RightBox>
-          </ShoppingListTitle>
+          {productList.length === 0 ? (
+            <>
+              <NotFoundImage />
+              <NoShoppingListText>
+                The shopping list is now empty
+              </NoShoppingListText>
+            </>
+          ) : (
+            <ShoppingListTitle>
+              <TitleName>Products</TitleName>
+              <RightBox>
+                <TitleName>Number</TitleName>
+                <TitleName>Remove</TitleName>
+              </RightBox>
+            </ShoppingListTitle>
+          )}
           <ShoppingList>
             {productList.map(({ _id, ttl, thb, measure }) => (
               <ShoppingListItem key={_id}>
