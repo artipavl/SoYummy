@@ -128,6 +128,7 @@ export const SelectInput = styled(Field)`
   max-height: 120px;
   overflow-y: auto;
 
+  /* background-color: ${props => props.theme.colors.selectRecipeBgcolor}; */
   color: ${props => props.theme.colors.dark};
   opacity: 50%;
 
