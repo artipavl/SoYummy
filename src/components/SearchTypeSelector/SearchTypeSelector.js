@@ -23,12 +23,8 @@ const SearchTypeSelector = () => {
     <SelectorWrapper>
       <SelectorText>Search by:</SelectorText>
       <TypeSelector value={searchType} onChange={handleChange}>
-        <SelectorOption value="title" checked>
-          Title
-        </SelectorOption>
-        <SelectorOption value="ingredients" checked>
-          Ingredients
-        </SelectorOption>
+        <SelectorOption value="title">Title</SelectorOption>
+        <SelectorOption value="ingredients">Ingredients</SelectorOption>
       </TypeSelector>
     </SelectorWrapper>
   );

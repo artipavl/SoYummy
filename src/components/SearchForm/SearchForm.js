@@ -20,7 +20,6 @@ const SearchForm = () => {
 
       return null;
     }
-
     setSearchParams({ query: trimmedQuery });
   };
 
@@ -37,6 +36,7 @@ const SearchForm = () => {
                 type="text"
                 name="query"
                 value={values.query}
+                placeholder="Enter the text"
                 onChange={handleChange}
               />
               <SearchBtn type="submit">Search</SearchBtn>

@@ -38,6 +38,7 @@ const SearchedRecipesList = () => {
           })}
         </RecipesList>
       )}
+
       {isResolved && recipes.length === 0 && (
         <>
           <RecipeNotFoundImage />
