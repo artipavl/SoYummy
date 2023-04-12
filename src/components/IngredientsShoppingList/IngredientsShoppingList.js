@@ -26,7 +26,7 @@ import { removeIngredient } from 'redux/authOperations';
 
 const IngredientsShoppingList = () => {
   const [productList, setProductList] = useState([]);
-  const [isLoading, setIsLoading] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const dispatch = useDispatch();
 
