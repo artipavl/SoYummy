@@ -33,7 +33,7 @@ export const theme = {
     popularRecipeDescription: '#7e7e7e',
     popularRecipesItemBox: '#7070702b',
     recipesFonts: '#3E4462',
-    selectRecipeBgcolor: "#FAFAFA",
+    selectRecipeBgcolor: '#FAFAFA',
 
     modes: {
       white: {
@@ -115,7 +115,7 @@ export const lightTheme = {
     popularRecipeDescription: '#7e7e7e',
     popularRecipesItemBox: '#7070702b',
     recipesFonts: '#3E4462',
-    selectRecipeBgcolor: "#FAFAFA",
+    selectRecipeBgcolor: '#FAFAFA',
 
     modes: {
       white: {
@@ -196,13 +196,13 @@ export const darkTheme = {
     popularRecipeDescription: '#fafafa99',
     popularRecipesItemBox: '#7070702b',
     recipesFonts: '#FAFAFA',
-    selectRecipeBgcolor: "#8BAA36",
+    selectRecipeBgcolor: '#8BAA36',
 
     modes: {
       white: {
         text: '#23262A', //текст
         textDark: '#3E4462', //текст сірий
-        background: '#000000',
+        background: '#1E1F28',
         backgroundAccent: '#000000',
         accent: '#8BAA36', //зелений акцен
         accentGrey: '#1E1F28', //зелений пригнічний на сірий

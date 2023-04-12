@@ -23,6 +23,8 @@ import {
 } from 'components/Categories/Categories.styled.js';
 
 import { createTheme } from '@mui/material/styles';
+import { useSelector } from 'react-redux';
+import { selectorSwicherTheme } from 'redux/selectors';
 
 createTheme({
   castom: {
@@ -38,6 +40,8 @@ export const Categories = () => {
   const [oneParam] = useState(useParams().categoryName);
   const [totalPage, setTotalPage] = useState(1);
   const [page, setPage] = useState(1);
+
+  const theme = useSelector(selectorSwicherTheme);
 
   console.log(isLoading);
   useEffect(() => {
@@ -83,7 +87,7 @@ export const Categories = () => {
       if (pageCounts > 1) {
         setTotalPage(pageCounts);
       } else {
-        setTotalPage(null);
+        setTotalPage(1);
       }
     });
   }, [nameEl, page]);
@@ -122,7 +126,8 @@ export const Categories = () => {
                   '&.Mui-selected': {
                     color: '#8BAA36',
                   },
-                  color: 'var(--categoriesForDarkToWhite)',
+                  color:
+                    theme === 'light' ? '#BDBDBD' : `rgba(250, 250, 250, 0.6)`,
                 }}
                 key={item.id}
                 label={item.value}
