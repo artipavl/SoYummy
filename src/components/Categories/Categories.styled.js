@@ -9,8 +9,12 @@ export const BoxPagination = styled.div`
 `;
 
 export const PaginationBtn = styled(Pagination)`
+  && button {
+    color: #8baa36;
+  }
   && .Mui-selected {
-    background: #8baa36;
+    background: ${props => props.theme.colors.accentCurrent};
+    color: ${props => props.theme.colors.dark};
   }
 `;
 

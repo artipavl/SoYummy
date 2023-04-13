@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import {
+  useParams
+} from 'react-router-dom';
+
 
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-// import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
 import { getCategoryPage, getCategoryList } from 'api/serviseApi';
@@ -21,16 +23,8 @@ import {
   PaginationBtn,
   BoxPagination,
 } from 'components/Categories/Categories.styled.js';
-
-import { createTheme } from '@mui/material/styles';
 import { useSelector } from 'react-redux';
 import { selectorSwicherTheme } from 'redux/selectors';
-
-createTheme({
-  castom: {
-    danger: '#8BAA36',
-  },
-});
 
 export const Categories = () => {
   const [value, setValue] = useState(0);
@@ -152,13 +146,15 @@ export const Categories = () => {
           ))}
         </List>
         <BoxPagination>
-          <Stack spacing={2}>
-            <PaginationBtn
-              onChange={handleChangePage}
-              count={totalPage}
-              page={page}
-            />
-          </Stack>
+          {page && (
+            <Stack>
+              <PaginationBtn
+                page={page}
+                onChange={handleChangePage}
+                count={totalPage}
+              />
+            </Stack>
+          )}
         </BoxPagination>
       </Container>
     </>
