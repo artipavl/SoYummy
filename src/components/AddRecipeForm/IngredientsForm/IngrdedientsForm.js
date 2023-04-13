@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef, useEffect } from 'react';
+import { useState, useMemo, useRef } from 'react';
 
 import {
   SelectIngredientWrapper,
@@ -27,7 +27,7 @@ export const IngredientsInput = ({
   remove,
 }) => {
   const [searchValue, setSearchValue] = useState('');
-  const [ingredientId, SetIngredientId] = useState('');
+  // const [ingredientId, SetIngredientId] = useState('');
   const [showFilteredItems, SetShowFilteredItems] = useState(false);
   const [isMeasure, SetIsMeasure] = useState(false);
   const [formData, setFormData] = useState({
@@ -95,7 +95,7 @@ export const IngredientsInput = ({
     setSearchValue(e.target.value);
     SetShowFilteredItems(false);
     if (newIngredients) {
-      SetIngredientId(newIngredients._id);
+      // SetIngredientId(newIngredients._id);
     }
   };
 
