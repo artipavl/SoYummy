@@ -9,10 +9,12 @@ import {
   Title,
   Yummy,
   Link,
-  Arrow
 } from './СhooseYourBreakfast.styled';
+// import ArrowTab from 'images/MainPage/bg/GroupTab.svg'
+
 
 export const СhooseYourBreakfast = () => {
+
   return (
     <>
       <BoxOne>
@@ -25,7 +27,6 @@ export const СhooseYourBreakfast = () => {
       </BoxOne>
       <BoxTwo>
         <PlateBox>
-            <Arrow />
           <PlateTitleBox>
             <Title>
               <span>Delicious and healthy</span> way to enjoy a variety of fresh
@@ -44,6 +45,7 @@ export const СhooseYourBreakfast = () => {
               </svg>
             </Link>
           </PlateTitleBox>
+          {/* <ArrowTab/> */}
         </PlateBox>
       </BoxTwo>
     </>

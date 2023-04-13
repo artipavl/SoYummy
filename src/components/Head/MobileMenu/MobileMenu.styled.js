@@ -16,7 +16,7 @@ export const MobileMenuSection = styled.section`
   background-size: contain;
   background-position: 100% 100%;
   top: 0;
-  right: 0;
+  left: 0;
   transform: translateY(-100%);
   height: 100vh;
   width: 100vw;
@@ -38,9 +38,6 @@ export const MobileMenuSection = styled.section`
 
   @media ${props => props.theme.device.tablet}{
     padding: 18px 32px;
-    /* width: 768px; */
-    /* right: 50%;
-    transform: translateX(50%); */
     background-image: url('${BgTablet}');
     @media ${props => props.theme.retinaBackgroundImage} {
       background-image: url('${BgTabletRetina}');

@@ -47,11 +47,15 @@ export const Green2 = styled.div`
   position: absolute;
   width: 8px;
   height: 8px;
-  left: 333px;
+  left: 250px;
   top: 46px;
   background: ${props => props.theme.colors.modes.white.accent};
   border-radius: 3px;
   transform: rotate(-25deg);
+
+  @media ${props => props.theme.device.mobile} {
+    left: 333px;
+  }
 
   @media ${props => props.theme.device.tablet} {
     width: 14px;

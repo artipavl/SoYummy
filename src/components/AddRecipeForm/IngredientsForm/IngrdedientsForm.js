@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 
 import {
   SelectIngredientWrapper,
@@ -6,16 +6,22 @@ import {
   IngredientsFieldArray,
   IngredientsSelectInput,
   ItemIngredientsShown,
+  WrapperMeasureSelect,
   MeasureContainer,
   MeasureInput,
   MeasureSelect,
+  SelectContainer,
+  SelectItem,
+  StyledSelect,
   DeleteButton,
+  WrapperArrow,
+  OptionWrapper,
   CloseIcon,
 } from './IngredientsForm.styled';
+import { ReactComponent as SelectArrow } from '../../../images/icons/select-arrow.svg';
 
 export const IngredientsInput = ({
   allIngredients,
-  form,
   idx,
   onIngredientsChange,
   remove,
@@ -23,15 +29,19 @@ export const IngredientsInput = ({
   const [searchValue, setSearchValue] = useState('');
   const [ingredientId, SetIngredientId] = useState('');
   const [showFilteredItems, SetShowFilteredItems] = useState(false);
+  const [isMeasure, SetIsMeasure] = useState(false);
   const [formData, setFormData] = useState({
     combinedValue: '',
     textInputValue: '',
     selectInputValue: '',
   });
 
+  const measureRef = useRef();
+  const measureArray = ['tbs', 'tsp', 'kg', 'g'];
+
   const handleSearchInputChange = event => {
-    if (event.target.value !== '') {
-      setSearchValue(event.target.value);
+    if (event.target.value.trim() !== '') {
+      setSearchValue(event.target.value.trim());
       SetShowFilteredItems(true);
     } else {
       setSearchValue('');
@@ -42,24 +52,38 @@ export const IngredientsInput = ({
   const handleMeasureSelectChange = event => {
     const { value } = event.target;
     const combinedValue = `${formData.textInputValue} ${value}`;
-    setFormData({
-      ...formData,
+
+    setFormData(prevFormData => ({
+      ...prevFormData,
       combinedValue,
       selectInputValue: value,
-    });
+    }));
+
+    SetIsMeasure(false);
   };
+  useEffect(() => {
+    const ingredients = {
+      id: ingredientId,
+      measure: formData.combinedValue,
+    };
+    onIngredientsChange(idx, ingredients);
+  }, [formData.combinedValue, idx, ingredientId, onIngredientsChange]);
+
   const handleMeasureChange = event => {
     const { name, value } = event.target;
     const combinedValue = `${value} ${formData.selectInputValue}`;
-    setFormData({
-      ...formData,
+    setFormData(prevFormData => ({
+      ...prevFormData,
       combinedValue,
       [name]: value,
-    });
+    }));
   };
 
   const filteredIngredients = useMemo(
-    () => allIngredients.filter(({ ttl }) => ttl.includes(searchValue)),
+    () =>
+      allIngredients.filter(({ ttl }) =>
+        ttl.toLowerCase().includes(searchValue.trim().toLowerCase())
+      ),
     [allIngredients, searchValue]
   );
 
@@ -71,21 +95,8 @@ export const IngredientsInput = ({
     setSearchValue(e.target.value);
     SetShowFilteredItems(false);
     if (newIngredients) {
-      const ingredients = {
-        id: newIngredients._id,
-        measure: formData.combinedValue,
-      };
-      onIngredientsChange(idx, ingredients);
       SetIngredientId(newIngredients._id);
     }
-  };
-
-  const handleBlurMeasure = () => {
-    const ingredients = {
-      id: ingredientId,
-      measure: formData.combinedValue,
-    };
-    onIngredientsChange(idx, ingredients);
   };
 
   return (
@@ -113,25 +124,29 @@ export const IngredientsInput = ({
         </IngredientsFieldArray>
         <MeasureContainer>
           <MeasureInput
-            type="text"
+            type="number"
             name="textInputValue"
             value={formData.textInputValue}
             onChange={handleMeasureChange}
-            onBlur={handleBlurMeasure}
           />
-          <MeasureSelect
-            as="select"
-            name="selectInputValue"
-            value={formData.selectInputValue}
-            onChange={handleMeasureSelectChange}
-            onBlur={handleBlurMeasure}
-          >
-            <option value="0">...</option>
-            <option value="tbs">tbs</option>
-            <option value="tsp">tsp</option>
-            <option value="kg">kg</option>
-            <option value="g">g</option>
-          </MeasureSelect>
+          <MeasureSelect type="text" readOnly="readOnly" />
+          <WrapperMeasureSelect>
+            <StyledSelect ref={measureRef} onClick={() => SetIsMeasure(true)}>
+              <OptionWrapper>{formData.selectInputValue}</OptionWrapper>
+              <WrapperArrow>
+                <SelectArrow width="20px" height="20px" />
+              </WrapperArrow>
+            </StyledSelect>
+            {isMeasure && (
+              <SelectContainer>
+                {measureArray.map((item, ind) => (
+                  <SelectItem key={ind} onClick={handleMeasureSelectChange}>
+                    <option value={item}>{item}</option>
+                  </SelectItem>
+                ))}
+              </SelectContainer>
+            )}
+          </WrapperMeasureSelect>
         </MeasureContainer>
         <DeleteButton onClick={() => remove(idx)}>
           <CloseIcon />
