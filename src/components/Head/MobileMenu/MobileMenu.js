@@ -56,7 +56,7 @@ export const MobileMenu = ({ openState, handleMenuClick, children }) => {
         </button>
       </MobileMenuHeader>
 
-      <NavStyled onClick={handleMenuClick}>
+      <NavStyled>
         <NavItems>
           <NavItem>
             <Navigator to="/categories/Beef" onClick={handleMenuClick}>
