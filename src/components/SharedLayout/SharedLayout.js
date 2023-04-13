@@ -9,18 +9,33 @@ const Layout = styled.div`
   background-color: ${props => props.theme.colors.modes.white.background};
 `;
 
-
 export const SharedLayout = ({ children }) => {
   return (
-    <Layout style={{
-      minHeight: '100vh',
-      maxHeight: '100%',
-      display: 'flex',
-      flexDirection: 'column'
-    }}>
+    <Layout
+      style={{
+        minHeight: '100vh',
+        maxHeight: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
       <Head />
       <main style={{ flexGrow: 1, zIndex: 5 }}>
-        <Suspense fallback={<Loader />}>
+        <Suspense
+          fallback={
+            <div
+              style={{
+                minHeight: '100vh',
+                maxHeight: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <Loader />
+            </div>
+          }
+        >
           <Outlet />
           <GoToTop />
         </Suspense>

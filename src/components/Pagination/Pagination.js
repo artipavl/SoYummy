@@ -1,4 +1,4 @@
-import { Box} from './Pagination.styled';
+import { Box } from './Pagination.styled';
 import ReactPaginate from 'react-paginate';
 
 const Pagination = ({ pageCount, page, change }) => {

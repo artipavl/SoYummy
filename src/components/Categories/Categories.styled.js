@@ -3,17 +3,20 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const BoxPagination = styled.div`
-display: flex;
-justify-content: center;
-margin-top: 25px;
-`
-
-export const PaginationBtn = styled(Pagination)`
-  && .Mui-selected {
-    background: #8baa36;
-  }
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
 `;
 
+export const PaginationBtn = styled(Pagination)`
+  && button {
+    color: #8baa36;
+  }
+  && .Mui-selected {
+    background: ${props => props.theme.colors.accentCurrent};
+    color: ${props => props.theme.colors.dark};
+  }
+`;
 
 export const Container = styled.div`
   position: relative;
@@ -22,7 +25,7 @@ export const Container = styled.div`
   padding-right: 16px;
   padding-bottom: 100px;
 
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding-top: 10rem;
   background-color: ${props => props.theme.accent};
   transition: all 1s ease;
@@ -42,7 +45,6 @@ export const Container = styled.div`
     max-width: 1440px;
   }
 `;
-
 
 export const BoxTitle = styled.div`
   width: 100%;
@@ -78,7 +80,7 @@ export const List = styled.ul`
   }
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(8, 1fr);
+  grid-template-rows: repeat(${props => props.item}, 1fr);
   grid-column-gap: px;
   grid-row-gap: 28px;
 
@@ -87,7 +89,7 @@ export const List = styled.ul`
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(${props => Math.ceil(props.item / 2)}, 1fr);
     grid-column-gap: 32px;
     grid-row-gap: 32px;
   }
@@ -95,7 +97,7 @@ export const List = styled.ul`
   @media ${props => props.theme.device.desktop} {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(${props => Math.ceil(props.item / 4)}, 1fr);
     grid-column-gap: 14px;
     grid-row-gap: 100px;
   }

@@ -4,6 +4,7 @@ import { searchRecipes, searchIngredient } from './searchOperations';
 
 const initialState = {
   results: [],
+  totalResults: null,
   status: 'idle',
   searchType: 'title',
 };
@@ -13,7 +14,8 @@ export const searchSlice = createSlice({
   initialState,
   extraReducers: {
     [searchRecipes.fulfilled](state, action) {
-      state.results = action.payload;
+      state.results = action.payload.data.result;
+      state.totalResults = action.payload.data.total;
       state.status = 'resolved';
     },
     [searchRecipes.pending](state) {
@@ -24,7 +26,8 @@ export const searchSlice = createSlice({
     },
 
     [searchIngredient.fulfilled](state, action) {
-      state.results = action.payload;
+      state.results = action.payload.data.result;
+      state.totalResults = action.payload.data.total;
       state.status = 'resolved';
     },
     [searchIngredient.pending](state) {

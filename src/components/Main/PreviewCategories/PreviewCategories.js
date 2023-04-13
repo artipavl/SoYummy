@@ -12,24 +12,25 @@ import {
   List,
   SeeAll,
   Box,
-  ButtonBox,
+  Btn,
 } from 'components/Main/PreviewCategories/PreviewCategories.styled';
 import { NavLink } from 'react-router-dom';
-import { RoundedButton } from 'reusableComponents/Btn/Btn';
+import { LoaderBox } from 'components/FavoriteList/FavoriteList.styled';
+import { Loader } from 'components/Loader/Loader';
 
 export const PreviewCategories = ({ location }) => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [mainArray, setMainArray] = useState([]);
-  console.log(isLoading);
+  console.log(loading);
   useEffect(() => {
     const fetchMainPage = async () => {
-      setIsLoading(true);
+      setLoading(true);
       try {
         setMainArray(await getMainPage());
       } catch (error) {
         console.log(error);
       } finally {
-        setIsLoading(false);
+        setLoading(false);
       }
     };
     fetchMainPage();
@@ -45,6 +46,11 @@ export const PreviewCategories = ({ location }) => {
   const variant = 'normal';
   return (
     <>
+      {loading && (
+        <LoaderBox>
+          <Loader />
+        </LoaderBox>
+      )}
       <Container>
         <Box>
           <Title>Breakfast</Title>
@@ -142,9 +148,7 @@ export const PreviewCategories = ({ location }) => {
             See all
           </SeeAll>
         </Box>
-        <ButtonBox>
-          <RoundedButton title={'Other categories'} to={`/categories`} />
-        </ButtonBox>
+        <Btn to={`/categories`}>Other categories</Btn>
       </Container>
     </>
   );

@@ -117,7 +117,7 @@ export const EditUserModal = ({
   //   formik.resetForm({
   //     values: {
   //       ...formik.values,
-  //       avatar: avatarURL
+  //       avatar: ''
   //     }
   //   });
   // };
@@ -144,12 +144,14 @@ export const EditUserModal = ({
 
                   formik.values.avatar instanceof File
                     ? URL.createObjectURL(formik.values.avatar)
-                    : avatarURL
+                    : formik.values.avatar
                 }
                 alt="User avatar"
                 style={{ display: 'block', margin: '0 auto' }}
+                width={88}
               />
             </PreviewImageWrap>
+            {/* <button type='button' onClick={handleResetImage}><RedCrossStyled /></button> */}
 
             {formik.errors.avatar ? (
               <ValidImageText>{formik.errors.avatar}</ValidImageText>
@@ -163,11 +165,11 @@ export const EditUserModal = ({
                 style={{ display: 'none' }}
                 id="file-upload"
                 type="file"
+                accept="image/jpeg, image/png, image/jpg "
                 name="avatar"
                 onChange={handleAvatarChange}
                 onBlur={formik.handleBlur}
                 error={formik.errors.avatar}
-                // touched={formik.touched.avatar}
 
               />
             </AddImageButton>
@@ -182,7 +184,6 @@ export const EditUserModal = ({
               onChange={handleChangeName}
               onBlur={formik.name}
               error={formik.errors.name}
-              // touched={formik.touched.name}
             />
             <UserIconStyled
               style={{ stroke: formik.errors.name ? '#E74A3B' : '#3CBC81' }}

@@ -33,9 +33,11 @@ export const theme = {
     popularRecipeDescription: '#7e7e7e',
     popularRecipesItemBox: '#7070702b',
     recipesFonts: '#3E4462',
+
     selectRecipeBgcolor: "#FAFAFA",
     plateTitleBoxBgColor: "#FFFFFF",
     plateTitleTextColor: "#3E4462",
+
 
     modes: {
       white: {
@@ -121,6 +123,7 @@ export const lightTheme = {
     plateTitleBoxBgColor: "#FFFFFF",
     plateTitleTextColor: "#3E4462",
 
+
     modes: {
       white: {
         text: '#23262A', //текст
@@ -204,11 +207,12 @@ export const darkTheme = {
     plateTitleBoxBgColor: "#2A2C36",
     plateTitleTextColor: "#FAFAFA",
 
+
     modes: {
       white: {
         text: '#23262A', //текст
         textDark: '#3E4462', //текст сірий
-        background: '#000000',
+        background: '#1E1F28',
         backgroundAccent: '#000000',
         accent: '#8BAA36', //зелений акцен
         accentGrey: '#1E1F28', //зелений пригнічний на сірий

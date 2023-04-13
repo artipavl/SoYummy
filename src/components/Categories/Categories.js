@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-// import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
 import { getCategoryPage, getCategoryList } from 'api/serviseApi';
@@ -21,34 +20,37 @@ import {
   PaginationBtn,
   BoxPagination,
 } from 'components/Categories/Categories.styled.js';
+import { useSelector } from 'react-redux';
+import { selectorSwicherTheme } from 'redux/selectors';
 
-import { createTheme } from '@mui/material/styles';
+import { LoaderBox } from 'components/FavoriteList/FavoriteList.styled';
 
-createTheme({
-  castom: {
-    danger: '#8BAA36',
-  },
-});
+import { LoaderDiv } from 'components/IngredientsShoppingList/IngredientsShoppingList.styled';
+
+import { Loader } from 'components/Loader/Loader';
 
 export const Categories = () => {
   const [value, setValue] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [categoryList, setCategoryList] = useState([]);
   const [itemArray, setItemArray] = useState([]);
   const [oneParam] = useState(useParams().categoryName);
   const [totalPage, setTotalPage] = useState(1);
   const [page, setPage] = useState(1);
 
-  console.log(isLoading);
+  const navigate = useNavigate();
+
+  const theme = useSelector(selectorSwicherTheme);
+
   useEffect(() => {
     const fetchProductList = async () => {
-      setIsLoading(true);
+      setLoading(true);
       try {
         setCategoryList(await getCategoryPage());
       } catch (error) {
         console.log(error);
       } finally {
-        setIsLoading(false);
+        setLoading(false);
       }
     };
     fetchProductList();
@@ -70,6 +72,7 @@ export const Categories = () => {
   }, [id, oneParam]);
 
   const handleChange = (event, newValue) => {
+    setPage(1);
     setValue(newValue);
   };
 
@@ -83,7 +86,7 @@ export const Categories = () => {
       if (pageCounts > 1) {
         setTotalPage(pageCounts);
       } else {
-        setTotalPage(null);
+        setTotalPage(1);
       }
     });
   }, [nameEl, page]);
@@ -94,6 +97,11 @@ export const Categories = () => {
 
   return (
     <>
+      {loading && (
+        <LoaderBox>
+          <Loader />
+        </LoaderBox>
+      )}
       <Container>
         <Title>Categories</Title>
         <Box
@@ -118,11 +126,13 @@ export const Categories = () => {
           >
             {numberedArray.map(item => (
               <Tab
+                onClick={() => navigate(`/categories/${item.value}`)}
                 sx={{
                   '&.Mui-selected': {
                     color: '#8BAA36',
                   },
-                  color: 'var(--categoriesForDarkToWhite)',
+                  color:
+                    theme === 'light' ? '#BDBDBD' : `rgba(250, 250, 250, 0.6)`,
                 }}
                 key={item.id}
                 label={item.value}
@@ -130,26 +140,37 @@ export const Categories = () => {
             ))}
           </Tabs>
         </Box>
-
-        <List>
-          {itemArray.map(({ _id, title, thumb }) => (
-            <li key={_id}>
-              <CardLink to={`/recipe/${_id}`}>
-                <ImgBox animation={title.length > 34}>
-                  <Card alt={title} src={thumb} />
-                  <TitleBox>
-                    <TitleCard>{title}</TitleCard>
-                  </TitleBox>
-                </ImgBox>
-              </CardLink>
-            </li>
-          ))}
-        </List>
-        <BoxPagination>
-          <Stack spacing={2}>
-            <PaginationBtn onChange={handleChangePage} count={totalPage} />
-          </Stack>
-        </BoxPagination>
+        {loading ? (
+          <LoaderDiv>
+            <Loader />
+          </LoaderDiv>
+        ) : (
+          <>
+            <List item={itemArray.length}>
+              {itemArray.map(({ _id, title, thumb }) => (
+                <li key={_id}>
+                  <CardLink to={`/recipe/${_id}`}>
+                    <ImgBox animation={title.length > 34}>
+                      <Card alt={title} src={thumb} />
+                      <TitleBox>
+                        <TitleCard>{title}</TitleCard>
+                      </TitleBox>
+                    </ImgBox>
+                  </CardLink>
+                </li>
+              ))}
+            </List>
+            <BoxPagination>
+              <Stack>
+                <PaginationBtn
+                  page={page}
+                  onChange={handleChangePage}
+                  count={totalPage}
+                />
+              </Stack>
+            </BoxPagination>
+          </>
+        )}
       </Container>
     </>
   );
