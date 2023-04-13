@@ -16,7 +16,7 @@ export const Search = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    window.location.href = `search?query=${searchTerm}`;
+    window.location.href = `search?query=${searchTerm}&type=title&page=1`;
   };
 
   return (

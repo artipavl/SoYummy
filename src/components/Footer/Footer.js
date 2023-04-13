@@ -69,7 +69,7 @@ export const Footer = () => {
               <nav>
                 <FooterLinkWrap>
                   <li>
-                    <FooterLink to="/search?type=ingredients">
+                    <FooterLink to="search?type=ingredients">
                       Ingredients
                     </FooterLink>
                   </li>

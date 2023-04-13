@@ -4,6 +4,8 @@ export const Container = styled.div`
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 50px;
+  padding-bottom: 40px;
 
   @media ${props => props.theme.device.mobile} {
     width: 375px;

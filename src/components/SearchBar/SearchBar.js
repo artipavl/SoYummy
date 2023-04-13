@@ -1,11 +1,11 @@
 import SearchForm from 'components/SearchForm';
-import SearchTypeSelector from 'components/SearchTypeSelector';
+// import SearchTypeSelector from 'components/SearchTypeSelector';
 
 const SearchBar = () => {
   return (
     <>
       <SearchForm />
-      <SearchTypeSelector />
+      {/* <SearchTypeSelector /> */}
     </>
   );
 };
