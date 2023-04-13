@@ -61,13 +61,13 @@ export const IngredientsInput = ({
 
     SetIsMeasure(false);
   };
-  useEffect(() => {
-    const ingredients = {
-      id: ingredientId,
-      measure: formData.combinedValue,
-    };
-    onIngredientsChange(idx, ingredients);
-  }, [formData.combinedValue, idx, ingredientId, onIngredientsChange]);
+  // useEffect(() => {
+  //   const ingredients = {
+  //     id: ingredientId,
+  //     measure: formData.combinedValue,
+  //   };
+  //   onIngredientsChange(idx, ingredients);
+  // }, [formData.combinedValue, onIngredientsChange]);
 
   const handleMeasureChange = event => {
     const { name, value } = event.target;

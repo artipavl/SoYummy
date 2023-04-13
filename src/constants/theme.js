@@ -3,7 +3,8 @@ export const theme = {
     white: '#FFFFFF', //білий
     dark: '#000000', //чорний
 
-    whiteMuted: '#D9D9D9', //білий пригнічений деякі кнопки та інпути
+    whiteMutedArea: '#D9D9D9', //білий пригнічений деякі кнопки та інпути
+    whiteMutedBorder: '#D9D9D9',
     bgWhite: '#ECECEC', //білий з bg
 
     bgDark: '#1E1F28', //чорний з bg
@@ -33,10 +34,11 @@ export const theme = {
     popularRecipeDescription: '#7e7e7e',
     popularRecipesItemBox: '#7070702b',
     recipesFonts: '#3E4462',
-
+    recipeHeaderList: '#23262A',
     selectRecipeBgcolor: "#FAFAFA",
     plateTitleBoxBgColor: "#FFFFFF",
     plateTitleTextColor: "#3E4462",
+    selectBgColor: '#ECECEC',
 
 
     modes: {
@@ -90,6 +92,7 @@ export const lightTheme = {
     dark: '#000000', //чорний
 
     whiteMuted: '#D9D9D9', //білий пригнічений деякі кнопки та інпути
+    whiteMutedBorder: '#D9D9D9',
     bgWhite: '#ECECEC', //білий з bg
 
     bgDark: '#1E1F28', //чорний з bg
@@ -119,9 +122,11 @@ export const lightTheme = {
     popularRecipeDescription: '#7e7e7e',
     popularRecipesItemBox: '#7070702b',
     recipesFonts: '#3E4462',
+    recipeHeaderList: '#23262A',
     selectRecipeBgcolor: "#FAFAFA",
     plateTitleBoxBgColor: "#FFFFFF",
     plateTitleTextColor: "#3E4462",
+    selectBgColor: '#ECECEC',
 
 
     modes: {
@@ -183,6 +188,7 @@ export const darkTheme = {
     accentCurrent: '#8BAA36', //!зелений акцен без змін
     buttonDelAccent: '#FAFAFA', //! білий замість зеленого акценту
     accentMuted: '#1E1F28', //! чорний замість зеленого акценту пригніченого
+    whiteMutedBorder: '#3E4462',
     accentDark: '#8BAA36', //чорний що протиставляється акцену
     accentDarkMuted: '#2A2C36', //! зелений замість чорного що протиставляється акцену пригнічений
     text: '#FAFAFA', //текст
@@ -203,9 +209,11 @@ export const darkTheme = {
     popularRecipeDescription: '#fafafa99',
     popularRecipesItemBox: '#7070702b',
     recipesFonts: '#FAFAFA',
+    recipeHeaderList: '#23262A',
     selectRecipeBgcolor: "#8BAA36",
     plateTitleBoxBgColor: "#2A2C36",
     plateTitleTextColor: "#FAFAFA",
+    selectBgColor: '#8BAA36',
 
 
     modes: {

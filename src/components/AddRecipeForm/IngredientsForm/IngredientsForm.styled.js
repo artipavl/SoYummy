@@ -27,7 +27,7 @@ export const IngredientsSelectInput = styled(Field)`
   padding: 16px;
   border-radius: 6px;
   opacity: 50%;
-  border: 1px solid ${props => props.theme.colors.whiteMuted};
+  border: 1px solid ${props => props.theme.colors.whiteMutedBorder};
   background-color: ${props => props.theme.colors.whiteMuted};
   color: ${props => props.theme.colors.dark};
   outline: none;
@@ -68,7 +68,7 @@ export const MeasureContainer = styled.div`
   height: 53px;
   align-items: baseline;
   margin-bottom: 20px;
-  border: 1px solid ${props => props.theme.colors.whiteMuted};
+  border: 1px solid ${props => props.theme.colors.whiteMutedBorder};
   background-color: ${props => props.theme.colors.whiteMuted};
   border-radius: 6px;
 `;
@@ -145,6 +145,7 @@ export const OptionWrapper = styled.span`
   color: ${props => props.theme.colors.text};
   @media ${props => props.theme.device.tablet} {
     font-size: 16px;
+  }
 `;
 
 export const WrapperArrow = styled.span`
@@ -168,7 +169,7 @@ export const SelectContainer = styled.ul`
   border-radius: 6px;
   font-size: 12px;
   color: ${props => props.theme.colors.dark};
-  background: ${props => props.theme.colors.bgWhite};
+  background: ${props => props.theme.colors.selectBgColor};
   box-shadow: 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);
   @media ${props => props.theme.device.tablet} {
     padding: 8px 18px;

@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux';
+import { selectorSwicherTheme } from 'redux/selectors';
 
 import {
   BoxOne,
@@ -14,6 +16,8 @@ import {
 
 
 export const СhooseYourBreakfast = () => {
+
+  const theme = useSelector(selectorSwicherTheme);
 
   return (
     <>
@@ -41,7 +45,8 @@ export const СhooseYourBreakfast = () => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M1 6H13M13 6L8.5 1.5M13 6L8.5 10.5" stroke="#3E4462" />
+                <path d="M1 6H13M13 6L8.5 1.5M13 6L8.5 10.5" 
+                stroke={theme === 'light' ? '#3E4462' : `#FAFAFA`} />
               </svg>
             </Link>
           </PlateTitleBox>

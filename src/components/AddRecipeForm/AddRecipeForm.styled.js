@@ -206,7 +206,7 @@ export const SelectContainer = styled.ul`
   border-radius: 6px;
   font-size: 12px;
   color: ${props => props.theme.colors.dark};
-  background: ${props => props.theme.colors.bgWhite};
+  background: ${props => props.theme.colors.selectBgColor};
   box-shadow: 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);
   @media ${props => props.theme.device.tablet} {
     padding: 8px 18px;
