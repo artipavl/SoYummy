@@ -1,69 +1,97 @@
 import styled from 'styled-components';
-import { RoundedButton } from 'reusableComponents/Btn/Btn';
 
-import { theme } from 'constants/theme';
+export const Form = styled.form`
+  margin-top: 50px;
 
-export const SearchForm = styled.div`
-  position: relative;
-  border: 1px solid #f0f0f0;
-  width: 295px;
-  height: 60px;
-  border-top-left-radius: 18px 18px;
-  border-bottom-left-radius: 44px 44px;
-  border-bottom-right-radius: 18px 18px;
-  border-top-right-radius: 44px 44px;
-  background-color: ${theme.colors.white};
-  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  @media ${theme.device.tablet} {
-    width: 362px;
-    height: 59px;
+  @media ${props => props.theme.device.tablet} {
   }
-  @media ${theme.device.desktop} {
-    grid-area: 3 / 1 / 4 / 2;
-    width: 510px;
-    height: 62px;
+
+  @media ${props => props.theme.device.desktop} {
   }
 `;
 
-export const SearchInput = styled.input`
-  font-size: 12px;
-  line-height: 18px;
-  padding: 0 20px;
-  outline: none;
+export const SearchContainer = styled.div`
+  position: relative;
+
+  width: 295px;
+
+  @media ${props => props.theme.device.tablet} {
+    width: 362px;
+  }
+
+  @media ${props => props.theme.device.desktop} {
+    width: 510px;
+  }
+`;
+
+export const SearchValue = styled.input`
   width: 100%;
+  height: 53px;
+
+  padding: 0;
+  padding-left: 32px;
+
+  border: 1px solid #f0f0f0;
+  border-radius: 24px 44px;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: ${props => props.theme.colors.textDark};
+
+  @media ${props => props.theme.device.tablet} {
+    width: 100%;
+    height: 57px;
+
+    padding-left: 38px;
+
+    font-size: 14px;
+  }
+
+  @media ${props => props.theme.device.desktop} {
+    width: 100%;
+    height: 70px;
+
+    padding-left: 48px;
+
+    font-size: 16px;
+  }
+`;
+
+export const SearchBtn = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+
   height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  background-color: ${props => props.theme.colors.accentCurrent};
+  color: ${props => props.theme.colors.modes.dark.text};
+
+  border-radius: 24px 44px;
   border: none;
 
-  background-color: transparent;
-  color: ${theme.colors.textDark};
-  @media ${theme.device.tablet} {
-    font-size: 16px;
-    line-height: 24px;
-  }
-`;
+  padding: 23px 52px;
 
-export const BtnSearchBox = styled.div`
-  position: absolute;
-  top: -31px;
-  right: -1px;
-  width: 113px;
-  height: 60px;
   font-size: 14px;
   line-height: 1.5;
-  /* display: flex;
-  align-items: center;
-  justify-content: flex-end; */
-  @media ${theme.device.tablet} {
-    width: 161px;
-    height: 57px;
-    font-size: 16px;
-    line-height: 24px;
+
+  &:hover {
+    background-color: ${props => props.theme.colors.accentDark};
+    transition: all 250ms linear 0s;
   }
-  @media ${theme.device.desktop} {
-    width: 161px;
-    height: 71px;
+
+  @media ${props => props.theme.device.tablet} {
+    font-size: 16px;
+  }
+
+  @media ${props => props.theme.device.desktop} {
   }
 `;
-
-export const BtnSearch = styled(RoundedButton)``;

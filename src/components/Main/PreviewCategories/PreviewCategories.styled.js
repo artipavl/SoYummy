@@ -7,6 +7,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 100px;
   @media ${props => props.theme.device.tablet} {
     max-width: 768px;
     margin-top: 202px;
@@ -15,6 +16,7 @@ export const Container = styled.div`
   @media ${props => props.theme.device.desktop} {
     max-width: 1440px;
     margin-top: 235px;
+    padding-bottom: 118px;
   }
 `;
 
@@ -39,7 +41,7 @@ export const Title = styled.p`
   line-height: 28px;
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
-  color: #001833;
+  color: ${props => props.theme.colors.textTitle};
 
   margin-bottom: 32px;
 `;
@@ -200,4 +202,38 @@ export const SeeAll = styled(NavLink)`
 
 export const ButtonBox = styled.div`
   width: 239px;
+`;
+
+export const Btn = styled.a`
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  background-color: ${props => props.theme.colors.accentCurrent};
+  color: ${props => props.theme.colors.modes.dark.text};
+
+  border-radius: 24px 44px;
+  border: none;
+
+  padding: 23px 52px;
+
+  font-size: 14px;
+  line-height: 1.5;
+
+  margin-top: 40px;
+
+  &:hover {
+    background-color: ${props => props.theme.colors.accentDark};
+    transition: all 250ms linear 0s;
+  }
+
+  @media ${props => props.theme.device.tablet} {
+    font-size: 16px;
+    margin-top: 32px;
+  }
+
+  @media ${props => props.theme.device.desktop} {
+    margin-top: 14px;
+  }
 `;
