@@ -73,7 +73,7 @@ export const MeasureContainer = styled.div`
   border-radius: 6px;
 `;
 export const WrapperMeasureSelect = styled.div`
-  position: relative;
+  /* position: relative; */
 
   width: 100%;
 
@@ -132,7 +132,6 @@ export const MeasureSelect = styled.input`
   @media ${props => props.theme.device.tablet} {
     font-size: 16px;
 
-    height: 43px;
     &::placeholder {
       font-size: 16px;
     }
@@ -159,11 +158,11 @@ export const SelectContainer = styled.ul`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  top: 27px;
+  top: 100%;
   right: 0;
   z-index: 5;
   height: 112px;
-  width: 84px;
+  width: 100%;
 
   overflow-y: auto;
   border-radius: 6px;
@@ -174,7 +173,6 @@ export const SelectContainer = styled.ul`
   @media ${props => props.theme.device.tablet} {
     padding: 8px 18px;
     height: 128px;
-    width: 97px;
   }
 `;
 export const SelectItem = styled.li`
