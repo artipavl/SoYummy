@@ -6,8 +6,13 @@ import PlateTabletRetina from 'images/MainPage/bg/plateTabletRetina.webp';
 import PlateDesktop from 'images/MainPage/bg/plateDesktop.webp';
 import PlateDesktopRetina from 'images/MainPage/bg/plateDekctopRetina.webp';
 
-import ArrowTab from 'images/MainPage/HeroMain/curlyArrow.png';
+
+
+import ArrowDesc from 'images/MainPage/bg/GroupDeck.svg';
+
+// import ArrowTab from 'images/MainPage/HeroMain/curlyArrow.png';
 // import ArrowDesc from 'images/MainPage/HeroMain/curlyArrow-desc.png';
+
 
 import { NavLink } from 'react-router-dom';
 
@@ -103,8 +108,7 @@ export const BoxTwo = styled.div`
 `;
 
 export const PlateTitleBox = styled.div`
-  display: block;
-
+  position: relative;
   background-color: ${props => props.theme.colors.white};
   border-radius: 8px;
   padding-top: 16px;
@@ -114,13 +118,39 @@ export const PlateTitleBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-bottom: 89px;
+  margin-bottom: 40px;
   width: 225px;
+  z-index: 0;
   @media ${props => props.theme.device.tablet} {
     width: 260px;
+    margin-bottom: 40px;
   }
   @media ${props => props.theme.device.desktop} {
     width: 298px;
+    margin-bottom: 80px;
+  }
+
+  ::after {
+    @media ${props => props.theme.device.tablet} {
+      z-index: 100;
+      content: ' ';
+      position: absolute;
+
+      top: 114%;
+      left: 63%;
+      width: 156px;
+      height: 101px;
+
+      transform: translate(-50%, -50%);
+      background-repeat: no-repeat;
+      background-image: url(${ArrowDesc});
+      background-repeat: no-repeat;
+      background-size: contain;
+      overflow: visible;
+    }
+
+    @media ${props => props.theme.device.desktop} {
+    }
   }
 `;
 
@@ -198,19 +228,20 @@ export const PlateBox = styled.div`
   }
 `;
 
-export const Arrow = styled.div`
-  display: none;
-  @media ${props => props.theme.device.tablet} {
-    display: block;
-    position: absolute;
-    z-index: 100;
-    width: 136px;
-    height: 72px;
-    bottom: 50px;
-    right: 55px;
-    background-image: url(${ArrowTab});
-  }
+// export const Arrow = styled.div`
+//   display: none;
+//   @media ${props => props.theme.device.tablet} {
+//     content: '';
+//     display: block;
+//     position: absolute;
+//     z-index: 100;
+//     width: 136px;
+//     height: 72px;
+//     bottom: 50px;
+//     right: 55px;
+//     background-image: url(${ArrowTab});
+//   }
 
-  @media ${props => props.theme.device.desktop} {
-  }
-`;
+//   @media ${props => props.theme.device.desktop} {
+//   }
+// `;

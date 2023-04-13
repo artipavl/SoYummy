@@ -204,7 +204,7 @@ export const ButtonBox = styled.div`
   width: 239px;
 `;
 
-export const Btn = styled.a`
+export const Btn = styled(NavLink)`
   height: 100%;
 
   display: flex;
