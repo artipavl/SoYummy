@@ -7,6 +7,9 @@ import PlateTabletRetina from 'images/MainPage/bg/plateTabletRetina.webp';
 import PlateDesktop from 'images/MainPage/bg/plateDesktop.webp';
 import PlateDesktopRetina from 'images/MainPage/bg/plateDekctopRetina.webp';
 
+import ArrowTab from 'images/MainPage/HeroMain/curlyArrow.png'
+import ArrowDesc from 'images/MainPage/HeroMain/curlyArrow-desc.png';
+
 import { NavLink } from 'react-router-dom';
 
 export const So = styled.span`
@@ -162,6 +165,7 @@ export const Link = styled(NavLink)`
 `;
 
 export const PlateBox = styled.div`
+position: relative;
   width: 320px;
   height: 296px;
   display: flex;
@@ -193,5 +197,22 @@ export const PlateBox = styled.div`
     @media ${theme.retinaBackgroundImage} {
       background-image: url(${PlateDesktopRetina});
     }
+  }
+`;
+
+export const Arrow = styled.div`
+  display: none;
+  @media ${props => props.theme.device.tablet} {
+    display: block;
+    position: absolute;
+    z-index: 100;
+    width: 136px;
+    height: 72px;
+    bottom: 50px;
+    right: 55px;
+    background-image: url(${ArrowTab});
+  }
+
+  @media ${props => props.theme.device.desktop} {
   }
 `;

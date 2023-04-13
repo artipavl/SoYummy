@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ConteinerFlex = styled.div`
+  position: relative;
   padding-top: 132px;
 
   display: flex;

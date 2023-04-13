@@ -12,10 +12,9 @@ import {
   List,
   SeeAll,
   Box,
-  ButtonBox,
+  Btn,
 } from 'components/Main/PreviewCategories/PreviewCategories.styled';
 import { NavLink } from 'react-router-dom';
-import { RoundedButton } from 'reusableComponents/Btn/Btn';
 
 export const PreviewCategories = ({ location }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -142,9 +141,7 @@ export const PreviewCategories = ({ location }) => {
             See all
           </SeeAll>
         </Box>
-        <ButtonBox>
-          <RoundedButton title={'Other categories'} to={`/categories`} />
-        </ButtonBox>
+          <Btn to={`/categories`}>Other categories</Btn>
       </Container>
     </>
   );

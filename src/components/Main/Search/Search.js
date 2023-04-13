@@ -1,19 +1,49 @@
-import { RoundedButton } from 'reusableComponents/Btn/Btn';
+import { Formik } from 'formik';
+
+import { useSearchParams } from 'react-router-dom';
+
 import {
-  BtnSearchBox,
-  SearchForm,
-  SearchInput,
-} from './Search.styled';
+  Form,
+  SearchContainer,
+  SearchValue,
+  SearchBtn,
+} from './Search.styled.js';
 
 export const Search = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const onSubmit = ({ query }) => {
+    const trimmedQuery = query.trim();
+
+    if (trimmedQuery === '') {
+      setSearchParams();
+
+      return null;
+    }
+
+    setSearchParams({ query: trimmedQuery });
+  };
+
   return (
-    <>
-      <SearchForm>
-        <SearchInput type="search" />
-        <BtnSearchBox>
-          <RoundedButton to={'/main'} title={'Search'} />
-        </BtnSearchBox>
-      </SearchForm>
-    </>
+    <Formik
+      initialValues={{ query: searchParams.get('query') || '' }}
+      onSubmit={onSubmit}
+    >
+      {({ handleSubmit, handleChange, values }) => {
+        return (
+          <Form onSubmit={handleSubmit}>
+            <SearchContainer>
+              <SearchValue
+                type="text"
+                name="query"
+                value={values.query}
+                onChange={handleChange}
+              />
+              <SearchBtn type="submit">Search</SearchBtn>
+            </SearchContainer>
+          </Form>
+        );
+      }}
+    </Formik>
   );
 };
