@@ -1,8 +1,5 @@
 import { useState, useEffect } from 'react';
-import {
-  useParams
-} from 'react-router-dom';
-
+import { useNavigate, useParams } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
@@ -25,6 +22,8 @@ import {
 } from 'components/Categories/Categories.styled.js';
 import { useSelector } from 'react-redux';
 import { selectorSwicherTheme } from 'redux/selectors';
+import { LoaderDiv } from 'components/IngredientsShoppingList/IngredientsShoppingList.styled';
+import { Loader } from 'components/Loader/Loader';
 
 export const Categories = () => {
   const [value, setValue] = useState(0);
@@ -35,9 +34,10 @@ export const Categories = () => {
   const [totalPage, setTotalPage] = useState(1);
   const [page, setPage] = useState(1);
 
+  const navigate = useNavigate();
+
   const theme = useSelector(selectorSwicherTheme);
 
-  console.log(isLoading);
   useEffect(() => {
     const fetchProductList = async () => {
       setIsLoading(true);
@@ -117,6 +117,7 @@ export const Categories = () => {
           >
             {numberedArray.map(item => (
               <Tab
+                onClick={() => navigate(`/categories/${item.value}`)}
                 sx={{
                   '&.Mui-selected': {
                     color: '#8BAA36',
@@ -130,32 +131,37 @@ export const Categories = () => {
             ))}
           </Tabs>
         </Box>
-
-        <List item={itemArray.length}>
-          {itemArray.map(({ _id, title, thumb }) => (
-            <li key={_id}>
-              <CardLink to={`/recipe/${_id}`}>
-                <ImgBox animation={title.length > 34}>
-                  <Card alt={title} src={thumb} />
-                  <TitleBox>
-                    <TitleCard>{title}</TitleCard>
-                  </TitleBox>
-                </ImgBox>
-              </CardLink>
-            </li>
-          ))}
-        </List>
-        <BoxPagination>
-          {page && (
-            <Stack>
-              <PaginationBtn
-                page={page}
-                onChange={handleChangePage}
-                count={totalPage}
-              />
-            </Stack>
-          )}
-        </BoxPagination>
+        {isLoading ? (
+          <LoaderDiv>
+            <Loader />
+          </LoaderDiv>
+        ) : (
+          <>
+            <List item={itemArray.length}>
+              {itemArray.map(({ _id, title, thumb }) => (
+                <li key={_id}>
+                  <CardLink to={`/recipe/${_id}`}>
+                    <ImgBox animation={title.length > 34}>
+                      <Card alt={title} src={thumb} />
+                      <TitleBox>
+                        <TitleCard>{title}</TitleCard>
+                      </TitleBox>
+                    </ImgBox>
+                  </CardLink>
+                </li>
+              ))}
+            </List>
+            <BoxPagination>
+              <Stack>
+                <PaginationBtn
+                  page={page}
+                  onChange={handleChangePage}
+                  count={totalPage}
+                />
+              </Stack>
+            </BoxPagination>
+          </>
+        )}
       </Container>
     </>
   );
