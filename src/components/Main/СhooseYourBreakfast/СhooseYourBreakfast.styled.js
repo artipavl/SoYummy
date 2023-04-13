@@ -6,8 +6,8 @@ import PlateTabletRetina from 'images/MainPage/bg/plateTabletRetina.webp';
 import PlateDesktop from 'images/MainPage/bg/plateDesktop.webp';
 import PlateDesktopRetina from 'images/MainPage/bg/plateDekctopRetina.webp';
 
-import ArrowTab from 'images/MainPage/HeroMain/curlyArrow.png'
-import ArrowDesc from 'images/MainPage/HeroMain/curlyArrow-desc.png';
+import ArrowTab from 'images/MainPage/HeroMain/curlyArrow.png';
+// import ArrowDesc from 'images/MainPage/HeroMain/curlyArrow-desc.png';
 
 import { NavLink } from 'react-router-dom';
 
@@ -83,16 +83,14 @@ export const Ptxt = styled.p`
 `;
 
 export const BoxOne = styled.div`
-padding-top: 60px;
+  padding-top: 60px;
 
   @media ${props => props.theme.device.tablet} {
     grid-area: 1 / 1 / 3 / 2;
   }
   @media ${props => props.theme.device.desktop} {
-
     padding-top: 100px;
     padding-bottom: 50px;
-
   }
 `;
 
@@ -165,7 +163,7 @@ export const Link = styled(NavLink)`
 `;
 
 export const PlateBox = styled.div`
-position: relative;
+  position: relative;
   width: 320px;
   height: 296px;
   display: flex;
