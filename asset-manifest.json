@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/SoYummy/static/css/main.0d51cdca.css",
-    "main.js": "/SoYummy/static/js/main.00b70a61.js",
+    "main.js": "/SoYummy/static/js/main.f22572db.js",
     "static/js/782.38a3f825.chunk.js": "/SoYummy/static/js/782.38a3f825.chunk.js",
     "static/js/507.153ee987.chunk.js": "/SoYummy/static/js/507.153ee987.chunk.js",
     "static/js/23.2d3a7a72.chunk.js": "/SoYummy/static/js/23.2d3a7a72.chunk.js",
-    "static/js/884.bed6434f.chunk.js": "/SoYummy/static/js/884.bed6434f.chunk.js",
+    "static/js/884.09ac7404.chunk.js": "/SoYummy/static/js/884.09ac7404.chunk.js",
     "static/js/383.28e6a531.chunk.js": "/SoYummy/static/js/383.28e6a531.chunk.js",
     "static/js/932.a410d230.chunk.js": "/SoYummy/static/js/932.a410d230.chunk.js",
     "static/js/172.79905d36.chunk.js": "/SoYummy/static/js/172.79905d36.chunk.js",
@@ -16,10 +16,13 @@
     "static/media/mainBG_Desktop_2x.webp": "/SoYummy/static/media/mainBG_Desktop_2x.fd4ee28321ee80b61045.webp",
     "static/media/kebabs_desktop2x.webp": "/SoYummy/static/media/kebabs_desktop2x.3194e549a309de615ab4.webp",
     "static/media/mainBG_Tablet_2x.webp": "/SoYummy/static/media/mainBG_Tablet_2x.1ecdc050d4b84aa685a3.webp",
+    "static/media/leafs-right-desc.png": "/SoYummy/static/media/leafs-right-desc.b2113667bd4ee4092ad2.png",
     "static/media/footerSharedDB_Desktop@2x.webp": "/SoYummy/static/media/footerSharedDB_Desktop@2x.851cc36f664fb0aced43.webp",
     "static/media/kebabs_tablet2x.webp": "/SoYummy/static/media/kebabs_tablet2x.be48a4ce57e518c6cc4d.webp",
     "static/media/order-food-pana.svg": "/SoYummy/static/media/order-food-pana.ee7f4016a1f4c5ef85265923bf07ebbd.svg",
     "static/media/toasts_desktop2x.webp": "/SoYummy/static/media/toasts_desktop2x.0198209c9f175345164c.webp",
+    "static/media/leafs-right-tab.png": "/SoYummy/static/media/leafs-right-tab.7050d441b8c7c23e6776.png",
+    "static/media/leafs-right.png": "/SoYummy/static/media/leafs-right.04b10ba3c393635f61d2.png",
     "static/media/footerSharedDB_Tablet@2x.webp": "/SoYummy/static/media/footerSharedDB_Tablet@2x.e0d4dbc507a623f405cc.webp",
     "static/media/kebabs_mob2x.webp": "/SoYummy/static/media/kebabs_mob2x.433ad0fae6191232dbaa.webp",
     "static/media/pancakes_desktop2x.webp": "/SoYummy/static/media/pancakes_desktop2x.913a23d06371756932b8.webp",
@@ -43,6 +46,7 @@
     "static/media/plateMobileRetina.webp": "/SoYummy/static/media/plateMobileRetina.9ad84139cb4454559e42.webp",
     "static/media/menuBG_Mobile@2x.webp": "/SoYummy/static/media/menuBG_Mobile@2x.cdc16ca5e4843eaecc03.webp",
     "static/media/toasts_desktop.webp": "/SoYummy/static/media/toasts_desktop.b4fe609604737b05020b.webp",
+    "static/media/leafs-left-desc.png": "/SoYummy/static/media/leafs-left-desc.f1b4dd76088f409e52a0.png",
     "static/media/recipe-not-found-tablet-desktop-2x.webp": "/SoYummy/static/media/recipe-not-found-tablet-desktop-2x.8b9caeba8e4191559a79.webp",
     "static/media/pancakes_mob2x.webp": "/SoYummy/static/media/pancakes_mob2x.73d07baf37ca6cfed717.webp",
     "static/media/notFoundTablet.svg": "/SoYummy/static/media/notFoundTablet.7356d8cd1fac6564e87f9e4e18fba93f.svg",
@@ -67,6 +71,7 @@
     "static/media/recipepage-bg-mb-2x-min.webp": "/SoYummy/static/media/recipepage-bg-mb-2x-min.cc22a83aca9cbac9643d.webp",
     "static/media/ingredient.svg": "/SoYummy/static/media/ingredient.c12badcfffc702e11abd7dbc8fb2c6b6.svg",
     "static/media/coctail_tablet.webp": "/SoYummy/static/media/coctail_tablet.2bdd137a63bdedefa681.webp",
+    "static/media/leafs-left-tab.png": "/SoYummy/static/media/leafs-left-tab.3d7becbc63ee72fc657f.png",
     "static/media/footerBG_Desktop.webp": "/SoYummy/static/media/footerBG_Desktop.24e198c6d3d05c77b04b.webp",
     "static/media/plateMobile.webp": "/SoYummy/static/media/plateMobile.68d0904c4d3179e16cce.webp",
     "static/media/recipe-not-found-tablet-desktop.webp": "/SoYummy/static/media/recipe-not-found-tablet-desktop.418745b6eb34acd4e051.webp",
@@ -77,6 +82,7 @@
     "static/media/coctail_mob.webp": "/SoYummy/static/media/coctail_mob.5fefa96297a36c4d287d.webp",
     "static/media/footerBG_mobile@2x.webp": "/SoYummy/static/media/footerBG_mobile@2x.1ac0affd2e63241c6bf2.webp",
     "static/media/recipepage-bg-tablet-1x-min.webp": "/SoYummy/static/media/recipepage-bg-tablet-1x-min.d6815bc14357b902417e.webp",
+    "static/media/leafs-left.png": "/SoYummy/static/media/leafs-left.2781d5e75e2dea2fb74f.png",
     "static/media/footerBG_Tablet.webp": "/SoYummy/static/media/footerBG_Tablet.35cece3a57b557c83047.webp",
     "static/media/recipe-not-found-mobile.webp": "/SoYummy/static/media/recipe-not-found-mobile.253c6bb51ebd0efff076.webp",
     "static/media/recipepageMb1.webp": "/SoYummy/static/media/recipepageMb1.e81c9066eaa3498e803e.webp",
@@ -112,11 +118,11 @@
     "static/media/burger.svg": "/SoYummy/static/media/burger.99954b2cb14dc7a13c5ef2896bf6c275.svg",
     "static/media/arrow-down.svg": "/SoYummy/static/media/arrow-down.4c0759d592b9bf854db97289ce89a574.svg",
     "main.0d51cdca.css.map": "/SoYummy/static/css/main.0d51cdca.css.map",
-    "main.00b70a61.js.map": "/SoYummy/static/js/main.00b70a61.js.map",
+    "main.f22572db.js.map": "/SoYummy/static/js/main.f22572db.js.map",
     "782.38a3f825.chunk.js.map": "/SoYummy/static/js/782.38a3f825.chunk.js.map",
     "507.153ee987.chunk.js.map": "/SoYummy/static/js/507.153ee987.chunk.js.map",
     "23.2d3a7a72.chunk.js.map": "/SoYummy/static/js/23.2d3a7a72.chunk.js.map",
-    "884.bed6434f.chunk.js.map": "/SoYummy/static/js/884.bed6434f.chunk.js.map",
+    "884.09ac7404.chunk.js.map": "/SoYummy/static/js/884.09ac7404.chunk.js.map",
     "383.28e6a531.chunk.js.map": "/SoYummy/static/js/383.28e6a531.chunk.js.map",
     "932.a410d230.chunk.js.map": "/SoYummy/static/js/932.a410d230.chunk.js.map",
     "172.79905d36.chunk.js.map": "/SoYummy/static/js/172.79905d36.chunk.js.map",
@@ -127,6 +133,6 @@
   },
   "entrypoints": [
     "static/css/main.0d51cdca.css",
-    "static/js/main.00b70a61.js"
+    "static/js/main.f22572db.js"
   ]
 }
