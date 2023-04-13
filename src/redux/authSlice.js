@@ -82,6 +82,7 @@ const authSlice = createSlice({
       state.isError = true;
       state.isLoggedIn = false;
       state.isLoading = false;
+      state.theme = 'light';
     },
 
     [fetchUserLogout.fulfilled](state) {
@@ -90,6 +91,7 @@ const authSlice = createSlice({
       state.isError = null;
       state.isLoggedIn = false;
       state.isLoading = false;
+      state.theme = 'light';
     },
     [fetchUserLogout.pending](state) {
       state.isLoading = true;
