@@ -118,7 +118,13 @@ export const FormBtn = styled.button`
   font-size: 16px;
   line-height: 1.12;
 
-  color: ${props => props.theme.colors.textWhite};
+  color: ${props => props.theme.colors.whiteMuted};
+
+  &:hover {
+    background-color: ${props => props.theme.colors.whiteMuted};
+    color: ${props => props.theme.colors.dark};
+    transition: all 250ms linear 0s;
+  }
 
   @media ${props => props.theme.device.tablet} {
     margin-top: 50px;
@@ -139,6 +145,10 @@ export const FormNavLink = styled(Link)`
   text-decoration: underline;
 
   margin-top: 18px;
+
+  &:hover {
+    color: ${props => props.theme.colors.whiteMuted};
+  }
 
   @media ${props => props.theme.device.tablet} {
     font-size: 16px;

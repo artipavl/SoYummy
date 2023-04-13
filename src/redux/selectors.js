@@ -15,4 +15,4 @@ export const selectorIsSubscribe = state => state.auth.isSubscribed;
 export const selectResults = state => state.search.results;
 export const selectStatus = state => statusConfig(state.search.status);
 export const selectSearchType = state => state.search.searchType;
-export const selectIsPageLoading = state => state.search.isPageLoading;
+export const selectTotalResults = state => state.search.totalResults;
