@@ -14,7 +14,7 @@ export const DesktopMenu = () => {
     <NavStyled>
       <NavItems>
         <NavItem>
-          <Navigator recipeid={recipeId} to="/categories">
+          <Navigator recipeid={recipeId} to="/categories/Beef">
             Categories
           </Navigator>
         </NavItem>
