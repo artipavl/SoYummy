@@ -67,7 +67,7 @@ export const IngredientsInput = ({
       measure: formData.combinedValue,
     };
     onIngredientsChange(idx, ingredients);
-  }, [formData.combinedValue, ingredientId]);
+  }, [formData.combinedValue, idx, ingredientId, onIngredientsChange]);
 
   const handleMeasureChange = event => {
     const { name, value } = event.target;

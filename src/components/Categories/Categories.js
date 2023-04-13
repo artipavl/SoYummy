@@ -140,7 +140,7 @@ export const Categories = () => {
             ))}
           </Tabs>
         </Box>
-        {isLoading ? (
+        {loading ? (
           <LoaderDiv>
             <Loader />
           </LoaderDiv>
