@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { theme } from 'constants/theme';
 import PlateMobile from 'images/MainPage/bg/plateMobile.webp';
 import PlateMobileRetina from 'images/MainPage/bg/plateMobileRetina.webp';
 import PlateTablet from 'images/MainPage/bg/plateTablet.webp';
@@ -22,13 +21,13 @@ export const So = styled.span`
   text-align: center;
   letter-spacing: -0.005em;
 
-  color: ${theme.colors.accent};
+  color: ${props => props.theme.colors.accentCurrent};
 
-  @media ${theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     font-size: 72px;
     line-height: 72px;
   }
-  @media ${theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
     font-size: 100px;
     line-height: 100px;
   }
@@ -44,12 +43,13 @@ export const Yummy = styled.span`
   text-align: center;
   letter-spacing: -0.005em;
 
-  color: ${theme.colors.text};
-  @media ${theme.device.tablet} {
+  color: ${props => props.theme.colors.textTitle};
+
+  @media ${props => props.theme.device.tablet} {
     font-size: 72px;
     line-height: 72px;
   }
-  @media ${theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
     font-size: 100px;
     line-height: 100px;
   }
@@ -62,7 +62,7 @@ export const Ptxt = styled.p`
   font-size: 14px;
   line-height: 18px;
   letter-spacing: -0.02em;
-  color: ${theme.colors.text};
+  color: ${props => props.theme.colors.text};
   width: 248px;
   margin-top: 24px;
 
@@ -70,12 +70,12 @@ export const Ptxt = styled.p`
     margin-bottom: 14px;
   }
 
-  @media ${theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     font-size: 14px;
     line-height: 18px;
     width: 362px;
   }
-  @media ${theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
     font-size: 18px;
     line-height: 24px;
     width: 465px;
@@ -85,10 +85,10 @@ export const Ptxt = styled.p`
 export const BoxOne = styled.div`
 padding-top: 60px;
 
-  @media ${theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     grid-area: 1 / 1 / 3 / 2;
   }
-  @media ${theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
 
     padding-top: 100px;
     padding-bottom: 50px;
@@ -97,17 +97,17 @@ padding-top: 60px;
 `;
 
 export const BoxTwo = styled.div`
-  @media ${theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     grid-area: 1 / 2 / 4 / 3;
   }
-  @media ${theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
   }
 `;
 
 export const PlateTitleBox = styled.div`
   display: block;
 
-  background-color: ${theme.colors.white};
+  background-color: ${props => props.theme.colors.white};
   border-radius: 8px;
   padding-top: 16px;
   padding-left: 16px;
@@ -118,10 +118,10 @@ export const PlateTitleBox = styled.div`
   align-items: flex-end;
   margin-bottom: 89px;
   width: 225px;
-  @media ${theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     width: 260px;
   }
-  @media ${theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
     width: 298px;
   }
 `;
@@ -129,21 +129,21 @@ export const PlateTitleBox = styled.div`
 export const Title = styled.p`
   font-family: 'Poppins';
   font-style: normal;
-  font-weight: ${theme.fontWeights.medium};
+  font-weight: ${props => props.theme.fontWeights.medium};
   font-size: 12px;
   line-height: 18px;
 
   letter-spacing: -0.24px;
-  color: ${theme.colors.textDark};
+  color: ${props => props.theme.colors.textDark};
 
   & span {
-    color: ${theme.colors.accent};
+    color: ${props => props.theme.colors.accentCurrent};
   }
-  @media ${theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     font-size: 14px;
     line-height: 20px;
   }
-  @media ${theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
     font-size: 14px;
     line-height: 20px;
   }
@@ -161,7 +161,7 @@ export const Link = styled(NavLink)`
   text-align: center;
   letter-spacing: 0.2px;
 
-  color: ${theme.colors.textDark};
+  color: ${props => props.theme.colors.textDark};
 `;
 
 export const PlateBox = styled.div`
@@ -176,25 +176,25 @@ position: relative;
   background-size: 320px 296px;
   background-repeat: no-repeat;
   background-position: left;
-  @media ${theme.retinaBackgroundImage} {
+  @media ${props => props.theme.retinaBackgroundImage} {
     background-image: url(${PlateMobileRetina});
   }
 
-  @media ${theme.device.tablet} {
+  @media ${props => props.theme.device.tablet} {
     width: 378px;
     height: 351px;
     background-size: 378px 351px;
     background-image: url(${PlateTablet});
-    @media ${theme.retinaBackgroundImage} {
+    @media ${props => props.theme.retinaBackgroundImage} {
       background-image: url(${PlateTabletRetina});
     }
   }
-  @media ${theme.device.desktop} {
+  @media ${props => props.theme.device.desktop} {
     width: 640px;
     height: 539px;
     background-size: 578px 539px;
     background-image: url(${PlateDesktop});
-    @media ${theme.retinaBackgroundImage} {
+    @media ${props => props.theme.retinaBackgroundImage} {
       background-image: url(${PlateDesktopRetina});
     }
   }

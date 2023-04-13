@@ -41,7 +41,7 @@ export const Title = styled.p`
   line-height: 28px;
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
-  color: #001833;
+  color: ${props => props.theme.colors.textTitle};
 
   margin-bottom: 32px;
 `;
