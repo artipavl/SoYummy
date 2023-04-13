@@ -8,7 +8,8 @@ import {
   So,
   Title,
   Yummy,
-  Link
+  Link,
+  Arrow
 } from './СhooseYourBreakfast.styled';
 
 export const СhooseYourBreakfast = () => {
@@ -24,12 +25,13 @@ export const СhooseYourBreakfast = () => {
       </BoxOne>
       <BoxTwo>
         <PlateBox>
+            <Arrow />
           <PlateTitleBox>
             <Title>
               <span>Delicious and healthy</span> way to enjoy a variety of fresh
               ingredients in one satisfying meal
             </Title>
-            <Link to={'/main'}>
+            <Link to={'/my'}>
               See recipes{' '}
               <svg
                 width="14"
