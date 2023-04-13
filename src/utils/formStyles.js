@@ -2,6 +2,7 @@ const commonFormStyles = {
   fontSize: '12px',
   lineHeight: '1.5',
   marginLeft: '28px',
+  marginTop: '8px',
 };
 
 const formStyles = {

@@ -17,32 +17,32 @@ import { SearchIconStyled } from '../DesktopMenu/DesktopMenu.styles';
 import logo from '../../../images/icons/logo_Desktop.svg';
 
 export const MobileMenu = ({ openState, handleMenuClick, children }) => {
-
   useEffect(() => {
     if (openState) {
       const handleKeyDown = e => {
-
         if (e.code === 'Escape') {
           handleMenuClick();
         }
       };
 
       document.addEventListener('keydown', handleKeyDown);
-      return () => { document.removeEventListener('keydown', handleKeyDown); }
+      return () => {
+        document.removeEventListener('keydown', handleKeyDown);
+      };
     }
   }, [handleMenuClick, openState]);
 
   useEffect(() => {
-  if (openState) {
-    const scrollY = window.scrollY;
+    if (openState) {
+      const scrollY = window.scrollY;
 
-    document.body.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
 
-    return () => {
-      document.body.style.overflow = '';
-      window.scrollTo(0, scrollY);
-    };
-  }
+      return () => {
+        document.body.style.overflow = '';
+        window.scrollTo(0, scrollY);
+      };
+    }
   }, [openState]);
 
   return (
@@ -52,14 +52,14 @@ export const MobileMenu = ({ openState, handleMenuClick, children }) => {
           <NavLogo src={logo} alt="logo" width={40} />
         </LinkLogo>
         <button>
-          <CloseButtonStyled style={{position: 'static'}} />
+          <CloseButtonStyled style={{ position: 'static' }} />
         </button>
       </MobileMenuHeader>
 
-      <NavStyled onClick={handleMenuClick}>
+      <NavStyled>
         <NavItems>
           <NavItem>
-            <Navigator to="/categories" onClick={handleMenuClick}>
+            <Navigator to="/categories/Beef" onClick={handleMenuClick}>
               Categories
             </Navigator>
           </NavItem>

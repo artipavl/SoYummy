@@ -1,5 +1,5 @@
 import { Formik, FieldArray } from 'formik';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getAllCategories, getAllIngredients, addRecipe } from '../../api';
@@ -13,10 +13,13 @@ import {
   ImageLabel,
   RecipePhoto,
   InputWrapper,
-  WrapperSelectInput,
-  SelectStyled,
-  SelectDescription,
-  SelectInput,
+  OptionWrapper,
+  WrapperArrow,
+  StyledSelect,
+  CategoryWrapper,
+  SelectContainer,
+  SelectItem,
+  WrapperCookingTime,
   IngredientsContainer,
   TitleWrap,
   FormSectionTitle,
@@ -27,6 +30,7 @@ import {
   LoaderContainer,
   AddIngredientButton,
   DeleteIngredientButton,
+  Input,
 } from './AddRecipeForm.styled';
 
 import { IngredientsInput } from './IngredientsForm/IngrdedientsForm';
@@ -34,6 +38,7 @@ import { AddRecipePreparation } from './RecipePreparation/AddRecipePreparation';
 import { Loader } from 'components/Loader/Loader';
 
 import { ReactComponent as UploadPhoto } from '../../images/icons/upload-photo.svg';
+import { ReactComponent as SelectArrow } from '../../images/icons/select-arrow.svg';
 
 const initialValues = {
   title: '',
@@ -46,15 +51,17 @@ const initialValues = {
 };
 
 export const AddRecipeForm = () => {
-  const [category, setCategory] = useState([]);
+  const [categoryList, SetCategoryList] = useState([]);
   const [allIngredients, SetAllIngredients] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
   const [isLoading, SetIsLoading] = useState(false);
+  const [isCategoryActive, SetIsCategoryActive] = useState(false);
+  const [isTimeActive, SetIsTimeActive] = useState(false);
 
   const cookingTime = getCookingTime();
 
   const navigate = useNavigate();
-
+  const inputRef = useRef();
   const handleFileChange = (event, setFieldValue) => {
     const file = event.currentTarget.files[0];
     setSelectedFile(file);
@@ -64,8 +71,7 @@ export const AddRecipeForm = () => {
   useMemo(async () => {
     try {
       const categoryList = await getAllCategories();
-
-      setCategory(categoryList);
+      SetCategoryList(categoryList);
     } catch (error) {
       console.log(error.message);
     }
@@ -103,7 +109,7 @@ export const AddRecipeForm = () => {
       >
         {formik => {
           const { values, setFieldValue } = formik;
-
+          console.log(values);
           const handlePreparationChange = description => {
             setFieldValue(`instructions`, description);
           };
@@ -139,6 +145,7 @@ export const AddRecipeForm = () => {
               </CustomInputContainer>
 
               <InputWrapper>
+                <Error name="title" component="p" />
                 <InputField
                   name="title"
                   type="text"
@@ -146,44 +153,82 @@ export const AddRecipeForm = () => {
                   placeholder="Enter item title"
                   onBlur={e => setFieldValue('title', e.target.value)}
                 />
-                <Error name="title" component="p" />
+
+                <Error name="description" component="p" />
                 <InputField
                   name="description"
                   type="text"
                   placeholder="Enter about recipe"
                   onBlur={e => setFieldValue('description', e.target.value)}
                 />
-                <Error name="description" component="p" />
-                <WrapperSelectInput>
-                  <SelectDescription>Category</SelectDescription>
-                  <SelectInput
-                    name="category"
-                    as={SelectStyled}
-                    onBlur={e => setFieldValue('category', e.target.value)}
-                  >
-                    {category.map((item, idx) => (
-                      <option key={idx} value={item}>
-                        {item}
-                      </option>
-                    ))}
-                  </SelectInput>
-                </WrapperSelectInput>
+
                 <Error name="category" component="p" />
-                <WrapperSelectInput>
-                  <SelectDescription>Cooking time</SelectDescription>
-                  <SelectInput
-                    name="time"
-                    as={SelectStyled}
-                    onBlur={e => setFieldValue('time', e.target.value)}
+                <CategoryWrapper>
+                  <Input
+                    type="text"
+                    readOnly="readonly"
+                    placeholder="Category"
+                  />
+                  <StyledSelect
+                    ref={inputRef}
+                    onClick={() => SetIsCategoryActive(true)}
                   >
-                    {cookingTime.map((item, idx) => (
-                      <option key={idx} value={item}>
-                        {`${item} min`}
-                      </option>
-                    ))}
-                  </SelectInput>
-                </WrapperSelectInput>
+                    <OptionWrapper>{values.category}</OptionWrapper>
+                    <WrapperArrow>
+                      <SelectArrow width="20px" height="20px" />
+                    </WrapperArrow>
+                  </StyledSelect>
+                  {isCategoryActive && (
+                    <SelectContainer>
+                      {categoryList.map((item, idx) => (
+                        <SelectItem
+                          key={idx}
+                          onClick={() => {
+                            setFieldValue('category', item);
+                            SetIsCategoryActive(false);
+                          }}
+                        >
+                          {item}
+                        </SelectItem>
+                      ))}
+                    </SelectContainer>
+                  )}
+                </CategoryWrapper>
+
                 <Error name="time" component="p" />
+                <WrapperCookingTime>
+                  <Input
+                    type="text"
+                    readOnly="readonly"
+                    placeholder="Cooking time"
+                  />
+                  <StyledSelect
+                    ref={inputRef}
+                    onClick={() => SetIsTimeActive(true)}
+                  >
+                    <OptionWrapper>
+                      {values.time ? values.time + ' min' : ''}
+                    </OptionWrapper>
+                    <WrapperArrow>
+                      <SelectArrow width="20px" height="20px" />
+                    </WrapperArrow>
+                  </StyledSelect>
+                  {isTimeActive && (
+                    <SelectContainer>
+                      {cookingTime.map((time, idx) => (
+                        <SelectItem
+                          key={idx}
+                          onClick={() => {
+                            SetIsTimeActive(false);
+                            setFieldValue('time', time);
+                          }}
+                        >
+                          {time} min
+                        </SelectItem>
+                      ))}
+                    </SelectContainer>
+                  )}
+                </WrapperCookingTime>
               </InputWrapper>
 
               <FieldArray name="ingredients">
@@ -263,3 +308,35 @@ export const AddRecipeForm = () => {
     </>
   );
 };
+
+//  <WrapperCookingTime>
+//    <Input
+//      type="text"
+//      placeholder="Cooking time"
+//      style={{ cursor: 'pointer' }}
+//    />
+//    {formErrors?.time && <ErrMessage>{formErrors?.time}</ErrMessage>}
+
+//    <SelectStyled ref={inputEl} onClick={e => setIsActiveTime(!isActiveTime)}>
+//      <WrapperOption>{time}</WrapperOption>
+//      <ArrowWrapper>
+//        <Arrow width="20px" height="20px" />
+//      </ArrowWrapper>
+//    </SelectStyled>
+//    {isActiveTime && (
+//      <SelectContent style={{ width: '90px' }}>
+//        {allTime.map((value, index) => (
+//          <SelectItem
+//            key={value + '' + index}
+//            onClick={() => {
+//              setTime(value);
+//              setIsActiveTime(false);
+//            }}
+//            color={value === time && theme === 'light' ? '#8BAA36' : '#000000'}
+//          >
+//            {value}
+//          </SelectItem>
+//        ))}
+//      </SelectContent>
+//    )}
+//  </WrapperCookingTime>;

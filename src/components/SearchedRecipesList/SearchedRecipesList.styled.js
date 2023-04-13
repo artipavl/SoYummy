@@ -28,6 +28,9 @@ export const RecipesList = styled.ul`
   }
 
   @media ${props => props.theme.device.desktop} {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
     gap: 14px;
   }
 `;

@@ -4,11 +4,13 @@ import axios from 'axios';
 
 export const searchRecipes = createAsyncThunk(
   'search/searchRecipes',
-  async (query, thunkAPI) => {
+  async ({ query, page }, thunkAPI) => {
     try {
-      const response = await axios.get(`/recipes/search?title=${query}`);
+      const response = await axios.get(
+        `/recipes/search?title=${query}&page=${page}&limit=12`
+      );
 
-      return response.data.data.result;
+      return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e);
     }
@@ -17,11 +19,13 @@ export const searchRecipes = createAsyncThunk(
 
 export const searchIngredient = createAsyncThunk(
   'search/searchIngredient',
-  async (query, thunkAPI) => {
+  async ({ query, page }, thunkAPI) => {
     try {
-      const response = await axios.get(`/recipes/search?ingredient=${query}`);
+      const response = await axios.get(
+        `/recipes/search?ingredient=${query}&page=${page}&limit=12`
+      );
 
-      return response.data.data.result;
+      return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e);
     }

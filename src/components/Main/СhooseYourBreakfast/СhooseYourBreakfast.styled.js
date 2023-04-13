@@ -6,7 +6,14 @@ import PlateTabletRetina from 'images/MainPage/bg/plateTabletRetina.webp';
 import PlateDesktop from 'images/MainPage/bg/plateDesktop.webp';
 import PlateDesktopRetina from 'images/MainPage/bg/plateDekctopRetina.webp';
 
+
+
 import ArrowDesc from 'images/MainPage/bg/GroupDeck.svg';
+
+// import ArrowTab from 'images/MainPage/HeroMain/curlyArrow.png';
+// import ArrowDesc from 'images/MainPage/HeroMain/curlyArrow-desc.png';
+
+
 import { NavLink } from 'react-router-dom';
 
 export const So = styled.span`
