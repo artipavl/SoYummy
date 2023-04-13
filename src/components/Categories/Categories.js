@@ -25,10 +25,12 @@ import {
 } from 'components/Categories/Categories.styled.js';
 import { useSelector } from 'react-redux';
 import { selectorSwicherTheme } from 'redux/selectors';
+import { LoaderBox } from 'components/FavoriteList/FavoriteList.styled';
+import { Loader } from 'components/Loader/Loader';
 
 export const Categories = () => {
   const [value, setValue] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [categoryList, setCategoryList] = useState([]);
   const [itemArray, setItemArray] = useState([]);
   const [oneParam] = useState(useParams().categoryName);
@@ -37,16 +39,15 @@ export const Categories = () => {
 
   const theme = useSelector(selectorSwicherTheme);
 
-  console.log(isLoading);
   useEffect(() => {
     const fetchProductList = async () => {
-      setIsLoading(true);
+      setLoading(true);
       try {
         setCategoryList(await getCategoryPage());
       } catch (error) {
         console.log(error);
       } finally {
-        setIsLoading(false);
+        setLoading(false);
       }
     };
     fetchProductList();
@@ -93,6 +94,11 @@ export const Categories = () => {
 
   return (
     <>
+      {loading && (
+        <LoaderBox>
+          <Loader />
+        </LoaderBox>
+      )}
       <Container>
         <Title>Categories</Title>
         <Box
