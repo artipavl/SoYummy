@@ -9,7 +9,7 @@ export const Error = styled(ErrorMessage)`
   display: block;
   font-size: 12px;
   color: ${props => props.theme.colors.textError};
-  margin: -20px 0 10px 0;
+  margin-top: -20px;
   padding: 0;
 `;
 export const AddForma = styled(Form)`
@@ -92,6 +92,7 @@ export const InputField = styled(Field)`
   border: none;
   border-bottom: 1px solid
     ${props => props.theme.colors.blackAndWhiteBrorderList};
+  color: ${props => props.theme.colors.text};
   outline: none;
   font-size: 14px;
   background-color: transparent;
@@ -109,81 +110,126 @@ export const InputField = styled(Field)`
     margin-bottom: 40px;
   }
 `;
-export const WrapperSelectInput = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+
+export const CategoryWrapper = styled.div`
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 24px;
+  @media ${props => props.theme.device.tablet} {
+    margin-bottom: 32px;
+  }
+  @media ${props => props.theme.device.desktop} {
+    margin-bottom: 40px;
+  }
+`;
+export const Input = styled.input`
+  display: block;
   width: 100%;
-  margin: 0 0 24px 0;
+  height: 40px;
+  border: transparent;
+  background-color: inherit;
   border-bottom: 1px solid
     ${props => props.theme.colors.blackAndWhiteBrorderList};
   padding-bottom: 18px;
+  outline: transparent;
+  font-size: 14px;
+  cursor: pointer;
+  color: ${props => props.theme.colors.dark};
+
+  &::placeholder {
+    font-size: 14px;
+    color: ${props => props.theme.colors.dark};
+    opacity: 50%;
+  }
+  @media ${props => props.theme.device.tablet} {
+    font-size: 16px;
+    width: 393px;
+    height: 43px;
+    &::placeholder {
+      font-size: 16px;
+    }
+  }
 `;
 
+export const OptionWrapper = styled.span`
+  display: inline-flex;
+  align-items: center;
+  height: 19px;
+  color: ${p => p.theme.colors.text};
+`;
+
+export const WrapperArrow = styled.span`
+  height: auto;
+  display: inline-flex;
+  color: ${p => p.theme.colors.text};
+`;
 export const SelectInput = styled(Field)`
   display: flex;
   justify-content: flex-end;
-  border: none;
   font-size: 14px;
+  color: ${p => p.theme.colors.text};
+  opacity: 50%;
+  overflow-y: auto;
   max-height: 120px;
-  overflow-y: auto;
-
-  /* background-color: ${props => props.theme.colors.selectRecipeBgcolor}; */
-  color: ${props => props.theme.colors.dark};
-  opacity: 50%;
-
-  @media ${props => props.theme.device.tablet} {
-    font-size: 16px;
-  }
-`;
-
-export const SelectDescription = styled.span`
-  /* width: 100%; */
-  color: ${props => props.theme.colors.dark};
-  opacity: 50%;
-  font-size: 14px;
-
-  @media ${props => props.theme.device.tablet} {
-    font-size: 16px;
-  }
-`;
-export const SelectStyled = styled.select`
-  max-height: 110px;
-  overflow-y: auto;
-  position: relative;
-  background-color: transparent;
-  font-family: inherit;
-  appearance: none;
-
-  line-height: 1.5;
-
   border: none;
-  outline: none;
-  padding-right: 25px;
-
-  text-align: right;
-
-  border-radius: 5px;
-
+  @media ${props => props.theme.device.tablet} {
+    font-size: 16px;
+  }
+`;
+export const StyledSelect = styled.div`
+  position: absolute;
+  display: flex;
+  top: 0;
+  right: 0;
+  padding-top: 3px;
+  width: 100%;
+  height: 100%;
+  justify-content: right;
+  gap: 13px;
   font-size: 12px;
-
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 21" width="20" height="21"><path fill="green" d="M5.3 6.3L8 9l2.7-2.7c.4-.4 1-.4 1.4 0l.7.7c.4.4.4 1 0 1.4l-4 4c-.4.4-1 .4-1.4 0l-4-4c-.4-.4-.4-1 0-1.4l.7-.7c.4-.4 1-.4 1.4 0z"/></svg>')
-    no-repeat;
-  background-position: right 10px top 50%;
-  background-size: 14px 14px;
-  cursor: pointer;
 
   @media ${props => props.theme.device.tablet} {
     font-size: 14px;
   }
-  option {
-    position: absolute;
-    top: 100%;
-    left: 0;
+`;
 
-    line-height: 30px;
+export const SelectContainer = styled.ul`
+  position: absolute;
+  top: 27px;
+  right: 0;
+  z-index: 5;
+  height: 144px;
+  width: 120px;
+
+  padding: 8px 14px;
+  overflow-y: auto;
+  border-radius: 6px;
+  font-size: 12px;
+  color: ${props => props.theme.colors.dark};
+  background: ${props => props.theme.colors.bgWhite};
+  box-shadow: 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);
+  @media ${props => props.theme.device.tablet} {
+    padding: 8px 18px;
+    width: 132px;
+    height: 162px;
   }
 `;
+export const SelectItem = styled.li`
+  color: ${props => props.theme.colors.dark};
+  &:not(:last-child) {
+    margin-bottom: 4px;
+  }
+  &:hover {
+    color: ${props => props.theme.colors.accent};
+  }
+`;
+
+export const WrapperCookingTime = styled.div`
+  position: relative;
+
+  cursor: pointer;
+`;
+
 export const IngredientsContainer = styled.div`
   display: block;
   width: 100%;
@@ -213,7 +259,7 @@ export const IngredienLenght = styled.div`
   padding: 0 14px;
   width: 96px;
   height: 28px;
-  border: 1px solid ${props => props.theme.colors.textDark};
+  border: 1px solid ${props => props.theme.colors.text};
   opacity: 30%;
   border-radius: 18px;
 `;
