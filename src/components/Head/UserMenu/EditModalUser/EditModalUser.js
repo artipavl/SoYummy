@@ -163,6 +163,7 @@ export const EditUserModal = ({
                 style={{ display: 'none' }}
                 id="file-upload"
                 type="file"
+                accept="image/jpeg, image/png, image/jpg "
                 name="avatar"
                 onChange={handleAvatarChange}
                 onBlur={formik.handleBlur}

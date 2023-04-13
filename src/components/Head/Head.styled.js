@@ -1,7 +1,18 @@
 import { NavLink } from "react-router-dom"
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import userIconBG from '../../images/icons/user-icon.svg';
 import { ReactComponent as BurgerIcon } from '../../images/icons/burger.svg';
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    /* transform: translateY(0%); */
+  }
+  to {
+    opacity: 1;
+    /* transform: translateY(100%); */
+  }
+`;
 
 export const Header = styled.header`
   position: absolute;
@@ -11,6 +22,7 @@ export const Header = styled.header`
   width: 100%;
   font-family: 'Poppins';
   z-index: 999;
+  animation: ${fadeIn} 0.3s ease-in-out;
 
 `
 export const Container = styled.div`
