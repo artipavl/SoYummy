@@ -1,6 +1,4 @@
-import { Formik } from 'formik';
-
-import { useSearchParams } from 'react-router-dom';
+import React, { useState } from 'react';
 
 import {
   Form,
@@ -10,40 +8,27 @@ import {
 } from './Search.styled.js';
 
 export const Search = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchTerm, setSearchTerm] = useState('');
 
-  const onSubmit = ({ query }) => {
-    const trimmedQuery = query.trim();
+  const handleInputChange = event => {
+    setSearchTerm(event.target.value);
+  };
 
-    if (trimmedQuery === '') {
-      setSearchParams();
-
-      return null;
-    }
-
-    setSearchParams({ query: trimmedQuery });
+  const handleSubmit = event => {
+    event.preventDefault();
+    window.location.href = `search?query=${searchTerm}`;
   };
 
   return (
-    <Formik
-      initialValues={{ query: searchParams.get('query') || '' }}
-      onSubmit={onSubmit}
-    >
-      {({ handleSubmit, handleChange, values }) => {
-        return (
-          <Form onSubmit={handleSubmit}>
-            <SearchContainer>
-              <SearchValue
-                type="text"
-                name="query"
-                value={values.query}
-                onChange={handleChange}
-              />
-              <SearchBtn type="submit">Search</SearchBtn>
-            </SearchContainer>
-          </Form>
-        );
-      }}
-    </Formik>
+    <Form onSubmit={handleSubmit}>
+      <SearchContainer>
+        <SearchValue
+          type="text"
+          value={searchTerm}
+          onChange={handleInputChange}
+        />
+        <SearchBtn type="submit">Search</SearchBtn>
+      </SearchContainer>
+    </Form>
   );
 };
