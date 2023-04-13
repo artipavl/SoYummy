@@ -31,7 +31,7 @@ export const СhooseYourBreakfast = () => {
               <span>Delicious and healthy</span> way to enjoy a variety of fresh
               ingredients in one satisfying meal
             </Title>
-            <Link to={'/main'}>
+            <Link to={'/my'}>
               See recipes{' '}
               <svg
                 width="14"
