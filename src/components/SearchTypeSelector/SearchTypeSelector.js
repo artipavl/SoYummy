@@ -10,14 +10,26 @@ import {
 import { changeSearchType } from 'redux/searchSlice';
 
 import { selectSearchType } from 'redux/selectors';
+import { useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 const SearchTypeSelector = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
   const searchType = useSelector(selectSearchType);
+  const queryType = searchParams.get('type');
 
   const handleChange = e => {
     dispatch(changeSearchType(e.target.value));
   };
+
+  useEffect(() => {
+    if (queryType === 'ingredients') {
+      dispatch(changeSearchType(queryType));
+      searchParams.delete('type');
+      setSearchParams(searchParams);
+    }
+  }, [dispatch, queryType, searchParams, setSearchParams]);
 
   return (
     <SelectorWrapper>
