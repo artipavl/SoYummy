@@ -20,7 +20,7 @@ const SearchForm = () => {
 
       return null;
     }
-    setSearchParams({ query: trimmedQuery });
+    setSearchParams({ query: trimmedQuery, page: 1 });
   };
 
   return (

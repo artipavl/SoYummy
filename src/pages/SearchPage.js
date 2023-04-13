@@ -12,24 +12,22 @@ import { searchRecipes, searchIngredient } from 'redux/searchOperations';
 
 import {
   selectSearchType,
-  selectResults,
-  selectStatus,
   selectTotalResults,
+  selectStatus,
 } from 'redux/selectors';
 
 const SearchPage = () => {
-  const [searchParams] = useSearchParams();
-
-  const searchType = useSelector(selectSearchType);
-  const recipes = useSelector(selectResults);
+  const [searchParams, setSearchParams] = useSearchParams();
   const { isLoading } = useSelector(selectStatus);
+  const searchType = useSelector(selectSearchType);
   const totalResults = useSelector(selectTotalResults);
 
   const dispatch = useDispatch();
   const [totalPages, setTotalPages] = useState(null);
-  const [page, setPage] = useState(1);
 
   const query = searchParams.get('query');
+
+  const page = searchParams.get('page') ? Number(searchParams.get('page')) : 1;
 
   useEffect(() => {
     if (!query) {
@@ -50,7 +48,7 @@ const SearchPage = () => {
   }, [dispatch, page, query, searchType, totalResults]);
 
   const handleChange = e => {
-    setPage(e.selected + 1);
+    setSearchParams({ page: e.selected + 1, query });
   };
 
   return (
@@ -58,8 +56,20 @@ const SearchPage = () => {
       <MainTitle text="Search" />
       <SearchBar />
       <SearchedRecipesList />
-      {totalPages && recipes.length !== 0 && !isLoading && (
-        <Pagination pageCount={totalPages} page={page} change={handleChange} />
+      {totalPages && (
+        <div
+          style={{
+            display: isLoading ? 'none' : 'block',
+            marginBottom: '155px',
+            marginTop: '50px',
+          }}
+        >
+          <Pagination
+            pageCount={totalPages}
+            page={page}
+            change={handleChange}
+          />
+        </div>
       )}
     </Container>
   );
