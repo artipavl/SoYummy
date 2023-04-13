@@ -152,15 +152,13 @@ export const Categories = () => {
               ))}
             </List>
             <BoxPagination>
-              {page && (
-                <Stack>
-                  <PaginationBtn
-                    page={page}
-                    onChange={handleChangePage}
-                    count={totalPage}
-                  />
-                </Stack>
-              )}
+              <Stack>
+                <PaginationBtn
+                  page={page}
+                  onChange={handleChangePage}
+                  count={totalPage}
+                />
+              </Stack>
             </BoxPagination>
           </>
         )}
