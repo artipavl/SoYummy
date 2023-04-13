@@ -1,7 +1,3 @@
-import { useSelector } from 'react-redux';
-
-import { selectStatus } from 'redux/selectors';
-
 import SearchedRecipesItem from 'components/SearchedRecipesItem';
 import { Loader } from 'components/Loader/Loader';
 
@@ -12,12 +8,10 @@ import {
   RecipeNotFoundText,
 } from './SearchedRecipesList.styled';
 
-const SearchedRecipesList = ({ recipes }) => {
-  const { isLoading, isResolved } = useSelector(selectStatus);
-
+const SearchedRecipesList = ({ recipes, isLoading }) => {
   return (
     <>
-      {isLoading ? (
+      {!isLoading ? (
         <LoaderWrapper>
           <Loader />
         </LoaderWrapper>
@@ -36,7 +30,7 @@ const SearchedRecipesList = ({ recipes }) => {
         </RecipesList>
       )}
 
-      {isResolved && recipes.length === 0 && (
+      {isLoading && recipes.length === 0 && (
         <>
           <RecipeNotFoundImage />
           <RecipeNotFoundText>
