@@ -8,39 +8,67 @@ import {
   SearchValue,
   SearchBtn,
 } from './SearchForm.styled';
+import {
+  SelectorOption,
+  SelectorText,
+  SelectorWrapper,
+  TypeSelector,
+} from 'components/SearchTypeSelector/SearchTypeSelector.styled';
+import { useState } from 'react';
 
-const SearchForm = () => {
+const SearchForm = ({ get }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const onSubmit = ({ query }) => {
-    const trimmedQuery = query.trim();
+  const [paramsQ, setParamsQ] = useState(() =>
+    searchParams.get('query') ? searchParams.get('query') : ''
+  );
+  const [paramsT, setParamsT] = useState(() =>
+    searchParams.get('type') ? searchParams.get('type') : 'title'
+  );
 
-    if (trimmedQuery === '') {
-      setSearchParams();
-
-      return null;
+  const onSubmit = e => {
+    e.preventDefault();
+    if (!paramsQ.trim()) {
+      return;
     }
-    setSearchParams({ query: trimmedQuery, page: 1 });
+    const trimmedQuery = paramsQ.trim();
+ 
+    setSearchParams({ query: trimmedQuery, type: paramsT, page: 1 });
+    get({ query: trimmedQuery, type: paramsT });
   };
 
   return (
     <Formik
-      initialValues={{ query: searchParams.get('query') || '' }}
-      onSubmit={onSubmit}
+    // initialValues={{
+    //   query: searchParams.get('query') ? searchParams.get('query') : '',
+    //   type: searchParams.get('type') ? searchParams.get('type') : 'title',
+    // }}
+    // onSubmit={onSubmit}
     >
-      {({ handleSubmit, handleChange, values }) => {
+      {() => {
         return (
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={onSubmit}>
             <SearchContainer>
               <SearchValue
                 type="text"
                 name="query"
-                value={values.query}
                 placeholder="Enter the text"
-                onChange={handleChange}
+                value={paramsQ}
+                onChange={e => setParamsQ(e.target.value)}
               />
               <SearchBtn type="submit">Search</SearchBtn>
             </SearchContainer>
+            <SelectorWrapper>
+              <SelectorText>Search by:</SelectorText>
+              <TypeSelector
+                name="type"
+                value={paramsT}
+                onChange={e => setParamsT(e.target.value)}
+              >
+                <SelectorOption value="title">Title</SelectorOption>
+                <SelectorOption value="ingredients">Ingredients</SelectorOption>
+              </TypeSelector>
+            </SelectorWrapper>
           </Form>
         );
       }}

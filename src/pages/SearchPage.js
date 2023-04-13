@@ -1,70 +1,115 @@
 import { useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 import MainTitle from 'components/MainTitle/MainTitle';
-import SearchBar from 'components/SearchBar';
 import SearchedRecipesList from 'components/SearchedRecipesList';
 import Pagination from 'components/Pagination/Pagination';
 import { Container } from 'reusableComponents/Container/Container.styled';
 
-import { searchRecipes, searchIngredient } from 'redux/searchOperations';
-
-import {
-  selectSearchType,
-  selectTotalResults,
-  selectStatus,
-} from 'redux/selectors';
+import SearchForm from 'components/SearchForm';
+import axios from 'axios';
 
 const SearchPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { isLoading } = useSelector(selectStatus);
-  const searchType = useSelector(selectSearchType);
-  const totalResults = useSelector(selectTotalResults);
 
-  const dispatch = useDispatch();
-  const [totalPages, setTotalPages] = useState(null);
-
-  const query = searchParams.get('query');
-
-  const page = searchParams.get('page') ? Number(searchParams.get('page')) : 1;
+  const [totalPages, setTotalPages] = useState(0);
+  const [page, setPage] = useState(() =>
+    searchParams.get('page') ? Number(searchParams.get('page')) : 1
+  );
+  const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    if (!query) {
-      return;
+    async function startget({ query, type = 'title', page = 1 }) {
+      setPage(page);
+      try {
+        if (type === 'title') {
+          const { data } = await axios.get(
+            `/recipes/search?title=${query}&page=${page}&limit=12`
+          );
+          console.log(data);
+          setTotalPages(Math.ceil(data.data.total / 12));
+          setRecipes(data.data.result);
+        } else {
+          const { data } = await axios.get(
+            `/recipes/search?ingredients=${query}&page=${page}&limit=12`
+          );
+          console.log(data);
+          setTotalPages(Math.ceil(data.data.total / 12));
+          setRecipes(data.data.result);
+        }
+      } catch (error) {
+        console.log(error);
+      }
     }
 
-    const totalCountPage = Math.ceil(totalResults / 12);
-
-    if (totalCountPage > 1) {
-      setTotalPages(totalCountPage);
+    if (
+      searchParams.get('query') &&
+      searchParams.get('type') &&
+      recipes.length === 0
+    ) {
+      startget({
+        query: searchParams.get('query'),
+        type: searchParams.get('type'),
+        page: searchParams.get('page') ? Number(searchParams.get('page')) : 1,
+      });
     }
+  }, [recipes.length, searchParams]);
 
-    if (searchType === 'title') {
-      dispatch(searchRecipes({ query, page }));
-    } else {
-      dispatch(searchIngredient({ query, page }));
+  const get = async ({ query, type = 'title', page = 1 }) => {
+    setPage(page);
+    try {
+      if (type === 'title') {
+        const { data } = await axios.get(
+          `/recipes/search?title=${query}&page=${page}&limit=12`
+        );
+        console.log(data);
+        setTotalPages(Math.ceil(data.data.total / 12));
+        setRecipes(data.data.result);
+      } else {
+        const { data } = await axios.get(
+          `/recipes/search?ingredients=${query}&page=${page}&limit=12`
+        );
+        console.log(data);
+        setTotalPages(Math.ceil(data.data.total / 12));
+        setRecipes(data.data.result);
+      }
+    } catch (error) {
+      console.log(error);
     }
-  }, [dispatch, page, query, searchType, totalResults]);
+  };
 
   const handleChange = e => {
-    setSearchParams({ page: e.selected + 1, query });
+    setSearchParams({
+      page: e.selected + 1,
+      query: searchParams.get('query'),
+      type: searchParams.get('type'),
+    });
+    get({
+      page: e.selected + 1,
+      query: searchParams.get('query'),
+      type: searchParams.get('type'),
+    });
   };
 
   return (
     <Container>
       <MainTitle text="Search" />
-      <SearchBar />
-      <SearchedRecipesList />
-      {totalPages && (
+      <SearchForm get={get} />
+      <SearchedRecipesList recipes={recipes} />
+      {totalPages > 0 && (
         <div
           style={{
-            display: isLoading ? 'none' : 'block',
+            display: 'block',
             marginBottom: '155px',
             marginTop: '50px',
           }}
         >
-          <Pagination pageCount={totalPages} change={handleChange} />
+          <Pagination
+            pageCount={totalPages}
+            change={handleChange}
+            // initialPage={page}
+            forcePage={page}
+          />
         </div>
       )}
     </Container>
