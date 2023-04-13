@@ -69,7 +69,8 @@ export const FormValueContainer = styled.div`
 `;
 
 export const FormValue = styled.input`
-  background-color: ${props => props.theme.colors.textWhite};
+  background-color: transparent;
+
   color: ${props => props.theme.colors.textWhite};
 
   border: 1px solid ${props => props.theme.colors.textWhite};

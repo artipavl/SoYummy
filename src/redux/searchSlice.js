@@ -7,6 +7,7 @@ const initialState = {
   totalResults: null,
   status: 'idle',
   searchType: 'title',
+  // query: '',
 };
 
 export const searchSlice = createSlice({

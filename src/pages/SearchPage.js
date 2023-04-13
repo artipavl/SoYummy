@@ -64,11 +64,7 @@ const SearchPage = () => {
             marginTop: '50px',
           }}
         >
-          <Pagination
-            pageCount={totalPages}
-            page={page}
-            change={handleChange}
-          />
+          <Pagination pageCount={totalPages} change={handleChange} />
         </div>
       )}
     </Container>
