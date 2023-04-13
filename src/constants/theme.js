@@ -33,7 +33,11 @@ export const theme = {
     popularRecipeDescription: '#7e7e7e',
     popularRecipesItemBox: '#7070702b',
     recipesFonts: '#3E4462',
-    selectRecipeBgcolor: '#FAFAFA',
+
+    selectRecipeBgcolor: "#FAFAFA",
+    plateTitleBoxBgColor: "#FFFFFF",
+    plateTitleTextColor: "#3E4462",
+
 
     modes: {
       white: {
@@ -115,7 +119,10 @@ export const lightTheme = {
     popularRecipeDescription: '#7e7e7e',
     popularRecipesItemBox: '#7070702b',
     recipesFonts: '#3E4462',
-    selectRecipeBgcolor: '#FAFAFA',
+    selectRecipeBgcolor: "#FAFAFA",
+    plateTitleBoxBgColor: "#FFFFFF",
+    plateTitleTextColor: "#3E4462",
+
 
     modes: {
       white: {
@@ -196,7 +203,10 @@ export const darkTheme = {
     popularRecipeDescription: '#fafafa99',
     popularRecipesItemBox: '#7070702b',
     recipesFonts: '#FAFAFA',
-    selectRecipeBgcolor: '#8BAA36',
+    selectRecipeBgcolor: "#8BAA36",
+    plateTitleBoxBgColor: "#2A2C36",
+    plateTitleTextColor: "#FAFAFA",
+
 
     modes: {
       white: {

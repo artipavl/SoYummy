@@ -48,7 +48,7 @@ export const Yummy = styled.span`
   text-align: center;
   letter-spacing: -0.005em;
 
-  color: ${props => props.theme.colors.textTitle};
+  color: ${props => props.theme.colors.text};
 
   @media ${props => props.theme.device.tablet} {
     font-size: 72px;
@@ -108,8 +108,10 @@ export const BoxTwo = styled.div`
 `;
 
 export const PlateTitleBox = styled.div`
+  background-color: ${props => props.theme.colors.plateTitleBoxBgColor};
+
   position: relative;
-  background-color: ${props => props.theme.colors.white};
+
   border-radius: 8px;
   padding-top: 16px;
   padding-left: 16px;
@@ -162,10 +164,12 @@ export const Title = styled.p`
   line-height: 18px;
 
   letter-spacing: -0.24px;
-  color: ${props => props.theme.colors.textDark};
+
+  color: ${props => props.theme.colors.plateTitleTextColor};
 
   & span {
-    color: ${props => props.theme.colors.accentCurrent};
+    color: ${props => props.theme.colors.accentCurrent};;
+
   }
   @media ${props => props.theme.device.tablet} {
     font-size: 14px;
@@ -189,7 +193,8 @@ export const Link = styled(NavLink)`
   text-align: center;
   letter-spacing: 0.2px;
 
-  color: ${props => props.theme.colors.textDark};
+  color: ${props => props.theme.colors.plateTitleTextColor};
+
 `;
 
 export const PlateBox = styled.div`
