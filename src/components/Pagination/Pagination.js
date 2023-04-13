@@ -10,8 +10,8 @@ const Pagination = ({ pageCount, page, change }) => {
         breakLabel={'...'}
         breakClassName={'break-me'}
         pageCount={pageCount}
-        marginPagesDisplayed={2}
-        pageRangeDisplayed={page + 2}
+        marginPagesDisplayed={1}
+        pageRangeDisplayed={1}
         onPageChange={change}
         containerClassName={'pagination'}
         subContainerClassName={'pages pagination'}

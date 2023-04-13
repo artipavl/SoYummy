@@ -99,14 +99,17 @@ export const Description = styled.p`
   line-height: 125%;
   letter-spacing: -0.02em;
   color: ${props => props.theme.colors.text};
+  padding-right: 24px;
 
   @media ${props => props.theme.device.tablet} {
     font-size: 14px;
     line-height: 129%;
+    padding-right: 38px;
   }
   @media ${props => props.theme.device.desktop} {
     font-size: 18px;
     line-height: 133%;
+    padding-right: 44px;
   }
 `;
 

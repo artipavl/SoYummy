@@ -9,7 +9,7 @@ export const Box = styled.div`
   box-shadow: 0px 4px 4px rgba(135, 135, 135, 0.2);
   height: 51px;
   border-radius: 25.5px;
-  padding: 12px;
+  padding: 12px 0;
 
   @media ${props => props.theme.device.tablet} {
     height: 55px;
@@ -46,9 +46,7 @@ export const Box = styled.div`
   }
 
   .pagination > li > a:hover,
-  .pagination > li > span:hover,
-  .pagination > li > a:focus,
-  .pagination > li > span:focus {
+  .pagination > li > span:hover{
     background-color: ${props => props.theme.colors.modes.white.accentGreen};
   }
 `;
