@@ -162,10 +162,10 @@ export const Categories = () => {
               ))}
             </List>
             <BoxPagination>
-              {totalPage && (
+              {totalPage > 1 && (
                 <Pagination
                   pageCount={totalPage}
-                  page={page}
+                  forcePage={page}
                   change={handleChangePage}
                 />
               )}
