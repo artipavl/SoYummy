@@ -1,6 +1,4 @@
-
 import { useState, useMemo, useRef, useEffect, useCallback } from 'react';
-
 
 import {
   SelectIngredientWrapper,
@@ -30,7 +28,7 @@ export const IngredientsInput = ({
   remove,
 }) => {
   const [searchValue, setSearchValue] = useState('');
-  // const [ingredientId, SetIngredientId] = useState('');
+  const [ingredientId, SetIngredientId] = useState('');
   const [showFilteredItems, SetShowFilteredItems] = useState(false);
   const [isMeasure, SetIsMeasure] = useState(false);
   const [formData, setFormData] = useState({
@@ -82,7 +80,6 @@ export const IngredientsInput = ({
     handleIngredientsChange(idx, ingredients);
   }, [formData.combinedValue, ingredientId, idx, handleIngredientsChange]);
 
-
   const handleMeasureChange = event => {
     const { name, value } = event.target;
     const combinedValue = `${value} ${formData.selectInputValue}`;
@@ -109,7 +106,7 @@ export const IngredientsInput = ({
     setSearchValue(e.target.value);
     SetShowFilteredItems(false);
     if (newIngredients) {
-      // SetIngredientId(newIngredients._id);
+      SetIngredientId(newIngredients._id);
     }
   };
 
