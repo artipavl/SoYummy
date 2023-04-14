@@ -9,10 +9,10 @@ import { editUserValidationSchema } from 'utils/editUserValidationSchema';
 
 import { selectUserName, selectAvatarURL } from 'redux/selectors';
 import { updateUser } from '../../../../redux/authOperations';
-import addAvatarImg from '../../../../images/icons/plus-icon.svg';
-// import notImage from '../../../../images/icons/not-supported-image.svg'
+import notImage from '../../../../images/icons/not-supported-image.svg'
 
 import {
+  AddImageIconStyled,
   UserIconStyled,
   RedCrossStyled,
   ResetNameButton,
@@ -69,8 +69,8 @@ export const EditUserModal = ({
 
   const formik = useFormik({
     initialValues: {
-      avatar: avatarURL || '',
-      name: userName || '',
+      avatar: avatarURL,
+      name: userName
     },
 
     validationSchema: editUserValidationSchema,
@@ -93,34 +93,35 @@ export const EditUserModal = ({
     },
   });
 
-  const handleAvatarChange = e => {
-    const newAvatar = e.target.files[0];
-    formik.setValues({ ...formik.values, avatar: newAvatar });
-  };
+  console.log(formik.values)
+
+
+  const handleAvatarChange = (e) => {
+  const avatar = e.target.files[0];
+  formik.setValues({...formik.values, avatar});
+
+};
+
 
   const handleChangeName = e => {
-    console.log(e.target.value)
-    console.log(formik.values)
     formik.setValues({...formik.values, name: e.target.value })
   }
 
-  const handleResetName = () => {
-    formik.resetForm({
-      values: {
-        ...formik.values,
-        name: ''
-      },
-    });
-  };
+const handleResetName = () => {
+  formik.resetForm();
+  formik.setValues({
+    ...formik.values, name: ''
+  });
+};
 
-  // const handleResetImage = () => {
-  //   formik.resetForm({
-  //     values: {
-  //       ...formik.values,
-  //       avatar: ''
-  //     }
-  //   });
-  // };
+const handleResetImage = () => {
+
+  formik.resetForm();
+  formik.setValues({
+    ...formik.values, avatar: ''
+  });
+};
+
 
   return (
     <BackdropEditUserMOdal
@@ -140,18 +141,18 @@ export const EditUserModal = ({
           <PreviewWrap>
             <PreviewImageWrap htmlFor="file-upload">
               <PreviewImage
-                src={
+                src={formik.values.avatar ?
+                  (formik.values.avatar instanceof File ?
+                    URL.createObjectURL(formik.values.avatar)
+                    : formik.values.avatar) : notImage}
 
-                  formik.values.avatar instanceof File
-                    ? URL.createObjectURL(formik.values.avatar)
-                    : formik.values.avatar
-                }
+
                 alt="User avatar"
                 style={{ display: 'block', margin: '0 auto' }}
-                width={88}
+                width={103}
               />
             </PreviewImageWrap>
-            {/* <button type='button' onClick={handleResetImage}><RedCrossStyled /></button> */}
+
 
             {formik.errors.avatar ? (
               <ValidImageText>{formik.errors.avatar}</ValidImageText>
@@ -160,7 +161,15 @@ export const EditUserModal = ({
             )}
 
             <AddImageButton htmlFor="file-upload">
-              <img src={addAvatarImg} alt="Upload icon" />
+              {formik.values.avatar === '' || formik.values.avatar === undefined ?
+                <AddImageIconStyled /> :
+                <button
+                  type='button'
+                  onClick={handleResetImage}
+                >
+                  <RedCrossStyled />
+                </button>}
+
               <input
                 style={{ display: 'none' }}
                 id="file-upload"
@@ -170,8 +179,10 @@ export const EditUserModal = ({
                 onChange={handleAvatarChange}
                 onBlur={formik.handleBlur}
                 error={formik.errors.avatar}
+                touch={formik.touched.avatar}
 
               />
+
             </AddImageButton>
           </PreviewWrap>
 
@@ -189,9 +200,13 @@ export const EditUserModal = ({
               style={{ stroke: formik.errors.name ? '#E74A3B' : '#3CBC81' }}
             />
 
-            <ResetNameButton onClick={handleResetName} type="button">
+
+            <ResetNameButton
+              onClick={handleResetName}
+              type="button">
               <RedCrossStyled />
             </ResetNameButton>
+
           </EditNameFormWrap>
           {formik.errors.name ? (
             <ValidImageText>{formik.errors.name}</ValidImageText>

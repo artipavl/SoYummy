@@ -1,8 +1,16 @@
 import styled from 'styled-components';
 import { ReactComponent as RedCross } from '../../../..//images/icons/Error-logo.svg';
-import {ReactComponent as CloseButton} from '../../../../images/icons/cross.svg'
+import { ReactComponent as CloseButton } from '../../../../images/icons/cross.svg'
+import {ReactComponent as AddImageIcon} from '../../../../images/icons/plus-icon.svg'
 import { FiUser } from 'react-icons/fi';
 import { RiCloseLine } from 'react-icons/ri';
+
+
+//icons
+export const AddImageIconStyled = styled(AddImageIcon)`
+  width: 24px;
+  height: 24px;
+`
 
 export const UserIconStyled = styled(FiUser)`
   position: absolute;
@@ -31,7 +39,7 @@ export const ResetNameButton = styled.button`
   right: 13px;
   transform: translateY(-50%);
 `;
-
+//
 export const BackdropEditUserMOdal = styled.div`
   position: fixed;
   top: 0;
@@ -213,6 +221,9 @@ export const EditModalBtn = styled.button`
   &:hover,
   &:focus {
     color: ${props => props.theme.colors.dark};
+  }
+  :disabled {
+    cursor: not-allowed;
   }
 
   @media ${props => props.theme.device.tablet} {

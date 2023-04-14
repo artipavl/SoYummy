@@ -20,7 +20,7 @@ export const NavItem = styled.li`
     margin-left: 30px;
 }
 
-  &.active {
+  .active {
     color: ${props => props.theme.colors.accent};
   }
 
@@ -46,6 +46,7 @@ export const SearchIconStyled = styled(Search)`
   path {
     /* stroke: ${props => props.theme.colors.searchIconStyled}; */
 
+
     stroke: ${props => props.recipeid ? props.theme.colors.recipeHeaderList : props.theme.colors.searchIconStyled};
     transition: stroke 250ms linear;
   }
@@ -56,4 +57,17 @@ export const SearchIconStyled = styled(Search)`
 
 
 `
+export const SearchIconStyledMob = styled(Search)`
 
+
+  path {
+    stroke: ${props => props.theme.colors.text};
+    transition: stroke 250ms linear;
+  }
+  :hover path,
+  :focus path {
+    stroke: ${props => props.theme.colors.accentCurrent};
+  }
+
+
+`

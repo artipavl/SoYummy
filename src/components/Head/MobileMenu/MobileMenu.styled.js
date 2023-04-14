@@ -81,7 +81,7 @@ export const NavItems = styled.ul`
 `
 
 export const NavItem = styled.li`
-&.active {
+  .active {
     color: ${props => props.theme.colors.accent};
   }
 
