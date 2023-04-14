@@ -1,7 +1,7 @@
 import { Box } from './Pagination.styled';
 import ReactPaginate from 'react-paginate';
 
-const Pagination = ({ pageCount, change, initialPage = 1, forcePage = 1 }) => {
+const Pagination = ({ pageCount, change, forcePage = 1 }) => {
   return (
     <Box>
       <ReactPaginate
@@ -16,7 +16,6 @@ const Pagination = ({ pageCount, change, initialPage = 1, forcePage = 1 }) => {
         containerClassName={'pagination'}
         subContainerClassName={'pages pagination'}
         activeClassName={'active'}
-        // initialPage={initialPage - 1}
         forcePage={forcePage - 1}
       />
     </Box>
