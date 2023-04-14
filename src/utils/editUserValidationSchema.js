@@ -3,6 +3,7 @@ import * as yup from 'yup';
 export const editUserValidationSchema = yup.object().shape({
   avatar: yup.mixed()
     .test('isUrlOrFile', 'Please upload an image', (value) => {
+      if (value === null) return false; // add new condition to check for null value
       if (!value) return false;
       if (typeof value === 'string') {
         return /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/gi.test(value);
@@ -16,6 +17,7 @@ export const editUserValidationSchema = yup.object().shape({
     })
     .test('fileType', 'Supported only jpeg, jpg, png', (value) => {
       if (typeof value === 'string') return true;
+      if(value === '') return false
       if (!value) return false;
       return ['image/jpeg', 'image/png', 'image/jpg'].includes(value.type);
     }),

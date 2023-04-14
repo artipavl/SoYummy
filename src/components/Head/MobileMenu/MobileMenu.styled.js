@@ -6,6 +6,8 @@ import BgMobileRetina from '../../../images/bg/menuBG_Mobile@2x.webp'
 import BgTablet from '../../../images/bg/menuBG_Tablet.webp'
 import BgTabletRetina from '../../../images/bg/menuBG_Tablet@2x.webp'
 
+import {ReactComponent as SearchIcon} from '../../../images/icons/search_Icon.svg'
+
 export const MobileMenuSection = styled.section`
   box-sizing: border-box;
   position: fixed;
@@ -79,9 +81,15 @@ export const NavItems = styled.ul`
 `
 
 export const NavItem = styled.li`
-&.active {
-    color: ${props => props.theme.colors.accent};
+  .active {
+    color: ${props => props.theme.colors.accentCurrent};
   }
+  .active svg {
+    path {
+      stroke: ${props => props.theme.colors.accentCurrent}
+    }
+  }
+
 
 `
 export const Navigator = styled(NavLink)`
@@ -95,6 +103,9 @@ export const Navigator = styled(NavLink)`
   line-height: 1.6;
   font-weight: ${props => props.theme.fontWeights.medium};
   transition: color 250ms linear;
+  .active {
+    color: ${props => props.theme.colors.accent};
+  }
 
   path {
     stroke: ${props => props.theme.colors.accentDark};
@@ -119,4 +130,18 @@ export const Navigator = styled(NavLink)`
 
 export const SearchText = styled.p`
   margin-left: 8px;
+`
+
+export const SearchIconStyled = styled(SearchIcon)`
+
+  path {
+    stroke: ${props => props.theme.colors.text};
+    transition: stroke 250ms linear;
+  }
+  :hover path,
+  :focus path {
+    stroke: ${props => props.theme.colors.accentCurrent};
+  }
+
+
 `

@@ -11,15 +11,12 @@ import UserMenu from './UserMenu';
 import ButtonLoader from 'components/ButtonLoader';
 
 import logo from '../../images/icons/logo_Desktop.svg';
-import lightLogo from '../../images/icons/logo-Lite-Icon.svg';
-
 
 import {
   Header,
   Container,
   LinkLogo,
   NavLogo,
-  NavLogoLite,
   UserToogleWrap,
   UserWrapButton,
   UserIcon,
@@ -63,7 +60,7 @@ export const Head = () => {
         <Container>
           <LinkLogo to="/main">
             <NavLogo src={logo} alt="logo" />
-            <NavLogoLite src={lightLogo} alt="logo" width={40} />
+            {/* <NavLogoLite src={lightLogo} alt="logo" width={40} /> */}
           </LinkLogo>
 
           <DesktopMenu />

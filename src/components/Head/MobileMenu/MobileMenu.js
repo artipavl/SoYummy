@@ -13,10 +13,11 @@ import {
 } from './MobileMenu.styled';
 
 import { CloseButtonStyled } from '../UserMenu/EditModalUser/EditModalUser.styled';
-import { SearchIconStyled } from '../DesktopMenu/DesktopMenu.styles';
+import { SearchIconStyled } from './MobileMenu.styled';
 import logo from '../../../images/icons/logo_Desktop.svg';
 
 export const MobileMenu = ({ openState, handleMenuClick, children }) => {
+
   useEffect(() => {
     if (openState) {
       const handleKeyDown = e => {
@@ -90,7 +91,7 @@ export const MobileMenu = ({ openState, handleMenuClick, children }) => {
 
           <NavItem>
             <Navigator to="/search" onClick={handleMenuClick}>
-              <SearchIconStyled>Search</SearchIconStyled>
+              <SearchIconStyled >Search</SearchIconStyled>
               <SearchText>Search</SearchText>
             </Navigator>
           </NavItem>

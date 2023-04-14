@@ -50,20 +50,27 @@ export const Container = styled.div`
 `
 
 export const LinkLogo = styled(NavLink)`
+  width: 40px;
+  height: 40px;
+  @media ${props => props.theme.device.tablet}{
+    width: 44px;
+    height: 44px;
+  }
+
 `
 
 export const NavLogo = styled.img`
-  display: none;
+  /* display: none;
     @media ${props => props.theme.device.tablet}{
       display: block;
-}
+} */
 `
 
-export const NavLogoLite = styled.img`
-  @media ${props => props.theme.device.tablet}{
-    display: none;
-}
-`
+// export const NavLogoLite = styled.img`
+//   @media ${props => props.theme.device.tablet}{
+//     display: none;
+// }
+// `
 export const SearchText = styled.p`
     font-size: 18px;
     @media ${props => props.theme.device.tablet} {
