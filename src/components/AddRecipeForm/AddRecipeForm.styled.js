@@ -306,7 +306,7 @@ export const AddRecipeButton = styled.button`
   clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%);
 
   border: none;
-  color: ${props => props.theme.colors.textWhite};
+  color: ${props => props.theme.colors.addBtnText};
   transition: all 250ms linear;
   width: 129px;
   height: 100px;
@@ -333,7 +333,8 @@ export const AddRecipeButton = styled.button`
 
   :hover,
   :focus {
-    background-color: ${props => props.theme.colors.accent};
+    background-color: ${props => props.theme.colors.addBtnHover};
+    color: ${props => props.theme.colors.searchBtnText};
 
     @media ${props => props.theme.device.mobile} {
       font-size: 14px;

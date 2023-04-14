@@ -78,7 +78,7 @@ export const IngredientItem = styled.li`
   display: flex;
   justify-content: space-between;
 
-  background: ${props => props.theme.colors.accentMuted};
+  background: ${props => props.theme.colors.accentMutedRecipeIngredients};
   border-radius: 8px;
 
   @media ${props => props.theme.device.tablet} {
