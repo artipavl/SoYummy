@@ -19,8 +19,7 @@ export const RecipeTextarea = styled(Field)`
   color: ${props => props.theme.colors.dark};
   opacity: 50%;
   background-color: ${props => props.theme.colors.whiteMuted};
-  /* background-color: ${props => props.theme.colors.blackAndWhiteBrorderList}; */
-  border: 1px solid ${props => props.theme.colors.whiteMuted};
+  border: 1px solid ${props => props.theme.colors.whiteMutedBorder};
   border-radius: 6px;
   padding: 10px 16px;
   outline: none;
