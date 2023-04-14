@@ -1,5 +1,3 @@
-import { Formik } from 'formik';
-
 import { useSearchParams } from 'react-router-dom';
 
 import {
@@ -7,72 +5,60 @@ import {
   SearchContainer,
   SearchValue,
   SearchBtn,
-} from './SearchForm.styled';
-import {
   SelectorOption,
   SelectorText,
   SelectorWrapper,
   TypeSelector,
-} from 'components/SearchTypeSelector/SearchTypeSelector.styled';
+} from './SearchForm.styled';
+
 import { useState } from 'react';
 
 const SearchForm = ({ get }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const [paramsQ, setParamsQ] = useState(() =>
-    searchParams.get('query') ? searchParams.get('query') : ''
+  const [paramsQuery, setParamsQuery] = useState(
+    () => searchParams.get('query') || ''
   );
-  const [paramsT, setParamsT] = useState(() =>
-    searchParams.get('type') ? searchParams.get('type') : 'title'
+  const [paramsType, setParamsType] = useState(
+    () => searchParams.get('type') || 'title'
   );
+
+  const trimmedQuery = paramsQuery.trim();
 
   const onSubmit = e => {
     e.preventDefault();
-    if (!paramsQ.trim()) {
+    if (!trimmedQuery) {
       return;
     }
-    const trimmedQuery = paramsQ.trim();
- 
-    setSearchParams({ query: trimmedQuery, type: paramsT, page: 1 });
-    get({ query: trimmedQuery, type: paramsT });
+
+    setSearchParams({ query: trimmedQuery, type: paramsType, page: 1 });
+    get({ query: trimmedQuery, type: paramsType });
   };
 
   return (
-    <Formik
-    // initialValues={{
-    //   query: searchParams.get('query') ? searchParams.get('query') : '',
-    //   type: searchParams.get('type') ? searchParams.get('type') : 'title',
-    // }}
-    // onSubmit={onSubmit}
-    >
-      {() => {
-        return (
-          <Form onSubmit={onSubmit}>
-            <SearchContainer>
-              <SearchValue
-                type="text"
-                name="query"
-                placeholder="Enter the text"
-                value={paramsQ}
-                onChange={e => setParamsQ(e.target.value)}
-              />
-              <SearchBtn type="submit">Search</SearchBtn>
-            </SearchContainer>
-            <SelectorWrapper>
-              <SelectorText>Search by:</SelectorText>
-              <TypeSelector
-                name="type"
-                value={paramsT}
-                onChange={e => setParamsT(e.target.value)}
-              >
-                <SelectorOption value="title">Title</SelectorOption>
-                <SelectorOption value="ingredients">Ingredients</SelectorOption>
-              </TypeSelector>
-            </SelectorWrapper>
-          </Form>
-        );
-      }}
-    </Formik>
+    <Form onSubmit={onSubmit}>
+      <SearchContainer>
+        <SearchValue
+          type="text"
+          name="query"
+          placeholder="Enter the text"
+          value={paramsQuery}
+          onChange={e => setParamsQuery(e.target.value)}
+        />
+        <SearchBtn type="submit">Search</SearchBtn>
+      </SearchContainer>
+      <SelectorWrapper>
+        <SelectorText>Search by:</SelectorText>
+        <TypeSelector
+          name="type"
+          value={paramsType}
+          onChange={e => setParamsType(e.target.value)}
+        >
+          <SelectorOption value="title">Title</SelectorOption>
+          <SelectorOption value="ingredients">Ingredients</SelectorOption>
+        </TypeSelector>
+      </SelectorWrapper>
+    </Form>
   );
 };
 

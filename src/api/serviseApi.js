@@ -82,7 +82,6 @@ export const getPopularRecipes = async () => {
   }
 };
 
-
 //!                  Add Recipe component
 export const getAllCategories = async () => {
   try {
@@ -104,7 +103,6 @@ export const getCategoryPage = async () => {
   }
 };
 
-
 export const getAllIngredients = async () => {
   try {
     const { data } = await axios.get('/recipes/ingredients');
@@ -117,14 +115,15 @@ export const getAllIngredients = async () => {
 
 export const getCategoryList = async (e, page = 1, limit = 8) => {
   try {
-    const { data } = await axios.get(`/recipes/list/${e}?page=${page}&limit=${limit}`);
+    const { data } = await axios.get(
+      `/recipes/list/${e}?page=${page}&limit=${limit}`
+    );
     const result = data.data;
     return result;
   } catch (error) {
     console.log(error);
   }
 };
-
 
 export const addRecipe = async credentials => {
   try {
@@ -138,4 +137,20 @@ export const addRecipe = async credentials => {
 export const getVerificationUser = async id => {
   const { data } = await axios.get(`/users/verify/${id}`);
   return data.data;
+};
+
+export const getSearchRecipes = async (query, page) => {
+  const { data } = await axios.get(
+    `/recipes/search?title=${query}&page=${page}&limit=12`
+  );
+
+  return data;
+};
+
+export const getSearchIngredients = async (query, page) => {
+  const { data } = await axios.get(
+    `/recipes/search?ingredient=${query}&page=${page}&limit=12`
+  );
+
+  return data;
 };

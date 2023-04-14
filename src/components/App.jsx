@@ -10,8 +10,8 @@ import { fetchCurrentUser } from 'redux/authOperations';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { StartScreen } from 'pages';
-import RegisterPage from '../pages/RegisterPage';
-import SignInPage from '../pages/SignInPage';
+import RegisterPage from '../pages/RegisterPage/RegisterPage';
+import SignInPage from '../pages/SignInPage/SignInPage';
 
 import { MainPage } from 'pages/MainPage/MainPage';
 
@@ -35,7 +35,7 @@ const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
 const ShoppingList = lazy(() =>
   import('../pages/ShoppingList/ShoppingList.js')
 );
-const SearchPage = lazy(() => import('../pages/SearchPage'));
+const SearchPage = lazy(() => import('../pages/SearchPage/SearchPage'));
 
 // const StyledApp = styled.div`
 //   min-height: 100vh;
