@@ -82,8 +82,14 @@ export const NavItems = styled.ul`
 
 export const NavItem = styled.li`
   .active {
-    color: ${props => props.theme.colors.accent};
+    color: ${props => props.theme.colors.accentCurrent};
   }
+  .active svg {
+    path {
+      stroke: ${props => props.theme.colors.accentCurrent}
+    }
+  }
+
 
 `
 export const Navigator = styled(NavLink)`
@@ -97,6 +103,9 @@ export const Navigator = styled(NavLink)`
   line-height: 1.6;
   font-weight: ${props => props.theme.fontWeights.medium};
   transition: color 250ms linear;
+  .active {
+    color: ${props => props.theme.colors.accent};
+  }
 
   path {
     stroke: ${props => props.theme.colors.accentDark};

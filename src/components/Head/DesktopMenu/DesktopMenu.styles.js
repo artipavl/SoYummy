@@ -21,7 +21,12 @@ export const NavItem = styled.li`
 }
 
   .active {
-    color: ${props => props.theme.colors.accent};
+    color: ${props => props.theme.colors.accentCurrent};
+  }
+  .active svg {
+    path {
+      stroke: ${props => props.theme.colors.accentCurrent}
+    }
   }
 
 `
@@ -45,8 +50,6 @@ export const SearchIconStyled = styled(Search)`
 
   path {
     /* stroke: ${props => props.theme.colors.searchIconStyled}; */
-
-
     stroke: ${props => props.recipeid ? props.theme.colors.recipeHeaderList : props.theme.colors.searchIconStyled};
     transition: stroke 250ms linear;
   }
