@@ -80,8 +80,6 @@ export const fetchUserLogout = createAsyncThunk(
   }
 );
 
-export const themeSwicher = createAsyncThunk('auth/theme', () => {});
-
 export const updateUser = createAsyncThunk(
   'auth/update-user',
   async (formData, thunkAPI) => {
