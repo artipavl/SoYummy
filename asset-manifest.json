@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/SoYummy/static/css/main.0d51cdca.css",
-    "main.js": "/SoYummy/static/js/main.01e954b1.js",
+    "main.js": "/SoYummy/static/js/main.67a381ed.js",
     "static/js/782.60a78a3a.chunk.js": "/SoYummy/static/js/782.60a78a3a.chunk.js",
-    "static/js/507.a79d26dc.chunk.js": "/SoYummy/static/js/507.a79d26dc.chunk.js",
+    "static/js/786.defe9f67.chunk.js": "/SoYummy/static/js/786.defe9f67.chunk.js",
     "static/js/23.2d3a7a72.chunk.js": "/SoYummy/static/js/23.2d3a7a72.chunk.js",
     "static/js/884.e636b3b9.chunk.js": "/SoYummy/static/js/884.e636b3b9.chunk.js",
     "static/js/571.8e062ab4.chunk.js": "/SoYummy/static/js/571.8e062ab4.chunk.js",
@@ -86,6 +86,7 @@
     "static/media/footerBG_Tablet.webp": "/SoYummy/static/media/footerBG_Tablet.35cece3a57b557c83047.webp",
     "static/media/recipe-not-found-mobile.webp": "/SoYummy/static/media/recipe-not-found-mobile.253c6bb51ebd0efff076.webp",
     "static/media/recipepageMb1.webp": "/SoYummy/static/media/recipepageMb1.e81c9066eaa3498e803e.webp",
+    "static/media/not-supported-image.svg": "/SoYummy/static/media/not-supported-image.751d7f0dce13d09533f49762da8d4d6d.svg",
     "static/media/footerBG_mobile.webp": "/SoYummy/static/media/footerBG_mobile.e193c6212e48344ae5e2.webp",
     "static/media/GroupDeck.svg": "/SoYummy/static/media/GroupDeck.8071b2b04df70d3242bb96a6b046203d.svg",
     "static/media/photo-icon.svg": "/SoYummy/static/media/photo-icon.d5abba0d2a5cd1f9bb1aa90c017384f8.svg",
@@ -120,9 +121,9 @@
     "static/media/arrow-down.svg": "/SoYummy/static/media/arrow-down.4c0759d592b9bf854db97289ce89a574.svg",
     "static/media/select-arrow.svg": "/SoYummy/static/media/select-arrow.d4740e232951b834ab2b18975b97e11f.svg",
     "main.0d51cdca.css.map": "/SoYummy/static/css/main.0d51cdca.css.map",
-    "main.01e954b1.js.map": "/SoYummy/static/js/main.01e954b1.js.map",
+    "main.67a381ed.js.map": "/SoYummy/static/js/main.67a381ed.js.map",
     "782.60a78a3a.chunk.js.map": "/SoYummy/static/js/782.60a78a3a.chunk.js.map",
-    "507.a79d26dc.chunk.js.map": "/SoYummy/static/js/507.a79d26dc.chunk.js.map",
+    "786.defe9f67.chunk.js.map": "/SoYummy/static/js/786.defe9f67.chunk.js.map",
     "23.2d3a7a72.chunk.js.map": "/SoYummy/static/js/23.2d3a7a72.chunk.js.map",
     "884.e636b3b9.chunk.js.map": "/SoYummy/static/js/884.e636b3b9.chunk.js.map",
     "571.8e062ab4.chunk.js.map": "/SoYummy/static/js/571.8e062ab4.chunk.js.map",
@@ -135,6 +136,6 @@
   },
   "entrypoints": [
     "static/css/main.0d51cdca.css",
-    "static/js/main.01e954b1.js"
+    "static/js/main.67a381ed.js"
   ]
 }
