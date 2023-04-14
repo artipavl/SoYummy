@@ -7,7 +7,6 @@ import Pagination from 'components/Pagination/Pagination';
 import { Container } from 'reusableComponents/Container/Container.styled';
 
 import SearchForm from 'components/SearchForm';
-import axios from 'axios';
 
 import { getSearchRecipes, getSearchIngredients } from 'api/serviseApi';
 
@@ -22,26 +21,21 @@ const SearchPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    async function startget({ query, type = 'title', page = 1 }) {
+    async function getResults({ query, type = 'title', page = 1 }) {
       setIsLoading(false);
       setPage(page);
       try {
         if (type === 'title') {
-          const { data } = await axios.get(
-            `/recipes/search?title=${query}&page=${page}&limit=12`
-          );
+          const data = await getSearchRecipes(query, page);
           setTotalPages(Math.ceil(data.data.total / 12));
           setRecipes(data.data.result);
         } else {
-          const { data } = await axios.get(
-            `/recipes/search?ingredients=${query}&page=${page}&limit=12`
-          );
+          const data = await getSearchIngredients(query, page);
           setTotalPages(Math.ceil(data.data.total / 12));
           setRecipes(data.data.result);
         }
         setIsLoading(true);
       } catch (error) {
-        console.log(error);
         setIsLoading(true);
       }
     }
@@ -51,7 +45,7 @@ const SearchPage = () => {
       searchParams.get('type') &&
       recipes.length === 0
     ) {
-      startget({
+      getResults({
         query: searchParams.get('query'),
         type: searchParams.get('type'),
         page: searchParams.get('page') ? Number(searchParams.get('page')) : 1,
@@ -96,7 +90,7 @@ const SearchPage = () => {
       <MainTitle text="Search" />
       <SearchForm get={get} />
       <SearchedRecipesList recipes={recipes} isLoading={isLoading} />
-      {totalPages > 0 && (
+      {totalPages > 1 && !isLoading && (
         <div
           style={{
             display: 'block',
