@@ -1,13 +1,13 @@
 import { useEffect} from 'react';
-import { createPortal } from 'react-dom';
+// import { createPortal } from 'react-dom';
 import close from '../../../src/images/Modal/close.svg';
 import text_bg from '../../../src/images/Modal/text_bg.svg';
 import { Overlay,ModalContainer,ModalText,WowText, ButtonClose,BtnIcon,TextContainer,Wrapper,TextSvg } from "./Modal.styled";
 
 
-const modalRoot = document.querySelector('#modal-root');
+// const modalRoot = document.querySelector('#modal-root');
 
-export default function Modal({ isOpen, onClose, text  }) {
+export default function Modal({  onClose, text  }) {
   
   useEffect(() => {
     const handleKeyDown = e => {
@@ -33,11 +33,11 @@ export default function Modal({ isOpen, onClose, text  }) {
     }
   };
   
-  if (!isOpen) return null;
+  
 
   
   
-    return createPortal(
+    return (
       <Overlay onClick={handleBackdropClick}>
         <ModalContainer>
           
@@ -52,7 +52,7 @@ export default function Modal({ isOpen, onClose, text  }) {
           </TextContainer>
                
         </ModalContainer>
-      </Overlay>, modalRoot
+      </Overlay>
      
   );
   

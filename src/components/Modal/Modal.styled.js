@@ -92,10 +92,10 @@ export const ModalContainer= styled.div`
 export const TextContainer = styled.div`
  width:200px;
  height: 180px;
- padding:18px 18px 66px 18px;
+ /* padding:18px 18px 66px 18px; */
  margin:102px 50px 18px 50px;
  position:absolute;
- bottom:40px;
+ /* bottom:40px; */
  position:relative;
 
 
@@ -104,36 +104,41 @@ export const TextContainer = styled.div`
 @media ${props => props.theme.device.tablet} {
  width:268px;
  height: 242px;
- padding:32px 24px 90px 24px;
+ /* padding:32px 24px 90px 24px; */
  margin:134px 66px 24px 66px;
   }
 
 @media ${props => props.theme.device.desktop} {
  width:268px;
  height: 242px;
- padding:32px 24px 90px 24px;
+ /* padding:32px 24px 90px 24px; */
  margin:218px 116px 40px 116px;
   }
 
 `;
 
 export const Wrapper = styled.div`
- width:170px;
- height: 100px;
+ min-width:172px;
+ min-height: 72px;
  margin: 0 auto;
+ padding:22px 18px 62px 18px;
  position:absolute;
- top:150px;
+ top:22px;
  left:50%;
  transform: translate(-50%, -50%);
 
 @media ${props => props.theme.device.tablet} {
  width:220px;
  height: 120px;
+ padding:32px 26px 90px 26px;
+ top:32px;
   }
 
 @media ${props => props.theme.device.desktop} {
  width:220px;
  height: 120px;
+ padding:32px 26px 90px 26px;
+  top:32px;
   }
 
 
@@ -173,10 +178,23 @@ export const WowText = styled.span`
 `;
 
 export const TextSvg = styled.img`
- width:299px;
- height: 269px;
+ width:200px;
+ height: 180px;
  filter: grayscale(100%);
  margin:0 auto;
+ 
+ @media ${props => props.theme.device.tablet} {
+width:268px;
+ height: 242px;
+  }
+
+@media ${props => props.theme.device.desktop} {
+width:268px;
+ height: 242px;
+  }
+
+
+
 
 `;
 
@@ -190,7 +208,7 @@ export const ButtonClose = styled.button`
   position:absolute;
   padding: 0px;
   
-  top:110%;
+  top:85%;
   left:50%;
   transform:translate(-50%,-50%);
   cursor: pointer;
@@ -198,13 +216,13 @@ export const ButtonClose = styled.button`
   @media ${props => props.theme.device.tablet} {
   width:48px;
   height:48px;
-    top:95%;
+    top:85%;
   }
 
  @media ${props => props.theme.device.desktop} {
    width:48px;
   height:48px;
-  top:95%;
+  top:85%;
   }
 
 `;

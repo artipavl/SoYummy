@@ -4,7 +4,7 @@ import { getMyRecipes, deleteMyRecipe } from 'api/index';
 import MyRecipeItem from 'components/MyRecipeItem/MyRecipeItem';
 import { Loader } from '../Loader/Loader';
 import Pagination from '../Pagination/Pagination';
-import Modal from 'components/Modal/Modal';
+
 import { List, ListText, LoaderBox } from '../FavoriteList/FavoriteList.styled';
 
 const MyRecipesList = () => {
@@ -12,14 +12,6 @@ const MyRecipesList = () => {
   const [allRecipes, setAllRecipes] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-  const [text, setText] = useState('');
-  // const location = useLocation();
-  const toggleModal = () => {
-    setShowModal(prevState => !prevState);
-    setText('You have created your first shopping list!')
-    
-    };
 
   useEffect(() => {
     const renderMovies = async () => {
@@ -83,10 +75,6 @@ const MyRecipesList = () => {
       {totalPage && (
         <Pagination pageCount={totalPage} page={page} change={handleChange} />
       )}
-      <button onClick={() => setShowModal(true)}>Open modal</button>
-      {showModal&&(
-        <Modal onClose={toggleModal} text={text } />
-                )}
     </List>
   );
 };
