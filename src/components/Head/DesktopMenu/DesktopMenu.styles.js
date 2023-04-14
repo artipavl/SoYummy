@@ -45,6 +45,7 @@ export const SearchIconStyled = styled(Search)`
 
   path {
     /* stroke: ${props => props.theme.colors.searchIconStyled}; */
+
     stroke: ${props => props.recipeid ? props.theme.colors.recipeHeaderList : props.theme.colors.searchIconStyled};
     transition: stroke 250ms linear;
   }
@@ -53,4 +54,6 @@ export const SearchIconStyled = styled(Search)`
     stroke: ${props => props.theme.colors.accentCurrent};
   }
 
+
 `
+
