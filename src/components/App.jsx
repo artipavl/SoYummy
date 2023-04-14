@@ -37,13 +37,6 @@ const ShoppingList = lazy(() =>
 );
 const SearchPage = lazy(() => import('../pages/SearchPage/SearchPage'));
 
-// const StyledApp = styled.div`
-//   min-height: 100vh;
-//   text-align: center;
-//   padding-top: 10rem;
-//   background-color: ${props => props.theme.accent};
-//   transition: all 1s ease;
-// `;
 
 export const App = () => {
   const [start, setStart] = useState(false);
