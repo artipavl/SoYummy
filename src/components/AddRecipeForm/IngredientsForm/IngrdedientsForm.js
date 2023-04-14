@@ -1,4 +1,6 @@
-import { useState, useMemo, useRef } from 'react';
+
+import { useState, useMemo, useRef, useEffect, useCallback } from 'react';
+
 
 import {
   SelectIngredientWrapper,
@@ -24,6 +26,7 @@ export const IngredientsInput = ({
   allIngredients,
   idx,
   onIngredientsChange,
+  values,
   remove,
 }) => {
   const [searchValue, setSearchValue] = useState('');
@@ -61,13 +64,24 @@ export const IngredientsInput = ({
 
     SetIsMeasure(false);
   };
-  // useEffect(() => {
-  //   const ingredients = {
-  //     id: ingredientId,
-  //     measure: formData.combinedValue,
-  //   };
-  //   onIngredientsChange(idx, ingredients);
-  // }, [formData.combinedValue, onIngredientsChange]);
+
+  const prevOnIngredientsChangeRef = useRef(onIngredientsChange);
+  if (prevOnIngredientsChangeRef.current !== onIngredientsChange) {
+    prevOnIngredientsChangeRef.current = onIngredientsChange;
+  }
+
+  const handleIngredientsChange = useCallback((idx, ingredients) => {
+    prevOnIngredientsChangeRef.current(idx, ingredients);
+  }, []);
+
+  useEffect(() => {
+    const ingredients = {
+      id: ingredientId,
+      measure: formData.combinedValue,
+    };
+    handleIngredientsChange(idx, ingredients);
+  }, [formData.combinedValue, ingredientId, idx, handleIngredientsChange]);
+
 
   const handleMeasureChange = event => {
     const { name, value } = event.target;
@@ -129,7 +143,7 @@ export const IngredientsInput = ({
             value={formData.textInputValue}
             onChange={handleMeasureChange}
           />
-          <MeasureSelect type="text" readOnly="readOnly" />
+          <MeasureSelect type="text" readOnly />
           <WrapperMeasureSelect>
             <StyledSelect ref={measureRef} onClick={() => SetIsMeasure(true)}>
               <OptionWrapper>{formData.selectInputValue}</OptionWrapper>

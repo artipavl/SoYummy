@@ -109,7 +109,6 @@ export const AddRecipeForm = () => {
       >
         {formik => {
           const { values, setFieldValue } = formik;
-          console.log(values);
           const handlePreparationChange = description => {
             setFieldValue(`instructions`, description);
           };
@@ -282,6 +281,7 @@ export const AddRecipeForm = () => {
                               form={form}
                               allIngredients={allIngredients}
                               idx={idx}
+                              values={values}
                               onIngredientsChange={handleIngredientsChange}
                               remove={remove}
                             />
