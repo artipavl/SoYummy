@@ -141,10 +141,11 @@ export const OptionWrapper = styled.span`
   display: inline-flex;
   align-items: center;
   height: 19px;
-  font-size:14px;
+  font-size: 14px;
   color: ${props => props.theme.colors.text};
   @media ${props => props.theme.device.tablet} {
     font-size: 16px;
+  }
 `;
 
 export const WrapperArrow = styled.span`

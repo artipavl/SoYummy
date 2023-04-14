@@ -16,9 +16,13 @@ export const AddForma = styled(Form)`
   display: flex;
   flex-direction: column;
   padding-top: 72px;
-  width: 100%;
+  width: 288px;
+
   margin-bottom: 72px;
 
+  @media ${props => props.theme.device.mobile} {
+    width: 100%;
+  }
   @media ${props => props.theme.device.tablet} {
     flex-direction: row;
     flex-wrap: wrap;
