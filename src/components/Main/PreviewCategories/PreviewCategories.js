@@ -21,7 +21,7 @@ import { Loader } from 'components/Loader/Loader';
 export const PreviewCategories = ({ location }) => {
   const [loading, setLoading] = useState(true);
   const [mainArray, setMainArray] = useState([]);
-  console.log(loading);
+
   useEffect(() => {
     const fetchMainPage = async () => {
       setLoading(true);

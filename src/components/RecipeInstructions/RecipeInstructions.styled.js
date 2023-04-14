@@ -17,10 +17,18 @@ export const InstructionsSection = styled.section`
 export const DesktopFlex = styled(Container)`
   @media ${props => props.theme.device.desktop} {
     display: flex;
+    justify-content: space-between;
   }
 `;
 export const ContentWrapper = styled.div`
+  @media ${props => props.theme.device.mobile} {
+    margin-bottom: 40px;
+  }
+  @media ${props => props.theme.device.tablet} {
+    margin-bottom: 50px;
+  }
   @media ${props => props.theme.device.desktop} {
+    margin-bottom: 0;
     margin-right: 50px;
   }
 `;
@@ -36,18 +44,6 @@ export const InstructionsTitle = styled.h2`
 
   @media ${props => props.theme.device.tablet} {
     margin-bottom: 32px;
-  }
-`;
-
-export const InstructionsList = styled.ol`
-  @media ${props => props.theme.device.mobile} {
-    margin-bottom: 40px;
-  }
-  @media ${props => props.theme.device.tablet} {
-    margin-bottom: 50px;
-  }
-  @media ${props => props.theme.device.desktop} {
-    margin-bottom: 0;
   }
 `;
 
@@ -96,6 +92,7 @@ export const InstructionText = styled.p`
 export const RecipeImg = styled.img`
   width: 343px;
   height: 250px;
+
   @media ${props => props.theme.device.tablet} {
     width: 433px;
     height: 332px;
@@ -103,5 +100,6 @@ export const RecipeImg = styled.img`
   @media ${props => props.theme.device.desktop} {
     width: 433px;
     height: 332px;
+    flex-shrink: 0;
   }
 `;

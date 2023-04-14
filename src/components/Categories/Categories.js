@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { animateScroll as scroll } from 'react-scroll';
 
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Stack from '@mui/material/Stack';
 
 import { getCategoryPage, getCategoryList } from 'api/serviseApi';
 
@@ -17,7 +17,6 @@ import {
   Card,
   TitleBox,
   TitleCard,
-  PaginationBtn,
   BoxPagination,
 } from 'components/Categories/Categories.styled.js';
 import { useSelector } from 'react-redux';
@@ -28,6 +27,7 @@ import { LoaderBox } from 'components/FavoriteList/FavoriteList.styled';
 import { LoaderDiv } from 'components/IngredientsShoppingList/IngredientsShoppingList.styled';
 
 import { Loader } from 'components/Loader/Loader';
+import Pagination from 'components/Pagination/Pagination';
 
 export const Categories = () => {
   const [value, setValue] = useState(0);
@@ -91,8 +91,9 @@ export const Categories = () => {
     });
   }, [nameEl, page]);
 
-  const handleChangePage = (e, newPage) => {
-    setPage(newPage);
+  const handleChangePage = e => {
+    setPage(e.selected + 1);
+    scroll.scrollToTop();
   };
 
   return (
@@ -161,13 +162,13 @@ export const Categories = () => {
               ))}
             </List>
             <BoxPagination>
-              <Stack>
-                <PaginationBtn
-                  page={page}
-                  onChange={handleChangePage}
-                  count={totalPage}
+              {totalPage > 1 && (
+                <Pagination
+                  pageCount={totalPage}
+                  forcePage={page}
+                  change={handleChangePage}
                 />
-              </Stack>
+              )}
             </BoxPagination>
           </>
         )}

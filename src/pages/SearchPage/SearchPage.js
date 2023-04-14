@@ -9,6 +9,8 @@ import { Container } from 'reusableComponents/Container/Container.styled';
 import SearchForm from 'components/SearchForm';
 import axios from 'axios';
 
+import { getSearchRecipes, getSearchIngredients } from 'api/serviseApi';
+
 const SearchPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -62,21 +64,16 @@ const SearchPage = () => {
     setPage(page);
     try {
       if (type === 'title') {
-        const { data } = await axios.get(
-          `/recipes/search?title=${query}&page=${page}&limit=12`
-        );
+        const data = await getSearchRecipes(query, page);
         setTotalPages(Math.ceil(data.data.total / 12));
         setRecipes(data.data.result);
       } else {
-        const { data } = await axios.get(
-          `/recipes/search?ingredient=${query}&page=${page}&limit=12`
-        );
+        const data = await getSearchIngredients(query, page);
         setTotalPages(Math.ceil(data.data.total / 12));
         setRecipes(data.data.result);
       }
       setIsLoading(true);
     } catch (error) {
-      console.log(error);
       setIsLoading(true);
     }
   };
@@ -110,7 +107,6 @@ const SearchPage = () => {
           <Pagination
             pageCount={totalPages}
             change={handleChange}
-            // initialPage={page}
             forcePage={page}
           />
         </div>
