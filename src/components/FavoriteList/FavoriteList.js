@@ -50,27 +50,26 @@ const FavoriteList = () => {
 
   return (
     <List>
-      {loading && (
+      {loading ? (
         <LoaderBox>
           <Loader />
         </LoaderBox>
-      )}
-      {allRecipes.length !== 0 && !loading ? (
-        allRecipes.map(({ description, preview, time, title, _id }) => (
-          <MyRecipeItem
-            key={_id}
-            description={description}
-            preview={preview}
-            time={time}
-            title={title}
-            id={_id}
-            handelDelete={handelDelete}
-            styleDel="black"
-            styleBtn="normal"
-          />
-        ))
       ) : (
-        <ListText>You don't have your recipes</ListText>
+        allRecipes.length !== 0 && !loading ? (
+          allRecipes.map(({ description, preview, time, title, _id }) => (
+            <MyRecipeItem
+              key={_id}
+              description={description}
+              preview={preview}
+              time={time}
+              title={title}
+              id={_id}
+              handelDelete={handelDelete}
+              styleDel="black"
+              styleBtn="normal"
+            />
+          ))
+        ) : (<ListText>You don't have your recipes</ListText>)
       )}
       {totalPage && (
         <Pagination pageCount={totalPage} page={page} change={handleChange} />
