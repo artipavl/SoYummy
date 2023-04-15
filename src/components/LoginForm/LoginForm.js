@@ -70,6 +70,9 @@ const LoginForm = () => {
               </Form>
 
               <FormNavLink to="/register">Registration</FormNavLink>
+              <FormNavLink to="https://so-yummy-api.onrender.com/api/users/google">
+                Sign in with Google
+              </FormNavLink>
             </div>
           </Wrapper>
         );

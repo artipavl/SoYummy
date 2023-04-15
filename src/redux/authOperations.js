@@ -23,6 +23,20 @@ export const register = createAsyncThunk(
   }
 );
 
+export const fetchGoogleUser = createAsyncThunk(
+  'auth/currentGoogle',
+  async (googleToken, thunkAPI) => {
+    try {
+      token.set(googleToken);
+
+      const response = await axios.get('/users/current');
+      return { ...response.data.data.user, token: googleToken };
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
 export const login = createAsyncThunk(
   'auth/login',
   async ({ email, password }, thunkAPI) => {
@@ -91,7 +105,7 @@ export const updateUser = createAsyncThunk(
         return thunkAPI.rejectWithValue();
       }
       token.set(persistedToken);
-      console.log(formData);
+
       const response = await axios.patch('/users/update-user', formData);
 
       return response.data.data.user;

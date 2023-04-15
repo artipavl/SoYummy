@@ -1,12 +1,12 @@
 import { ThemeProvider } from 'styled-components';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { lazy } from 'react';
 
 import MyRecipes from '../pages/MyRecipes/MyRecipes';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivatRoute';
 
-import { fetchCurrentUser } from 'redux/authOperations';
+import { fetchCurrentUser, fetchGoogleUser } from 'redux/authOperations';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { StartScreen } from 'pages';
@@ -20,6 +20,7 @@ import { lightTheme, darkTheme } from '../constants/theme';
 import { useMemo } from 'react';
 import { useState } from 'react';
 import { CategoriesPage } from 'pages/CategoriesPage/CategoriesPage';
+import { useEffect } from 'react';
 
 const Verification = lazy(() => import('pages/Varification/Verification'));
 const SharedLayout = lazy(() => import('../components/SharedLayout'));
@@ -37,7 +38,6 @@ const ShoppingList = lazy(() =>
 );
 const SearchPage = lazy(() => import('../pages/SearchPage/SearchPage'));
 
-
 export const App = () => {
   const [start, setStart] = useState(false);
   const dispatch = useDispatch();
@@ -49,6 +49,17 @@ export const App = () => {
       setStart(true);
     });
   }, [dispatch]);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    let googleToken = location.search.substring(6);
+    if (googleToken.length > 100) {
+      dispatch(fetchGoogleUser(googleToken)).then(() => {
+        setStart(true);
+      });
+    }
+  }, [dispatch, location]);
 
   return (
     <>
