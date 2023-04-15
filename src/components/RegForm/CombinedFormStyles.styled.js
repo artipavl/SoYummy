@@ -1,6 +1,69 @@
 import styled from 'styled-components';
 
+import { ReactComponent as NameIcon } from '../../images/icons/name.svg';
+import { ReactComponent as EmailIcon } from '../../images/icons/email.svg';
+import { ReactComponent as PasswordIcon } from '../../images/icons/password.svg';
+
+import validationInputLogo from 'utils/validationInputLogo';
+
 import { Link } from 'react-router-dom';
+
+export const Name = styled(NameIcon)`
+  position: absolute;
+  top: 25px;
+  left: 45px;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  @media ${props => props.theme.device.tablet} {
+    width: 24px;
+    height: 24px;
+    top: 35px;
+    left: 50px;
+  }
+  @media ${props => props.theme.device.desktop} {
+    top: 35px;
+    left: 50px;
+  }
+`;
+
+export const Email = styled(EmailIcon)`
+  position: absolute;
+  top: 25px;
+  left: 45px;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  @media ${props => props.theme.device.tablet} {
+    width: 24px;
+    height: 24px;
+    top: 35px;
+    left: 50px;
+  }
+  @media ${props => props.theme.device.desktop} {
+    top: 35px;
+    left: 50px;
+  }
+`;
+
+export const Pswrd = styled(PasswordIcon)`
+  position: absolute;
+  top: 25px;
+  left: 45px;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  @media ${props => props.theme.device.tablet} {
+    width: 24px;
+    height: 24px;
+    top: 35px;
+    left: 50px;
+  }
+  @media ${props => props.theme.device.desktop} {
+    top: 35px;
+    left: 50px;
+  }
+`;
 
 export const Wrapper = styled.div`
   background: linear-gradient(
@@ -100,6 +163,40 @@ export const FormTitle = styled.h1`
   }
 
   @media ${props => props.theme.device.desktop} {
+  }
+`;
+
+export const FormValueContainer = styled.div`
+  display: flex;
+  position: relative;
+
+  &:not(:first-of-type) {
+    margin-top: 12px;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+
+    position: absolute;
+    top: 16px;
+    right: 45px;
+
+    width: 20px;
+    height: 20px;
+
+    background-image: ${validationInputLogo};
+
+    @media ${props => props.theme.device.desktop} {
+      top: 23px;
+      right: 50px;
+    }
+  }
+
+  @media ${props => props.theme.device.tablet} {
+    &:not(:first-of-type) {
+      margin-top: 24px;
+    }
   }
 `;
 

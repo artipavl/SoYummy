@@ -1,5 +1,7 @@
 import { Formik } from 'formik';
 
+import { ErrorMessage } from 'formik';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import { registerValidationSchema } from 'utils/authValidationSchema';
@@ -15,6 +17,10 @@ import ButtonLoader from 'components/ButtonLoader';
 import { selectAuthIsLoading } from 'redux/selectors';
 
 import { register, login } from 'redux/authOperations';
+
+import { FormValueContainer } from './CombinedFormStyles.styled';
+
+import { Name, Email } from './CombinedFormStyles.styled';
 
 import {
   Wrapper,
@@ -50,33 +56,44 @@ const RegForm = () => {
               <Form onSubmit={handleSubmit}>
                 <FormTitle>Registration</FormTitle>
 
-                <AuthFormInput
-                  error={errors.name}
-                  touched={touched.name}
-                  name="name"
-                  type="text"
-                  placeholder="Name"
-                  {...getFieldProps('name')}
-                />
-                {errors.name && touched.name && (
-                  <div style={{ ...formStyles.message.error }}>
-                    {errors.name}
-                  </div>
-                )}
+                <FormValueContainer error={errors.name} touched={touched.name}>
+                  <AuthFormInput
+                    error={errors.name}
+                    touched={touched.name}
+                    name="name"
+                    type="text"
+                    placeholder="Name"
+                    {...getFieldProps('name')}
+                  />
+                  <Name stroke="red" />
+                </FormValueContainer>
 
-                <AuthFormInput
+                <ErrorMessage name="name" style={{ marginTop: '0' }}>
+                  {msg => (
+                    <div style={{ ...formStyles.message.error }}>{msg}</div>
+                  )}
+                </ErrorMessage>
+
+                <FormValueContainer
                   error={errors.email}
                   touched={touched.email}
-                  name="email"
-                  type="email"
-                  placeholder="Email"
-                  {...getFieldProps('email')}
-                />
-                {errors.email && touched.email && (
-                  <div style={{ ...formStyles.message.error }}>
-                    {errors.email}
-                  </div>
-                )}
+                >
+                  <AuthFormInput
+                    error={errors.email}
+                    touched={touched.email}
+                    name="email"
+                    type="email"
+                    placeholder="Email"
+                    {...getFieldProps('email')}
+                  />
+                  <Email />
+                </FormValueContainer>
+
+                <ErrorMessage name="email" style={{ marginTop: '0' }}>
+                  {msg => (
+                    <div style={{ ...formStyles.message.error }}>{msg}</div>
+                  )}
+                </ErrorMessage>
 
                 <Password />
 
