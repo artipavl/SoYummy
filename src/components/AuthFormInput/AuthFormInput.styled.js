@@ -19,8 +19,8 @@ export const FormValue = styled.input`
 
   opacity: 0.8;
 
-  border-color: ${({ error, value, warn, touched }) => {
-    if (!value || warn || !touched) {
+  border-color: ${({ error, warn, touched }) => {
+    if (warn || !touched) {
       return 'inherit';
     }
 

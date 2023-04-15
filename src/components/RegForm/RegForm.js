@@ -47,7 +47,7 @@ const RegForm = () => {
       validationSchema={registerValidationSchema}
       onSubmit={onSubmit}
     >
-      {({ handleSubmit, getFieldProps, touched, errors, value }) => {
+      {({ handleSubmit, getFieldProps, touched, errors }) => {
         return (
           <Wrapper>
             <SignUpLogo src={orderIcon} alt="Sign up gear"></SignUpLogo>
@@ -56,11 +56,7 @@ const RegForm = () => {
               <Form onSubmit={handleSubmit}>
                 <FormTitle>Registration</FormTitle>
 
-                <FormValueContainer
-                  error={errors.name}
-                  touched={touched.name}
-                  value={value}
-                >
+                <FormValueContainer error={errors.name} touched={touched.name}>
                   <AuthFormInput
                     error={errors.name}
                     touched={touched.name}
@@ -81,7 +77,6 @@ const RegForm = () => {
                 <FormValueContainer
                   error={errors.email}
                   touched={touched.email}
-                  value={value}
                 >
                   <AuthFormInput
                     error={errors.email}

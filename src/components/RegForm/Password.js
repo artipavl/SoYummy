@@ -19,14 +19,10 @@ const Password = () => {
 
   const isValid = touched && !error && isSecurePassword;
   const isWarn = touched && !error && !isSecurePassword;
+
   return (
     <>
-      <FormValueContainer
-        warn={isWarn}
-        error={error}
-        touched={touched}
-        value={value}
-      >
+      <FormValueContainer warn={isWarn} error={error} touched={touched}>
         <AuthFormInput
           error={error}
           touched={touched}
