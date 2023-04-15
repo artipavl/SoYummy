@@ -10,6 +10,7 @@ import {
   subscribeUser,
   addIngredient,
   removeIngredient,
+  fetchGoogleUser,
 } from './authOperations';
 
 const initialState = {
@@ -81,6 +82,25 @@ const authSlice = createSlice({
       state.isLoading = true;
     },
     [fetchCurrentUser.rejected](state) {
+      state.isError = true;
+      state.isLoggedIn = false;
+      state.isLoading = false;
+      state.theme = 'light';
+    },
+
+    [fetchGoogleUser.fulfilled](state, action) {
+      const { name, email, avatarURL, _id, shoppingList, token } =
+        action.payload;
+
+      state.user = { name, email, avatarURL, id: _id, shoppingList };
+      state.token = token;
+      state.isLoggedIn = true;
+      state.isLoading = false;
+    },
+    [fetchGoogleUser.pending](state) {
+      state.isLoading = true;
+    },
+    [fetchGoogleUser.rejected](state) {
       state.isError = true;
       state.isLoggedIn = false;
       state.isLoading = false;
