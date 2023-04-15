@@ -90,7 +90,7 @@ const SearchPage = () => {
       <MainTitle text="Search" />
       <SearchForm get={get} />
       <SearchedRecipesList recipes={recipes} isLoading={isLoading} />
-      {totalPages > 1 && !isLoading && (
+      {totalPages > 0 && (
         <div
           style={{
             display: 'block',
