@@ -91,27 +91,21 @@ export const ModalContainer= styled.div`
 
 export const TextContainer = styled.div`
  width:200px;
- height: 180px;
- 
+ height: 180px; 
  margin:102px 50px 18px 50px;
  position:absolute;
-
  position:relative;
 
-
- 
 
 @media ${props => props.theme.device.tablet} {
  width:268px;
  height: 242px;
-
  margin:134px 66px 24px 66px;
   }
 
 @media ${props => props.theme.device.desktop} {
  width:268px;
  height: 242px;
-
  margin:218px 116px 40px 116px;
   }
 
@@ -130,15 +124,13 @@ export const Wrapper = styled.div`
 @media ${props => props.theme.device.tablet} {
  width:220px;
  height: 120px;
-
  top:80px;
   }
 
 @media ${props => props.theme.device.desktop} {
  width:220px;
  height: 120px;
-
-  top:80px;
+ top:80px;
   }
 
 
@@ -179,24 +171,24 @@ export const WowText = styled.span`
   }
 `;
 
-export const TextSvg = styled.img`
+export const Svg = styled.img`
  width:200px;
  height: 180px;
- filter: grayscale(100%);
+ 
+ /* filter: blur(0px);
+ opacity:70%; */
+
  margin:0 auto;
  
  @media ${props => props.theme.device.tablet} {
 width:268px;
- height: 242px;
+height: 242px;
   }
 
 @media ${props => props.theme.device.desktop} {
 width:268px;
- height: 242px;
+height: 242px;
   }
-
-
-
 
 `;
 
@@ -222,13 +214,12 @@ export const ButtonClose = styled.button`
   }
 
  @media ${props => props.theme.device.desktop} {
-   width:48px;
+  width:48px;
   height:48px;
   top:85%;
   }
 
 `;
-
 
 
 export const BtnIcon = styled.img`
