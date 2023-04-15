@@ -44,7 +44,7 @@ export default function Modal({  onClose, text  }) {
           <TextContainer>
             <TextSvg src={text_bg} alt='text-background' />
             <Wrapper>
-            <ModalText><WowText>Wow!</WowText>{text}</ModalText>
+            <ModalText><WowText>Wow! </WowText>{text}</ModalText>
             </Wrapper>
              <ButtonClose type='button' onClick={buttonCloseClick}>
                    <BtnIcon src={close} alt='cross'/>

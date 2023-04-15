@@ -92,10 +92,10 @@ export const ModalContainer= styled.div`
 export const TextContainer = styled.div`
  width:200px;
  height: 180px;
- /* padding:18px 18px 66px 18px; */
+ 
  margin:102px 50px 18px 50px;
  position:absolute;
- /* bottom:40px; */
+
  position:relative;
 
 
@@ -104,14 +104,14 @@ export const TextContainer = styled.div`
 @media ${props => props.theme.device.tablet} {
  width:268px;
  height: 242px;
- /* padding:32px 24px 90px 24px; */
+
  margin:134px 66px 24px 66px;
   }
 
 @media ${props => props.theme.device.desktop} {
  width:268px;
  height: 242px;
- /* padding:32px 24px 90px 24px; */
+
  margin:218px 116px 40px 116px;
   }
 
@@ -121,24 +121,24 @@ export const Wrapper = styled.div`
  min-width:172px;
  min-height: 72px;
  margin: 0 auto;
- padding:22px 18px 62px 18px;
+ 
  position:absolute;
- top:22px;
+ top:60px;
  left:50%;
  transform: translate(-50%, -50%);
 
 @media ${props => props.theme.device.tablet} {
  width:220px;
  height: 120px;
- padding:32px 26px 90px 26px;
- top:32px;
+
+ top:80px;
   }
 
 @media ${props => props.theme.device.desktop} {
  width:220px;
  height: 120px;
- padding:32px 26px 90px 26px;
-  top:32px;
+
+  top:80px;
   }
 
 
@@ -149,7 +149,9 @@ export const ModalText = styled.p`
  font-size:20px;
  font-weight:600;
  line-height:1.2;
- text-align:center;
+ text-align:left;
+ text-align:top;
+
  color: ${props => props.theme.colors.textWhite};
 
 @media ${props => props.theme.device.tablet} {
@@ -208,7 +210,7 @@ export const ButtonClose = styled.button`
   position:absolute;
   padding: 0px;
   
-  top:85%;
+  top:83%;
   left:50%;
   transform:translate(-50%,-50%);
   cursor: pointer;
