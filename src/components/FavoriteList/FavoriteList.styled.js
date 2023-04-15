@@ -16,6 +16,7 @@ export const List = styled.div`
 `;
 export const ListText = styled.h3`
   font-size: 20px;
+  color: ${props => props.theme.colors.textTitle};
 
   @media ${props => props.theme.device.tablet} {
     font-size: 24px;
@@ -28,25 +29,4 @@ export const LoaderBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* position: absolute;
-  margin:20 auto;
-  width: 36px;
-  height: 36px;
-  left: 150px;
-  top: -65px;
-
-  @media ${props => props.theme.device.tablet} {
-    width: 50px;
-    height: 50px;
-    left: 200px;
-    top: -70px;
-  }
-
-  @media ${props => props.theme.device.desktop} {
-    width: 80px;
-    height: 80px;
-    left: 280px;
-    top: -75px;
-  } */
 `;

@@ -81,8 +81,9 @@ export const SearchBtn = styled.button`
   line-height: 1.5;
 
   &:hover {
-    background-color: ${props => props.theme.colors.accentDark};
+    background-color: ${props => props.theme.colors.searchBtnHover};
     transition: all 250ms linear 0s;
+    color: ${props => props.theme.colors.searchBtnText};
   }
 
   @media ${props => props.theme.device.tablet} {

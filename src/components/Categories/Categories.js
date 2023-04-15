@@ -22,12 +22,11 @@ import {
 import { useSelector } from 'react-redux';
 import { selectorSwicherTheme } from 'redux/selectors';
 
-import { LoaderBox } from 'components/FavoriteList/FavoriteList.styled';
-
 import { LoaderDiv } from 'components/IngredientsShoppingList/IngredientsShoppingList.styled';
 
 import { Loader } from 'components/Loader/Loader';
 import Pagination from 'components/Pagination/Pagination';
+import { Black1, Green1, Green2 } from 'components/MainTitle/MainTitle.styled';
 
 export const Categories = () => {
   const [value, setValue] = useState(0);
@@ -98,18 +97,19 @@ export const Categories = () => {
 
   return (
     <>
-      {loading && (
-        <LoaderBox>
-          <Loader />
-        </LoaderBox>
-      )}
       <Container>
-        <Title>Categories</Title>
+        <Title>
+          Categories
+          <Green1></Green1>
+          <Green2></Green2>
+          <Black1></Black1>
+        </Title>
+
         <Box
           sx={{
             maxWidth: '100%',
             marginTop: { xs: '50px', lg: '100px' },
-            borderBottom: '1px solid var(--lineColor)',
+            borderBottom: '1px solid #BDBDBD',
             minHeight: '48px',
           }}
         >
