@@ -219,7 +219,9 @@ export const SelectContainer = styled.ul`
   }
 `;
 export const SelectItem = styled.li`
-  color: ${props => props.theme.colors.dark};
+  color: ${props =>
+    props.isSelect ? props.theme.colors.accent : props.theme.colors.dark};
+
   &:not(:last-child) {
     margin-bottom: 4px;
   }
