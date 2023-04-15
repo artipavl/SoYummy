@@ -72,12 +72,14 @@ export const Head = () => {
 
               <UserName recipeid={recipeId}>{userName}</UserName>
 
-            </UserWrapButton>
-
             <UserMenu
               openUser={openUser}
               handleOpenSmallUserMenu={handleOpenSmallUserMenu}
             />
+
+            </UserWrapButton>
+
+
 
             <Burger onClick={handleMenuClick}>
               <BurgerIconStyled />
