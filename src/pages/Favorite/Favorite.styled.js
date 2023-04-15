@@ -24,3 +24,6 @@ export const Page = styled.section`
     padding-right: 100px;
   }
 `;
+
+
+
