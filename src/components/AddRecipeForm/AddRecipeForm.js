@@ -51,17 +51,18 @@ const initialValues = {
 };
 
 export const AddRecipeForm = () => {
-  const [categoryList, SetCategoryList] = useState([]);
-  const [allIngredients, SetAllIngredients] = useState([]);
+  const [categoryList, setCategoryList] = useState([]);
+  const [allIngredients, setAllIngredients] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
-  const [isLoading, SetIsLoading] = useState(false);
-  const [isCategoryActive, SetIsCategoryActive] = useState(false);
-  const [isTimeActive, SetIsTimeActive] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isCategoryActive, setIsCategoryActive] = useState(false);
+  const [isTimeActive, setIsTimeActive] = useState(false);
 
   const cookingTime = getCookingTime();
 
   const navigate = useNavigate();
   const inputRef = useRef();
+
   const handleFileChange = (event, setFieldValue) => {
     const file = event.currentTarget.files[0];
     setSelectedFile(file);
@@ -71,23 +72,19 @@ export const AddRecipeForm = () => {
   useMemo(async () => {
     try {
       const categoryList = await getAllCategories();
-      SetCategoryList(categoryList);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }, []);
+      setCategoryList(categoryList);
 
-  useMemo(async () => {
-    try {
       const ingredients = await getAllIngredients();
-      SetAllIngredients(ingredients);
+      setAllIngredients(ingredients);
     } catch (error) {
       console.log(error.message);
     }
   }, []);
-
+  const handlePreparationChange = (description, setFieldValue) => {
+    setFieldValue(`instructions`, description);
+  };
   const handleSubmit = async (values, { resetForm }) => {
-    SetIsLoading(true);
+    setIsLoading(true);
     try {
       const data = createFormData(values);
       await addRecipe(data);
@@ -96,7 +93,7 @@ export const AddRecipeForm = () => {
     } catch (error) {
       Notify.failure(`Something went wrong!${error.message}`);
     } finally {
-      SetIsLoading(false);
+      setIsLoading(false);
     }
   };
 
@@ -109,9 +106,7 @@ export const AddRecipeForm = () => {
       >
         {formik => {
           const { values, setFieldValue } = formik;
-          const handlePreparationChange = description => {
-            setFieldValue(`instructions`, description);
-          };
+          console.log(values);
           return (
             <AddForma>
               {isLoading && (
@@ -158,7 +153,7 @@ export const AddRecipeForm = () => {
                   name="description"
                   type="text"
                   placeholder="Enter about recipe"
-                  onBlur={e => setFieldValue('description', e.target.value)}
+                  onChange={e => setFieldValue('description', e.target.value)}
                 />
 
                 <Error name="category" component="p" />
@@ -167,10 +162,16 @@ export const AddRecipeForm = () => {
                     type="text"
                     readOnly="readonly"
                     placeholder="Category"
+                    ref={inputRef}
                   />
                   <StyledSelect
                     ref={inputRef}
-                    onClick={() => SetIsCategoryActive(true)}
+                    onClick={() => {
+                      setIsCategoryActive(!isCategoryActive);
+                      if (isTimeActive) {
+                        setIsTimeActive(false);
+                      }
+                    }}
                   >
                     <OptionWrapper>{values.category}</OptionWrapper>
                     <WrapperArrow>
@@ -182,9 +183,10 @@ export const AddRecipeForm = () => {
                       {categoryList.map((item, idx) => (
                         <SelectItem
                           key={idx}
+                          isSelect={values.category === item}
                           onClick={() => {
                             setFieldValue('category', item);
-                            SetIsCategoryActive(false);
+                            setIsCategoryActive(false);
                           }}
                         >
                           {item}
@@ -203,7 +205,12 @@ export const AddRecipeForm = () => {
                   />
                   <StyledSelect
                     ref={inputRef}
-                    onClick={() => SetIsTimeActive(true)}
+                    onClick={() => {
+                      setIsTimeActive(!isTimeActive);
+                      if (isCategoryActive) {
+                        setIsCategoryActive(false);
+                      }
+                    }}
                   >
                     <OptionWrapper>
                       {values.time ? values.time + ' min' : ''}
@@ -217,8 +224,9 @@ export const AddRecipeForm = () => {
                       {cookingTime.map((time, idx) => (
                         <SelectItem
                           key={idx}
+                          isSelect={values.time === time}
                           onClick={() => {
-                            SetIsTimeActive(false);
+                            setIsTimeActive(false);
                             setFieldValue('time', time);
                           }}
                         >
@@ -286,9 +294,6 @@ export const AddRecipeForm = () => {
                               remove={remove}
                             />
                           ))}
-                        {!ingredients && (
-                          <Error name="ingredients" component="p" />
-                        )}
                       </IngredientsContainer>
                     </>
                   );
@@ -296,6 +301,7 @@ export const AddRecipeForm = () => {
               </FieldArray>
               <AddRecipePreparation
                 onPreparationChange={handlePreparationChange}
+                setFieldValue={setFieldValue}
               />
               {!values.instructions && (
                 <Error name="instructions" component="p" />
@@ -308,35 +314,3 @@ export const AddRecipeForm = () => {
     </>
   );
 };
-
-//  <WrapperCookingTime>
-//    <Input
-//      type="text"
-//      placeholder="Cooking time"
-//      style={{ cursor: 'pointer' }}
-//    />
-//    {formErrors?.time && <ErrMessage>{formErrors?.time}</ErrMessage>}
-
-//    <SelectStyled ref={inputEl} onClick={e => setIsActiveTime(!isActiveTime)}>
-//      <WrapperOption>{time}</WrapperOption>
-//      <ArrowWrapper>
-//        <Arrow width="20px" height="20px" />
-//      </ArrowWrapper>
-//    </SelectStyled>
-//    {isActiveTime && (
-//      <SelectContent style={{ width: '90px' }}>
-//        {allTime.map((value, index) => (
-//          <SelectItem
-//            key={value + '' + index}
-//            onClick={() => {
-//              setTime(value);
-//              setIsActiveTime(false);
-//            }}
-//            color={value === time && theme === 'light' ? '#8BAA36' : '#000000'}
-//          >
-//            {value}
-//          </SelectItem>
-//        ))}
-//      </SelectContent>
-//    )}
-//  </WrapperCookingTime>;

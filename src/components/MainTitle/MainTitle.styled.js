@@ -10,14 +10,14 @@ export const Title = styled.h2`
   font-feature-settings: 'liga' off;
   font-size: 28px;
   line-height: 100%;
-  padding-top: 74px;
+  padding-top: 50px;
   @media ${props => props.theme.device.tablet} {
     font-size: 32px;
-    padding-top: 102px;
+    padding-top: 75px;
   }
   @media ${props => props.theme.device.desktop} {
     font-size: 44px;
-    padding-top: 102px;
+    padding-top: 104px;
   }
 `;
 export const Green1 = styled.div`

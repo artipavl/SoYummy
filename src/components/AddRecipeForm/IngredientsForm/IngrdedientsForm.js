@@ -28,9 +28,9 @@ export const IngredientsInput = ({
   remove,
 }) => {
   const [searchValue, setSearchValue] = useState('');
-  const [ingredientId, SetIngredientId] = useState('');
-  const [showFilteredItems, SetShowFilteredItems] = useState(false);
-  const [isMeasure, SetIsMeasure] = useState(false);
+  const [ingredientId, setIngredientId] = useState('');
+  const [showFilteredItems, setShowFilteredItems] = useState(false);
+  const [isMeasure, setIsMeasure] = useState(false);
   const [formData, setFormData] = useState({
     combinedValue: '',
     textInputValue: '',
@@ -43,10 +43,10 @@ export const IngredientsInput = ({
   const handleSearchInputChange = event => {
     if (event.target.value.trim() !== '') {
       setSearchValue(event.target.value.trim());
-      SetShowFilteredItems(true);
+      setShowFilteredItems(true);
     } else {
       setSearchValue('');
-      SetShowFilteredItems(false);
+      setShowFilteredItems(false);
     }
   };
 
@@ -60,7 +60,7 @@ export const IngredientsInput = ({
       selectInputValue: value,
     }));
 
-    SetIsMeasure(false);
+    setIsMeasure(false);
   };
 
   const prevOnIngredientsChangeRef = useRef(onIngredientsChange);
@@ -104,9 +104,9 @@ export const IngredientsInput = ({
       item => item.ttl === e.currentTarget.innerText
     );
     setSearchValue(e.target.value);
-    SetShowFilteredItems(false);
+    setShowFilteredItems(false);
     if (newIngredients) {
-      SetIngredientId(newIngredients._id);
+      setIngredientId(newIngredients._id);
     }
   };
 
@@ -135,14 +135,17 @@ export const IngredientsInput = ({
         </IngredientsFieldArray>
         <MeasureContainer>
           <MeasureInput
-            type="number"
+            type="text"
             name="textInputValue"
             value={formData.textInputValue}
             onChange={handleMeasureChange}
           />
           <MeasureSelect type="text" readOnly />
           <WrapperMeasureSelect>
-            <StyledSelect ref={measureRef} onClick={() => SetIsMeasure(true)}>
+            <StyledSelect
+              ref={measureRef}
+              onClick={() => setIsMeasure(!isMeasure)}
+            >
               <OptionWrapper>{formData.selectInputValue}</OptionWrapper>
               <WrapperArrow>
                 <SelectArrow width="20px" height="20px" />
@@ -151,7 +154,11 @@ export const IngredientsInput = ({
             {isMeasure && (
               <SelectContainer>
                 {measureArray.map((item, ind) => (
-                  <SelectItem key={ind} onClick={handleMeasureSelectChange}>
+                  <SelectItem
+                    key={ind}
+                    isSelect={formData.selectInputValue === item}
+                    onClick={handleMeasureSelectChange}
+                  >
                     <option value={item}>{item}</option>
                   </SelectItem>
                 ))}
