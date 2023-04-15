@@ -84,7 +84,6 @@ export const UserToogleWrap = styled.div `
   align-items: center;
 `
 export const UserWrapButton = styled.button`
-  position: relative;
   display: flex;
   align-items: center;
   cursor: pointer;

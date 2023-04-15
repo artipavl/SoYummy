@@ -78,12 +78,14 @@ export const Head = () => {
 
               <UserName pathname={pathname}>{userName}</UserName>
 
-            </UserWrapButton>
-
             <UserMenu
               openUser={openUser}
               handleOpenSmallUserMenu={handleOpenSmallUserMenu}
             />
+
+            </UserWrapButton>
+
+
 
             <Burger onClick={handleMenuClick}>
               <BurgerIconStyled />

@@ -8,7 +8,7 @@ export const EditIconStyled = styled(EditIcon)`
 `
 
 export const UserModalSmallBackdrop = styled.div`
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
