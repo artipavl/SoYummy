@@ -19,6 +19,7 @@ export const theme = {
 
     text: '#23262A', //текст
     textDark: '#3E4462', //текст сірий
+    textCurrentDark: '#3E4462', //текст сірий
     textWhite: '#FAFAFA', //текст білий
     textWhiteMuted: 'rgba(250, 250, 250, 0.6)', //текст білий пригнічений
     textTitle: '#001833', //текст синій
@@ -36,16 +37,19 @@ export const theme = {
     popularRecipesItemBox: '#7070702b',
     recipesFonts: '#3E4462',
     recipeHeaderList: '#23262A',
-    selectRecipeBgcolor: "#FAFAFA",
-    plateTitleBoxBgColor: "#FFFFFF",
-    plateTitleTextColor: "#3E4462",
+    selectRecipeBgcolor: '#FAFAFA',
+    plateTitleBoxBgColor: '#FFFFFF',
+    plateTitleTextColor: '#3E4462',
     selectBgColor: '#ECECEC',
     addBtnHover: '#8BAA36',
     addBtnText: '#FAFAFA',
     searchBtnHover: '#22252A',
     searchBtnText: '#FAFAFA',
-    formFooterFormBtn: "rgba(250, 250, 250, 0.6)",
-
+    formFooterFormBtn: 'rgba(250, 250, 250, 0.6)',
+    searchRecipeMainBtn: '#22252A',
+    searchRecipeMainBtnText: '#FAFAFA',
+    selectAccentIngradientItem: '#8BAA36',
+    selectIngradientItem: '#000000',
 
     modes: {
       white: {
@@ -113,6 +117,7 @@ export const lightTheme = {
 
     text: '#23262A', //текст
     textDark: '#3E4462', //текст сірий
+    textCurrentDark: '#3E4462', //текст сірий
     textWhite: '#FAFAFA', //текст білий
     textWhiteMuted: 'rgba(250, 250, 250, 0.6)', //текст білий пригнічений
     textTitle: '#001833', //текст синій
@@ -130,16 +135,20 @@ export const lightTheme = {
     popularRecipesItemBox: '#7070702b',
     recipesFonts: '#3E4462',
     recipeHeaderList: '#23262A',
-    selectRecipeBgcolor: "#FAFAFA",
-    plateTitleBoxBgColor: "#FFFFFF",
-    plateTitleTextColor: "#3E4462",
+    selectRecipeBgcolor: '#FAFAFA',
+    plateTitleBoxBgColor: '#FFFFFF',
+    plateTitleTextColor: '#3E4462',
     selectBgColor: '#ECECEC',
     addBtnHover: '#8BAA36',
     addBtnText: '#FAFAFA',
     searchBtnHover: '#22252A',
     searchBtnText: '#FAFAFA',
-    formFooterFormBtn: "rgba(250, 250, 250, 0.6)",
-
+    formFooterFormBtn: 'rgba(250, 250, 250, 0.6)',
+    //! Пофіксити formFooterFormBtn: "rgba(250, 250, 250, 0.6)",
+    searchRecipeMainBtn: '#22252A',
+    searchRecipeMainBtnText: '#FAFAFA',
+    selectAccentIngradientItem: '#8BAA36',
+    selectIngradientItem: '#000000',
 
     modes: {
       white: {
@@ -205,7 +214,8 @@ export const darkTheme = {
     accentDark: '#8BAA36', //чорний що протиставляється акцену
     accentDarkMuted: '#2A2C36', //! зелений замість чорного що протиставляється акцену пригнічений
     text: '#FAFAFA', //текст
-    textDark: '#FAFAFA', //текст білий замість сірого
+    textDark: '#FAFAFA', //!текст білий замість сірого
+    textCurrentDark: '#3E4462', //текст сірий
     textWhite: '#FAFAFA', //! текст чорний замість білого
     textWhiteMuted: 'rgba(250, 250, 250, 0.6)', //текст білий пригнічений
     textTitle: '#FAFAFA', //текст синій
@@ -223,16 +233,19 @@ export const darkTheme = {
     popularRecipesItemBox: '#7070702b',
     recipesFonts: '#FAFAFA',
     recipeHeaderList: '#23262A',
-    selectRecipeBgcolor: "#8BAA36",
-    plateTitleBoxBgColor: "#2A2C36",
-    plateTitleTextColor: "#FAFAFA",
+    selectRecipeBgcolor: '#8BAA36',
+    plateTitleBoxBgColor: '#2A2C36',
+    plateTitleTextColor: '#FAFAFA',
     selectBgColor: '#8BAA36',
     addBtnHover: '#D9D9D9',
     addBtnText: '#FAFAFA',
     searchBtnHover: '#D9D9D9',
     searchBtnText: '#3E4462',
-    formFooterFormBtn: "#FAFAFA",
-
+    formFooterFormBtn: '#FAFAFA',
+    searchRecipeMainBtn: '#D9D9D9',
+    searchRecipeMainBtnText: '#1E1F28',
+    selectAccentIngradientItem: '#FAFAFA',
+    selectIngradientItem: 'rgba(250, 250, 250, 0.5)',
 
     modes: {
       white: {
