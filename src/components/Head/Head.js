@@ -38,7 +38,7 @@ export const Head = () => {
   const isLoading = useSelector(selectAuthIsLoading)
   // const { recipeId = null } = useParams();
   const { pathname } = useLocation()
-  
+
   console.log(pathname)
 
 
@@ -96,9 +96,11 @@ export const Head = () => {
             </ToogleWrap>
           </UserToogleWrap>
         </Container>
+
         <MobileMenu openState={open} handleMenuClick={handleMenuClick}>
           <ThemeToogle />
         </MobileMenu>
+
       </Header>
 
 

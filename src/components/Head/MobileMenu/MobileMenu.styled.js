@@ -19,9 +19,10 @@ export const MobileMenuSection = styled.section`
   background-position: 100% 100%;
   top: 0;
   left: 0;
+  /* height: 80vh;
+  width: 80vw; */
   transform: translateY(-100%);
-  height: 100vh;
-  width: 100vw;
+
   z-index: 999;
   opacity: 1;
   visibility: hidden;
@@ -30,6 +31,8 @@ export const MobileMenuSection = styled.section`
   &.open {
     transform: translateY(0%);
     opacity: 1;
+    height: 100vh;
+    width: 100vw;
     visibility: visible;
   }
 
