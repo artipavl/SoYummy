@@ -19,7 +19,6 @@ const Password = () => {
 
   const isValid = touched && !error && isSecurePassword;
   const isWarn = touched && !error && !isSecurePassword;
-
   return (
     <>
       <FormValueContainer
@@ -39,9 +38,11 @@ const Password = () => {
         />
         <Pswrd />
       </FormValueContainer>
+
       <ErrorMessage name="password" style={{ marginTop: '0' }}>
         {msg => <div style={{ ...formStyles.message.error }}>{msg}</div>}
       </ErrorMessage>
+
       {isWarn && (
         <div style={{ ...formStyles.message.warning }}>
           Your password is little secure

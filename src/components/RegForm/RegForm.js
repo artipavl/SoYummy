@@ -1,5 +1,7 @@
 import { Formik } from 'formik';
 
+import { ErrorMessage } from 'formik';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import { registerValidationSchema } from 'utils/authValidationSchema';
@@ -70,11 +72,11 @@ const RegForm = () => {
                   <Name stroke="red" />
                 </FormValueContainer>
 
-                {errors.name && touched.name && (
-                  <div style={{ ...formStyles.message.error }}>
-                    {errors.name}
-                  </div>
-                )}
+                <ErrorMessage name="name" style={{ marginTop: '0' }}>
+                  {msg => (
+                    <div style={{ ...formStyles.message.error }}>{msg}</div>
+                  )}
+                </ErrorMessage>
 
                 <FormValueContainer
                   error={errors.email}
@@ -92,11 +94,11 @@ const RegForm = () => {
                   <Email />
                 </FormValueContainer>
 
-                {errors.email && touched.email && (
-                  <div style={{ ...formStyles.message.error }}>
-                    {errors.email}
-                  </div>
-                )}
+                <ErrorMessage name="email" style={{ marginTop: '0' }}>
+                  {msg => (
+                    <div style={{ ...formStyles.message.error }}>{msg}</div>
+                  )}
+                </ErrorMessage>
 
                 <Password />
 
