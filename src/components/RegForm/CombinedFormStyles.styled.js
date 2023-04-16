@@ -179,13 +179,23 @@ export const FormValueContainer = styled.div`
     display: block;
 
     position: absolute;
-    top: 16px;
+    top: 14px;
     right: 45px;
 
     width: 20px;
     height: 20px;
 
     background-image: ${validationInputLogo};
+
+    transition: transform 0.5s ease;
+    &:hover {
+      transform: rotate(360deg);
+    }
+
+    @media ${props => props.theme.device.tablet} {
+      top: 22px;
+      right: 45px;
+    }
 
     @media ${props => props.theme.device.desktop} {
       top: 23px;

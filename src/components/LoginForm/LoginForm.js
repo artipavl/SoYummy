@@ -62,7 +62,15 @@ const LoginForm = () => {
                     placeholder="Email"
                     {...getFieldProps('email')}
                   />
-                  <Email />
+                  <Email
+                    style={{
+                      stroke: errors.email
+                        ? '#E74A3B'
+                        : touched.email
+                        ? '#3CBC81'
+                        : '#FFFFFF',
+                    }}
+                  />
                 </FormValueContainer>
 
                 <ErrorMessage name="email" style={{ marginTop: '0' }}>
