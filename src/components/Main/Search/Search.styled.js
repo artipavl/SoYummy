@@ -2,16 +2,6 @@ import styled from 'styled-components';
 
 export const Form = styled.form`
   margin-top: 50px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  @media ${props => props.theme.device.tablet} {
-  }
-
-  @media ${props => props.theme.device.desktop} {
-  }
 `;
 
 export const SearchContainer = styled.div`

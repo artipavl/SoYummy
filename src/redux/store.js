@@ -14,6 +14,9 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './authSlice';
+import { tasksReducerMain } from './mainPageSlice';
+import { tasksReducerCategoryList } from './categoryPage/categorySlice';
+import { tasksReducerCategoryItem } from './categoryPage/itemSlice';
 
 const persistConfig = {
   key: 'auth',
@@ -23,7 +26,10 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   auth: persistReducer(persistConfig, authReducer),
-});
+  main: persistReducer(persistConfig, tasksReducerMain),
+  categoryList: persistReducer(persistConfig, tasksReducerCategoryList),
+  categoryItem: persistReducer(persistConfig, tasksReducerCategoryItem),
+})
 
 const store = configureStore({
   reducer: rootReducer,
