@@ -6,9 +6,11 @@ import BgMobileRetina from '../../../images/bg/menuBG_Mobile@2x.webp'
 import BgTablet from '../../../images/bg/menuBG_Tablet.webp'
 import BgTabletRetina from '../../../images/bg/menuBG_Tablet@2x.webp'
 
+import {ReactComponent as SearchIcon} from '../../../images/icons/search_Icon.svg'
+
 export const MobileMenuSection = styled.section`
   box-sizing: border-box;
-  position: fixed;
+  position: absolute;
   padding: 18px 16px;
   background-color: ${props => props.theme.colors.modes.white.accentMuted};
   background-image: url('${BgMobile}');
@@ -17,17 +19,19 @@ export const MobileMenuSection = styled.section`
   background-position: 100% 100%;
   top: 0;
   left: 0;
-  transform: translateY(-100%);
   height: 100vh;
   width: 100vw;
+  transform: translateX(-100%);
+
   z-index: 999;
   opacity: 1;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out ;
 
   &.open {
-    transform: translateY(0%);
+    transform: translateX(0%);
     opacity: 1;
+
     visibility: visible;
   }
 
@@ -79,9 +83,15 @@ export const NavItems = styled.ul`
 `
 
 export const NavItem = styled.li`
-&.active {
-    color: ${props => props.theme.colors.accent};
+  .active {
+    color: ${props => props.theme.colors.accentCurrent};
   }
+  .active svg {
+    path {
+      stroke: ${props => props.theme.colors.accentCurrent}
+    }
+  }
+
 
 `
 export const Navigator = styled(NavLink)`
@@ -95,6 +105,9 @@ export const Navigator = styled(NavLink)`
   line-height: 1.6;
   font-weight: ${props => props.theme.fontWeights.medium};
   transition: color 250ms linear;
+  .active {
+    color: ${props => props.theme.colors.accent};
+  }
 
   path {
     stroke: ${props => props.theme.colors.accentDark};
@@ -119,4 +132,18 @@ export const Navigator = styled(NavLink)`
 
 export const SearchText = styled.p`
   margin-left: 8px;
+`
+
+export const SearchIconStyled = styled(SearchIcon)`
+
+  path {
+    stroke: ${props => props.theme.colors.text};
+    transition: stroke 250ms linear;
+  }
+  :hover path,
+  :focus path {
+    stroke: ${props => props.theme.colors.accentCurrent};
+  }
+
+
 `

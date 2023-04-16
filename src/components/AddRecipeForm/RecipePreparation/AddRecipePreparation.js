@@ -5,13 +5,16 @@ import {
   PreparationWrapper,
 } from './AddRecipePreparation.styled';
 
-export const AddRecipePreparation = ({ onPreparationChange }) => {
+export const AddRecipePreparation = ({
+  onPreparationChange,
+  setFieldValue,
+}) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleChangeInput = e => {
     setInputValue(e.target.value);
     if (inputValue) {
-      onPreparationChange(inputValue);
+      onPreparationChange(inputValue, setFieldValue);
     }
   };
 

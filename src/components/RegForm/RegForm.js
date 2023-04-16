@@ -118,6 +118,9 @@ const RegForm = () => {
                 </FormBtn>
               </Form>
               <FormNavLink to="/signin">Sign In</FormNavLink>
+              <FormNavLink to="https://so-yummy-api.onrender.com/api/users/google">
+                Sign in with Google
+              </FormNavLink>
             </div>
           </Wrapper>
         );

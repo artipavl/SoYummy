@@ -20,8 +20,13 @@ export const NavItem = styled.li`
     margin-left: 30px;
 }
 
-  &.active {
-    color: ${props => props.theme.colors.accent};
+  .active {
+    color: ${props => props.theme.colors.accentCurrent};
+  }
+  .active svg {
+    path {
+      stroke: ${props => props.theme.colors.accentCurrent}
+    }
   }
 
 `
@@ -52,5 +57,20 @@ export const SearchIconStyled = styled(Search)`
   :focus path {
     stroke: ${props => props.theme.colors.accentCurrent};
   }
+
+
+`
+export const SearchIconStyledMob = styled(Search)`
+
+
+  path {
+    stroke: ${props => props.theme.colors.text};
+    transition: stroke 250ms linear;
+  }
+  :hover path,
+  :focus path {
+    stroke: ${props => props.theme.colors.accentCurrent};
+  }
+
 
 `

@@ -11,6 +11,10 @@ import BgmobileRetina from '../../images/bg/mainBG_Mobile_2x.webp';
 
 export const StartScreenSection = styled.section`
   font-family: 'Poppins';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -43,10 +47,10 @@ export const StartScreenSection = styled.section`
 
 `
 export const Container = styled.div`
-    padding-top: 274px;
+    /* padding-top: 274px;
     padding-bottom: 257px;
     padding-right: 35px;
-    padding-left: 35px;
+    padding-left: 35px; */
     max-width: 1440px;
     margin: 0 auto;
 

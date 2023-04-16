@@ -6,11 +6,11 @@ import {
   login,
   fetchCurrentUser,
   fetchUserLogout,
-  themeSwicher,
   updateUser,
   subscribeUser,
   addIngredient,
   removeIngredient,
+  fetchGoogleUser,
 } from './authOperations';
 
 const initialState = {
@@ -33,11 +33,15 @@ const initialState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    switchTheme(state) {
+      state.theme = state.theme === 'light' ? 'dark' : 'light';
+    },
+  },
   extraReducers: {
     [register.fulfilled](state, action) {
       const { name, email, avatarURL } = action.payload;
       state.user = { name, email, avatarURL };
-      state.isLoggedIn = true;
       state.isLoading = false;
     },
     [register.pending](state) {
@@ -45,7 +49,6 @@ const authSlice = createSlice({
     },
     [register.rejected](state) {
       state.isError = true;
-      state.isLoggedIn = false;
       state.isLoading = false;
     },
 
@@ -85,6 +88,25 @@ const authSlice = createSlice({
       state.theme = 'light';
     },
 
+    [fetchGoogleUser.fulfilled](state, action) {
+      const { name, email, avatarURL, _id, shoppingList, token } =
+        action.payload;
+
+      state.user = { name, email, avatarURL, id: _id, shoppingList };
+      state.token = token;
+      state.isLoggedIn = true;
+      state.isLoading = false;
+    },
+    [fetchGoogleUser.pending](state) {
+      state.isLoading = true;
+    },
+    [fetchGoogleUser.rejected](state) {
+      state.isError = true;
+      state.isLoggedIn = false;
+      state.isLoading = false;
+      state.theme = 'light';
+    },
+
     [fetchUserLogout.fulfilled](state) {
       state.user = initialState.user;
       state.token = null;
@@ -98,12 +120,8 @@ const authSlice = createSlice({
     },
     [fetchUserLogout.rejected](state, action) {
       state.isError = action.payload;
-      state.isLoggedIn = false;
+      // state.isLoggedIn = false;
       state.isLoading = false;
-    },
-
-    [themeSwicher.fulfilled](state) {
-      state.theme = state.theme === 'light' ? 'dark' : 'light';
     },
 
     [updateUser.fulfilled](state, action) {
@@ -151,3 +169,5 @@ const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
+
+export const { switchTheme } = authSlice.actions;

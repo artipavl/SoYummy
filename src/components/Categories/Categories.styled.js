@@ -19,14 +19,14 @@ export const PaginationBtn = styled(Pagination)`
 `;
 
 export const Container = styled.div`
-  position: relative;
+  position: relative; 
   margin: auto;
   padding-left: 16px;
   padding-right: 16px;
   padding-bottom: 100px;
 
   /* min-height: 100vh; */
-  padding-top: 10rem;
+  padding-top: 62px;
   background-color: ${props => props.theme.accent};
   transition: all 1s ease;
 
@@ -51,22 +51,23 @@ export const BoxTitle = styled.div`
 `;
 
 export const Title = styled.p`
+position: relative;
+  display: block;
   font-family: 'Poppins';
+  color: ${props => props.theme.colors.textTitle};
   font-style: normal;
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 28px;
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
-  color: ${props => props.theme.colors.textTitle};
-
-  margin-bottom: 60px;
-
+  font-size: 28px;
+  line-height: 100%;
+  padding-top: 74px;
   @media ${props => props.theme.device.tablet} {
+    font-size: 32px;
+    padding-top: 102px;
   }
-
   @media ${props => props.theme.device.desktop} {
-    margin-bottom: 110px;
+    font-size: 44px;
+    padding-top: 102px;
   }
 `;
 

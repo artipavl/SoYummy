@@ -91,49 +91,46 @@ export const ModalContainer= styled.div`
 
 export const TextContainer = styled.div`
  width:200px;
- height: 180px;
- padding:18px 18px 66px 18px;
+ height: 180px; 
  margin:102px 50px 18px 50px;
  position:absolute;
- bottom:40px;
  position:relative;
 
-
- 
 
 @media ${props => props.theme.device.tablet} {
  width:268px;
  height: 242px;
- padding:32px 24px 90px 24px;
  margin:134px 66px 24px 66px;
   }
 
 @media ${props => props.theme.device.desktop} {
  width:268px;
  height: 242px;
- padding:32px 24px 90px 24px;
  margin:218px 116px 40px 116px;
   }
 
 `;
 
 export const Wrapper = styled.div`
- width:170px;
- height: 100px;
+ min-width:172px;
+ min-height: 72px;
  margin: 0 auto;
+ 
  position:absolute;
- top:150px;
+ top:60px;
  left:50%;
  transform: translate(-50%, -50%);
 
 @media ${props => props.theme.device.tablet} {
  width:220px;
  height: 120px;
+ top:80px;
   }
 
 @media ${props => props.theme.device.desktop} {
  width:220px;
  height: 120px;
+ top:80px;
   }
 
 
@@ -144,7 +141,9 @@ export const ModalText = styled.p`
  font-size:20px;
  font-weight:600;
  line-height:1.2;
- text-align:center;
+ text-align:left;
+ text-align:top;
+
  color: ${props => props.theme.colors.textWhite};
 
 @media ${props => props.theme.device.tablet} {
@@ -172,11 +171,24 @@ export const WowText = styled.span`
   }
 `;
 
-export const TextSvg = styled.img`
- width:299px;
- height: 269px;
- filter: grayscale(100%);
+export const Svg = styled.img`
+ width:200px;
+ height: 180px;
+ 
+ /* filter: blur(0px);
+ opacity:70%; */
+
  margin:0 auto;
+ 
+ @media ${props => props.theme.device.tablet} {
+width:268px;
+height: 242px;
+  }
+
+@media ${props => props.theme.device.desktop} {
+width:268px;
+height: 242px;
+  }
 
 `;
 
@@ -190,7 +202,7 @@ export const ButtonClose = styled.button`
   position:absolute;
   padding: 0px;
   
-  top:110%;
+  top:83%;
   left:50%;
   transform:translate(-50%,-50%);
   cursor: pointer;
@@ -198,17 +210,16 @@ export const ButtonClose = styled.button`
   @media ${props => props.theme.device.tablet} {
   width:48px;
   height:48px;
-    top:95%;
+    top:85%;
   }
 
  @media ${props => props.theme.device.desktop} {
-   width:48px;
+  width:48px;
   height:48px;
-  top:95%;
+  top:85%;
   }
 
 `;
-
 
 
 export const BtnIcon = styled.img`

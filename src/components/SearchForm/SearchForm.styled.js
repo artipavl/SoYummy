@@ -38,7 +38,7 @@ export const SearchValue = styled.input`
   font-size: 12px;
   line-height: 1.5;
 
-  color: ${props => props.theme.colors.textDark};
+  color: ${props => props.theme.colors.textCurrentDark};
 
   @media ${props => props.theme.device.tablet} {
     width: 100%;
@@ -81,8 +81,9 @@ export const SearchBtn = styled.button`
   line-height: 1.5;
 
   &:hover {
-    background-color: ${props => props.theme.colors.accentDark};
+    background-color: ${props => props.theme.colors.searchBtnHover};
     transition: all 250ms linear 0s;
+    color: ${props => props.theme.colors.searchBtnText};
   }
 
   @media ${props => props.theme.device.tablet} {

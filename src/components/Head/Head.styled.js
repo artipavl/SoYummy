@@ -50,20 +50,27 @@ export const Container = styled.div`
 `
 
 export const LinkLogo = styled(NavLink)`
+  width: 40px;
+  height: 40px;
+  @media ${props => props.theme.device.tablet}{
+    width: 44px;
+    height: 44px;
+  }
+
 `
 
 export const NavLogo = styled.img`
-  display: none;
+  /* display: none;
     @media ${props => props.theme.device.tablet}{
       display: block;
-}
+} */
 `
 
-export const NavLogoLite = styled.img`
-  @media ${props => props.theme.device.tablet}{
-    display: none;
-}
-`
+// export const NavLogoLite = styled.img`
+//   @media ${props => props.theme.device.tablet}{
+//     display: none;
+// }
+// `
 export const SearchText = styled.p`
     font-size: 18px;
     @media ${props => props.theme.device.tablet} {
@@ -77,7 +84,6 @@ export const UserToogleWrap = styled.div `
   align-items: center;
 `
 export const UserWrapButton = styled.button`
-  position: relative;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -96,7 +102,7 @@ export const UserIcon = styled.img`
 export const UserName = styled.p`
   margin-left: 14px;
   font-size: 12px;
-  color: ${props => props.recipeid ? props.theme.colors.recipeHeaderList : props.theme.colors.dark};
+  color: ${props => props.pathname.includes("/main") && window.outerWidth > 1439 && window.outerWidth < 1930 ? "#22252A" : props.pathname.includes("/recipe") ? props.theme.colors.recipeHeaderList : props.theme.colors.dark};
   font-weight: ${props => props.theme.fontWeights.bold};
   @media ${props => props.theme.device.tablet} {
     font-size: 14px;

@@ -1,8 +1,10 @@
 import { useState } from 'react';
 
+import { useLocation } from 'react-router-dom';
+
 import { selectUserName, selectAvatarURL, selectAuthIsLoading } from 'redux/selectors';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router';
+// import { useParams } from 'react-router';
 
 import ThemeToogle from 'components/ThemeToogle';
 import DesktopMenu from './DesktopMenu';
@@ -11,15 +13,12 @@ import UserMenu from './UserMenu';
 import ButtonLoader from 'components/ButtonLoader';
 
 import logo from '../../images/icons/logo_Desktop.svg';
-import lightLogo from '../../images/icons/logo-Lite-Icon.svg';
-
 
 import {
   Header,
   Container,
   LinkLogo,
   NavLogo,
-  NavLogoLite,
   UserToogleWrap,
   UserWrapButton,
   UserIcon,
@@ -37,7 +36,8 @@ export const Head = () => {
   const userName = useSelector(selectUserName);
   const userAvatar = useSelector(selectAvatarURL);
   const isLoading = useSelector(selectAuthIsLoading)
-  const { recipeId = null } = useParams();
+  // const { recipeId = null } = useParams();
+  const { pathname } = useLocation()
 
   const handleChange = nextChecked => {
     setChecked(nextChecked);
@@ -63,7 +63,7 @@ export const Head = () => {
         <Container>
           <LinkLogo to="/main">
             <NavLogo src={logo} alt="logo" />
-            <NavLogoLite src={lightLogo} alt="logo" width={40} />
+            {/* <NavLogoLite src={lightLogo} alt="logo" width={40} /> */}
           </LinkLogo>
 
           <DesktopMenu />
@@ -73,7 +73,9 @@ export const Head = () => {
             <UserWrapButton onClick={handleOpenSmallUserMenu}>
               {isLoading ? <ButtonLoader /> : <UserIcon src={userAvatar} alt="user avatar" width={44} />}
 
-              <UserName recipeid={recipeId}>{userName}</UserName>
+              <UserName pathname={pathname}>{userName}</UserName>
+
+
 
             </UserWrapButton>
 
@@ -81,6 +83,8 @@ export const Head = () => {
               openUser={openUser}
               handleOpenSmallUserMenu={handleOpenSmallUserMenu}
             />
+
+
 
             <Burger onClick={handleMenuClick}>
               <BurgerIconStyled />
@@ -90,10 +94,13 @@ export const Head = () => {
               <ThemeToogle handleChange={handleChange} checked={checked} />
             </ToogleWrap>
           </UserToogleWrap>
-        </Container>
-        <MobileMenu openState={open} handleMenuClick={handleMenuClick}>
+          <MobileMenu openState={open} handleMenuClick={handleMenuClick}>
           <ThemeToogle />
         </MobileMenu>
+
+        </Container>
+
+
       </Header>
 
 

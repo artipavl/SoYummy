@@ -134,7 +134,7 @@ export const PlateTitleBox = styled.div`
 
   ::after {
     @media ${props => props.theme.device.tablet} {
-      z-index: 100;
+      z-index: 50;
       content: ' ';
       position: absolute;
 
@@ -192,6 +192,7 @@ export const Link = styled(NavLink)`
   align-items: center;
   text-align: center;
   letter-spacing: 0.2px;
+  z-index: 100;
 
   color: ${props => props.theme.colors.plateTitleTextColor};
 

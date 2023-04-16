@@ -18,6 +18,10 @@ export const SelectIngredientWrapper = styled.div`
 export const IngredientsFieldArray = styled.div`
   position: relative;
   height: 53px;
+
+  @media ${props => props.theme.device.tablet} {
+    height: 59px;
+  }
 `;
 
 export const IngredientsSelectInput = styled(Field)`
@@ -33,6 +37,7 @@ export const IngredientsSelectInput = styled(Field)`
   outline: none;
   @media ${props => props.theme.device.tablet} {
     font-size: 18px;
+    height: 59px;
   }
 `;
 
@@ -66,11 +71,15 @@ export const MeasureContainer = styled.div`
   display: flex;
   width: 100%;
   height: 53px;
+  padding: 16px 10px;
   align-items: baseline;
   margin-bottom: 20px;
   border: 1px solid ${props => props.theme.colors.whiteMutedBorder};
   background-color: ${props => props.theme.colors.whiteMuted};
   border-radius: 6px;
+  @media ${props => props.theme.device.tablet} {
+    height: 59px;
+  }
 `;
 export const WrapperMeasureSelect = styled.div`
   /* position: relative; */
@@ -85,21 +94,22 @@ export const WrapperMeasureSelect = styled.div`
 export const MeasureInput = styled.input`
   font-family: 'Poppins';
   width: 90%;
-  padding: 10px 0 10px 10px;
   border: none;
   border-radius: 6px 6px 6px 6px;
   outline: none;
   text-align: right;
-
+  font-size: 12px;
   border-color: ${props => props.theme.colors.whiteMuted};
   background-color: ${props => props.theme.colors.whiteMuted};
   color: ${props => props.theme.colors.text};
+  @media ${props => props.theme.device.tablet} {
+    font-size: 14px;
+  }
 `;
 export const StyledSelect = styled.div`
   display: flex;
   top: 0;
   right: 0;
-  padding-top: 15px;
 
   height: 100%;
   justify-content: right;
@@ -115,7 +125,7 @@ export const MeasureSelect = styled.input`
   display: block;
 
   width: 10%;
-  height: 100%;
+
   border: transparent;
   background-color: ${props => props.theme.colors.whiteMuted};
   /* padding-bottom: 18px; */
@@ -177,7 +187,10 @@ export const SelectContainer = styled.ul`
   }
 `;
 export const SelectItem = styled.li`
-  color: ${props => props.theme.colors.dark};
+  color: ${props =>
+    props.isSelect
+      ? props.theme.colors.selectAccentIngradientItem
+      : props.theme.colors.selectIngradientItem};
   font-size: 14px;
   &:not(:last-child) {
     margin-bottom: 4px;
@@ -203,6 +216,7 @@ export const DeleteButton = styled.button`
   }
   @media ${props => props.theme.device.tablet} {
     margin-left: auto;
+    height: 59px;
   }
 `;
 
