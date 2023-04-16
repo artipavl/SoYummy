@@ -155,6 +155,7 @@ export const IngredientNumber = styled.p`
   margin-right: 28px;
   padding: 8px;
   min-width: 68px;
+  max-width: 90px;
 
   font-weight: ${props => props.theme.fontWeights.bold};
   font-size: 10px;
@@ -168,8 +169,10 @@ export const IngredientNumber = styled.p`
   @media ${props => props.theme.device.tablet} {
     font-size: 18px;
     margin-right: 78px;
+    max-width: 140px;
   }
   @media ${props => props.theme.device.desktop} {
     margin-right: 151px;
+    max-width: 400px;
   }
 `;
