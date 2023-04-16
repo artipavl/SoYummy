@@ -42,8 +42,10 @@ export const Categories = () => {
   const { dataItem, isLoading } = useSelector(state => state.categoryItem);
 
   useEffect(() => {
-    dispatch(fetchDataCategoryList());
-  }, [dispatch]);
+    if (dataList.length === 0) {
+      dispatch(fetchDataCategoryList());
+    }
+  }, [dataList, dispatch]);
 
   const theme = useSelector(selectorSwicherTheme);
 
@@ -70,21 +72,21 @@ export const Categories = () => {
   const nameEl = numberedArray[value]?.value;
 
   useEffect(() => {
-    dispatch(fetchDataCategoryItem({ nameEl, page: page }));
+    dispatch(fetchDataCategoryItem({ nameEl, page }));
   }, [dispatch, nameEl, page]);
 
-useEffect(() => {
-  if (dataItem.total === undefined) return;
-  const pageCounts = Math.ceil(dataItem?.total / 8);
-  if (pageCounts > 1) {
-    setTotalPage(pageCounts);
-  } else {
-    setTotalPage(1);
-  }
-}, [dataItem]);
+  useEffect(() => {
+    if (dataItem.total === undefined) return;
+    const pageCounts = Math.ceil(dataItem?.total / 8);
+    if (pageCounts > 1) {
+      setTotalPage(pageCounts);
+    } else {
+      setTotalPage(1);
+    }
+  }, [dataItem]);
   if (dataItem.result === undefined) return;
 
-const { result } = dataItem;
+  const { result } = dataItem;
 
   const handleChangePage = e => {
     setPage(e.selected + 1);
@@ -95,10 +97,7 @@ const { result } = dataItem;
     <>
       <Container>
         <BoxTitle>
-
-        <Title>
-          Categories
-        </Title>
+          <Title>Categories</Title>
           <Green1></Green1>
           <Green2></Green2>
           <Black1></Black1>

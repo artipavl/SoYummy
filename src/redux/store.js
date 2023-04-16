@@ -24,12 +24,30 @@ const persistConfig = {
   whitelist: ['token', 'theme'],
 };
 
+const persistConfigMain = {
+  key: 'main',
+  storage,
+  whitelist: ['items'],
+};
+
+const persistConfigList = {
+  key: 'categoryList',
+  storage,
+  whitelist: ['dataList'],
+};
+
+const persistConfigItem = {
+  key: 'categoryItem',
+  storage,
+  whitelist: ['dataItem'],
+};
+
 const rootReducer = combineReducers({
   auth: persistReducer(persistConfig, authReducer),
-  main: persistReducer(persistConfig, tasksReducerMain),
-  categoryList: persistReducer(persistConfig, tasksReducerCategoryList),
-  categoryItem: persistReducer(persistConfig, tasksReducerCategoryItem),
-})
+  main: persistReducer(persistConfigMain, tasksReducerMain),
+  categoryList: persistReducer(persistConfigList, tasksReducerCategoryList),
+  categoryItem: persistReducer(persistConfigItem, tasksReducerCategoryItem),
+});
 
 const store = configureStore({
   reducer: rootReducer,

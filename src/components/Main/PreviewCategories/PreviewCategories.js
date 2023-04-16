@@ -21,14 +21,13 @@ import { LoaderDiv } from 'components/IngredientsShoppingList/IngredientsShoppin
 
 export const PreviewCategories = ({ location }) => {
   const dispatch = useDispatch();
-  const {
-    items,
-    isLoading,
-  } = useSelector(state => state.main);
+  const { items, isLoading } = useSelector(state => state.main);
 
   useEffect(() => {
-    dispatch(fetchDataMain());
-  }, [dispatch]);
+    if (items.length === 0) {
+      dispatch(fetchDataMain());
+    }
+  }, [dispatch, items]);
 
   const sortedRecipes = items.reduce((acc, curr) => {
     const { category, recipes } = curr;
