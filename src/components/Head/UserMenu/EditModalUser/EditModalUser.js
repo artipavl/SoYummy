@@ -93,9 +93,6 @@ export const EditUserModal = ({
     },
   });
 
-  console.log(formik.values)
-
-
   const handleAvatarChange = (e) => {
   const avatar = e.target.files[0];
   formik.setValues({...formik.values, avatar});

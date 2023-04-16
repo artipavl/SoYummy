@@ -47,6 +47,7 @@ export const MobileMenu = ({ openState, handleMenuClick, children }) => {
   }, [openState]);
 
   return (
+    
     <MobileMenuSection className={openState ? 'open' : ''}>
       <MobileMenuHeader onClick={handleMenuClick}>
         <LinkLogo to="/main">

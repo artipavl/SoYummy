@@ -10,7 +10,7 @@ import {ReactComponent as SearchIcon} from '../../../images/icons/search_Icon.sv
 
 export const MobileMenuSection = styled.section`
   box-sizing: border-box;
-  position: fixed;
+  position: absolute;
   padding: 18px 16px;
   background-color: ${props => props.theme.colors.modes.white.accentMuted};
   background-image: url('${BgMobile}');
@@ -19,9 +19,9 @@ export const MobileMenuSection = styled.section`
   background-position: 100% 100%;
   top: 0;
   left: 0;
-  /* height: 80vh;
-  width: 80vw; */
-  transform: translateY(-100%);
+  height: 100vh;
+  width: 100vw;
+  transform: translateX(-100%);
 
   z-index: 999;
   opacity: 1;
@@ -29,10 +29,9 @@ export const MobileMenuSection = styled.section`
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out ;
 
   &.open {
-    transform: translateY(0%);
+    transform: translateX(0%);
     opacity: 1;
-    height: 100vh;
-    width: 100vw;
+
     visibility: visible;
   }
 
