@@ -187,11 +187,6 @@ export const FormValueContainer = styled.div`
 
     background-image: ${validationInputLogo};
 
-    transition: transform 0.5s ease;
-    &:hover {
-      transform: rotate(360deg);
-    }
-
     @media ${props => props.theme.device.tablet} {
       top: 22px;
       right: 45px;

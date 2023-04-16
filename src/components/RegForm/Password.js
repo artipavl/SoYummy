@@ -34,7 +34,7 @@ const Password = () => {
         />
         <Pswrd
           style={{
-            stroke: error ? '#E74A3B' : touched ? '#3CBC81' : '#FFFFFF',
+            stroke: !touched ? '#FFFFFF' : error ? '#E74A3B' : '#3CBC81',
           }}
         />
       </FormValueContainer>
