@@ -6,7 +6,11 @@ import MyRecipes from '../pages/MyRecipes/MyRecipes';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivatRoute';
 
-import { fetchCurrentUser, fetchGoogleUser } from 'redux/authOperations';
+import {
+  fetchCurrentUser,
+  fetchGoogleUser,
+  fetchAchievements,
+} from 'redux/authOperations';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { StartScreen } from 'pages';
@@ -25,7 +29,7 @@ import { useEffect } from 'react';
 const Verification = lazy(() => import('pages/Varification/Verification'));
 const SharedLayout = lazy(() => import('../components/SharedLayout'));
 
-const Modal = lazy(() => import('../components/Modal'));
+// const Modal = lazy(() => import('../components/Modal'));
 
 const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
 const AddRecipe = lazy(() => import('../pages/AddRecipe/AddRecipe'));
@@ -45,9 +49,16 @@ export const App = () => {
   const theme = useSelector(selectorSwicherTheme);
 
   useMemo(() => {
-    dispatch(fetchCurrentUser()).then(() => {
-      setStart(true);
-    });
+    const fetchData = async () => {
+      try {
+        await dispatch(fetchCurrentUser());
+        setStart(true);
+        await dispatch(fetchAchievements());
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
   }, [dispatch]);
 
   const location = useLocation();
@@ -107,10 +118,7 @@ export const App = () => {
               <Route
                 path="add"
                 element={
-                  <PrivateRoute
-                    component={<AddRecipe />}
-                    redirectTo="/own-recipes"
-                  />
+                  <PrivateRoute component={<AddRecipe />} redirectTo="/my" />
                 }
               />
               <Route
@@ -132,10 +140,6 @@ export const App = () => {
               <Route
                 path="*"
                 element={<PrivateRoute component={<NotFound />} />}
-              />
-              <Route
-                path="modal"
-                element={<PrivateRoute component={<Modal />} />}
               />
             </Route>
           </Routes>

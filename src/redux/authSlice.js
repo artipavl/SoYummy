@@ -11,6 +11,7 @@ import {
   addIngredient,
   removeIngredient,
   fetchGoogleUser,
+  fetchAchievements,
 } from './authOperations';
 
 const initialState = {
@@ -20,6 +21,7 @@ const initialState = {
     email: '',
     avatarURL: '',
     shoppingList: [],
+    achievements: {},
   },
   theme: 'light',
   token: null,
@@ -164,6 +166,21 @@ const authSlice = createSlice({
     },
     [removeIngredient.rejected](state, action) {
       state.isError = action.payload;
+    },
+    [fetchAchievements.fulfilled](state, action) {
+      const { achievements } = action.payload;
+      state.user.achievements = achievements;
+      state.isLoggedIn = true;
+      state.isLoading = false;
+    },
+    [fetchAchievements.pending](state) {
+      state.isLoading = true;
+    },
+    [fetchAchievements.rejected](state) {
+      state.isError = true;
+      state.isLoggedIn = false;
+      state.isLoading = false;
+      state.theme = 'light';
     },
   },
 });
