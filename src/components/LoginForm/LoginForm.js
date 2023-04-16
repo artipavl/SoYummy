@@ -10,7 +10,7 @@ import Password from 'components/RegForm/Password';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { login } from 'redux/authOperations';
+import { login, fetchAchievements } from 'redux/authOperations';
 import { selectAuthIsLoading } from 'redux/selectors';
 
 import ButtonLoader from 'components/ButtonLoader';
@@ -32,7 +32,7 @@ const LoginForm = () => {
   const isLoading = useSelector(selectAuthIsLoading);
 
   const onSubmit = values => {
-    dispatch(login(values));
+    dispatch(login(values)).then(() => dispatch(fetchAchievements()));
   };
 
   return (
