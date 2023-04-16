@@ -47,11 +47,12 @@ export const Container = styled.div`
 `;
 
 export const BoxTitle = styled.div`
-  width: 100%;
+position: relative;
+
 `;
 
+
 export const Title = styled.p`
-position: relative;
   display: block;
   font-family: 'Poppins';
   color: ${props => props.theme.colors.textTitle};

@@ -63,16 +63,6 @@ export const deleteShoppingList = async _id => {
   }
 };
 
-export const getMainPage = async () => {
-  try {
-    const { data } = await axios.get(`/recipes/main-page`);
-    const result = data.data.result;
-    return result;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 export const getPopularRecipes = async () => {
   try {
     const { data } = await axios.get(`/recipes/popular-recipe`);
@@ -154,3 +144,6 @@ export const getSearchIngredients = async (query, page) => {
 
   return data;
 };
+
+
+

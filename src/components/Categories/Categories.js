@@ -6,8 +6,6 @@ import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 
-import { getCategoryPage, getCategoryList } from 'api/serviseApi';
-
 import {
   Container,
   Title,
@@ -18,8 +16,9 @@ import {
   TitleBox,
   TitleCard,
   BoxPagination,
+  BoxTitle,
 } from 'components/Categories/Categories.styled.js';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectorSwicherTheme } from 'redux/selectors';
 
 import { LoaderDiv } from 'components/IngredientsShoppingList/IngredientsShoppingList.styled';
@@ -27,35 +26,28 @@ import { LoaderDiv } from 'components/IngredientsShoppingList/IngredientsShoppin
 import { Loader } from 'components/Loader/Loader';
 import Pagination from 'components/Pagination/Pagination';
 import { Black1, Green1, Green2 } from 'components/MainTitle/MainTitle.styled';
+import { fetchDataCategoryList } from 'redux/categoryPage/categorySlice';
+import { fetchDataCategoryItem } from 'redux/categoryPage/itemSlice';
 
 export const Categories = () => {
   const [value, setValue] = useState(0);
-  const [loading, setLoading] = useState(true);
-  const [categoryList, setCategoryList] = useState([]);
-  const [itemArray, setItemArray] = useState([]);
   const [oneParam] = useState(useParams().categoryName);
   const [totalPage, setTotalPage] = useState(1);
   const [page, setPage] = useState(1);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { dataList } = useSelector(state => state.categoryList);
+  const { dataItem, isLoading } = useSelector(state => state.categoryItem);
+
+  useEffect(() => {
+    dispatch(fetchDataCategoryList());
+  }, [dispatch]);
 
   const theme = useSelector(selectorSwicherTheme);
 
-  useEffect(() => {
-    const fetchProductList = async () => {
-      setLoading(true);
-      try {
-        setCategoryList(await getCategoryPage());
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchProductList();
-  }, []);
-
-  const numberedArray = categoryList.map((element, index) => {
+  const numberedArray = dataList.map((element, index) => {
     return {
       id: index + 1,
       value: element,
@@ -78,17 +70,21 @@ export const Categories = () => {
   const nameEl = numberedArray[value]?.value;
 
   useEffect(() => {
-    if (nameEl === undefined) return;
-    getCategoryList(nameEl, page).then(({ result, total }) => {
-      setItemArray(result);
-      const pageCounts = Math.ceil(total / 8);
-      if (pageCounts > 1) {
-        setTotalPage(pageCounts);
-      } else {
-        setTotalPage(1);
-      }
-    });
-  }, [nameEl, page]);
+    dispatch(fetchDataCategoryItem({ nameEl, page: page }));
+  }, [dispatch, nameEl, page]);
+
+useEffect(() => {
+  if (dataItem.total === undefined) return;
+  const pageCounts = Math.ceil(dataItem?.total / 8);
+  if (pageCounts > 1) {
+    setTotalPage(pageCounts);
+  } else {
+    setTotalPage(1);
+  }
+}, [dataItem]);
+  if (dataItem.result === undefined) return;
+
+const { result } = dataItem;
 
   const handleChangePage = e => {
     setPage(e.selected + 1);
@@ -98,12 +94,15 @@ export const Categories = () => {
   return (
     <>
       <Container>
+        <BoxTitle>
+
         <Title>
           Categories
+        </Title>
           <Green1></Green1>
           <Green2></Green2>
           <Black1></Black1>
-        </Title>
+        </BoxTitle>
 
         <Box
           sx={{
@@ -141,14 +140,14 @@ export const Categories = () => {
             ))}
           </Tabs>
         </Box>
-        {loading ? (
+        {isLoading ? (
           <LoaderDiv>
             <Loader />
           </LoaderDiv>
         ) : (
           <>
-            <List item={itemArray.length}>
-              {itemArray.map(({ _id, title, thumb }) => (
+            <List>
+              {result.map(({ _id, title, thumb }) => (
                 <li key={_id}>
                   <CardLink to={`/recipe/${_id}`}>
                     <ImgBox animation={title.length > 34}>
