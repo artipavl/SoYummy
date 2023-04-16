@@ -67,11 +67,11 @@ const RegForm = () => {
                   />
                   <Name
                     style={{
-                      stroke: errors.name
+                      stroke: !touched.name
+                        ? '#FFFFFF'
+                        : errors.name
                         ? '#E74A3B'
-                        : touched.name
-                        ? '#3CBC81'
-                        : '#FFFFFF',
+                        : '#3CBC81',
                     }}
                   />
                 </FormValueContainer>
@@ -96,11 +96,11 @@ const RegForm = () => {
                   />
                   <Email
                     style={{
-                      stroke: errors.email
+                      stroke: !touched.email
+                        ? '#FFFFFF'
+                        : errors.email
                         ? '#E74A3B'
-                        : touched.email
-                        ? '#3CBC81'
-                        : '#FFFFFF',
+                        : '#3CBC81',
                     }}
                   />
                 </FormValueContainer>
