@@ -12,7 +12,7 @@ import {
   Yummy,
   Link,
 } from './СhooseYourBreakfast.styled';
-// import ArrowTab from 'images/MainPage/bg/GroupTab.svg'
+
 
 
 export const СhooseYourBreakfast = () => {

@@ -5,7 +5,7 @@ axios.defaults.baseURL = 'https://so-yummy-api.onrender.com/api';
 
 export const fetchDataCategoryItem = createAsyncThunk(
   'categoryItem/fetchAll',
-  async ({ nameEl, page }, thunkAPI) => {
+  async ({ nameEl, page = 1 }, thunkAPI) => {
     try {
       const response = await axios.get(
         `/recipes/list/${nameEl}?page=${page}&limit=8`
