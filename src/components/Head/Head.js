@@ -39,9 +39,6 @@ export const Head = () => {
   // const { recipeId = null } = useParams();
   const { pathname } = useLocation()
 
-  console.log(pathname)
-
-
   const handleChange = nextChecked => {
     setChecked(nextChecked);
   };
@@ -78,12 +75,14 @@ export const Head = () => {
 
               <UserName pathname={pathname}>{userName}</UserName>
 
+
+
+            </UserWrapButton>
+
             <UserMenu
               openUser={openUser}
               handleOpenSmallUserMenu={handleOpenSmallUserMenu}
             />
-
-            </UserWrapButton>
 
 
 
@@ -95,11 +94,12 @@ export const Head = () => {
               <ThemeToogle handleChange={handleChange} checked={checked} />
             </ToogleWrap>
           </UserToogleWrap>
-        </Container>
-
-        <MobileMenu openState={open} handleMenuClick={handleMenuClick}>
+          <MobileMenu openState={open} handleMenuClick={handleMenuClick}>
           <ThemeToogle />
         </MobileMenu>
+
+        </Container>
+
 
       </Header>
 
