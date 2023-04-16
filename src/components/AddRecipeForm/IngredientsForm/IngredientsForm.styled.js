@@ -188,7 +188,9 @@ export const SelectContainer = styled.ul`
 `;
 export const SelectItem = styled.li`
   color: ${props =>
-    props.isSelect ? props.theme.colors.accent : props.theme.colors.dark};
+    props.isSelect
+      ? props.theme.colors.selectAccentIngradientItem
+      : props.theme.colors.selectIngradientItem};
   font-size: 14px;
   &:not(:last-child) {
     margin-bottom: 4px;
