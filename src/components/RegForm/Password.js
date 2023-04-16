@@ -32,7 +32,11 @@ const Password = () => {
           {...inputProps}
           valid={isValid}
         />
-        <Pswrd />
+        <Pswrd
+          style={{
+            stroke: error ? '#E74A3B' : touched ? '#3CBC81' : '#FFFFFF',
+          }}
+        />
       </FormValueContainer>
 
       <ErrorMessage name="password" style={{ marginTop: '0' }}>

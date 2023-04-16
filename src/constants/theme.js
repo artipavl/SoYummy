@@ -51,6 +51,7 @@ export const theme = {
     selectAccentIngradientItem: '#8BAA36',
     selectIngradientItem: '#000000',
 
+
     modes: {
       white: {
         text: '#23262A', //текст
@@ -150,6 +151,7 @@ export const lightTheme = {
     selectAccentIngradientItem: '#8BAA36',
     selectIngradientItem: '#000000',
 
+
     modes: {
       white: {
         text: '#23262A', //текст
@@ -246,6 +248,7 @@ export const darkTheme = {
     searchRecipeMainBtnText: '#1E1F28',
     selectAccentIngradientItem: '#FAFAFA',
     selectIngradientItem: 'rgba(250, 250, 250, 0.5)',
+
 
     modes: {
       white: {

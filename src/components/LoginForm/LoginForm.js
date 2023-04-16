@@ -1,4 +1,4 @@
-import { Formik } from 'formik';
+import { ErrorMessage, Formik } from 'formik';
 
 import { loginValidationSchema } from 'utils/authValidationSchema';
 import formStyles from 'utils/formStyles';
@@ -22,6 +22,8 @@ import {
   FormTitle,
   FormBtn,
   FormNavLink,
+  FormValueContainer,
+  Email,
 } from '../RegForm/CombinedFormStyles.styled';
 
 const LoginForm = () => {
@@ -48,19 +50,34 @@ const LoginForm = () => {
               <Form onSubmit={handleSubmit}>
                 <FormTitle>Sign In</FormTitle>
 
-                <AuthFormInput
+                <FormValueContainer
                   error={errors.email}
                   touched={touched.email}
-                  name="email"
-                  type="email"
-                  placeholder="Email"
-                  {...getFieldProps('email')}
-                />
-                {errors.email && touched.email && (
-                  <div style={{ ...formStyles.message.error }}>
-                    {errors.email}
-                  </div>
-                )}
+                >
+                  <AuthFormInput
+                    error={errors.email}
+                    touched={touched.email}
+                    name="email"
+                    type="email"
+                    placeholder="Email"
+                    {...getFieldProps('email')}
+                  />
+                  <Email
+                    style={{
+                      stroke: errors.email
+                        ? '#E74A3B'
+                        : touched.email
+                        ? '#3CBC81'
+                        : '#FFFFFF',
+                    }}
+                  />
+                </FormValueContainer>
+
+                <ErrorMessage name="email" style={{ marginTop: '0' }}>
+                  {msg => (
+                    <div style={{ ...formStyles.message.error }}>{msg}</div>
+                  )}
+                </ErrorMessage>
 
                 <Password />
 

@@ -65,7 +65,15 @@ const RegForm = () => {
                     placeholder="Name"
                     {...getFieldProps('name')}
                   />
-                  <Name stroke="red" />
+                  <Name
+                    style={{
+                      stroke: errors.name
+                        ? '#E74A3B'
+                        : touched.name
+                        ? '#3CBC81'
+                        : '#FFFFFF',
+                    }}
+                  />
                 </FormValueContainer>
 
                 <ErrorMessage name="name" style={{ marginTop: '0' }}>
@@ -86,7 +94,15 @@ const RegForm = () => {
                     placeholder="Email"
                     {...getFieldProps('email')}
                   />
-                  <Email />
+                  <Email
+                    style={{
+                      stroke: errors.email
+                        ? '#E74A3B'
+                        : touched.email
+                        ? '#3CBC81'
+                        : '#FFFFFF',
+                    }}
+                  />
                 </FormValueContainer>
 
                 <ErrorMessage name="email" style={{ marginTop: '0' }}>
