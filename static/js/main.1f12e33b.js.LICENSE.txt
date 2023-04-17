@@ -129,8 +129,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-//! Пофіксити formFooterFormBtn: "rgba(250, 250, 250, 0.6)",
-
 //! білий замість зеленого акценту
 
 //! білий що протиставляється акцену
