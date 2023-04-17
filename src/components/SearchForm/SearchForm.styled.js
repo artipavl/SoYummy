@@ -144,6 +144,8 @@ export const SelectButton = styled.button`
   line-height: 1.5;
   letter-spacing: -0.02em;
 
+  border: 1px solid rgba(250, 250, 250, 0.2);
+
   color: ${props => props.theme.colors.searchInputTextColor};
 
   background: url(${arrowDown}) right 15px center;
@@ -168,10 +170,6 @@ export const SelectCategories = styled.ul`
   letter-spacing: -0.02em;
 
   background-color: inherit;
-  color: ${props => props.theme.colors.selectButtonText};
-
-
-  display: ${({ open }) => (open ? 'block' : 'none')};
 
   @media ${props => props.theme.device.tablet} {
     font-size: 14px;
@@ -181,12 +179,18 @@ export const SelectCategories = styled.ul`
 export const SelectCategoriesItem = styled.li`
   padding: 8px 16px;
   cursor: pointer;
-  /* border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px; */
+
+  color: #fafafa;
+  opacity: 0.8;
+
   background-color: ${props => props.theme.colors.selectCategoriesItemBgColor};
 
- &:hover {
-  color: ${props => props.theme.colors.selectCategoriesItemText};
-}
-`;
+  &:not(:first-child) {
+    border-radius: 0px 0px 6px 6px;
+  }
 
+  &:hover {
+    color: ${props => props.theme.colors.selectCategoriesItemText};
+    opacity: 1;
+  }
+`;
