@@ -5,13 +5,16 @@ import {
   SearchContainer,
   SearchValue,
   SearchBtn,
-  SelectorOption,
   SelectorText,
   SelectorWrapper,
-  TypeSelector,
+  SelectContainer,
+  SelectButton,
+  SelectCategories,
+  SelectCategoriesItem,
 } from './SearchForm.styled';
 
 import { useState } from 'react';
+import { useRef } from 'react';
 
 const SearchForm = ({ get }) => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -35,6 +38,35 @@ const SearchForm = ({ get }) => {
     get({ query: trimmedQuery, type: paramsType });
   };
 
+  const [open, setOpen] = useState(false);
+  const optionsRef = useRef(null);
+
+  const toggleDropdown = e => {
+    setParamsType(e.target.value);
+
+    setOpen(!open);
+  };
+
+  const handleSelectOption = e => {
+    const selectedValue = e.currentTarget.getAttribute('value');
+
+    setParamsType(selectedValue);
+
+    setOpen(false);
+  };
+
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      setOpen(false);
+    }
+  });
+
+  window.addEventListener('mousedown', e => {
+    if (optionsRef.current && !optionsRef.current.contains(e.target)) {
+      setOpen(false);
+    }
+  });
+
   return (
     <Form onSubmit={onSubmit}>
       <SearchContainer>
@@ -49,14 +81,28 @@ const SearchForm = ({ get }) => {
       </SearchContainer>
       <SelectorWrapper>
         <SelectorText>Search by:</SelectorText>
-        <TypeSelector
-          name="type"
-          value={paramsType}
-          onChange={e => setParamsType(e.target.value)}
-        >
-          <SelectorOption value="title">Title</SelectorOption>
-          <SelectorOption value="ingredients">Ingredients</SelectorOption>
-        </TypeSelector>
+
+        <SelectContainer>
+          <SelectButton
+            type="button"
+            name="type"
+            value={paramsType}
+            onClick={toggleDropdown}
+          >
+            {paramsType.charAt(0).toUpperCase() + paramsType.slice(1)}
+          </SelectButton>
+          <SelectCategories ref={optionsRef} open={open}>
+            <SelectCategoriesItem value="title" onClick={handleSelectOption}>
+              Title
+            </SelectCategoriesItem>
+            <SelectCategoriesItem
+              value="ingredients"
+              onClick={handleSelectOption}
+            >
+              Ingredients
+            </SelectCategoriesItem>
+          </SelectCategories>
+        </SelectContainer>
       </SelectorWrapper>
     </Form>
   );
