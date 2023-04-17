@@ -46,7 +46,7 @@ export const FooterForm = () => {
           if (rejected.payload === 'Request failed with status code 400') {
             return notiflix.Notify.warning('User is already Subscribed');
           }
-          notiflix.Notify.success('Subscribed Successful');
+          notiflix.Notify.success('Subscribed successfully');
         })
         .catch(error => {
           console.log(error);

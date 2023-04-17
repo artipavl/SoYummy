@@ -28,6 +28,8 @@ export const SearchValue = styled.input`
   width: 100%;
   height: 53px;
 
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
   padding: 0;
   padding-left: 32px;
 
@@ -180,7 +182,7 @@ export const SelectCategoriesItem = styled.li`
   padding: 8px 16px;
   cursor: pointer;
 
-  color: #fafafa;
+  color: ${props => props.theme.colors.searchInputTextColor};
   opacity: 0.8;
 
   background-color: ${props => props.theme.colors.selectCategoriesItemBgColor};
