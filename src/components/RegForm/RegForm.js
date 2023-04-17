@@ -23,6 +23,7 @@ import { FormValueContainer } from './CombinedFormStyles.styled';
 import { Name, Email } from './CombinedFormStyles.styled';
 
 import {
+  PageWrapper,
   Wrapper,
   SignUpLogo,
   Form,
@@ -49,7 +50,12 @@ const RegForm = () => {
     >
       {({ handleSubmit, getFieldProps, touched, errors }) => {
         return (
+
+          <PageWrapper>
+
           <Wrapper>
+
+
             <SignUpLogo src={orderIcon} alt="Sign up gear"></SignUpLogo>
 
             <div>
@@ -70,8 +76,8 @@ const RegForm = () => {
                       stroke: !touched.name
                         ? '#FFFFFF'
                         : errors.name
-                        ? '#E74A3B'
-                        : '#3CBC81',
+                          ? '#E74A3B'
+                          : '#3CBC81',
                     }}
                   />
                 </FormValueContainer>
@@ -99,8 +105,8 @@ const RegForm = () => {
                       stroke: !touched.email
                         ? '#FFFFFF'
                         : errors.email
-                        ? '#E74A3B'
-                        : '#3CBC81',
+                          ? '#E74A3B'
+                          : '#3CBC81',
                     }}
                   />
                 </FormValueContainer>
@@ -122,7 +128,12 @@ const RegForm = () => {
                 Sign in with Google
               </FormNavLink>
             </div>
-          </Wrapper>
+
+            </Wrapper>
+
+            </PageWrapper>
+
+
         );
       }}
     </Formik>
