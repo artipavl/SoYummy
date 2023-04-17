@@ -115,7 +115,7 @@ export const SignUpLogo = styled.img`
 
   @media ${props => props.theme.device.tablet} {
     width: 409px;
-    margin-top: 115px;
+    /* margin-top: 115px; */
   }
 
   @media ${props => props.theme.device.desktop} {
