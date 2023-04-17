@@ -37,7 +37,7 @@ export const SearchValue = styled.input`
   font-size: 12px;
   line-height: 1.5;
 
-  color: ${props => props.theme.colors.textCurrentDark};
+  color: ${props => props.theme.colors.searchInputTextColor};
 
   @media ${props => props.theme.device.tablet} {
     width: 100%;
@@ -143,7 +143,7 @@ export const SelectButton = styled.button`
   line-height: 1.5;
   letter-spacing: -0.02em;
 
-  color: rgba(0, 0, 0, 0.5);
+  color: ${props => props.theme.colors.searchInputTextColor};
 
   background: url(${arrowDown}) right 15px center;
   background-repeat: no-repeat;
@@ -167,7 +167,8 @@ export const SelectCategories = styled.ul`
   letter-spacing: -0.02em;
 
   background-color: inherit;
-  color: rgba(0, 0, 0, 0.5);
+  color: ${props => props.theme.colors.selectButtonText};
+
 
   display: ${({ open }) => (open ? 'block' : 'none')};
 
@@ -179,8 +180,12 @@ export const SelectCategories = styled.ul`
 export const SelectCategoriesItem = styled.li`
   padding: 8px 16px;
   cursor: pointer;
+  /* border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px; */
+  background-color: ${props => props.theme.colors.selectCategoriesItemBgColor};
 
-  &:hover {
-    background-color: #f5f5f5;
-  }
+ &:hover {
+  color: ${props => props.theme.colors.selectCategoriesItemText};
+}
 `;
+
