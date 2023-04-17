@@ -103,7 +103,7 @@ export const RecipeTitleName = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
 
-  color: ${props => props.theme.colors.modes.white.textDark};
+  color: ${props => props.theme.colors.RecipeTitleNameColor};
 
   padding-left: 16px;
   padding-top: 16px;

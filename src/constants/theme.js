@@ -50,6 +50,11 @@ export const theme = {
     searchRecipeMainBtnText: '#FAFAFA',
     selectAccentIngradientItem: '#8BAA36',
     selectIngradientItem: '#000000',
+    RecipeTitleNameColor: '#3E4462',
+    searchInputTextColor: '#3E4462',
+    selectButtonText: 'rgba(0, 0, 0, 0.5)',
+    selectCategoriesItemBgColor: '#ECECEC',
+    selectCategoriesItemText: "#8BAA36",
 
 
     modes: {
@@ -150,6 +155,11 @@ export const lightTheme = {
     searchRecipeMainBtnText: '#FAFAFA',
     selectAccentIngradientItem: '#8BAA36',
     selectIngradientItem: '#000000',
+    RecipeTitleNameColor: '#3E4462',
+    searchInputTextColor: '#3E4462',
+    selectButtonText: 'rgba(0, 0, 0, 0.5)',
+    selectCategoriesItemBgColor: '#ECECEC',
+    selectCategoriesItemText: "#8BAA36",
 
 
     modes: {
@@ -248,6 +258,11 @@ export const darkTheme = {
     searchRecipeMainBtnText: '#1E1F28',
     selectAccentIngradientItem: '#FAFAFA',
     selectIngradientItem: 'rgba(250, 250, 250, 0.5)',
+    RecipeTitleNameColor: '#FAFAFA',
+    searchInputTextColor: 'rgb(170,187,204, 0.5)',
+    selectButtonText: 'rgb(170,187,204, 0.5)',
+    selectCategoriesItemBgColor: '#8BAA36',
+    selectCategoriesItemText: "#FAFAFA",
 
 
     modes: {
