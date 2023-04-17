@@ -61,7 +61,7 @@ export const theme = {
       white: {
         text: '#23262A', //текст
         textDark: '#3E4462', //текст сірий
-        background: '#ECECEC',
+        background: '#FAFAFA',
 
         accent: '#8BAA36', //зелений акцен
         accentMuted: '#EBF3D4', //зелений акцен пригнічений
@@ -166,7 +166,7 @@ export const lightTheme = {
       white: {
         text: '#23262A', //текст
         textDark: '#3E4462', //текст сірий
-        background: '#ECECEC',
+        background: '#FAFAFA',
         backgroundAccent: '#000000',
 
         accent: '#8BAA36', //зелений акцен
