@@ -6,7 +6,6 @@ const AuthFormInput = ({
   placeholder,
   onChange,
   onBlur,
-  value,
   error,
   touched,
   warn,
@@ -18,7 +17,6 @@ const AuthFormInput = ({
       placeholder={placeholder}
       onChange={onChange}
       onBlur={onBlur}
-      value={value}
       error={error}
       touched={touched}
       warn={warn}

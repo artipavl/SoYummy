@@ -1,19 +1,16 @@
 import { ErrorMessage, Formik } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
+import { login, fetchAchievements } from 'redux/authOperations';
+import { selectAuthIsLoading } from 'redux/selectors';
 
 import { loginValidationSchema } from 'utils/authValidationSchema';
 import formStyles from 'utils/formStyles';
 
-import orderIcon from '../../images/icons/order-food-pana.svg';
-
 import AuthFormInput from 'components/AuthFormInput';
 import Password from 'components/RegForm/Password';
-
-import { useDispatch, useSelector } from 'react-redux';
-
-import { login, fetchAchievements } from 'redux/authOperations';
-import { selectAuthIsLoading } from 'redux/selectors';
-
 import ButtonLoader from 'components/ButtonLoader';
+
+import orderIcon from '../../images/icons/order-food-pana.svg';
 
 import {
   PageWrapper,

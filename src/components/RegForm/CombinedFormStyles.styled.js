@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+import validationInputLogo from 'utils/validationInputLogo';
 
 import { ReactComponent as NameIcon } from '../../images/icons/name.svg';
 import { ReactComponent as EmailIcon } from '../../images/icons/email.svg';
@@ -7,10 +10,6 @@ import { ReactComponent as PasswordIcon } from '../../images/icons/password.svg'
 // import bgDesktop from '../../images/bg/registrBG_Desktop.svg';
 import bgTablet from '../../images/bg/registrBG_Tablet.svg';
 import bgMobile from '../../images/bg/registrBG_Mobile.svg'
-
-import validationInputLogo from 'utils/validationInputLogo';
-
-import { Link } from 'react-router-dom';
 
 export const Name = styled(NameIcon)`
   position: absolute;

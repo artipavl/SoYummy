@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react';
 import MainTitle from 'components/MainTitle/MainTitle';
 import SearchedRecipesList from 'components/SearchedRecipesList';
 import Pagination from 'components/Pagination/Pagination';
-import { Container } from 'reusableComponents/Container/Container.styled';
-
 import SearchForm from 'components/SearchForm';
 
 import { getSearchRecipes, getSearchIngredients } from 'api/serviseApi';
+
+import { Page } from 'pages/Favorite/Favorite.styled';
 
 const SearchPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -86,7 +86,7 @@ const SearchPage = () => {
   };
 
   return (
-    <Container>
+    <Page>
       <MainTitle text="Search" />
       <SearchForm get={get} />
       <SearchedRecipesList recipes={recipes} isLoading={isLoading} />
@@ -105,7 +105,7 @@ const SearchPage = () => {
           />
         </div>
       )}
-    </Container>
+    </Page>
   );
 };
 
