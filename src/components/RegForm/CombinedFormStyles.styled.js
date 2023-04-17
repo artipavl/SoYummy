@@ -1,11 +1,16 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-
-import validationInputLogo from 'utils/validationInputLogo';
 
 import { ReactComponent as NameIcon } from '../../images/icons/name.svg';
 import { ReactComponent as EmailIcon } from '../../images/icons/email.svg';
 import { ReactComponent as PasswordIcon } from '../../images/icons/password.svg';
+
+// import bgDesktop from '../../images/bg/registrBG_Desktop.svg';
+import bgTablet from '../../images/bg/registrBG_Tablet.svg';
+import bgMobile from '../../images/bg/registrBG_Mobile.svg'
+
+import validationInputLogo from 'utils/validationInputLogo';
+
+import { Link } from 'react-router-dom';
 
 export const Name = styled(NameIcon)`
   position: absolute;
@@ -64,51 +69,47 @@ export const Pswrd = styled(PasswordIcon)`
   }
 `;
 
+export const PageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+
+  max-height: 100%;
+  min-height: 100vh;
+  background-image: url('${bgMobile}');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100% 57vh;
+
+  @media ${props => props.theme.device.tablet} {
+    background-image: url('${bgTablet}');
+    background-size: 100% 51vh;
+  }
+
+  @media ${props => props.theme.device.desktop}  {
+    background-size: 100% 46vh;
+  }
+
+
+`
+
 export const Wrapper = styled.div`
-  background: linear-gradient(
-    to bottom,
-    ${props => props.theme.colors.white} 40%,
-    ${props => props.theme.colors.bgDark} 40%
-  );
-
-  padding-bottom: 118px;
-
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
-  &::before {
-    content: '';
-    position: absolute;
-    bottom: 500px;
-    right: -50%;
-    width: 200%;
-    height: 200%;
-    background-color: ${props => props.theme.colors.white};
-    border-radius: 30%;
-  }
-
-  @media ${props => props.theme.device.tablet} {
-    &::before {
-      border-radius: 40%;
-      bottom: 370px;
-    }
-  }
 
   @media ${props => props.theme.device.desktop} {
     flex-direction: row;
-    height: 100vh;
 
-    &::before {
-      border-radius: 40%;
-      bottom: 440px;
-    }
   }
 `;
 
 export const SignUpLogo = styled.img`
-  margin-top: 96px;
+  /* margin-top: 96px; */
 
   z-index: 1;
 
@@ -259,3 +260,10 @@ export const FormNavLink = styled(Link)`
   @media ${props => props.theme.device.desktop} {
   }
 `;
+
+export const RegisterWrap = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100vh;
+`
+

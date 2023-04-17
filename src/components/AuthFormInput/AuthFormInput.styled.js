@@ -4,6 +4,7 @@ import formStyles from 'utils/formStyles';
 export const FormValue = styled.input`
   background-color: transparent;
 
+
   color: ${props => props.theme.colors.textWhite};
 
   border: 1px solid ${props => props.theme.colors.textWhite};

@@ -15,6 +15,7 @@ import Password from './Password';
 import orderIcon from '../../images/icons/order-food-pana.svg';
 
 import {
+  PageWrapper,
   Wrapper,
   FormValueContainer,
   SignUpLogo,
@@ -44,7 +45,12 @@ const RegForm = () => {
     >
       {({ handleSubmit, getFieldProps, touched, errors }) => {
         return (
+
+          <PageWrapper>
+
           <Wrapper>
+
+
             <SignUpLogo src={orderIcon} alt="Sign up gear"></SignUpLogo>
 
             <div>
@@ -65,8 +71,8 @@ const RegForm = () => {
                       stroke: !touched.name
                         ? '#FFFFFF'
                         : errors.name
-                        ? '#E74A3B'
-                        : '#3CBC81',
+                          ? '#E74A3B'
+                          : '#3CBC81',
                     }}
                   />
                 </FormValueContainer>
@@ -94,8 +100,8 @@ const RegForm = () => {
                       stroke: !touched.email
                         ? '#FFFFFF'
                         : errors.email
-                        ? '#E74A3B'
-                        : '#3CBC81',
+                          ? '#E74A3B'
+                          : '#3CBC81',
                     }}
                   />
                 </FormValueContainer>
@@ -117,7 +123,12 @@ const RegForm = () => {
                 Sign in with Google
               </FormNavLink>
             </div>
-          </Wrapper>
+
+            </Wrapper>
+
+            </PageWrapper>
+
+
         );
       }}
     </Formik>
