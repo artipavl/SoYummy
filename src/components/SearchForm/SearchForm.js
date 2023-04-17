@@ -42,7 +42,7 @@ const SearchForm = ({ get }) => {
   const toggleDropdown = e => {
     setParamsType(e.target.value);
 
-    setOpen(!open);
+    setOpen(prevOpen => !prevOpen);
   };
 
   const handleSelectOption = e => {
@@ -60,7 +60,11 @@ const SearchForm = ({ get }) => {
   });
 
   window.addEventListener('mousedown', e => {
-    if (optionsRef.current && !optionsRef.current.contains(e.target)) {
+    if (
+      optionsRef.current &&
+      !optionsRef.current.contains(e.target) &&
+      e.target !== document.querySelector('[name="type"]')
+    ) {
       setOpen(false);
     }
   });
