@@ -38,6 +38,7 @@ export const SearchValue = styled.input`
   line-height: 1.5;
 
   color: ${props => props.theme.colors.searchInputTextColor};
+  background-color: ${props => props.theme.colors.searchValueBgColor};
 
   @media ${props => props.theme.device.tablet} {
     width: 100%;
