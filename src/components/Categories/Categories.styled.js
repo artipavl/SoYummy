@@ -52,7 +52,7 @@ position: relative;
 `;
 
 
-export const Title = styled.p`
+export const Title = styled.h2`
   display: block;
   font-family: 'Poppins';
   color: ${props => props.theme.colors.textTitle};
