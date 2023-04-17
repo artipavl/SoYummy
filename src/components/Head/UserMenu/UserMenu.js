@@ -26,7 +26,6 @@ export const UserMenu = ({
   const handleOpenLogoutMenu = () => {
     setOpenLogoutMenu(!openLogoutMenu);
     if (openUser) {
-      console.log(openUser)
       handleOpenSmallUserMenu();
     }
   }
