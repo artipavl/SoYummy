@@ -1,34 +1,29 @@
 import { Formik } from 'formik';
-
 import { ErrorMessage } from 'formik';
-
 import { useDispatch, useSelector } from 'react-redux';
+
+import { selectAuthIsLoading } from 'redux/selectors';
+import { register, login } from 'redux/authOperations';
 
 import { registerValidationSchema } from 'utils/authValidationSchema';
 import formStyles from 'utils/formStyles';
 
-import orderIcon from '../../images/icons/order-food-pana.svg';
-
 import AuthFormInput from 'components/AuthFormInput';
+import ButtonLoader from 'components/ButtonLoader';
 import Password from './Password';
 
-import ButtonLoader from 'components/ButtonLoader';
-
-import { selectAuthIsLoading } from 'redux/selectors';
-
-import { register, login } from 'redux/authOperations';
-
-import { FormValueContainer } from './CombinedFormStyles.styled';
-
-import { Name, Email } from './CombinedFormStyles.styled';
+import orderIcon from '../../images/icons/order-food-pana.svg';
 
 import {
   Wrapper,
+  FormValueContainer,
   SignUpLogo,
   Form,
   FormTitle,
   FormBtn,
   FormNavLink,
+  Name,
+  Email,
 } from './CombinedFormStyles.styled';
 
 const RegForm = () => {

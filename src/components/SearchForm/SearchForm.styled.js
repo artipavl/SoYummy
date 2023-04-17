@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import arrowDown from '../../images/icons/arrow-down.svg';
 
 export const Form = styled.form`
@@ -100,15 +99,11 @@ export const SelectorWrapper = styled.div`
   position: relative;
 
   margin-top: 24px;
-  margin-bottom: 40px;
+  margin-bottom: ${({ open }) => (open ? '0' : '90px')};
 
   @media ${props => props.theme.device.tablet} {
     margin-top: 28px;
     gap: 18px;
-  }
-
-  @media ${props => props.theme.device.desktop} {
-    /* gap: 14px; */
   }
 `;
 
@@ -131,13 +126,17 @@ export const SelectorText = styled.p`
   }
 `;
 
-export const TypeSelector = styled.select`
+export const SelectContainer = styled.div`
+  position: relative;
+`;
+
+export const SelectButton = styled.button`
   height: 34px;
   width: 146px;
 
+  text-align: left;
   padding-left: 14px;
 
-  border: none;
   border-radius: 6px;
 
   font-size: 12px;
@@ -146,26 +145,42 @@ export const TypeSelector = styled.select`
 
   color: rgba(0, 0, 0, 0.5);
 
-  background: url(${arrowDown}) right 19px center;
+  background: url(${arrowDown}) right 15px center;
   background-repeat: no-repeat;
   background-color: ${props => props.theme.colors.whiteMuted};
   background-size: 7px;
-
-  appearance: none;
 
   @media ${props => props.theme.device.tablet} {
     font-size: 14px;
 
     background-size: 10px;
   }
+`;
 
-  @media ${props => props.theme.device.desktop} {
+export const SelectCategories = styled.ul`
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+
+  background-color: inherit;
+  color: rgba(0, 0, 0, 0.5);
+
+  display: ${({ open }) => (open ? 'block' : 'none')};
+
+  @media ${props => props.theme.device.tablet} {
+    font-size: 14px;
   }
 `;
 
-export const SelectorOption = styled.option`
-  &:checked {
-    background-color: red;
-    color: blue;
+export const SelectCategoriesItem = styled.li`
+  padding: 8px 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f5f5f5;
   }
 `;

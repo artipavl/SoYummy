@@ -1,14 +1,11 @@
 import { useField, ErrorMessage } from 'formik';
 
 import formStyles from 'utils/formStyles';
+import { securePasswordRegExp } from 'utils/regExp';
 
 import AuthFormInput from 'components/AuthFormInput';
 
-import { Pswrd } from './CombinedFormStyles.styled';
-
-import { securePasswordRegExp } from 'utils/regExp';
-
-import { FormValueContainer } from './CombinedFormStyles.styled';
+import { Pswrd, FormValueContainer } from './CombinedFormStyles.styled';
 
 const Password = () => {
   const [inputProps, inputState] = useField('password');
