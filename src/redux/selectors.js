@@ -9,3 +9,4 @@ export const selectAuthIsLoading = state => state.auth.isLoading;
 export const selectIsLoggedIn = state => state.auth.isLoggedIn;
 export const selectorSwicherTheme = state => state.auth.theme;
 export const selectorIsSubscribe = state => state.auth.isSubscribed;
+export const selectorAchievements = state => state.auth.user.achievements;

@@ -1,9 +1,12 @@
 import { Formik, FieldArray } from 'formik';
 import { useState, useMemo, useRef } from 'react';
+import { useDispatch } from 'react-redux';
+
 import { useNavigate } from 'react-router-dom';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getAllCategories, getAllIngredients, addRecipe } from '../../api';
 import { addRecipeSchema, getCookingTime, createFormData } from 'utils';
+
 import {
   AddForma,
   ImageInput,
@@ -36,7 +39,7 @@ import {
 import { IngredientsInput } from './IngredientsForm/IngrdedientsForm';
 import { AddRecipePreparation } from './RecipePreparation/AddRecipePreparation';
 import { Loader } from 'components/Loader/Loader';
-
+import { fetchCurrentUser, fetchAchievements } from 'redux/authOperations';
 import { ReactComponent as UploadPhoto } from '../../images/icons/upload-photo.svg';
 import { ReactComponent as SelectArrow } from '../../images/icons/select-arrow.svg';
 
@@ -57,6 +60,7 @@ export const AddRecipeForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isCategoryActive, setIsCategoryActive] = useState(false);
   const [isTimeActive, setIsTimeActive] = useState(false);
+  const dispatch = useDispatch();
 
   const cookingTime = getCookingTime();
 
@@ -80,6 +84,7 @@ export const AddRecipeForm = () => {
       console.log(error.message);
     }
   }, []);
+
   const handlePreparationChange = (description, setFieldValue) => {
     setFieldValue(`instructions`, description);
   };
@@ -89,6 +94,8 @@ export const AddRecipeForm = () => {
       const data = createFormData(values);
       await addRecipe(data);
       resetForm();
+      dispatch(fetchCurrentUser());
+      dispatch(fetchAchievements());
       navigate('/my');
     } catch (error) {
       Notify.failure(`Something went wrong!${error.message}`);
@@ -106,7 +113,7 @@ export const AddRecipeForm = () => {
       >
         {formik => {
           const { values, setFieldValue } = formik;
-          console.log(values);
+
           return (
             <AddForma>
               {isLoading && (

@@ -161,3 +161,24 @@ export const addIngredient = createAsyncThunk(
     }
   }
 );
+
+export const fetchAchievements = createAsyncThunk(
+  'auth/achievements',
+  async (_, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const persistedToken = state.auth.token;
+
+      if (persistedToken === null) {
+        return thunkAPI.rejectWithValue();
+      }
+      token.set(persistedToken);
+
+      const response = await axios.get('/users/current/achievement');
+
+      return response.data.data.user;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

@@ -184,6 +184,10 @@ export const MeasureProduct = styled.p`
     min-width: 68px;
     font-size: 18px;
   }
+
+  @media ${props => props.theme.device.desktop} {
+    max-width: 400px;
+  }
 `;
 
 export const LoaderDiv = styled.div`
