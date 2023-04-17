@@ -1,4 +1,4 @@
-import { useDispatch, useSelector, } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { useEffect } from 'react';
 
@@ -9,7 +9,7 @@ import { editUserValidationSchema } from 'utils/editUserValidationSchema';
 
 import { selectUserName, selectAvatarURL } from 'redux/selectors';
 import { updateUser } from '../../../../redux/authOperations';
-import notImage from '../../../../images/icons/not-supported-image.svg'
+import notImage from '../../../../images/icons/not-supported-image.svg';
 
 import {
   AddImageIconStyled,
@@ -70,7 +70,7 @@ export const EditUserModal = ({
   const formik = useFormik({
     initialValues: {
       avatar: avatarURL,
-      name: userName
+      name: userName,
     },
 
     validationSchema: editUserValidationSchema,
@@ -84,7 +84,7 @@ export const EditUserModal = ({
 
       dispatch(updateUser(formData))
         .then(() => {
-          return notiflix.Notify.success('User update successful');
+          return notiflix.Notify.success('User has been updated successfully');
         })
         .catch(error => {
           return notiflix.Notify.failure('Error updating');
@@ -93,32 +93,30 @@ export const EditUserModal = ({
     },
   });
 
-  const handleAvatarChange = (e) => {
-  const avatar = e.target.files[0];
-  formik.setValues({...formik.values, avatar});
-
-};
-
+  const handleAvatarChange = e => {
+    const avatar = e.target.files[0];
+    formik.setValues({ ...formik.values, avatar });
+  };
 
   const handleChangeName = e => {
-    formik.setValues({...formik.values, name: e.target.value })
-  }
+    formik.setValues({ ...formik.values, name: e.target.value });
+  };
 
-const handleResetName = () => {
-  formik.resetForm();
-  formik.setValues({
-    ...formik.values, name: ''
-  });
-};
+  const handleResetName = () => {
+    formik.resetForm();
+    formik.setValues({
+      ...formik.values,
+      name: '',
+    });
+  };
 
-const handleResetImage = () => {
-
-  formik.resetForm();
-  formik.setValues({
-    ...formik.values, avatar: ''
-  });
-};
-
+  const handleResetImage = () => {
+    formik.resetForm();
+    formik.setValues({
+      ...formik.values,
+      avatar: '',
+    });
+  };
 
   return (
     <BackdropEditUserMOdal
@@ -129,7 +127,6 @@ const handleResetImage = () => {
         className={openEditMenu ? 'open' : ''}
         onClick={stopPropagation}
       >
-
         <button type="button" onClick={handleOpenEditModal}>
           <CloseIcon />
         </button>
@@ -138,18 +135,18 @@ const handleResetImage = () => {
           <PreviewWrap>
             <PreviewImageWrap htmlFor="file-upload">
               <PreviewImage
-                src={formik.values.avatar ?
-                  (formik.values.avatar instanceof File ?
-                    URL.createObjectURL(formik.values.avatar)
-                    : formik.values.avatar) : notImage}
-
-
+                src={
+                  formik.values.avatar
+                    ? formik.values.avatar instanceof File
+                      ? URL.createObjectURL(formik.values.avatar)
+                      : formik.values.avatar
+                    : notImage
+                }
                 alt="User avatar"
                 style={{ display: 'block', margin: '0 auto' }}
                 width={103}
               />
             </PreviewImageWrap>
-
 
             {formik.errors.avatar ? (
               <ValidImageText>{formik.errors.avatar}</ValidImageText>
@@ -158,14 +155,14 @@ const handleResetImage = () => {
             )}
 
             <AddImageButton htmlFor="file-upload">
-              {formik.values.avatar === '' || formik.values.avatar === undefined ?
-                <AddImageIconStyled /> :
-                <button
-                  type='button'
-                  onClick={handleResetImage}
-                >
+              {formik.values.avatar === '' ||
+              formik.values.avatar === undefined ? (
+                <AddImageIconStyled />
+              ) : (
+                <button type="button" onClick={handleResetImage}>
                   <RedCrossStyled />
-                </button>}
+                </button>
+              )}
 
               <input
                 style={{ display: 'none' }}
@@ -177,9 +174,7 @@ const handleResetImage = () => {
                 onBlur={formik.handleBlur}
                 error={formik.errors.avatar}
                 touch={formik.touched.avatar}
-
               />
-
             </AddImageButton>
           </PreviewWrap>
 
@@ -197,13 +192,9 @@ const handleResetImage = () => {
               style={{ stroke: formik.errors.name ? '#E74A3B' : '#3CBC81' }}
             />
 
-
-            <ResetNameButton
-              onClick={handleResetName}
-              type="button">
+            <ResetNameButton onClick={handleResetName} type="button">
               <RedCrossStyled />
             </ResetNameButton>
-
           </EditNameFormWrap>
           {formik.errors.name ? (
             <ValidImageText>{formik.errors.name}</ValidImageText>
@@ -221,5 +212,3 @@ const handleResetImage = () => {
     </BackdropEditUserMOdal>
   );
 };
-
-
