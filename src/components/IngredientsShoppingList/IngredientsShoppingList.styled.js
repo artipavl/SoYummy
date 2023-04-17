@@ -136,7 +136,7 @@ export const ImageProduct = styled.img`
   height: 48px;
   padding: 6px;
   border-radius: 8px;
-  background: ${props => props.theme.colors.accentMuted};
+  background: ${props => props.theme.colors.accentMutedRecipeIngredients};
 
   @media ${props => props.theme.device.tablet} {
     width: 93px;

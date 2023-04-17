@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Page = styled.section`
   width: 320px;
-  padding: 75px 16px 100px 16px;
+  padding: 62px 16px 100px 16px;
 
   margin: 0 auto;
 
@@ -11,11 +11,11 @@ export const Page = styled.section`
   }
   @media ${props => props.theme.device.tablet} {
     width: ${props => props.theme.size.tablet};
-    padding: 85px 32px 200px 32px;
+    padding: 62px 32px 200px 32px;
   }
 
   @media ${props => props.theme.device.desktop} {
-    padding: 116px 100px 200px 100px;
+    padding: 62px 100px 200px 100px;
 
     width: ${props => props.theme.size.desktop};
   }
