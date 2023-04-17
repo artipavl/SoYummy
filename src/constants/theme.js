@@ -55,13 +55,14 @@ export const theme = {
     selectButtonText: 'rgba(0, 0, 0, 0.5)',
     selectCategoriesItemBgColor: '#ECECEC',
     selectCategoriesItemText: "#8BAA36",
+    searchValueBgColor: '#FAFAFA',
 
 
     modes: {
       white: {
         text: '#23262A', //текст
         textDark: '#3E4462', //текст сірий
-        background: '#ECECEC',
+        background: '#FAFAFA',
 
         accent: '#8BAA36', //зелений акцен
         accentMuted: '#EBF3D4', //зелений акцен пригнічений
@@ -150,7 +151,6 @@ export const lightTheme = {
     searchBtnHover: '#22252A',
     searchBtnText: '#FAFAFA',
     formFooterFormBtn: 'rgba(250, 250, 250, 0.6)',
-    //! Пофіксити formFooterFormBtn: "rgba(250, 250, 250, 0.6)",
     searchRecipeMainBtn: '#22252A',
     searchRecipeMainBtnText: '#FAFAFA',
     selectAccentIngradientItem: '#8BAA36',
@@ -160,13 +160,14 @@ export const lightTheme = {
     selectButtonText: 'rgba(0, 0, 0, 0.5)',
     selectCategoriesItemBgColor: '#ECECEC',
     selectCategoriesItemText: "#8BAA36",
+    searchValueBgColor: '#FAFAFA',
 
 
     modes: {
       white: {
         text: '#23262A', //текст
         textDark: '#3E4462', //текст сірий
-        background: '#ECECEC',
+        background: '#FAFAFA',
         backgroundAccent: '#000000',
 
         accent: '#8BAA36', //зелений акцен
@@ -263,6 +264,7 @@ export const darkTheme = {
     selectButtonText: 'rgb(170,187,204, 0.5)',
     selectCategoriesItemBgColor: '#8BAA36',
     selectCategoriesItemText: "#FAFAFA",
+    searchValueBgColor: '#1E1F28',
 
 
     modes: {
