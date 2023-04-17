@@ -122,7 +122,6 @@ const authSlice = createSlice({
     },
     [fetchUserLogout.rejected](state, action) {
       state.isError = action.payload;
-      // state.isLoggedIn = false;
       state.isLoading = false;
     },
 

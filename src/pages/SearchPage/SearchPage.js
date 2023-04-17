@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react';
 import MainTitle from 'components/MainTitle/MainTitle';
 import SearchedRecipesList from 'components/SearchedRecipesList';
 import Pagination from 'components/Pagination/Pagination';
-
 import SearchForm from 'components/SearchForm';
 
 import { getSearchRecipes, getSearchIngredients } from 'api/serviseApi';
+
 import { Page } from 'pages/Favorite/Favorite.styled';
 
 const SearchPage = () => {

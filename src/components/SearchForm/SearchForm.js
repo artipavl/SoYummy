@@ -1,4 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
+import { useState, useRef } from 'react';
 
 import {
   Form,
@@ -12,9 +13,6 @@ import {
   SelectCategories,
   SelectCategoriesItem,
 } from './SearchForm.styled';
-
-import { useState } from 'react';
-import { useRef } from 'react';
 
 const SearchForm = ({ get }) => {
   const [searchParams, setSearchParams] = useSearchParams();

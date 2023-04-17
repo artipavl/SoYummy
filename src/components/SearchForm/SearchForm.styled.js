@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import arrowDown from '../../images/icons/arrow-down.svg';
 
 export const Form = styled.form`
@@ -105,10 +104,6 @@ export const SelectorWrapper = styled.div`
   @media ${props => props.theme.device.tablet} {
     margin-top: 28px;
     gap: 18px;
-  }
-
-  @media ${props => props.theme.device.desktop} {
-    /* gap: 14px; */
   }
 `;
 

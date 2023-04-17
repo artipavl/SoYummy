@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import formStyles from 'utils/formStyles';
 
 export const FormValue = styled.input`
@@ -43,8 +42,5 @@ export const FormValue = styled.input`
 
     font-size: 18px;
     line-height: 1.5;
-  }
-
-  @media ${props => props.theme.device.desktop} {
   }
 `;
