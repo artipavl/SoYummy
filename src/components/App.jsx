@@ -25,6 +25,8 @@ import { useMemo } from 'react';
 import { useState } from 'react';
 import { CategoriesPage } from 'pages/CategoriesPage/CategoriesPage';
 import { useEffect } from 'react';
+import { Loader } from './Loader/Loader';
+import { LoaderContainer } from './AddRecipeForm/AddRecipeForm.styled';
 
 const Verification = lazy(() => import('pages/Varification/Verification'));
 const SharedLayout = lazy(() => import('../components/SharedLayout'));
@@ -71,6 +73,16 @@ export const App = () => {
       });
     }
   }, [dispatch, location]);
+
+  if (!start) {
+    return (
+      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+        <LoaderContainer>
+          <Loader />
+        </LoaderContainer>
+      </ThemeProvider>
+    );
+  }
 
   return (
     <>
