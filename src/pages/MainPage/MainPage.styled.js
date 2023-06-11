@@ -30,9 +30,11 @@ export const ConteinerGrid = styled.div`
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+    padding-left: 32px;
   }
 
   @media ${props => props.theme.device.desktop} {
     max-width: 1240px;
+    padding-left: 0px;
   }
 `;

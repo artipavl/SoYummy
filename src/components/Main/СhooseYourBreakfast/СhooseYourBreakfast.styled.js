@@ -6,13 +6,10 @@ import PlateTabletRetina from 'images/MainPage/bg/plateTabletRetina.webp';
 import PlateDesktop from 'images/MainPage/bg/plateDesktop.webp';
 import PlateDesktopRetina from 'images/MainPage/bg/plateDekctopRetina.webp';
 
-
-
 import ArrowDesc from 'images/MainPage/bg/GroupDeck.svg';
 
 // import ArrowTab from 'images/MainPage/HeroMain/curlyArrow.png';
 // import ArrowDesc from 'images/MainPage/HeroMain/curlyArrow-desc.png';
-
 
 import { NavLink } from 'react-router-dom';
 
@@ -69,6 +66,8 @@ export const Ptxt = styled.p`
   letter-spacing: -0.02em;
   color: ${props => props.theme.colors.text};
   width: 248px;
+  text-align: center;
+  margin: auto;
   margin-top: 24px;
 
   @media (max-width: 768px) {
@@ -79,6 +78,8 @@ export const Ptxt = styled.p`
     font-size: 14px;
     line-height: 18px;
     width: 362px;
+    text-align: start;
+    margin-left: 0;
   }
   @media ${props => props.theme.device.desktop} {
     font-size: 18px;
@@ -120,16 +121,19 @@ export const PlateTitleBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-bottom: 40px;
+  margin-left: 88px;
+  margin-bottom: 91px;
   width: 225px;
   z-index: 0;
   @media ${props => props.theme.device.tablet} {
     width: 260px;
-    margin-bottom: 40px;
+    margin-left: 74px;
+    margin-bottom: 38px;
   }
   @media ${props => props.theme.device.desktop} {
     width: 298px;
-    margin-bottom: 80px;
+    margin-left: 0px;
+    margin-bottom: 89px;
   }
 
   ::after {
@@ -138,20 +142,23 @@ export const PlateTitleBox = styled.div`
       content: ' ';
       position: absolute;
 
-      top: 114%;
-      left: 63%;
-      width: 156px;
-      height: 101px;
+      height: 100px;
+      width: 136px;
+      top: 85.5px;
+      right: 47px;
 
-      transform: translate(-50%, -50%);
+      background-size: cover;
       background-repeat: no-repeat;
       background-image: url(${ArrowDesc});
       background-repeat: no-repeat;
-      background-size: contain;
       overflow: visible;
     }
 
     @media ${props => props.theme.device.desktop} {
+      width: 220px;
+      height: 148px;
+      top: 77px;
+      right: 45px;
     }
   }
 `;
@@ -168,8 +175,7 @@ export const Title = styled.p`
   color: ${props => props.theme.colors.plateTitleTextColor};
 
   & span {
-    color: ${props => props.theme.colors.accentCurrent};;
-
+    color: ${props => props.theme.colors.accentCurrent};
   }
   @media ${props => props.theme.device.tablet} {
     font-size: 14px;
@@ -195,7 +201,6 @@ export const Link = styled(NavLink)`
   z-index: 100;
 
   color: ${props => props.theme.colors.plateTitleTextColor};
-
 `;
 
 export const PlateBox = styled.div`
@@ -204,7 +209,6 @@ export const PlateBox = styled.div`
   height: 296px;
   display: flex;
   align-items: flex-end;
-  justify-content: flex-end;
 
   background-image: url(${PlateMobile});
   background-size: 320px 296px;
@@ -215,15 +219,16 @@ export const PlateBox = styled.div`
   }
 
   @media ${props => props.theme.device.tablet} {
-    width: 378px;
+    width: 368px;
     height: 351px;
-    background-size: 378px 351px;
+    background-size: 368px 351px;
     background-image: url(${PlateTablet});
     @media ${props => props.theme.retinaBackgroundImage} {
       background-image: url(${PlateTabletRetina});
     }
   }
   @media ${props => props.theme.device.desktop} {
+    justify-content: flex-end;
     width: 640px;
     height: 539px;
     background-size: 578px 539px;
