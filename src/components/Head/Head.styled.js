@@ -1,16 +1,14 @@
-import { NavLink } from "react-router-dom"
-import styled, {keyframes} from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import styled, { keyframes } from 'styled-components';
 import userIconBG from '../../images/icons/user-icon.svg';
 import { ReactComponent as BurgerIcon } from '../../images/icons/burger.svg';
 
 const fadeIn = keyframes`
   from {
     opacity: 0;
-    /* transform: translateY(0%); */
   }
   to {
-    opacity: 1;
-    /* transform: translateY(100%); */
+    opacity: 1; 
   }
 `;
 
@@ -23,8 +21,7 @@ export const Header = styled.header`
   font-family: 'Poppins';
   z-index: 999;
   animation: ${fadeIn} 0.3s ease-in-out;
-
-`
+`;
 export const Container = styled.div`
   display: flex;
   align-items: center;
@@ -42,72 +39,72 @@ export const Container = styled.div`
     padding-left: 32px;
   }
   @media ${props => props.theme.device.desktop} {
-    width: 1440px;
-    padding-right: 100px;
-    padding-left: 100px;
+    width: 100%;
+    justify-content: center;
+    max-width: 1240px;
+    padding-right: 0px;
+    padding-left: 0px;
   }
-
-`
+`;
 
 export const LinkLogo = styled(NavLink)`
   width: 40px;
   height: 40px;
-  @media ${props => props.theme.device.tablet}{
+  @media ${props => props.theme.device.tablet} {
     width: 44px;
     height: 44px;
   }
-
-`
+`;
 
 export const NavLogo = styled.img`
-  /* display: none;
-    @media ${props => props.theme.device.tablet}{
-      display: block;
-} */
-`
 
-// export const NavLogoLite = styled.img`
-//   @media ${props => props.theme.device.tablet}{
-//     display: none;
-// }
-// `
+`;
+
+
 export const SearchText = styled.p`
-    font-size: 18px;
-    @media ${props => props.theme.device.tablet} {
-      display: none;
-    }
-`
-export const UserToogleWrap = styled.div `
+  font-size: 18px;
+  @media ${props => props.theme.device.tablet} {
+    display: none;
+  }
+`;
+export const UserToogleWrap = styled.div`
   margin-left: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 export const UserWrapButton = styled.button`
   display: flex;
   align-items: center;
   cursor: pointer;
-`
+`;
 
 export const UserIcon = styled.img`
   width: 34px;
   height: 34px;
   border-radius: 50%;
   overflow: hidden;
- @media ${props => props.theme.device.tablet} {
-  width: 44px;
-  height: 44px;
-}
-`
+  @media ${props => props.theme.device.tablet} {
+    width: 44px;
+    height: 44px;
+  }
+`;
 export const UserName = styled.p`
   margin-left: 14px;
   font-size: 12px;
-  color: ${props => props.pathname.includes("/main") && window.outerWidth > 1439 && window.outerWidth < 1930 ? "#22252A" : props.pathname.includes("/recipe") ? props.theme.colors.recipeHeaderList : props.theme.colors.dark};
+  color: ${props =>
+    props.pathname.includes('/main') &&
+    window.outerWidth > 1439 &&
+    window.outerWidth < 1930
+      ? '#22252A'
+      : props.pathname.includes('/recipe')
+      ? props.theme.colors.recipeHeaderList
+      : props.theme.colors.dark};
   font-weight: ${props => props.theme.fontWeights.bold};
   @media ${props => props.theme.device.tablet} {
     font-size: 14px;
-}
-`
+  }
+`;
 
 export const TempAvatar = styled.label`
   position: relative;
@@ -124,28 +121,28 @@ export const TempAvatar = styled.label`
   align-items: center;
   cursor: pointer;
   @media ${props => props.theme.device.tablet} {
-  width: 44px;
-  height: 44px;
-}
-`
+    width: 44px;
+    height: 44px;
+  }
+`;
 export const ToogleWrap = styled.div`
-    display: none;
+  display: none;
   @media ${props => props.theme.device.desktop} {
     display: block;
     margin-left: 50px;
-}
-`
+  }
+`;
 export const Burger = styled.button`
-    width: 28px;
-    height: 28px;
-    margin-left: 50px;
+  width: 28px;
+  height: 28px;
+  margin-left: 50px;
   @media (min-width: 280px) and (max-width: 374px) {
     margin-left: 15px;
   }
   @media ${props => props.theme.device.desktop} {
-  display: none;
-}
-`
+    display: none;
+  }
+`;
 
 export const BurgerIconStyled = styled(BurgerIcon)`
   width: 28px;
@@ -155,6 +152,6 @@ export const BurgerIconStyled = styled(BurgerIcon)`
     height: 32px;
   }
   path {
-    stroke: ${props => props.theme.colors.text}
+    stroke: ${props => props.theme.colors.text};
   }
-`
+`;
