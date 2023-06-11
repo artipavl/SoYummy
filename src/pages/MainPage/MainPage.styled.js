@@ -33,6 +33,6 @@ export const ConteinerGrid = styled.div`
   }
 
   @media ${props => props.theme.device.desktop} {
-    max-width: 1440px;
+    max-width: 1240px;
   }
 `;
