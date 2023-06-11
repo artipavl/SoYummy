@@ -18,8 +18,11 @@ export const Container = styled.div`
   }
 
   @media ${props => props.theme.device.desktop} {
-    width: 1440px;
-    padding-left: 100px;
-    padding-right: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 1240px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 `;
