@@ -10,7 +10,7 @@ export const Wrapp = styled.div`
   border-radius: 20%;
   width: 15vw;
   height: 15vw;
-  @media ${props => props.theme.device.talet} {
+  @media ${props => props.theme.device.tablet} {
     width: 5vw;
     height: 5vw;
   }
