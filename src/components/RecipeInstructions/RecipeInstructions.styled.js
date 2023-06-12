@@ -15,6 +15,7 @@ export const InstructionsSection = styled.section`
 `;
 
 export const DesktopFlex = styled(Container)`
+  flex-direction: row;
   @media ${props => props.theme.device.desktop} {
     display: flex;
     justify-content: space-between;
@@ -92,6 +93,7 @@ export const InstructionText = styled.p`
 export const RecipeImg = styled.img`
   width: 343px;
   height: 250px;
+  border-radius: 8px;
 
   @media ${props => props.theme.device.tablet} {
     width: 433px;
